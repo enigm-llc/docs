@@ -39,7 +39,7 @@ Key generation may occur during:
 - Device replacement.
 - Recovery-assisted re-establishment of device association.
 
-Generated private key material is intended to remain within the device trust context. It should not be exported through routine app workflows, Enigm Command workflows, logs, audit records, diagnostics, support output, or documentation examples.
+Generated private key material is intended to remain within the Device Trust context. It should not be exported through routine app workflows, Enigm Command workflows, logs, audit records, diagnostics, support output, or documentation examples.
 
 Generated key state should be bound to the relevant account, device, and policy context. A key created for one device should not automatically establish trust for another device.
 
@@ -69,11 +69,11 @@ The secure hardware boundary may be used to protect:
 - Wrapping keys.
 - Access-control material.
 - Authorization conditions.
-- Signing or decryption authorization where supported.
+- Signing or decryption authorization.
 
 Larger cryptographic material may require wrapping or protection outside the secure hardware boundary when the hardware enclave cannot directly store it. In that design, the protected hardware boundary is still used where available to control access to the wrapping material or authorization state.
 
-This model is designed to avoid overclaiming hardware guarantees. Hardware-backed protection hardens key access where available, but security still depends on device state, local unlock state, OS security posture, app authorization, lifecycle policy, and supported device class.
+This model is designed to avoid overclaiming hardware assurances. Hardware-backed protection hardens key access where available, but security still depends on device state, local unlock state, OS security posture, app authorization, lifecycle policy, and supported device class.
 
 ## Platform-Specific Protection Model
 
@@ -89,7 +89,7 @@ Key access can be affected by device authentication, local unlock state, app aut
 
 ### Android
 
-On Android, Enigm App uses Android Keystore-backed protection for private key material and related access-control operations where available. Hardware-backed Keystore or StrongBox-backed protection is used where supported by the device class and deployment.
+On Android, Enigm App uses Android Keystore-backed protection for private key material and related access-control operations. Hardware-backed Keystore or StrongBox-backed protection is used according to device class and deployment capability.
 
 When larger cryptographic material cannot be directly stored in the hardware-backed boundary, Enigm App may protect that material through wrapping or protected storage, with hardware-backed keys or access-control material protecting the wrapping operation where available.
 
@@ -99,7 +99,7 @@ Key access can be affected by device authentication, local unlock state, app aut
 
 Device-bound trust means that private key material and protected key state are associated with a specific enrolled device context.
 
-Device trust evaluates:
+Device Trust evaluates:
 
 - Device enrollment state.
 - Device association state.
@@ -109,7 +109,7 @@ Device trust evaluates:
 - Protected key state.
 - OS security posture.
 - Optional Trust Security Center posture where Enigm OS is deployed.
-- Optional Remote Attestation outcome where applicable.
+- Remote Attestation outcome when device-integrity evidence is required.
 
 A valid account session does not automatically make a device trusted. A device must be explicitly associated and must satisfy required policy before it can participate in protected operations.
 
@@ -122,7 +122,7 @@ Multi-device support must not silently copy private keys without an explicit tru
 Each device should establish trust through an authorized enrollment or replacement process. Multi-device workflows should evaluate:
 
 - Account authentication state.
-- Existing device trust state where applicable.
+- Existing Device Trust state.
 - New device association state.
 - Device-generated key state.
 - Policy constraints.
@@ -171,13 +171,13 @@ The Enigm key management model is designed to reduce key exposure and harden dev
 
 Important limitations:
 
-- Hardware-backed protection is available only where supported by the device and deployment.
+- Hardware-backed protection depends on device capability and deployment requirements.
 - Larger cryptographic material may require protected wrapping outside the secure hardware boundary.
 - A compromised device may expose content after authorized local decryption.
-- Device revocation prevents future trust but cannot guarantee removal of content already accessed by the revoked device.
+- Device revocation prevents future trust but cannot ensure removal of content already accessed by the revoked device.
 - Recovery workflows can preserve account continuity, but they must not be treated as message plaintext access workflows.
 - Administrative lifecycle control does not equal access to private key material.
-- OS security posture affects key access and must be considered part of the device trust model.
+- OS security posture affects key access and must be considered part of the Device Trust model.
 
 ## Lifecycle Summary
 
@@ -201,7 +201,7 @@ The main trust boundaries are:
 - Hardware-backed protection to wrapping keys or access-control material.
 - Device authentication to key access.
 - Local unlock state to key access.
-- OS security posture to device trust.
+- OS security posture to Device Trust.
 - Device association to message encryption eligibility.
 - Multi-device enrollment to key trust establishment.
 - Recovery workflow to normal message access.

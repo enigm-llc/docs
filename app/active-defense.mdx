@@ -1,38 +1,90 @@
 ---
 title: Active Defense
-description: Mobile threat analysis and malware-risk assessment model for Enigm.
+description: AI-assisted mobile spyware and network-behavior analysis model for Enigm.
 ---
 
-Active Defense is an Enigm App security capability designed to help users evaluate mobile malware, spyware, and suspicious device activity risk.
+Active Defense is an Enigm App security capability designed to help users evaluate mobile spyware, malware, and suspicious network-behavior risk without inspecting protected communications.
 
-It is not a messaging feature, not an administrative bypass, and not a guarantee that a device is free from compromise. Active Defense exists to provide privacy-preserving security visibility that supports user decisions, device trust evaluation, and defensive response workflows where policy permits.
+It is not a messaging feature, not an administrative bypass, and not an assurance that a device is free from compromise. Active Defense exists to provide privacy-preserving security visibility that supports user decisions, Device Trust evaluation, and defensive response workflows where policy permits.
 
 ## Overview
 
-Active Defense analyzes security-relevant device and network behavior to identify indicators that may suggest malware, spyware, surveillance tooling, or suspicious device activity.
+Active Defense analyzes security-relevant network behavior from the user's phone over a bounded assessment period. The objective is to identify indicators that may be consistent with mobile malware, commercial spyware, surveillance tooling, command-and-control behavior, or exfiltration-like activity.
 
-The capability is designed around the Enigm privacy model:
+Active Defense is designed as a non-intrusive capability:
 
-- Security analysis should use minimized security signals.
-- Message content, call content, media, attachments, and user conversations are not intended to be inspected.
-- Security findings should provide actionable context without exposing unnecessary identity metadata.
-- Results should support user control, device trust decisions, and privacy protection.
+- It does not require root access.
+- It does not require broad filesystem access.
+- It does not decrypt application-layer traffic.
+- It does not inspect message plaintext, call content, media, attachments, documents, or user conversations.
+- It analyzes minimized technical signals, network-flow behavior, protocol characteristics, and security findings.
 
-Active Defense is part of Enigm App. Enigm OS may provide additional device integrity signals where deployed, but Active Defense must remain useful as an App-level security capability.
+Active Defense is part of Enigm App. Enigm OS may provide additional device integrity signals where deployed, but Active Defense remains an App-level security capability.
 
 ## Design Objectives
 
 Active Defense is designed to:
 
-- Identify suspicious mobile security behavior.
-- Support malware and spyware risk assessment.
-- Provide user-facing security findings and recommendations.
-- Reduce uncertainty around device trust.
+- Support mobile malware and spyware risk assessment.
+- Identify suspicious network behavior during defined assessment windows.
+- Detect indicators consistent with advanced targeted spyware activity without claiming complete detection of any specific family.
+- Provide user-facing findings, severity context, and recommendations.
+- Reduce uncertainty around Device Trust.
 - Preserve content confidentiality during security analysis.
 - Support Enigm Intelligence correlation where authorized and policy-permitted.
 - Improve privacy by helping users identify device conditions that may expose protected communications.
 
 The objective is risk reduction and security visibility, not absolute compromise determination.
+
+## Non-Intrusive Assessment Model
+
+Active Defense is designed around network-behavior analysis rather than device-content inspection.
+
+The assessment model focuses on:
+
+- Network metadata and flow characteristics.
+- Timing, recurrence, and burst behavior.
+- Protocol and transport characteristics.
+- Name-resolution behavior.
+- Certificate and channel-integrity indicators.
+- Destination-risk context.
+- Covert-channel indicators.
+- Multi-signal correlation.
+
+Active Defense should avoid broad filesystem inspection, content decryption, or unnecessary access to application-private data. The preferred model is minimized security-signal analysis that supports malware-risk assessment while preserving user content confidentiality.
+
+## Network Behavior Analysis
+
+Advanced mobile spyware often remains invisible at the user-interface level, but its operational phases can still produce observable network behavior. Active Defense is designed to evaluate those network-behavior patterns without reading encrypted payload content.
+
+Examples of behavior categories include:
+
+- Periodic beaconing or recurring outbound communication patterns.
+- Protocol behavior inconsistent with expected device activity.
+- Destination or routing patterns that require review.
+- Unusual upload/download asymmetry.
+- High-entropy encrypted traffic patterns associated with non-standard channels.
+- DNS behavior consistent with tunneling, generated domains, or unusual resolution patterns.
+- Certificate-chain or transport-fingerprint anomalies.
+- Protocol-port mismatch or tunnel-like behavior.
+- Burst timing that may be consistent with staged data transfer.
+
+These categories are documented at a high level only. Public documentation does not disclose detection rules, signatures, thresholds, intelligence sources, correlation logic, or operational parameters.
+
+## AI-Assisted Risk Analysis
+
+Active Defense uses AI-assisted analysis to evaluate network-behavior signals and produce security context.
+
+The AI layer is intended to support:
+
+- Multi-signal correlation.
+- Pattern recognition across network-behavior categories.
+- Confidence-based findings.
+- Severity classification.
+- User-readable recommendations.
+- Escalation context for Enigm Intelligence where authorized.
+
+AI-assisted analysis does not independently determine platform truth. Findings should be treated as security context that supports user review, Device Trust decisions, and security investigation workflows.
 
 ## Threat Analysis Model
 
@@ -58,22 +110,24 @@ Active Defense should treat individual findings as security context. A single ob
 ```mermaid
 flowchart TD
   Device["User Device"]
-  Active["Active Defense"]
-  Signals["Minimized Security Signals"]
-  Risk["Risk Assessment"]
+  Window["Bounded Assessment Window"]
+  Signals["Minimized Network Signals"]
+  AI["AI-Assisted Analysis"]
+  Risk["Risk Context"]
   Guidance["User Guidance"]
   Intelligence["Enigm Intelligence"]
 
-  Device --> Active
-  Active --> Signals
-  Signals --> Risk
+  Device --> Window
+  Window --> Signals
+  Signals --> AI
+  AI --> Risk
   Risk --> Guidance
-  Risk -. policy-permitted context .-> Intelligence
+  Risk -. authorized context .-> Intelligence
 ```
 
 ## Malware And Spyware Risk
 
-Active Defense is intended to help identify risk patterns associated with mobile malware, spyware, stalkerware, and surveillance-oriented tooling.
+Active Defense is intended to help identify risk patterns associated with mobile malware, spyware, stalkerware, commercial surveillance tooling, and advanced targeted spyware.
 
 Examples of risk categories include:
 
@@ -82,19 +136,20 @@ Examples of risk categories include:
 - Protocol behavior inconsistent with expected device activity.
 - Potential command-and-control communication patterns.
 - Potential exfiltration-like traffic behavior.
+- Potential post-compromise callback behavior after physical access or device exposure.
 - Device posture degradation that may affect trust decisions.
 
-These categories are documented at a high level only. Public documentation does not disclose detection rules, signatures, thresholds, intelligence sources, or correlation logic.
+Active Defense can help identify behavior consistent with advanced spyware classes. It must not be interpreted as an assurance that every spyware family, implant, exploit chain, or targeted surveillance operation will be detected.
 
-## Scan And Assessment Workflows
+## Assessment Workflows
 
-Active Defense may support user-initiated and policy-supported assessments.
+Active Defense supports security assessments initiated by the user or triggered by policy-supported security workflows.
 
-Conceptual assessment modes may include:
+Conceptual assessment modes include:
 
 - **On-demand assessment**: initiated by the user before or after a security-sensitive activity.
-- **Startup assessment**: performed around device startup where supported, when early network behavior may provide useful security context.
-- **High-risk review assessment**: used after a user suspects device seizure, tampering, exposure, or unusual behavior.
+- **Startup assessment**: performed around device startup when early network behavior provides useful security context.
+- **High-risk review assessment**: used after the user suspects device seizure, tampering, exposure, or unusual behavior.
 
 Assessment workflows should be designed to:
 
@@ -104,9 +159,7 @@ Assessment workflows should be designed to:
 - Separate informational observations from higher-risk findings.
 - Recommend next steps without making unsupported conclusions.
 
-Where supported, assessment results may contribute to device trust visibility, Enigm Command review workflows, or Enigm Intelligence security context.
-
-Active Defense should avoid broad filesystem inspection, content decryption, or unnecessary access to application-private data. The preferred model is security-signal analysis that supports malware-risk assessment while preserving user content confidentiality.
+Assessment duration, trigger policy, and report handling are deployment and product configuration concerns. Public documentation does not publish timing values, capture parameters, analysis thresholds, or operational workflow details.
 
 ## Privacy Model
 
@@ -130,25 +183,25 @@ Active Defense is not intended to inspect:
 - Documents.
 - User conversations.
 
-Security analysis should prefer minimized technical signals and aggregated findings where possible.
+Security analysis should prefer minimized technical signals and aggregated findings where possible. Where raw security observations are required for analysis, retention should be minimized and governed by the Enigm data-retention model.
 
 ## Relationship With Enigm App
 
-Enigm App remains the primary user-facing product. Active Defense extends the app with device-risk visibility that can help users make security decisions.
+Enigm App remains the primary user-facing product. Active Defense extends the app with network-behavior security visibility that can help users make privacy and Device Trust decisions.
 
-Active Defense may support:
+Active Defense supports:
 
 - Device security review.
 - User guidance after suspicious findings.
 - Account and device lifecycle decisions.
-- Multi-device trust evaluation.
+- Multi-Device Trust evaluation.
 - Managed-device reporting where enabled.
 
 Active Defense does not grant administrative systems access to protected message content or private key material.
 
 ## Relationship With Enigm OS
 
-When Enigm OS is deployed, Active Defense may benefit from additional local trust signals, such as Trust Security Center state, network policy state, managed-device state, privacy mode state, and device integrity posture.
+When Enigm OS is deployed, Active Defense may use additional local trust signals, such as Trust Security Center state, network policy state, managed-device state, privacy mode state, and device integrity posture.
 
 Enigm OS is an additional hardening layer. It does not replace Active Defense, Enigm App end-to-end encryption, or user trust decisions.
 
@@ -158,16 +211,25 @@ Active Defense findings may contribute security context to Enigm Intelligence wh
 
 Enigm Intelligence may correlate Active Defense findings with other security signals to support investigation, risk assessment, defensive response, and operator visibility. Correlation must preserve access controls, data minimization, and content confidentiality.
 
-Active Defense is not the full threat intelligence platform. Enigm Intelligence provides broader correlation and risk evaluation across the ecosystem.
+Active Defense is not the full Threat Intelligence Platform. Enigm Intelligence provides broader correlation and risk evaluation across the ecosystem.
 
-## User Guidance
+## Findings And User Guidance
 
 Active Defense findings should provide clear security guidance without overstating certainty.
+
+Findings may include:
+
+- Informational network observations.
+- Suspicious behavior requiring review.
+- Higher-risk multi-signal correlation.
+- Device Trust impact.
+- Recommended user action.
+- Recommended security review.
 
 Guidance may include:
 
 - Review recommended.
-- Device trust may be reduced.
+- Device Trust may be reduced.
 - Network behavior requires attention.
 - Update or configuration review recommended.
 - Consider revoking or replacing a device if compromise is suspected.
@@ -202,10 +264,10 @@ Primary trust boundaries include:
 
 - User to Enigm App.
 - Enigm App to Active Defense.
-- Active Defense to minimized security signals.
+- Active Defense to minimized network and security signals.
 - Active Defense to optional Enigm OS trust signals.
 - Active Defense to Enigm Intelligence where authorized.
-- Active Defense findings to Enigm Command review workflows where applicable.
+- Active Defense findings to Enigm Command review workflows.
 
 Administrative visibility into Active Defense findings does not imply visibility into message plaintext, call content, media, attachments, or private key material.
 
@@ -215,13 +277,14 @@ Active Defense improves device-risk visibility, but it does not eliminate mobile
 
 Important limitations:
 
-- It may not detect every malware or spyware family.
+- It does not ensure detection of every malware or spyware family.
 - Advanced compromise may reduce the reliability of device-originated signals.
+- Dormant implants or low-signal behavior may not produce enough observable network activity during an assessment window.
 - False positives and false negatives are possible.
-- Network-level analysis can identify suspicious behavior but may not prove intent.
-- Encrypted payloads may remain opaque by design.
+- Network-level analysis can identify suspicious behavior but may not prove compromise, attribution, or intent.
+- Encrypted payloads remain opaque by design.
 - Social engineering, physical coercion, and malicious trusted users remain outside the scope of malware-risk assessment.
-- A clean assessment is not a guarantee that a device is uncompromised.
+- A clean assessment is not an assurance that a device is uncompromised.
 
 Active Defense should be treated as a security and privacy support layer within Enigm App, not as a replacement for device hardening, secure software updates, end-to-end encryption, or user trust decisions.
 

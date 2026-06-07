@@ -21,7 +21,7 @@ The model protects:
 - Device verification.
 - Trusted release origin.
 
-OTA security is part of the broader Enigm OS security architecture. It complements production signing, remote attestation, Trust Security Center, device management, and platform hardening.
+OTA security is part of the broader Enigm OS security architecture. It complements production signing, Remote Attestation, Trust Security Center, device management, and platform hardening.
 
 ## Security Objectives
 
@@ -95,10 +95,10 @@ Artifact verification is performed before update installation. It provides assur
 
 Device eligibility determines whether a device should be offered a specific release.
 
-This layer may evaluate:
+This layer evaluates:
 
 - Enrollment status.
-- Device trust.
+- Device Trust.
 - Channel eligibility.
 - Rollout policy.
 
@@ -106,15 +106,15 @@ Eligibility helps control which devices receive which releases and supports stag
 
 ### Layer 6: Remote Attestation
 
-Remote attestation can provide an additional eligibility signal.
+Remote Attestation provides an additional eligibility signal.
 
-This layer may support:
+This layer supports:
 
 - Device integrity validation.
 - Enrollment verification.
 - Additional trust evidence for release eligibility.
 
-Remote attestation complements OTA security controls. It does not replace manifest verification, artifact verification, or production signing.
+Remote Attestation complements OTA security controls. It does not replace manifest verification, artifact verification, or production signing.
 
 ### Layer 7: Production Signing
 
@@ -123,7 +123,7 @@ Production signing establishes trusted release origin.
 This layer supports:
 
 - Release authorization.
-- Hardware-backed signing.
+- Hardware-Backed Signing.
 - Trusted release origin.
 
 Production signing is a release authenticity control. OTA delivery does not replace signing, and devices should only treat releases as trusted when required verification succeeds.
@@ -163,7 +163,7 @@ Trust boundaries include:
 - Release metadata verification.
 - Artifact verification.
 - Eligibility evaluation.
-- Remote attestation.
+- Remote Attestation.
 - Device-side installation.
 
 These boundaries reduce reliance on any single trust decision.
@@ -175,10 +175,10 @@ Device eligibility determines whether a device should receive a given release.
 Eligibility may be based on:
 
 - Enrollment status.
-- Device trust.
+- Device Trust.
 - Channel eligibility.
 - Rollout policy.
-- Remote attestation where supported.
+- Remote Attestation as an additional OTA Eligibility signal.
 
 Device eligibility is separate from artifact verification. A device can be eligible for a release and still be required to verify release metadata and artifact integrity before installation.
 
@@ -196,7 +196,7 @@ Request authentication supports trust in update request handling.
 
 It is designed to ensure that OTA requests are associated with an eligible device context and that requests are validated before release information is returned.
 
-Request authentication should be evaluated alongside freshness validation, replay resistance, request integrity, device eligibility, and remote attestation where supported.
+Request authentication should be evaluated alongside freshness validation, replay resistance, request integrity, Device Trust, OTA Eligibility, and Remote Attestation when device-integrity evidence is required.
 
 ## Manifest Security
 
@@ -234,7 +234,7 @@ Rollout controls reduce release risk by limiting exposure according to release r
 
 Device identity is used to support eligibility and update trust decisions.
 
-OTA should use privacy-preserving device handles where possible. Device identifiers should be scoped to update eligibility and device lifecycle needs rather than unnecessary identity collection.
+OTA should use Privacy-Preserving Device Handles for device correlation. Device identifiers should be scoped to OTA Eligibility and device lifecycle needs rather than unnecessary identity collection.
 
 Device identity in OTA is not message identity and must remain separate from Enigm App message confidentiality.
 
@@ -244,7 +244,7 @@ The OTA privacy model is based on minimizing the information needed for update e
 
 Privacy principles include:
 
-- Use privacy-preserving device handles where possible.
+- Use Privacy-Preserving Device Handles for device correlation.
 - Minimize device telemetry.
 - Support eligibility decisions without unnecessary identity collection.
 - Keep update eligibility separate from message content.
@@ -269,9 +269,9 @@ Additional limitations:
 
 - Transport security alone is insufficient for update trust.
 - Eligibility does not replace artifact verification.
-- Remote attestation provides an additional signal, not complete assurance.
+- Remote Attestation provides an additional signal, not complete assurance.
 - Production signing establishes trusted release origin, but it does not prove that released software is free of defects.
 - OTA security does not provide access to message plaintext.
 - OTA security does not replace Enigm App end-to-end encryption.
 
-OTA security should be evaluated as a layered architecture combining transport authentication, request verification, manifest trust, artifact verification, eligibility checks, remote attestation, production signing, and device-side validation.
+OTA security should be evaluated as a layered architecture combining transport authentication, request verification, manifest trust, artifact verification, eligibility checks, Remote Attestation, production signing, and device-side validation.

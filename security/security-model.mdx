@@ -4,7 +4,7 @@ sidebarTitle: Security Model
 description: Public security model for Enigm products and services.
 ---
 
-Enigm uses a defense-in-depth security model across Enigm App, Enigm OS, Trust Security Center, OTA Architecture, Enigm Command, VPN Network, Proxy Network, Tor Gateway, Threat Intelligence Platform, and Enyra.
+Enigm uses a defense-in-depth security model across Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, VPN Service, Proxy Network, Tor Gateway, Threat Intelligence Platform, and Enyra.
 
 Security exists to support privacy, data minimization, identity protection, metadata reduction, and content confidentiality. This document describes the public security posture at an architectural level for security auditors, enterprise customers, engineers, and technical partners.
 
@@ -12,9 +12,11 @@ Security exists to support privacy, data minimization, identity protection, meta
 
 - Establish explicit trust between users, devices, Enigm App sessions, Enigm OS state, and administrative workflows.
 - Use Trust Security Center as the user-visible and administrator-reviewable surface for device posture and security state.
-- Protect OTA Architecture with hardware-backed signing, release lifecycle controls, client verification, and Remote Attestation where applicable.
-- Apply controlled device management for enrollment, policy assignment, suspension, revocation, and retirement.
-- Route network-security decisions through policy-aware VPN Network, Proxy Network, and Tor Gateway components where enabled.
+- Protect OTA Architecture with Hardware-Backed Signing, release lifecycle controls, client verification, and Remote Attestation as an OTA Eligibility signal.
+- Apply Controlled Device Management for enrollment, policy assignment, suspension, revocation, and retirement.
+- Route optional app-level network privacy decisions through VPN Service and Proxy Network where enabled.
+- Govern Enigm Server purchase, creation, server ID join requests, membership, region selection, and server-scoped encrypted content lifecycle through Enigm Command.
+- Govern Tor Gateway access to selected public or administrative web surfaces through Enigm Command when enabled.
 - Process security signals through the Threat Intelligence Platform and Enyra while preserving data minimization and content confidentiality.
 - Preserve audit evidence for security-relevant decisions without storing unnecessary protected content.
 
@@ -23,18 +25,18 @@ Security exists to support privacy, data minimization, identity protection, meta
 The following terms are used consistently across Enigm documentation:
 
 - **Defense in Depth**: layered controls across Enigm App, Enigm OS, network policy, intelligence, signing, rollout governance, and administration.
-- **Hardware-backed Signing**: protected signing for security-sensitive artifacts where applicable.
+- **Hardware-Backed Signing**: protected signing for security-sensitive artifacts and release materials.
 - **Privacy-Preserving Device Handles**: device correlation identifiers designed to support policy and audit workflows without public exposure of direct device identifiers.
 - **Controlled Device Management**: authorized device enrollment, policy assignment, suspension, revocation, and retirement.
 
 ## Trust model
 
-Enigm treats trust as contextual and bounded. A valid account session in Enigm App does not automatically imply device trust, administrative authorization, network-policy eligibility, or OTA eligibility.
+Enigm treats trust as contextual and bounded. A valid account session in Enigm App does not automatically imply Device Trust, administrative authorization, network-policy eligibility, or OTA Eligibility.
 
 Trust decisions should consider:
 
 - Actor identity
-- Privacy-preserving device handle
+- Privacy-Preserving Device Handle
 - Enigm OS trust state
 - Trust Security Center posture
 - Enigm App session state
@@ -42,7 +44,7 @@ Trust decisions should consider:
 - Resource category
 - Policy state
 - Integrity state
-- Remote Attestation outcome where applicable
+- Remote Attestation outcome for workflows that require OTA Eligibility or device-integrity evidence
 
 Where a required trust signal is unavailable, protected operations should fail closed.
 
@@ -52,21 +54,33 @@ Where a required trust signal is unavailable, protected operations should fail c
 
 Enigm App establishes authenticated user context, manages account lifecycle, coordinates secure messaging and secure calls, and participates in multi-device state. The app should treat authorization failures as expected security outcomes and avoid logging protected content.
 
+Enigm App also integrates VPN Service and Proxy Network usage where enabled. These controls support network privacy, traffic separation, and metadata reduction without replacing end-to-end encryption or Device Trust.
+
+Standard Enigm account creation uses username and password authentication, recovery phrase generation and handling, device-local identity creation, and explicit trusted-device association without requiring email address, phone number, or identity document. Enigm App sessions are limited to 6 hours and do not automatically imply Device Trust, administrative authorization, or protected-content access.
+
 ### Enigm OS
 
 Enigm OS provides device-level policy enforcement, Trust Security Center state, setup controls, launcher policy, network policy, privacy mode, device management, and OTA verification. OS security state should be represented through clear status categories without exposing non-public implementation details.
 
 ### Trust Security Center
 
-Trust Security Center is the posture and security-state surface for Enigm OS. It should summarize device trust state, network-policy state, privacy controls, and security warnings in a way that is reviewable by users and administrators.
+Trust Security Center is the posture and security-state surface for Enigm OS. It should summarize Device Trust state, network-policy state, privacy controls, and security warnings in a way that is reviewable by users and administrators.
 
 ### Enigm Command
 
-Enigm Command governs administrative workflows such as policy assignment, controlled device management, rollout visibility, audit review, and security posture review. Administrative actions should require strong identity context, explicit authorization, and audit records.
+Enigm Command governs user, organization, enterprise, and administrative workflows such as account lifecycle, account deletion, platform data deletion, active session closure, connected-device visibility, unauthorized device removal, device revocation, Enigm Server administration, Enigm eSIM lifecycle management, Enigm Key lifecycle visibility, Enigm OS managed-device mode, policy assignment, Controlled Device Management, rollout visibility, audit review, and security posture review. Enigm Command actions should require strong identity context, explicit authorization, scoping, and audit records.
+
+### Enigm Server
+
+Enigm Server provides dedicated private messaging environments for approved Enigm users. Server administration governs purchase, creation, geographic deployment region selection, server ID join request approval, membership, and server-scoped encrypted content lifecycle without becoming a plaintext, attachment, user communication, or private key access surface.
+
+Enigm Server administrators can manage the lifecycle and availability of server-scoped encrypted content. Administrative deletion controls operate on encrypted content objects and lifecycle state. Administrative controls do not grant access to message plaintext, attachment plaintext, user communications, private key material, or cryptographic authority.
 
 ### Network controls
 
-VPN Network, Proxy Network, and Tor Gateway are treated as policy-governed network paths. Their use should be authorized, auditable where security-relevant, and separated from protected content logging.
+VPN Service and Proxy Network are treated as policy-governed network privacy and traffic-separation controls connected to Enigm App usage. Their use should be authorized, auditable where security-relevant, and separated from protected content logging.
+
+Tor Gateway is treated as a privacy-oriented access path for selected public or administrative web surfaces. It is governed through Enigm Command access boundaries and must remain separate from Enigm Server, internal APIs, operational tooling, and sensitive infrastructure management.
 
 ### Threat intelligence
 
@@ -74,11 +88,11 @@ The Threat Intelligence Platform processes security signals for detection, risk 
 
 ### OTA and integrity
 
-OTA Architecture uses release lifecycle controls, client verification, Remote Attestation where applicable, and hardware-backed signing for security-sensitive artifacts. Artifacts that fail verification should be rejected.
+OTA Architecture uses release lifecycle controls, client verification, Remote Attestation as an OTA Eligibility signal, and Hardware-Backed Signing for security-sensitive artifacts. Artifacts that fail verification should be rejected.
 
 ## Administrative security
 
-Administrative functions are treated as high-risk control-plane operations. Enigm Command actions should identify the actor, action category, target resource category, timestamp, outcome, and change reference where applicable.
+Administrative functions are treated as high-risk control-plane operations. Enigm Command actions should identify the actor, action category, target resource category, timestamp, outcome, and change reference when a change reference exists.
 
 Privileged actions should be separated from routine runtime activity. Approval and review models should support least privilege, separation of duties, and auditable authorization.
 
@@ -92,9 +106,11 @@ Auditable event categories include:
 - Device enrollment, suspension, revocation, and retirement events
 - Trust Security Center state changes
 - Enigm Command administrative changes
-- VPN Network, Proxy Network, and Tor Gateway policy outcomes where applicable
+- VPN Service and Proxy Network policy outcomes
+- Tor Gateway access outcomes for selected web surfaces
+- Enigm Server join request, membership, and server-scoped lifecycle outcomes
 - OTA release, rollout, Remote Attestation, and client-verification outcomes
-- Hardware-backed signing and artifact-verification events
+- Hardware-Backed Signing and artifact-verification events
 - Threat Intelligence Platform and Enyra detection or blocking outcomes
 
 ## Failure behavior

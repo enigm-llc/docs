@@ -5,38 +5,86 @@ description: Public architecture model for Enigm Command.
 mode: wide
 ---
 
-Enigm Command is the web control panel product in the Enigm ecosystem. It is the administrative and account-management surface responsible for account lifecycle, device lifecycle, security configuration, trust visibility, private environment management, Enigm eSIM management, Enigm Key configuration, and managed device operations.
+Enigm Command is the web control panel product in the Enigm ecosystem. It is the administrative and account-management surface for individual users, organizations, and enterprise administrators. It is responsible for account lifecycle, full account deletion, platform data deletion workflows, device lifecycle, connected-device visibility, active session control, security configuration, trust visibility, supported product purchase workflows, Enigm Server purchase and creation, dedicated server lifecycle, server ID join requests, server membership, server-scoped content lifecycle controls, Enigm eSIM purchase and management, Enigm Key lifecycle visibility, Tor Gateway access for selected web surfaces, Enyra Product Assistant, and managed device operations.
 
-The Enigm Command is not a messaging client. It must not provide access to message plaintext, secure call content, private key material, decrypted attachments, or implementation-sensitive communication state.
+Enigm Command is not a messaging client. It must not provide access to message plaintext, secure call content, private key material, decrypted attachments, or implementation-sensitive communication state.
 
 This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Enigm Command architecture without exposing non-public interfaces, deployment data stores, infrastructure names, storage systems, non-public routes, sensitive values, private response methods, or implementation-sensitive details.
 
 ## Overview
 
-The Enigm Command provides administrative workflows for managing Enigm accounts, trusted devices, sessions, security configuration, managed device capabilities, Enigm Server, Enigm eSIM, Enigm Key emergency contacts, Active Defense review context, and security event visibility.
+Enigm Command provides workflows for individual users, organizations, and enterprise administrators to manage Enigm accounts, trusted devices, active sessions, security configuration, managed device capabilities, supported payment methods, Enigm Server, server ID join requests, server membership, server-scoped content lifecycle, Enigm eSIM purchase and lifecycle management, Enigm Key lifecycle visibility, Tor Gateway access to selected web surfaces, Active Defense review context, and security event visibility.
 
-The Enigm Command supports administrative visibility into security state, but security state visibility is not equivalent to message visibility.
+Enigm Command supports administrative visibility into security state, but security state visibility is not equivalent to message visibility.
 
-The Enigm Command may also expose Enyra Product Assistant capabilities for product guidance, user assistance, documentation guidance, configuration assistance, platform navigation, feature explanation, device assistance, and account assistance. This product-assistance mode is separate from Enyra security operations assistance in the Intelligence section.
+Enigm Command also exposes Enyra Product Assistant capabilities for product guidance, user assistance, documentation guidance, configuration assistance, platform navigation, feature explanation, device assistance, and account assistance. This product-assistance mode is separate from Enyra security operations assistance in the Intelligence section.
 
 ```mermaid
 flowchart TD
-  User["User"] --> CP["Enigm Command"]
+  User["Individual User"] --> CP["Enigm Command"]
+  Enterprise["Organization / Enterprise Administrator"] --> CP
   CP --> Account["Account Management"]
   CP --> Device["Device Management"]
+  CP --> Sessions["Session Control"]
   CP --> Trust["Trust Visibility"]
   CP --> Managed["Managed Device Operations"]
-  CP --> Servers["Enigm Server"]
+  CP --> Servers["Enigm Server Management"]
+  CP --> Invites["Join Requests"]
+  CP --> Content["Content Lifecycle"]
+  CP --> Tor["Tor Gateway Access"]
+  CP --> Payments["Payment Privacy"]
   CP --> ESIM["Enigm eSIM"]
   CP --> Key["Enigm Key"]
   CP --> Assistant["Enyra Product Assistant"]
 ```
 
+## Product Lifecycle Management
+
+Enigm Command is the control surface for supported product lifecycle operations across the Enigm ecosystem.
+
+Product lifecycle workflows include:
+
+- Enigm account lifecycle and deletion.
+- Active session review and closure.
+- Connected-device visibility and device removal.
+- Payment workflows through cryptocurrency, credit card, and Code Coin payment methods.
+- Enigm Server purchase, creation, region selection, join request approval, membership, content lifecycle, and deletion.
+- Enigm eSIM purchase, activation lifecycle, account association, unlinking, deletion, and retirement.
+- Enigm Key device visibility, loss handling, revocation, and replacement.
+- Enigm OS managed-device lifecycle when the user activates managed-device mode.
+- Enyra Product Assistant guidance for account, device, product, configuration, and navigation workflows.
+
+Product lifecycle visibility is not protected content visibility. Enigm Command product workflows must remain separate from message plaintext, secure call content, media content, attachment plaintext, user conversations, and private key material.
+
+## Payment Workflows
+
+Enigm Command is the purchase and payment-management surface for supported Enigm products.
+
+Supported payment workflows include:
+
+- Purchase during Enigm Command enrollment.
+- Purchase from within Enigm Command after enrollment.
+- Cryptocurrency payments.
+- Credit card payments.
+- Code Coin payment-code redemption.
+- Product activation and entitlement state review.
+- Invoice request support.
+
+All Enigm products can use the supported payment methods where the product is available for purchase or activation.
+
+Standard payment enrollment is identity-minimizing. Enigm does not require email address, phone number, or identity document collection for normal payment enrollment. The payment workflow collects a purchase country selected by the user.
+
+Payment state is commercial lifecycle state. It does not provide access to message plaintext, secure call content, media content, attachment plaintext, user conversations, private key material, or device-held protected key material.
+
 ## Account Management
 
 Account management supports account lifecycle and account security workflows.
 
-Enigm Command account workflows may include:
+Enigm Command uses authorized Enigm account context for access to account and administrative workflows. Public documentation does not disclose authentication internals, session implementation, token formats, route structure, or operational access-control details.
+
+Individual users use Enigm Command to manage their own account, devices, sessions, product lifecycle, and deletion workflows. Organizations and enterprise administrators use Enigm Command to manage scoped environments, approved users, devices, Enigm Server environments, Enigm eSIM lifecycle, Enigm Key visibility, and managed-device operations within their authorized administrative boundary.
+
+Enigm Command account workflows include:
 
 - Account status review.
 - Account lifecycle state review.
@@ -44,7 +92,9 @@ Enigm Command account workflows may include:
 - Account policy assignment.
 - Visibility and access configuration.
 - Account deletion workflows.
-- Data deletion workflows where supported.
+- Data deletion workflows.
+- Full account deletion.
+- Platform data deletion where policy and legal boundaries allow.
 - Session review.
 - Security event review related to account activity.
 
@@ -54,19 +104,21 @@ Account recovery support must not weaken normal message confidentiality. Recover
 
 Device management supports explicit device lifecycle control.
 
-Enigm Command device workflows may include:
+Enigm Command device workflows include:
 
 - Device inventory review.
 - Connected-device visibility.
+- Review of all devices associated with the account.
 - Trusted device visibility.
 - Device enrollment review.
 - Device revocation.
 - Removal of unauthorized devices.
+- Device removal from account trust.
 - Device replacement.
 - Device security reporting.
 - Managed device capability review.
 - Trust status review.
-- Active Defense finding review where authorized.
+- Active Defense network-behavior finding review where authorized.
 
 Device management and message access are separate trust domains. Administrative device actions may affect future trust decisions, but they must not decrypt messages or expose private key material.
 
@@ -91,10 +143,11 @@ Device replacement should be treated as a new trust event rather than a silent c
 
 Session management supports visibility and control over active or recent account sessions.
 
-Session workflows may include:
+Session workflows include:
 
 - Active session review.
-- Session restriction.
+- Active session closure.
+- Session restriction according to account or administrative policy.
 - Session termination.
 - Closing active sessions from devices no longer trusted by the user.
 - Session-related security event visibility.
@@ -106,13 +159,15 @@ Session management does not provide access to message plaintext or secure call c
 
 Managed device capabilities are optional device-management features enabled for deployments or users that choose managed device operation.
 
-Managed device capabilities may provide:
+When a user enables Enigm OS managed-device mode, Enigm Command acts as the management surface for that enrolled device.
+
+Managed device capabilities provide:
 
 - Additional device status signals.
 - Managed device policy enforcement.
 - Device security reporting.
 - Device lifecycle operations.
-- Remote device management features where enabled.
+- Remote device management features for enrolled managed devices.
 - Additional Trust state visibility.
 
 Managed device capabilities should remain separate from message confidentiality controls.
@@ -125,55 +180,111 @@ Remote wipe is a device lifecycle and risk-reduction capability. It is not a mec
 
 Remote wipe workflows should be authorized, auditable, and scoped to managed device policy. The exact effects of remote wipe depend on device state, connectivity, supported platform behavior, and managed device configuration.
 
+## Enigm OS Managed Device Mode
+
+Enigm OS managed-device mode is optional and user-enabled.
+
+When the user activates managed-device mode on an Enigm OS device, Enigm Command can be used to manage the enrolled device lifecycle. This management surface is intended to provide visibility and control over device state, not access to protected communications.
+
+Enigm Command managed-device workflows include:
+
+- Enrolled Enigm OS device visibility.
+- Device Trust status review.
+- Trust Security Center posture visibility.
+- Managed device lifecycle actions.
+- Device revocation or replacement.
+- Remote operations for enrolled managed devices.
+- Remote wipe for enrolled managed devices.
+- Device security reporting.
+
+Managed-device mode must remain separate from Enigm App message confidentiality. Enigm Command device management does not provide access to message plaintext, secure call content, media, attachments, user conversations, or private key material.
+
 ## Enigm Server Management
 
-Enigm Command may support creation and administration of Enigm Server where private environment capabilities are enabled.
+Enigm Command supports Enigm Server purchase, creation, and administration.
 
-Server management workflows may include:
+Server management workflows include:
 
-- Creating private environments.
-- Managing environment membership.
+- Purchasing or activating Enigm Server.
+- Creating dedicated private messaging environments.
+- Assigning or reviewing server ownership inside the authorized Enigm Command boundary.
+- Selecting a geographic deployment region.
+- Managing dedicated server lifecycle.
+- Displaying the server ID used by users to request access.
+- Reviewing and accepting join requests.
+- Removing approved users from the server environment.
+- Managing server membership.
+- Maintaining the simple administrator and user role model.
 - Configuring visibility and access rules.
 - Reviewing connected devices for the environment where authorized.
-- Removing unauthorized participants or devices.
+- Managing user access for dedicated servers.
+- Applying server-scoped content lifecycle controls.
+- Deleting server-scoped encrypted objects according to policy.
+- Deleting server-scoped encrypted messages and multimedia according to policy.
+- Deleting encrypted content generated by users within that server environment.
+- Deleting all encrypted content belonging to a specific user within that server environment.
+- Deleting all encrypted content within the dedicated server environment.
+- Deleting the entire server environment.
+- Supporting full server content deletion where ownership and policy allow.
 - Reviewing environment security events.
 - Managing environment lifecycle and deletion workflows.
 
-Enigm Server management must preserve the separation between administrative control and protected communication confidentiality.
+Enigm Server management must preserve the separation between administrative control and protected communication confidentiality. Administrators can manage the lifecycle and availability of server-scoped encrypted content.
+
+The server ID is a join-request locator, not an access credential. Enigm Command approval, account state, Device Trust, membership state, protected key material, and server policy remain required before a user can participate in the dedicated server environment.
+
+Administrative deletion controls operate on encrypted content objects and lifecycle state. Deletion affects content availability and lifecycle. Administrative controls do not grant access to message plaintext, attachment plaintext, user communications, or private key material.
+
+## Tor Gateway Access
+
+Enigm Command supports Tor Gateway access for selected public or administrative web surfaces where the access path is enabled.
+
+Tor Gateway access is intended to support privacy-oriented access paths for:
+
+- Public web surfaces.
+- Enigm Command access paths where enabled.
+- Documentation-safe administrative web surfaces.
+
+Tor Gateway access is not Enigm Server, not a messaging client, and not a general-purpose infrastructure access path. It must not be used for internal APIs, development systems, operational tooling, sensitive infrastructure management, or non-public service exposure.
 
 ## Enigm eSIM Management
 
-Enigm Command may support Enigm eSIM lifecycle workflows where enabled.
+Enigm Command supports Enigm eSIM purchase and lifecycle workflows.
 
-Enigm eSIM management workflows may include:
+Enigm eSIM management workflows include:
 
+- Purchasing Enigm eSIM.
+- Activating Enigm eSIM.
 - Reviewing Enigm eSIM status.
 - Managing activation lifecycle.
-- Reviewing device association.
+- Reviewing Enigm account association.
+- Supporting user-initiated unlinking.
+- Supporting user-initiated deletion or retirement.
 - Applying policy where managed configuration exists.
 - Supporting replacement or retirement workflows.
 
-Enigm eSIM state is connectivity state. It does not provide access to message plaintext, call content, media content, attachments, or private key material.
+Enigm eSIM state is connectivity state. It does not provide access to message plaintext, call content, media content, attachments, user conversations, or private key material.
 
 ## Enigm Key Management
 
-Enigm Command may support Enigm Key management where the user or deployment enables emergency-device workflows.
+Enigm Command supports Enigm Key administration as an associated device when the user or deployment enables emergency-device workflows.
 
-Enigm Key workflows may include:
+Enigm Key workflows include:
 
 - Associated Enigm Key visibility.
-- Emergency contact configuration.
-- Emergency contact lifecycle review.
+- Device lifecycle visibility.
 - Device loss handling.
 - Device revocation.
 - Device replacement.
 - Emergency event visibility where authorized.
 
-Enigm Key emergency contact configuration should remain explicit and user-controlled. Emergency workflows must remain separate from normal message and call content.
+Enigm Key initial linking and emergency contact configuration are controlled from Enigm App. Enigm Command should not be documented as the initial linking surface or emergency contact configuration surface.
+
+Emergency workflows must remain separate from normal message and call content. Enigm Command visibility must not become routine location tracking, emergency contact configuration, or emergency contact disclosure beyond authorized lifecycle and event visibility.
 
 ## Trust Status Integration
 
-The Enigm Command may display Trust status signals from Enigm App, Active Defense findings, device lifecycle state, optional managed device capabilities, and optional Enigm OS posture.
+Enigm Command displays Trust status signals from Enigm App, Active Defense network-behavior findings, device lifecycle state, optional managed device capabilities, and optional Enigm OS posture.
 
 Trust status may include:
 
@@ -181,19 +292,21 @@ Trust status may include:
 - Device revocation state.
 - Device replacement state.
 - Managed device state.
-- Enigm Server policy state where applicable.
-- Enigm eSIM lifecycle state where applicable.
-- Enigm Key lifecycle state where applicable.
+- Enigm Server policy state.
+- Enigm Server join request and membership state.
+- Enigm Server content lifecycle state.
+- Enigm eSIM lifecycle state.
+- Enigm Key lifecycle state.
 - Security event visibility.
-- Active Defense review context.
+- Active Defense network-behavior review context.
 - Optional Trust Security Center posture.
-- Optional Remote Attestation outcome where applicable.
+- Remote Attestation outcome when device-integrity evidence is required.
 
 Trust status is intended to support administrative review and decision-making. It does not provide access to protected message content.
 
 ## Enyra Product Assistant
 
-Enyra Product Assistant in the Enigm Command supports product and administrative guidance.
+Enyra Product Assistant in Enigm Command supports product and administrative guidance.
 
 It may help authorized users with:
 
@@ -214,11 +327,15 @@ If a request moves into security investigation, threat intelligence access, risk
 
 ## Security Boundaries
 
-The Enigm Command has explicit security boundaries:
+Enigm Command has explicit security boundaries:
 
-- The Enigm Command does not provide access to message plaintext.
+- Enigm Command does not provide access to message plaintext.
 - Administrative capabilities do not bypass end-to-end encryption.
 - Device management and message access are separate trust domains.
+- Enigm Server management and message plaintext access are separate trust domains.
+- Server-scoped lifecycle controls affect encrypted content availability and lifecycle, not content visibility or decryption.
+- Enigm Server administrative authority does not provide cryptographic authority.
+- Tor Gateway access is limited to selected web surfaces and does not expose internal infrastructure.
 - Security state visibility is not equivalent to message visibility.
 - Enigm Command actions must not expose private key material.
 - Enigm Command workflows must not expose decrypted attachments or secure call content.
@@ -228,28 +345,33 @@ Administrative workflows should be authenticated, authorized, scoped, and audita
 
 ## Privacy Considerations
 
-The Enigm Command should expose only the information required for administrative review, device lifecycle control, policy management, and security event visibility.
+Enigm Command should expose only the information required for administrative review, device lifecycle control, policy management, and security event visibility.
 
 Privacy considerations include:
 
-- Use privacy-preserving device identifiers where possible.
+- Use Privacy-Preserving Device Handles for device correlation.
 - Avoid exposing unnecessary identity metadata.
 - Separate account state from message content.
 - Separate device lifecycle state from message plaintext.
+- Separate Enigm Server membership and server-scoped lifecycle state from message plaintext, attachment plaintext, user communications, and private key material.
+- Separate Tor Gateway access metadata from protected communication content.
 - Minimize security event metadata to what is required for review and audit.
-- Limit Active Defense finding visibility to authorized review contexts.
+- Limit Active Defense network-behavior finding visibility to authorized review contexts.
 - Avoid exposing protected content in administrative views.
 
 ## Security Limitations
 
-The Enigm Command provides administrative control and visibility, but it does not eliminate endpoint or user risk.
+Enigm Command provides administrative control and visibility, but it does not eliminate endpoint or user risk.
 
 Important limitations:
 
 - Administrative visibility does not prove that an endpoint is free of compromise.
-- Active Defense findings improve review context but do not guarantee detection of every malware or spyware risk.
+- Active Defense findings improve review context but do not ensure detection of every malware or spyware risk.
 - Remote wipe may depend on device state, connectivity, and managed device support.
-- Device revocation affects future trust decisions but cannot guarantee removal of content already accessed by an authorized device.
+- Device revocation affects future trust decisions but cannot ensure removal of content already accessed by an authorized device.
+- Enigm Server membership removal affects future server access but cannot ensure removal of content already accessed by an authorized participant.
+- Server-scoped content deletion affects encrypted content availability and lifecycle, not historical disclosure outside Enigm controls.
+- Tor Gateway access improves access-path privacy for selected web surfaces but does not replace Enigm App secure messaging, VPN Service, Proxy Network, or Device Trust.
 - Account recovery support must not be treated as protected content access.
 - Incorrect policy configuration can affect account, device, or session behavior.
 - Optional Enigm OS posture can strengthen device review where deployed, but Enigm Command architecture must remain valid without requiring Enigm OS.

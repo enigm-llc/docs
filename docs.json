@@ -27,7 +27,7 @@
     "indexing": "navigable",
     "metatags": {
       "canonical": "https://docs.enigm.io",
-      "keywords": "Enigm, private messaging, secure messaging, encrypted communications, secure devices, Enigm OS, Enigm Command, Enigm Key, Enigm eSIM, private server, security documentation, privacy documentation, device trust, remote attestation, post-quantum cryptography, ISO 27001",
+      "keywords": "Enigm, private messaging, secure messaging, encrypted communications, secure devices, Enigm OS, Enigm Command, Enigm Key, Enigm eSIM, Enigm Server, payment privacy, private server, security documentation, privacy documentation, device trust, remote attestation, post-quantum cryptography, ISO 27001",
       "og:site_name": "Enigm",
       "og:type": "website",
       "og:url": "https://docs.enigm.io",
@@ -65,7 +65,7 @@
         "tab": "Products",
         "groups": [
           {
-            "group": "Overview",
+            "group": "Start",
             "expanded": true,
             "pages": [
               "introduction",
@@ -81,34 +81,22 @@
               "app/secure-messaging",
               "app/secure-calls",
               "app/active-defense",
-              "app/multi-device"
+              "app/multi-device",
+              "platform/vpn",
+              "platform/proxy-network"
             ]
           },
           {
             "group": "Enigm Command",
             "pages": [
-              "platform/control-panel"
+              "platform/control-panel",
+              "platform/tor-gateway"
             ]
           },
           {
             "group": "Enigm Server",
             "pages": [
-              "platform/private-environments",
-              "platform/vpn",
-              "platform/proxy-network",
-              "platform/tor-gateway"
-            ]
-          },
-          {
-            "group": "Enigm eSIM",
-            "pages": [
-              "platform/esim"
-            ]
-          },
-          {
-            "group": "Enigm Key",
-            "pages": [
-              "platform/enigm-key"
+              "platform/private-environments"
             ]
           },
           {
@@ -135,6 +123,18 @@
               },
               "os/production-gates"
             ]
+          },
+          {
+            "group": "Enigm Key",
+            "pages": [
+              "platform/enigm-key"
+            ]
+          },
+          {
+            "group": "Enigm eSIM",
+            "pages": [
+              "platform/esim"
+            ]
           }
         ]
       },
@@ -151,6 +151,7 @@
               "security/threat-model",
               "security/cryptography",
               "security/compliance",
+              "security/assurance-evidence",
               "security/transparency"
             ]
           },

@@ -5,31 +5,48 @@ description: Public architecture model for Enigm eSIM private connectivity.
 mode: wide
 ---
 
-Enigm eSIM is the private connectivity product in the Enigm ecosystem. It is focused on privacy-oriented mobile data connectivity and can be combined with other Enigm privacy and security controls.
+Enigm eSIM is the private connectivity product in the Enigm ecosystem. It is focused on global, privacy-oriented mobile data connectivity and can be combined with other Enigm privacy and security controls.
 
 This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Enigm eSIM architecture without exposing third-party relationships, connectivity partner details, infrastructure relationships, commercial arrangements, activation backends, operational procedures, or implementation-sensitive details.
 
 ## Overview
 
-The Enigm eSIM service provides mobile data connectivity as a supporting platform component. It is separate from Enigm App cryptography, separate from end-to-end encryption, and separate from VPN functionality.
+The Enigm eSIM service provides global mobile data connectivity as a supporting platform component. It is data-only and does not provide traditional voice calling or SMS functionality.
+
+Enigm eSIM is purchased and managed through Enigm Command. The eSIM lifecycle is linked to the user's Enigm account and can be deleted or unlinked by the user.
+
+Enigm eSIM is separate from Enigm App cryptography, separate from end-to-end encryption, and separate from VPN functionality.
 
 Mobile connectivity and message confidentiality are different security problems. Enigm eSIM connectivity can affect how a device reaches networks, but it does not define how message content is encrypted or how devices are trusted for secure messaging.
 
 ```mermaid
 flowchart TD
+  Command["Enigm Command"]
+  Account["Enigm Account"]
   Device["User Device"]
   ESIM["Enigm eSIM Connectivity"]
-  VPN["Optional VPN"]
+  VPN["VPN Service"]
+  Proxy["Proxy Network"]
   App["Enigm App"]
 
+  Command --> ESIM
+  ESIM --> Account
   Device --> ESIM
   Device --> VPN
+  Device --> Proxy
   Device --> App
 ```
 
 ## Purpose
 
-The Enigm eSIM service is designed to reduce dependence on traditional mobile identity workflows where possible while providing mobile data connectivity.
+The Enigm eSIM service is designed to reduce dependence on traditional mobile identity workflows while providing mobile data connectivity.
+
+Standard Enigm eSIM activation does not require:
+
+- KYC verification.
+- Email address.
+- Phone number.
+- Identity document.
 
 The Enigm eSIM may help mitigate:
 
@@ -37,29 +54,77 @@ The Enigm eSIM may help mitigate:
 - Dependence on traditional subscriber workflows.
 - Some forms of network visibility.
 
-The Enigm eSIM service does not replace secure messaging, end-to-end encryption, device trust, VPN transport protection, or account security controls.
+The Enigm eSIM service does not replace secure messaging, end-to-end encryption, Device Trust, VPN transport protection, Proxy Network traffic separation, or account security controls.
+
+## Purchase And Activation
+
+Enigm eSIM purchase and activation are performed through Enigm Command.
+
+Purchase and activation workflows are designed around an identity-minimizing model:
+
+- Users can purchase Enigm eSIM from Enigm Command.
+- Users can manage Enigm eSIM lifecycle state from Enigm Command.
+- Standard activation does not require KYC verification, email address, phone number, or identity document.
+- The user-selected purchase country is handled as commercial lifecycle metadata.
+- Enigm eSIM lifecycle state is linked to the user's Enigm account for management, deletion, unlinking, and support.
+
+Activation state is connectivity lifecycle state. It does not provide access to message plaintext, secure call content, media content, attachment plaintext, user conversations, protected key material, or private key material.
 
 ## Mobile Data Connectivity
 
-The Enigm eSIM service provides mobile data connectivity for supported devices and deployments.
+The Enigm eSIM service provides global mobile data connectivity for supported eSIM-capable devices.
 
-Mobile data connectivity may support:
+Mobile data connectivity supports:
 
 - Network access for Enigm App.
 - Network access for optional VPN usage.
+- Network access for Proxy Network usage where enabled.
 - Network access for other supported Enigm platform components.
 - Policy-aware connectivity behavior where managed configuration applies.
 
 Connectivity behavior should be understood as a transport and access capability, not as a message confidentiality mechanism.
 
+## Data-Only Model
+
+Enigm eSIM is documented as a data-only connectivity product.
+
+The public product model is:
+
+- Mobile data connectivity.
+- Internet access for supported devices.
+- No traditional voice service.
+- No traditional SMS service.
+- No phone-number dependency for Enigm account creation.
+
+Voice and video communication inside Enigm should use Enigm App secure calling workflows, not legacy mobile voice services. Secure messaging should use Enigm App secure messaging workflows, not SMS.
+
+## Account Association
+
+Enigm eSIM is associated with the user's Enigm account for lifecycle management.
+
+Account association supports:
+
+- Product entitlement state.
+- Activation status.
+- Connectivity lifecycle review.
+- User-initiated unlinking.
+- User-initiated deletion or retirement.
+- Support and security review where required.
+
+Account association does not convert Enigm eSIM into an identity verification product. Enigm account identity, Device Trust, protected key material, and message confidentiality remain separate trust domains.
+
 ## Lifecycle Management
 
-Enigm eSIM lifecycle management may be available through Enigm App or Enigm Command where enabled.
+Enigm eSIM lifecycle management is provided through Enigm Command.
 
-Lifecycle workflows may include:
+Lifecycle workflows include:
 
+- Purchase or activation.
 - Activation state review.
-- Device association review.
+- Enigm account association review.
+- Device use review where required for support or policy.
+- User-initiated unlinking.
+- User-initiated deletion or retirement.
 - Replacement or retirement.
 - Policy assignment where managed configuration applies.
 - Connectivity status visibility.
@@ -67,39 +132,45 @@ Lifecycle workflows may include:
 
 Lifecycle visibility should remain focused on connectivity and policy state. It must not become a message, call, media, attachment, or conversation visibility surface.
 
+Deleting or retiring an Enigm eSIM removes the service from normal Enigm lifecycle operation, subject only to legal, security, or operational constraints.
+
 ## Relationship With Enigm App
 
 Enigm App remains responsible for app-level security functions such as secure messaging, secure calls, key management, device association, verification workflows, and message expiration.
 
-The Enigm eSIM service is separate from Enigm App cryptography. It does not replace protected key material, secure device storage, end-to-end encryption, or device trust decisions.
+The Enigm eSIM service is linked to the user's Enigm account for lifecycle management. It does not replace protected key material, secure device storage, end-to-end encryption, or Device Trust decisions.
 
 Enigm App should remain secure according to its app-level model whether Enigm eSIM connectivity is used or not.
 
 ## Relationship With VPN
 
-The Enigm eSIM service is separate from VPN functionality.
+The Enigm eSIM service is separate from VPN functionality and Proxy Network traffic separation.
 
-Enigm eSIM provides mobile data connectivity. VPN provides an optional transport privacy layer where enabled. These components can be combined, but they address different parts of the security model.
+Enigm eSIM provides mobile data connectivity. VPN Service provides an optional transport privacy layer where enabled. Proxy Network provides traffic separation where enabled. These components can be combined, but they address different parts of the security model.
 
-Using Enigm eSIM does not imply VPN protection. Using VPN does not change the need to evaluate device trust, application-layer encryption, and message confidentiality separately.
+Using Enigm eSIM does not imply VPN protection or proxy mediation. Using VPN Service or Proxy Network does not change the need to evaluate Device Trust, application-layer encryption, and message confidentiality separately.
 
 ## Relationship With Enigm Command
 
-Enigm Command may provide Enigm eSIM management where enabled.
+Enigm Command provides Enigm eSIM purchase, activation, lifecycle review, deletion, and retirement workflows.
 
-Enigm Command workflows may include:
+Enigm Command workflows include:
 
+- Purchasing Enigm eSIM.
+- Activating Enigm eSIM.
 - Reviewing Enigm eSIM status.
 - Managing activation lifecycle.
-- Reviewing associated device state.
+- Reviewing Enigm account association.
+- Supporting unlinking, deletion, replacement, or retirement workflows.
 - Applying managed connectivity policy.
-- Supporting replacement or retirement workflows.
 
 Administrative Enigm eSIM management must remain separate from protected communication content and private key material.
 
 ## Privacy Considerations
 
-The Enigm eSIM service can support privacy objectives by reducing dependence on traditional mobile identity workflows where possible.
+The Enigm eSIM service supports privacy objectives by reducing dependence on traditional mobile identity workflows.
+
+Standard Enigm eSIM activation is identity-minimizing because it does not require KYC verification, email address, phone number, or identity document.
 
 Privacy considerations include:
 
@@ -109,7 +180,7 @@ Privacy considerations include:
 - Keep administrative visibility focused on lifecycle and policy state.
 - Avoid treating connectivity status as proof of message activity.
 
-The Enigm eSIM service should be documented as a connectivity layer, not as an identity-erasure mechanism.
+The Enigm eSIM service should be documented as a privacy-oriented connectivity layer, not as an identity-erasure claim. External networks, device behavior, payment flows, legal obligations, and user behavior can still create exposure outside the Enigm eSIM lifecycle model.
 
 ## Metadata Considerations
 
@@ -119,7 +190,8 @@ Metadata may relate to:
 
 - Connectivity state.
 - Activation or deactivation lifecycle.
-- Device eligibility.
+- Enigm account association.
+- Device support or compatibility state where needed.
 - Policy state.
 - Support and audit lifecycle events.
 
@@ -134,11 +206,14 @@ The Enigm eSIM service does not mitigate:
 - Message disclosure by trusted participants.
 - Social engineering.
 - Endpoint compromise.
-- Weak device trust.
+- Weak Device Trust.
 - Incorrect policy configuration.
 - Plaintext exposure after authorized local decryption.
+- Network availability limitations.
+- External traffic correlation outside Enigm controls.
+- Legal or regulatory obligations applicable to connectivity services.
 
-The Enigm eSIM service does not replace secure messaging, end-to-end encryption, VPN protection, device trust, account security, or verification workflows.
+The Enigm eSIM service does not replace secure messaging, end-to-end encryption, VPN protection, Proxy Network traffic separation, Device Trust, account security, or verification workflows.
 
 ## Threat Model Considerations
 

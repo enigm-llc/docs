@@ -63,7 +63,7 @@ The model is intended to:
 - Support consistent production readiness evaluation.
 - Support Trust Security Center visibility.
 - Support OTA and update trust.
-- Support managed-device review where applicable.
+- Support managed-device review.
 - Avoid treating production state as a one-time decision.
 
 Passing a gate means that the relevant security objective is satisfied according to the production validation model. It does not mean that risk is eliminated.
@@ -144,7 +144,7 @@ Privacy Controls evaluate whether device-level privacy protections are available
 
 Objectives:
 
-- Managed-device compliance where applicable.
+- Managed-device compliance.
 - Device lifecycle visibility.
 - Security reporting.
 
@@ -154,7 +154,7 @@ Device Management evaluates managed-device posture for enrolled devices. It is a
 
 Objectives:
 
-- OTA eligibility.
+- OTA Eligibility.
 - Update authenticity.
 - Update integrity.
 
@@ -176,11 +176,11 @@ Production validation should evaluate the device across the gate categories rath
 
 Validation categories should support:
 
-- Device trust decisions.
+- Device Trust decisions.
 - Production readiness decisions.
 - Security posture reporting.
-- Managed-device review where applicable.
-- OTA eligibility and update posture.
+- Managed-device review.
+- OTA Eligibility and update posture.
 - Trust Security Center state evaluation.
 
 Production validation should remain high-level in public documentation. Exact validation mechanics, platform values, and internal gate logic are not published.
@@ -222,7 +222,7 @@ Production Gates define expected security posture.
 These systems are related but serve different purposes:
 
 - Production Gates define the categories and objectives of expected production compliance.
-- Trust Security Center evaluates and presents local device trust state.
+- Trust Security Center evaluates and presents local Device Trust state.
 
 Trust Security Center may surface results or findings related to production posture, but it is not a publication of gate logic.
 
@@ -254,7 +254,7 @@ Administrative device management must remain separate from message confidentiali
 
 ## Security Limitations
 
-Passing all Production Gates does not guarantee the absence of vulnerabilities.
+Passing all Production Gates does not ensure the absence of vulnerabilities.
 
 Production Gates reduce risk and improve confidence in device security posture, but they do not eliminate:
 
@@ -270,7 +270,7 @@ Additional limitations:
 
 - Production Gates do not replace verified boot.
 - Production Gates do not replace OTA verification.
-- Production Gates do not replace remote attestation.
+- Production Gates do not replace Remote Attestation.
 - Production Gates do not replace Enigm App end-to-end encryption.
 - Production Gates do not provide message plaintext access.
 - Production Gates should be evaluated alongside Trust Security Center, OTA, device management, platform hardening, and user trust decisions.

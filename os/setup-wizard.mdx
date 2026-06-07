@@ -101,13 +101,13 @@ The policy is defined conceptually around:
 - Protection of local device access.
 - Support for secure device workflows.
 
-Weak credentials should be rejected where they do not meet the required security baseline. The goal is to reduce risk from trivial local access attempts and strengthen the device trust model before Enigm App usage begins.
+Weak credentials should be rejected where they do not meet the required security baseline. The goal is to reduce risk from trivial local access attempts and strengthen the Device Trust model before Enigm App usage begins.
 
 ### Optional Biometric Enrollment
 
 Biometric enrollment may be offered as an optional convenience and access-control layer after strong PIN setup.
 
-Biometrics should not replace the requirement for strong device authentication. They should operate as an additional local unlock method where supported and configured by the user.
+Biometrics should not replace the requirement for strong device authentication. They should operate as an additional local unlock method when configured by the user and available on the device.
 
 ## Privacy Controls
 
@@ -131,7 +131,7 @@ Network setup may include:
 - Secure Wi-Fi.
 - Date and time readiness for trust-sensitive operations.
 
-Network configuration is necessary for supported services, update checks, account workflows, and Enigm App transition where applicable.
+Network configuration is necessary for supported services, update checks, account workflows, and Enigm App transition.
 
 Network setup does not replace Enigm App end-to-end encryption, protected key material, or user trust decisions.
 
@@ -146,7 +146,7 @@ User experience principles include:
 - Avoid unnecessary external service prompts.
 - Present security choices before normal operation.
 - Use clear language for authentication and privacy decisions.
-- Avoid overstating security guarantees.
+- Avoid overstating security assurances.
 - Transition directly into Enigm App after setup completion.
 
 ### External Services
@@ -179,7 +179,7 @@ Limitations include:
 - It does not replace Enigm App end-to-end encryption.
 - It does not replace Trust Security Center posture evaluation.
 - It does not replace OTA verification or device lifecycle controls.
-- It does not guarantee that future device state remains trusted.
+- It does not ensure that future device state remains trusted.
 - It does not protect against social engineering.
 - It does not provide assurance for systems outside Enigm control.
 - It does not make weak operational practices safe.

@@ -193,11 +193,11 @@ The release lifecycle defines how releases move through governance stages. OTA s
 
 ## Relationship With Remote Attestation
 
-Remote attestation may contribute additional eligibility signals before protected releases are exposed.
+Remote Attestation may contribute additional eligibility signals before protected releases are exposed.
 
-Remote attestation can help evaluate whether a device is eligible for selected release channels, protected update metadata, private artifacts, or sensitive rollout paths where supported.
+Remote Attestation helps evaluate whether a device is eligible for selected release channels, protected update metadata, private artifacts, or sensitive rollout paths when device-integrity evidence is required.
 
-Remote attestation does not replace release signing, validation, rollout policy, or device-side verification.
+Remote Attestation does not replace release signing, validation, rollout policy, or device-side verification.
 
 ## Relationship With Release Signing
 
@@ -222,9 +222,9 @@ Limitations include:
 - Release signing does not prove that source code is free of vulnerabilities.
 - Controlled rollout does not replace device-side verification.
 - Device eligibility does not replace artifact integrity checks.
-- Remote attestation is an additional signal, not complete assurance.
+- Remote Attestation is an additional signal, not complete assurance.
 - Stable release status does not remove the need for installation verification.
 - Authorized releases may still contain unknown vulnerabilities.
 - Release lifecycle controls do not provide message plaintext access.
 
-The release lifecycle should be evaluated alongside OTA security controls, remote attestation, production signing, Trust Security Center, and Enigm OS platform hardening.
+The release lifecycle should be evaluated alongside OTA security controls, Remote Attestation, production signing, Trust Security Center, and Enigm OS platform hardening.

@@ -117,7 +117,7 @@ Policy verification helps ensure that a release is not installed outside its app
 
 ## Rollback Protection
 
-The OTA client should enforce rollback constraints where applicable.
+The OTA client should enforce rollback constraints for releases subject to rollback policy.
 
 The client should not install releases that violate rollback policy.
 
@@ -125,11 +125,11 @@ Rollback protection is intended to reduce risk from downgrades to older or less 
 
 ## Relationship With Remote Attestation
 
-Remote attestation contributes server-side eligibility decisions.
+Remote Attestation contributes server-side eligibility decisions.
 
-Client verification remains necessary even when remote attestation is used.
+Client verification remains necessary even when Remote Attestation is used.
 
-Remote attestation may help determine whether release metadata or artifacts should be exposed to a device. The client must still verify manifest trust, artifact integrity, policy requirements, compatibility, and rollback constraints before installation.
+Remote Attestation may help determine whether release metadata or artifacts should be exposed to a device. The client must still verify manifest trust, artifact integrity, policy requirements, compatibility, and rollback constraints before installation.
 
 ## Security Limitations
 
@@ -153,4 +153,4 @@ Additional limitations:
 - Rollback policy does not protect against all post-installation risk.
 - Client verification does not provide message plaintext access.
 
-Client verification should be evaluated as part of the Enigm OS OTA defense-in-depth model, alongside transport authentication, request validation, manifest trust, artifact integrity, device eligibility, remote attestation, release signing, and verified boot.
+Client verification should be evaluated as part of the Enigm OS OTA defense-in-depth model, alongside transport authentication, request validation, manifest trust, artifact integrity, device eligibility, Remote Attestation, release signing, and verified boot.

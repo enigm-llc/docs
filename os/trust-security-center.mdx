@@ -3,9 +3,9 @@ title: Trust Security Center
 description: Authoritative public specification for the Enigm OS Trust Security Center.
 ---
 
-Trust Security Center is the local device trust evaluation system for Enigm OS. It evaluates device security signals, determines a trust state, presents findings to the user, and exposes summarized posture for device workflows where supported.
+Trust Security Center is the local Device Trust evaluation system for Enigm OS. It evaluates device security signals, determines a trust state, presents findings to the user, and exposes summarized posture for device workflows.
 
-Trust Security Center is not an antivirus. It is not a numeric security score, a percentage-based rating, or a general-purpose threat scanner. It is a device trust surface for Enigm OS.
+Trust Security Center is not an antivirus. It is not a numeric security score, a percentage-based rating, or a general-purpose threat scanner. It is a Device Trust surface for Enigm OS.
 
 This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
 
@@ -31,7 +31,7 @@ Trust Security Center does not inspect message content, call content, attachment
 
 Trust Security Center is designed to:
 
-- Provide a clear local device trust state.
+- Provide a clear local Device Trust state.
 - Surface security findings that require user or administrator attention.
 - Support Enigm OS posture visibility.
 - Support launcher-level trust summaries.
@@ -62,7 +62,7 @@ Conceptually:
 
 - `EnigmSecurityService` collects and normalizes local security signals.
 - Trust State Engine evaluates the normalized security posture.
-- Trust Security Center presents the device trust state and findings.
+- Trust Security Center presents the Device Trust state and findings.
 - Launcher Summary displays a concise device protection state.
 
 The architecture is local-device oriented. It does not provide message plaintext access and does not operate as a content inspection system.
@@ -82,7 +82,7 @@ Examples of evaluated signal categories include:
 
 Trust Security Center is designed to identify whether critical Enigm OS protections are active, degraded, unavailable, or not currently measurable.
 
-Trust evaluation must remain separate from Enigm App message confidentiality. A device trust state may inform device workflows, but it does not grant administrative access to encrypted content.
+Trust evaluation must remain separate from Enigm App message confidentiality. A Device Trust state may inform device workflows, but it does not grant administrative access to encrypted content.
 
 ## Trust States
 
@@ -167,7 +167,7 @@ Guidance should:
 - Explain why attention may be required.
 - Recommend a safe next action.
 - Avoid revealing sensitive rule behavior.
-- Avoid implying that a state guarantees complete protection.
+- Avoid implying that a state assurances complete protection.
 
 Examples:
 
@@ -187,7 +187,7 @@ Trust Security Center does not replace Enigm OS hardening. It reports and explai
 
 Enigm App remains the primary user-facing product for secure messaging, secure calls, account workflows, and user interaction.
 
-Trust Security Center can provide device posture information that may be relevant to Enigm App trust decisions where supported. For example, device trust state may inform whether a device should be considered eligible for sensitive workflows.
+Trust Security Center provides device posture information that informs Enigm App trust decisions when Enigm OS is deployed. For example, Device Trust state may inform whether a device should be considered eligible for sensitive workflows.
 
 Trust Security Center does not inspect:
 
@@ -227,15 +227,15 @@ Privacy principles include:
 - Present local trust state without disclosing sensitive evaluation mechanics.
 - Share posture information only where required for supported device or account workflows.
 
-Trust Security Center may expose high-level posture summaries to Enigm ecosystem components where supported, such as Enigm Command or managed device workflows. Such summaries should be limited to security state and should not include user content.
+Trust Security Center exposes high-level posture summaries to Enigm ecosystem components such as Enigm Command or managed device workflows. Such summaries should be limited to security state and should not include user content.
 
 ## Security Limitations
 
-Trust Security Center is a device trust evaluation system. It does not eliminate risk.
+Trust Security Center is a Device Trust evaluation system. It does not eliminate risk.
 
 Limitations include:
 
-- It does not guarantee that a trusted user will make safe decisions.
+- It does not ensure that a trusted user will make safe decisions.
 - It does not prevent social engineering.
 - It does not prevent physical coercion.
 - It does not inspect encrypted message content.

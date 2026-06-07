@@ -6,11 +6,13 @@ description: Public architecture model for the Enigm proxy network.
 
 The Enigm proxy network is a privacy and traffic-separation layer within the Enigm ecosystem. It exists to reduce direct exposure between client devices and platform services while preserving application-layer security controls.
 
+Proxy Network is separate from Enigm Server. Enigm Server provides dedicated private messaging environments; Proxy Network provides traffic separation for Enigm App and platform traffic flows where enabled.
+
 This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public proxy-network architecture without exposing non-public path structure, deployment scale, infrastructure labels, geographic deployment information, private network design, or operational details.
 
 ## Overview
 
-The proxy network is separate from end-to-end encryption and separate from the optional VPN layer.
+The proxy network is separate from end-to-end encryption, separate from Enigm Server, and separate from the optional VPN Service.
 
 The proxy layer provides an additional privacy boundary between user devices and platform services. It can help reduce direct network exposure, lower confidence in simple traffic correlation, and support traffic-separation objectives according to platform policy.
 
@@ -40,7 +42,7 @@ The proxy network is designed to:
 - Increase difficulty for simple timing-based traffic correlation methods.
 - Support policy-controlled network mediation without becoming a plaintext content access layer.
 
-The proxy layer is not intended to replace device trust, endpoint security, secure messaging encryption, secure call session security, or user trust decisions.
+The proxy layer is not intended to replace Device Trust, endpoint security, secure messaging encryption, secure call session security, or user trust decisions.
 
 ## Traffic Separation
 
@@ -52,7 +54,7 @@ Traffic separation can help reduce direct visibility, but it does not remove the
 
 - Application-layer encryption.
 - Protected key material.
-- Device trust.
+- Device Trust.
 - Account authorization.
 - Message expiration and lifecycle controls.
 - Verification workflows.
@@ -80,11 +82,11 @@ If the proxy layer is unavailable or disabled, secure messaging and secure calls
 
 ## Relationship With VPN
 
-The proxy network is separate from the optional VPN layer.
+The proxy network is separate from the optional VPN Service.
 
-The VPN is an optional transport privacy layer for the user device. The proxy layer is a platform-side mediation and traffic-separation layer. Both may contribute to privacy objectives, but they address different parts of the network model.
+The VPN Service is an optional transport privacy layer for the user device. The proxy layer is a platform-side mediation and traffic-separation layer. Both may contribute to privacy objectives, but they address different parts of the network model.
 
-Using a VPN does not remove the need for proxy-layer policy where the platform requires it. Using the proxy network does not remove the potential value of VPN transport protection where enabled.
+Using VPN Service does not remove the need for proxy-layer policy where the platform requires it. Using the proxy network does not remove the potential value of VPN Service transport protection where enabled.
 
 ## Traffic Analysis Considerations
 
@@ -111,10 +113,10 @@ The proxy network does not mitigate:
 - Social engineering.
 - Plaintext exposure after authorized local decryption.
 - Incorrect policy configuration.
-- Weak device trust.
+- Weak Device Trust.
 - Missing or disabled application-layer encryption.
 
-The proxy layer is not intended to replace encryption, device trust, account security, secure key management, or verification workflows.
+The proxy layer is not intended to replace encryption, Device Trust, account security, secure key management, or verification workflows.
 
 ## Threat Model Considerations
 

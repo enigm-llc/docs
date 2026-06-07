@@ -50,11 +50,11 @@ The Enigm OS network policy is designed to:
 
 - Treat local and public networks as untrusted by default.
 - Reduce unnecessary network visibility.
-- Protect name resolution where supported.
+- Protect name resolution through controlled secure-resolution policy.
 - Support transport protection.
 - Support metadata reduction objectives.
 - Support traffic separation through platform controls.
-- Provide device networking posture for Trust Security Center where supported.
+- Provide device networking posture for Trust Security Center.
 - Keep network controls separate from message plaintext.
 
 Network policy is a complementary security layer. It does not replace Enigm App end-to-end encryption, protected key material, trusted device association, or user verification workflows.
@@ -72,13 +72,13 @@ The platform is designed around the assumption that:
 
 Because of this model, Enigm OS network policy focuses on reducing exposure, enforcing secure defaults, and supporting privacy-preserving network paths where available.
 
-Network trust is not equivalent to device trust. A device may be trusted while connected to an untrusted network, and network controls should continue to operate independently of the user’s current network environment.
+Network trust is not equivalent to Device Trust. A device may be trusted while connected to an untrusted network, and network controls should continue to operate independently of the user’s current network environment.
 
 ## Secure Name Resolution
 
 Secure name resolution is part of the Enigm OS network security model.
 
-The model may include:
+The model includes:
 
 - Encrypted DNS.
 - Controlled DNS policy.
@@ -116,19 +116,19 @@ Relevant controls include:
 - Metadata reduction goals.
 - Secure name resolution.
 - Optional VPN use.
-- Proxy infrastructure where supported.
+- Proxy infrastructure.
 
-These controls are designed to reduce exposure to local network observers, public network environments, and intermediate traffic analysis. They should be evaluated as privacy-enhancing controls, not as guarantees of anonymity.
+These controls are designed to reduce exposure to local network observers, public network environments, and intermediate traffic analysis. They should be evaluated as privacy-enhancing controls, not as absolute privacy or traceability claims.
 
 ## Metadata Reduction
 
 Metadata reduction is a core objective of the network policy model.
 
-Enigm OS may use controls intended to reduce the amount, precision, or reliability of observable network metadata. These controls may affect direct exposure, timing confidence, name resolution visibility, and correlation reliability.
+Enigm OS uses controls intended to reduce the amount, precision, or reliability of observable network metadata. These controls affect direct exposure, timing confidence, name resolution visibility, and correlation reliability.
 
 ### Traffic Analysis Considerations
 
-The platform may use traffic-shaping techniques and additional network activity designed to reduce the reliability of simple communication-pattern analysis.
+The platform uses traffic-shaping techniques and additional network activity designed to reduce the reliability of simple communication-pattern analysis.
 
 Traffic shaping is a complementary privacy control. It is intended to:
 
@@ -137,7 +137,7 @@ Traffic shaping is a complementary privacy control. It is intended to:
 - Increase difficulty for observers attempting to map traffic bursts to user conversations.
 - Lower confidence in analysis based on connection frequency or traffic timing.
 
-Traffic shaping does not guarantee anonymity and does not eliminate advanced traffic analysis. Additional network activity should not be interpreted as proof of active user communication.
+Traffic shaping does not eliminate advanced traffic analysis or provide absolute traceability protection. Additional network activity should not be interpreted as proof of active user communication.
 
 Communication confidentiality continues to rely on Enigm App end-to-end encryption and protected key material.
 
@@ -164,18 +164,18 @@ VPN and traffic shaping are complementary controls. VPN may protect transport pa
 
 Proxy infrastructure provides traffic separation and additional privacy boundaries.
 
-Within the Enigm ecosystem, proxy infrastructure may support:
+Within the Enigm ecosystem, proxy infrastructure supports:
 
 - Reduced direct exposure between devices and platform services.
 - Traffic separation objectives.
 - Metadata reduction objectives.
 - Additional privacy boundaries.
 
-Proxy infrastructure is separate from Enigm App encryption and does not replace protected key material or device trust.
+Proxy infrastructure is separate from Enigm App encryption and does not replace protected key material or Device Trust.
 
 ## Relationship With Trust Security Center
 
-Trust Security Center may evaluate network policy compliance as part of device posture where supported.
+Trust Security Center evaluates network policy compliance as part of device posture.
 
 Network-related trust signals may include:
 
@@ -202,4 +202,4 @@ Limitations include:
 - Network policy does not protect against social engineering.
 - Network policy does not control disclosure by trusted participants.
 
-Network policy should be evaluated alongside Enigm App cryptography, Enigm OS device trust, Trust Security Center posture, VPN usage, proxy infrastructure, and user verification workflows.
+Network policy should be evaluated alongside Enigm App cryptography, Enigm OS Device Trust, Trust Security Center posture, VPN usage, proxy infrastructure, and user verification workflows.

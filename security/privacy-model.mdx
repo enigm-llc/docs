@@ -3,14 +3,18 @@ title: Privacy Model
 description: Data minimization and privacy expectations for Enigm systems.
 ---
 
-The Enigm privacy model applies across Enigm App, Enigm OS, Enigm Command, Trust Security Center, VPN Network, Proxy Network, Tor Gateway, Threat Intelligence Platform, Enyra, and OTA Architecture.
+The Enigm privacy model applies across Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, VPN Service, Proxy Network, Tor Gateway, Threat Intelligence Platform, Enyra, and OTA Architecture.
 
-The model is based on data minimization, purpose limitation, scoped access, privacy-preserving device handles, retention control, metadata reduction, and auditable handling of security-relevant data.
+The model is based on data minimization, purpose limitation, scoped access, Privacy-Preserving Device Handles, retention control, metadata reduction, and auditable handling of security-relevant data.
+
+Standard Enigm account registration uses an identity-minimizing model and does not require an email address, phone number, or identity document.
+
+Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest complements, but does not replace, end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
 ## Objectives
 
 - Limit collection to defined product, security, support, and compliance purposes.
-- Separate account identity, privacy-preserving device handles, metadata, protected content, security telemetry, and audit records where applicable.
+- Separate account identity, Privacy-Preserving Device Handles, metadata, protected content, security telemetry, and audit records by trust domain.
 - Avoid using stable human-readable device identifiers in public documentation or examples.
 - Restrict access through the secure identity layer and Enigm Command authorization.
 - Avoid exposing protected content or unnecessary identity metadata in logs, examples, or public documentation.
@@ -21,11 +25,19 @@ The model is based on data minimization, purpose limitation, scoped access, priv
 
 ### Account and app data
 
-Enigm App account data supports authentication, authorization, account lifecycle, secure messaging, secure calls, and multi-device management. Protected content should remain separate from operational metadata where applicable.
+Enigm App account data supports authentication, authorization, account lifecycle, secure messaging, secure calls, and multi-device management. Protected content remains separated from operational metadata by design.
 
-### Privacy-preserving device handles
+Standard account creation is pseudonymous and identity-minimizing. It uses username and password authentication, recovery phrase generation and handling, device-local identity creation, and explicit trusted-device association without requiring email address, phone number, or identity document.
 
-Privacy-preserving device handles support controlled device management, policy assignment, audit correlation, OTA eligibility, and Remote Attestation without requiring public exposure of direct device identifiers.
+Enigm App sessions are limited to 6 hours. Session state is treated as account access state and remains separate from Device Trust, recovery state, protected key material, and message plaintext.
+
+Enigm App secure media handling is designed to reduce unnecessary plaintext exposure for files, images, videos, attachments, and other supported multimedia. Conversation and group policy can control sending, forwarding, deletion, and media handling without giving administrative systems plaintext access to protected content.
+
+Capture-resistance controls reduce screenshot, screen-recording, preview, or external-export exposure according to device capability and policy. These controls complement end-to-end encryption and Device Trust; they do not ensure protection against compromised endpoints, external cameras, malicious authorized users, or modified operating environments.
+
+### Privacy-Preserving Device Handles
+
+Privacy-Preserving Device Handles support Controlled Device Management, policy assignment, audit correlation, OTA Eligibility, and Remote Attestation without requiring public exposure of direct device identifiers.
 
 They are intended to reduce dependence on public identifiers while preserving authorized lifecycle and security review.
 
@@ -33,19 +45,33 @@ They are intended to reduce dependence on public identifiers while preserving au
 
 Enigm OS security state includes Trust Security Center posture, network-policy state, privacy-mode state, device-management lifecycle state, and OTA verification state. This state should be limited to authorized product and administrative workflows.
 
+### Enigm Server data
+
+Enigm Server data supports dedicated private messaging environments, server ID join requests, administrator approval decisions, server membership, server-scoped content lifecycle controls, geographic deployment region selection, and server audit visibility where appropriate.
+
+Enigm Server metadata should be minimized and separated from protected message content, attachment plaintext, user communications, and private key material. Server-scoped lifecycle controls affect encrypted content availability and lifecycle without creating plaintext access or cryptographic authority for administrators.
+
+Administrative deletion controls operate on encrypted content objects and lifecycle state. Deletion affects content availability and lifecycle; it does not imply content visibility, content decryption, or access to protected communications.
+
 ### Network privacy metadata
 
-VPN Network, Proxy Network, and Tor Gateway may require policy metadata to enforce access, evaluate risk, or support troubleshooting. Protected content should not be stored in routine network-policy logs.
+VPN Service and Proxy Network use policy metadata to enforce access, evaluate risk, or support troubleshooting for Enigm App network privacy and traffic-separation flows. Tor Gateway uses policy metadata for selected public or administrative web access paths when enabled. Protected content should not be stored in routine network-policy logs.
 
 Network-policy records should be minimized, purpose-limited, and separated from message, call, media, and attachment content.
 
+### Enigm eSIM data
+
+Enigm eSIM uses an identity-minimizing activation model for global data-only mobile connectivity. Standard activation does not require KYC verification, email address, phone number, or identity document.
+
+Enigm eSIM lifecycle metadata should remain limited to connectivity operation, Enigm account association, entitlement, support, and security needs. Connectivity state must remain separate from message plaintext, secure call content, media, attachments, user conversations, and private key material.
+
 ### Threat intelligence data
 
-Threat Intelligence Platform and Enyra process security signals for detection, risk evaluation, and blocking decisions. Intelligence handling should use minimized security context, privacy-preserving identifiers where possible, and access-controlled review boundaries.
+Threat Intelligence Platform and Enyra process security signals for detection, risk evaluation, and blocking decisions. Intelligence handling should use minimized security context, Privacy-Preserving Device Handles where device correlation is required, and access-controlled review boundaries.
 
 ### Audit records
 
-Audit records support compliance review, investigation, controlled device management, Enigm Command accountability, OTA release review, and network-policy review. Audit records should provide useful evidence without storing unnecessary protected content.
+Audit records support compliance review, investigation, Controlled Device Management, Enigm Command accountability, OTA release review, and network-policy review. Audit records should provide useful evidence without storing unnecessary protected content.
 
 ## Handling principles
 
@@ -59,7 +85,7 @@ Data should be used for defined product, security, legal, administrative, or ope
 
 ### Access limitation
 
-Access should be scoped by identity context, privacy-preserving device handle, resource category, policy state, and operational role. Enigm Command access should be auditable.
+Access should be scoped by identity context, Privacy-Preserving Device Handles, resource category, policy state, and operational role. Enigm Command access should be auditable.
 
 ### Retention limitation
 

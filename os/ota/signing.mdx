@@ -3,7 +3,7 @@ title: OTA Signing
 description: Public release signing architecture for Enigm OS OTA security.
 ---
 
-Enigm OS uses hardware-backed signing as part of its release security model. The architecture intentionally separates different signing authorities so that manifest authorization and production release signing are not treated as the same control.
+Enigm OS uses Hardware-Backed Signing as part of its release security model. The architecture intentionally separates different signing authorities so that manifest authorization and production release signing are not treated as the same control.
 
 Production systems must not confuse manifest signing authority with image or release signing authority. These authorities serve different purposes and belong to different trust boundaries.
 
@@ -86,7 +86,7 @@ Manifest signing complements:
 - Artifact verification.
 - Rollout controls.
 - Device eligibility.
-- Remote attestation.
+- Remote Attestation.
 
 Manifest signing does not replace these controls. It authorizes manifest metadata and supports release authenticity at the metadata layer.
 
@@ -197,15 +197,15 @@ Residual risks include:
 - Verification defects.
 - Signing authority compromise.
 
-Hardware-backed signing reduces key exposure and supports release authorization, but it does not guarantee that released software is free of defects or malicious logic introduced before signing.
+Hardware-Backed Signing reduces key exposure and supports release authorization, but it does not prove that released software is free of defects or malicious logic introduced before signing.
 
 ## Security Limitations
 
-Hardware-backed signing acts as a release authorization root of trust. It does not replace:
+Hardware-Backed Signing acts as a release authorization root of trust. It does not replace:
 
 - Verified boot.
 - Artifact verification.
-- Remote attestation.
+- Remote Attestation.
 - Device eligibility.
 - Rollout controls.
 - OTA verification.
@@ -218,6 +218,6 @@ Additional limitations:
 - Signed metadata does not prove artifact integrity unless the artifact verification gates succeed.
 - Signed artifacts do not prove that source code is free of vulnerabilities.
 - Operator-mediated workflows still require governance and audit review.
-- Hardware-backed signing does not prevent misuse by authorized operators.
+- Hardware-Backed Signing does not prevent misuse by authorized operators.
 
-Enigm OS production signing treats the private release key as hardware-resident authority. Production artifacts are trusted only when they are signed through the approved hardware-backed signing workflow and pass the corresponding verification gates.
+Enigm OS production signing treats the private release key as hardware-resident authority. Production artifacts are trusted only when they are signed through the approved Hardware-Backed Signing workflow and pass the corresponding verification gates.

@@ -4,7 +4,7 @@ sidebarTitle: Architecture
 description: Public architecture model for Enigm supporting systems.
 ---
 
-This section describes supporting system architecture using generic terms only.
+This section describes supporting system architecture using generic terms only. It frames infrastructure as a privacy-supporting control plane for Enigm products rather than as a public map of operational systems.
 
 ## Components
 
@@ -20,4 +20,23 @@ This section describes supporting system architecture using generic terms only.
 
 Supporting systems should enforce least privilege, data minimization, controlled change, auditability, and integrity verification.
 
-Deployment topology is **Implementation-dependent**.
+Deployment topology is intentionally not disclosed in public documentation. Public infrastructure documentation focuses on security objectives, privacy boundaries, data minimization, auditability, resilience, and enterprise assurance.
+
+## Public Web Transport Security
+
+Public web surfaces use a strict transport-security baseline.
+
+At a public architecture level, this includes:
+
+- TLS certificates for public proxied hostnames.
+- Automated certificate lifecycle management for public web names.
+- TLS 1.3 preferred transport protection.
+- TLS 1.2 compatibility restricted to approved strong cipher suites.
+- HTTP Strict Transport Security.
+- HSTS maximum age of 6 months.
+- HSTS subdomain coverage.
+- Encrypted Client Hello for compatible public web access paths.
+
+Public web transport security protects web access paths and supported transport metadata. It does not replace Enigm App end-to-end encryption, Device Trust, protected key material, or verification workflows.
+
+Public documentation does not disclose certificate authority names, public edge relationship names, internal hostnames, non-public domains, private routing topology, certificate automation internals, or operational deployment details.

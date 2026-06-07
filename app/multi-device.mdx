@@ -1,11 +1,11 @@
 ---
 title: Multi-Device
-description: Public multi-device trust architecture for Enigm.
+description: Public multi-Device Trust architecture for Enigm.
 ---
 
 Multi-device support in Enigm App is a trust and security problem. An Enigm account may be associated with multiple trusted devices, but each device must establish trust before receiving access to protected account resources.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public multi-device trust architecture without exposing protocol messages, non-public routing identifiers, infrastructure names, storage paths, operational topology, sensitive values, or implementation-sensitive details.
+This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public multi-Device Trust architecture without exposing protocol messages, non-public routing identifiers, infrastructure names, storage paths, operational topology, sensitive values, or implementation-sensitive details.
 
 ## Overview
 
@@ -24,11 +24,11 @@ Enigm OS may contribute additional integrity signals where deployed, but it is n
 
 ## Device Trust Model
 
-Device trust and account trust are separate concepts.
+Device Trust and Account Trust are separate concepts.
 
-Account trust evaluates account authentication, session lifecycle, account policy, and recovery state. Device trust evaluates whether a specific device is enrolled, trusted, revoked, replaced, or restricted.
+Account Trust evaluates account authentication, session lifecycle, account policy, and recovery state. Device Trust evaluates whether a specific device is enrolled, trusted, revoked, replaced, or restricted.
 
-Device trust considers:
+Device Trust considers:
 
 - Device enrollment state.
 - Device association state.
@@ -45,7 +45,7 @@ A valid account session does not automatically establish trust for a newly intro
 
 Device enrollment is explicit. A new device must establish trust before receiving access to protected account resources.
 
-Enrollment should verify that the new device is authorized to join the account context. Existing trusted devices may participate in enrollment workflows where supported. Managed deployments may also use Enigm Command policy to review or approve enrollment.
+Enrollment should verify that the new device is authorized to join the account context. Existing trusted devices participate in enrollment workflows when user-approved trust establishment is used. Managed deployments may also use Enigm Command policy to review or approve enrollment.
 
 Enrollment is security-sensitive because it can affect:
 
@@ -60,7 +60,7 @@ Enrollment is security-sensitive because it can affect:
 
 Device association links an Enigm account to a specific trusted device context.
 
-Device association should use privacy-preserving identifiers where possible. These identifiers support lifecycle review, policy evaluation, and audit correlation without exposing unnecessary public identity metadata.
+Device association should use Privacy-Preserving Device Handles. These identifiers support lifecycle review, policy evaluation, and audit correlation without exposing unnecessary public identity metadata.
 
 Device association must not be treated as a passive metadata update. It is an authorization-sensitive event that changes which devices may participate in protected workflows.
 
@@ -92,7 +92,7 @@ A revoked device must not continue receiving newly protected content. Revocation
 - Future use of device-associated protected key state.
 - Enigm Command lifecycle status.
 
-Revocation does not guarantee removal of content already received and decrypted on a device before revocation. This is a security limitation of any model where an endpoint previously had authorized access.
+Revocation does not ensure removal of content already received and decrypted on a device before revocation. This is a security limitation of any model where an endpoint previously had authorized access.
 
 ## Device Replacement
 
@@ -121,8 +121,8 @@ Security considerations include:
 - Device enrollment must be explicit.
 - New devices must establish trust before receiving account resources.
 - Device association is security-sensitive.
-- Existing trusted devices may participate in enrollment where supported.
-- Device trust and account trust must remain separate.
+- Existing trusted devices may participate in enrollment when user-approved trust establishment is used.
+- Device Trust and Account Trust must remain separate.
 - Revoked devices must not receive newly protected content.
 - Multi-device workflows must not silently copy private key material without an explicit trust workflow.
 - Administrative functions must not provide plaintext access to messages.
@@ -162,8 +162,8 @@ flowchart TD
   Account --> C
 
   Candidate -. "enrollment request" .-> Account
-  A -. "trust establishment where supported" .-> Candidate
-  Control -. "managed review where applicable" .-> Candidate
+  A -. "user-approved trust establishment" .-> Candidate
+  Control -. "managed review" .-> Candidate
   Candidate -. "approved association" .-> Account
 
   B -. "revocation event" .-> Revoked
@@ -172,16 +172,16 @@ flowchart TD
 
 ## Security Limitations
 
-Multi-device trust reduces risk but does not remove every endpoint risk.
+Multi-Device Trust reduces risk but does not remove every endpoint risk.
 
 Important limitations:
 
 - A compromised trusted device may expose content after authorized local decryption.
-- Revocation affects future trust decisions but cannot guarantee removal of content already accessed by the revoked device.
+- Revocation affects future trust decisions but cannot ensure removal of content already accessed by the revoked device.
 - User disclosure can move content outside Enigm controls.
 - External recording or capture can occur outside the app security boundary.
 - Incorrect administrative policy can affect device lifecycle behavior.
-- Enigm OS can provide additional integrity signals, but multi-device trust must remain valid without requiring Enigm OS.
+- Enigm OS can provide additional integrity signals, but multi-Device Trust must remain valid without requiring Enigm OS.
 
 ## Threat Model References
 

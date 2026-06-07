@@ -3,7 +3,7 @@ title: Launcher
 description: Public architecture specification for the Enigm OS Launcher.
 ---
 
-The Enigm OS Launcher is the primary security-oriented home experience of Enigm OS. It provides a reduced and controlled user surface focused on device trust visibility, essential operational information, and direct access to Enigm App.
+The Enigm OS Launcher is the primary security-oriented home experience of Enigm OS. It provides a reduced and controlled user surface focused on Device Trust visibility, essential operational information, and direct access to Enigm App.
 
 The Launcher is not intended to function as a traditional general-purpose mobile launcher. It is designed as a secure entry point into the Enigm ecosystem.
 
@@ -15,7 +15,7 @@ The Launcher presents the primary home experience after Enigm OS setup. It is de
 
 The Launcher provides:
 
-- Device trust visibility.
+- Device Trust visibility.
 - Security state visibility.
 - Essential operational information.
 - Direct access to Enigm App.
@@ -87,13 +87,13 @@ These summaries are intended to help users understand whether the device is read
 
 The Launcher may display security-relevant platform status such as:
 
-- Device trust state.
+- Device Trust state.
 - Secure network status.
 - Privacy mode state.
 - Security notifications.
 - Managed device status.
 
-Security status presentation should be concise and should direct users to Trust Security Center for detailed findings where supported.
+Security status presentation should be concise and should direct users to Trust Security Center for detailed findings.
 
 The Launcher should not expose sensitive enforcement mechanics or low-level policy details. Its role is to present clear security posture, not to reveal how platform controls are evaluated.
 
@@ -139,9 +139,9 @@ Limitations include:
 - It does not replace Trust Security Center.
 - It does not replace Enigm App end-to-end encryption.
 - It does not prevent unsafe user decisions.
-- It does not guarantee that all external systems are trustworthy.
+- It does not ensure that all external systems are trustworthy.
 - It does not remove risk from endpoint compromise.
 - It does not provide message plaintext access.
 - It does not make administrative state equivalent to message visibility.
 
-The Launcher should be evaluated as a presentation and navigation layer within the Enigm OS security architecture. Device trust remains dependent on Trust Security Center, Enigm OS security services, verified software state, policy compliance, and application-level controls.
+The Launcher should be evaluated as a presentation and navigation layer within the Enigm OS security architecture. Device Trust remains dependent on Trust Security Center, Enigm OS security services, verified software state, policy compliance, and application-level controls.

@@ -3,7 +3,7 @@ title: OTA Overview
 description: Public overview of the Enigm OS OTA update architecture.
 ---
 
-Enigm OS OTA is the controlled update architecture for securely delivering trusted software updates to eligible devices. OTA updates are part of the Enigm OS security model because device trust depends on software authenticity, software integrity, device eligibility, and governed rollout behavior.
+Enigm OS OTA is the controlled update architecture for securely delivering trusted software updates to eligible devices. OTA updates are part of the Enigm OS security model because Device Trust depends on software authenticity, software integrity, device eligibility, and governed rollout behavior.
 
 This document is the entry point for the Enigm OS OTA documentation section. It is intended for Android engineers, security auditors, enterprise customers, and technical partners.
 
@@ -86,7 +86,7 @@ Eligibility may depend on:
 - Enrollment status.
 - Release channel.
 - Rollout policy.
-- Remote attestation.
+- Remote Attestation.
 
 Device eligibility supports controlled release exposure and helps ensure that updates are offered to devices appropriate for the release channel and trust requirements.
 
@@ -132,18 +132,18 @@ OTA evaluates release eligibility and supports secure software delivery.
 
 These systems serve different purposes:
 
-- Trust Security Center reports local device trust state.
+- Trust Security Center reports local Device Trust state.
 - OTA determines whether a release should be offered and verified for installation.
 
-Trust Security Center may surface update-related posture where supported, but it does not replace OTA eligibility or release verification.
+Trust Security Center may surface update-related posture, but it does not replace OTA Eligibility or release verification.
 
 ## Relationship With Remote Attestation
 
-Remote attestation is an additional eligibility signal.
+Remote Attestation is an additional eligibility signal.
 
-Remote attestation can complement OTA security controls by contributing device integrity evidence before a release is offered or installed where supported.
+Remote Attestation complements OTA security controls by contributing device integrity evidence before a release is offered or installed when device-integrity evidence is required.
 
-Remote attestation does not replace release signing, device-side verification, or controlled rollout governance.
+Remote Attestation does not replace release signing, device-side verification, or controlled rollout governance.
 
 ## Relationship With Production Signing
 
@@ -151,7 +151,7 @@ Production signing establishes release authenticity.
 
 OTA delivery does not replace release signing. A release must be treated as trusted only when the required authenticity and integrity checks succeed.
 
-Production signing, OTA eligibility, device verification, and controlled rollout governance are separate but complementary controls in the Enigm OS update model.
+Production signing, OTA Eligibility, device verification, and controlled rollout governance are separate but complementary controls in the Enigm OS update model.
 
 ## Security Limitations
 
@@ -161,11 +161,11 @@ Limitations include:
 
 - Eligible devices must still verify releases before installation.
 - Controlled rollouts do not replace release authenticity.
-- Release authenticity does not replace device trust evaluation.
-- Remote attestation is a signal, not a complete guarantee of device safety.
-- Update installation does not guarantee that all future device behavior remains trusted.
+- Release authenticity does not replace Device Trust evaluation.
+- Remote Attestation is a signal, not a complete assurance of device safety.
+- Update installation does not ensure that all future device behavior remains trusted.
 - OTA does not protect against unsafe user decisions.
 - OTA does not provide message plaintext access.
 - OTA does not replace Enigm App end-to-end encryption.
 
-OTA should be evaluated as one part of the Enigm OS security architecture, alongside production signing, remote attestation, Trust Security Center, platform hardening, and Enigm App security controls.
+OTA should be evaluated as one part of the Enigm OS security architecture, alongside production signing, Remote Attestation, Trust Security Center, platform hardening, and Enigm App security controls.

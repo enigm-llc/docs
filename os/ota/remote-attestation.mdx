@@ -1,19 +1,19 @@
 ---
 title: Remote Attestation
-description: Public remote attestation model for Enigm OS OTA eligibility.
+description: Public Remote Attestation model for Enigm OS OTA Eligibility.
 ---
 
-The Enigm OS OTA architecture is designed to support remote attestation as an additional production hardening layer. Remote attestation can be used to help determine whether a device is eligible for enrollment, registration, protected update metadata, private update artifacts, or sensitive rollout channels.
+The Enigm OS OTA architecture is designed to support Remote Attestation as an additional production hardening layer. Remote Attestation can be used to help determine whether a device is eligible for enrollment, registration, protected update metadata, private update artifacts, or sensitive rollout channels.
 
-Remote attestation is an intended production hardening layer once enabled in the client integration. This document does not claim that every production device is necessarily attested on every request.
+Remote Attestation is an intended production hardening layer once enabled in the client integration. This document does not claim that every production device is necessarily attested on every request.
 
 This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
 
 ## Overview
 
-Remote attestation is designed to support eligibility decisions based on device-produced security evidence.
+Remote Attestation is designed to support eligibility decisions based on device-produced security evidence.
 
-Within the Enigm OS OTA model, remote attestation is intended to help determine whether a device is eligible to:
+Within the Enigm OS OTA model, Remote Attestation is intended to help determine whether a device is eligible to:
 
 - Enroll.
 - Register.
@@ -43,7 +43,7 @@ The diagram is conceptual and describes eligibility flow at a public architectur
 
 ## Security Purpose
 
-Remote attestation may be used to evaluate:
+Remote Attestation may be used to evaluate:
 
 - Device integrity.
 - Verified software state.
@@ -53,27 +53,27 @@ Remote attestation may be used to evaluate:
 - Channel eligibility.
 - Update authorization.
 
-The backend may require remote attestation for selected protected workflows once the client integration supports it. Attestation can be used to determine eligibility, but it should be evaluated alongside other OTA security controls.
+The backend may require Remote Attestation for selected protected workflows once the client integration supports it. Attestation can be used to determine eligibility, but it should be evaluated alongside other OTA security controls.
 
 ## Relationship With OTA Security
 
-Remote attestation complements but does not replace:
+Remote Attestation complements but does not replace:
 
 - Transport authentication.
 - Request authentication.
 - Manifest verification.
 - Artifact verification.
-- Hardware-backed signing.
+- Hardware-Backed Signing.
 - Rollout policy.
 - Device enrollment controls.
 
-Remote attestation is an additional eligibility signal. It does not make unsigned metadata, unsigned artifacts, weak transport authentication or uncontrolled rollout policy acceptable.
+Remote Attestation is an additional eligibility signal. It does not make unsigned metadata, unsigned artifacts, weak transport authentication or uncontrolled rollout policy acceptable.
 
 OTA security remains a layered model. Attestation contributes device integrity evidence, while signing, verification, authentication, and rollout governance protect other parts of the update lifecycle.
 
 ## Device Eligibility
 
-Remote attestation can be used to determine eligibility for security-sensitive OTA workflows.
+Remote Attestation can be used to determine eligibility for security-sensitive OTA workflows.
 
 Eligibility may include:
 
@@ -85,7 +85,7 @@ Eligibility may include:
 - Release channel eligibility.
 - Update authorization.
 
-Device eligibility should not rely only on attestation. Eligibility decisions should consider enrollment state, device handles, rollout policy, channel policy, and request context where supported.
+Device eligibility should not rely only on attestation. Eligibility decisions should consider enrollment state, Privacy-Preserving Device Handles, rollout policy, channel policy, and request context.
 
 ## Attestation Evidence
 
@@ -114,7 +114,7 @@ Verification requirements may include:
 - Root of trust.
 - Device integrity.
 - Enrollment binding.
-- Device handle binding.
+- Privacy-Preserving Device Handle binding.
 - Freshness.
 - Channel eligibility.
 - Device eligibility.
@@ -157,7 +157,7 @@ Relay protection is intended to reduce risk where valid evidence is forwarded, r
 
 ## Privacy Model
 
-Remote attestation is intended to support security eligibility decisions, not user content collection.
+Remote Attestation is intended to support security eligibility decisions, not user content collection.
 
 Attestation is not intended to collect:
 
@@ -168,7 +168,7 @@ Attestation is not intended to collect:
 
 Privacy principles include:
 
-- Use privacy-preserving device handles where possible.
+- Use Privacy-Preserving Device Handles for device correlation.
 - Minimize device telemetry required for eligibility.
 - Scope attestation processing to security and lifecycle decisions.
 - Prefer policy outcomes over long-term storage of raw attestation payloads.
@@ -180,18 +180,18 @@ Long-term storage should prefer policy outcomes rather than raw attestation payl
 
 Trust Security Center evaluates local integrity.
 
-Remote attestation evaluates OTA eligibility.
+Remote Attestation evaluates OTA Eligibility.
 
 These systems serve different purposes:
 
 - Trust Security Center provides local device posture visibility.
-- Remote attestation can provide server-evaluated eligibility evidence for selected workflows.
+- Remote Attestation can provide server-evaluated eligibility evidence for selected workflows.
 
-Trust Security Center may surface relevant local posture, while remote attestation may contribute evidence for enrollment, registration, metadata access, artifact access, and rollout channel eligibility.
+Trust Security Center may surface relevant local posture, while Remote Attestation may contribute evidence for enrollment, registration, metadata access, artifact access, and rollout channel eligibility.
 
 ## Security Limitations
 
-Remote attestation is a security hardening layer, not a complete security solution.
+Remote Attestation is a security hardening layer, not a complete security solution.
 
 Limitations include:
 
@@ -200,11 +200,11 @@ Limitations include:
 - It does not replace request authentication.
 - It does not replace manifest verification.
 - It does not replace artifact verification.
-- It does not replace hardware-backed signing.
+- It does not replace Hardware-Backed Signing.
 - It does not replace rollout policy.
 - It does not replace device enrollment controls.
 - It does not prove that released software is free of vulnerabilities.
 - It does not prevent malicious authorized users from misusing access.
 - It does not provide message plaintext access.
 
-Remote attestation should be evaluated as an intended production hardening layer within the broader Enigm OS OTA security model.
+Remote Attestation should be evaluated as an intended production hardening layer within the broader Enigm OS OTA security model.

@@ -3,7 +3,7 @@ title: Security Architecture
 description: Authoritative public security architecture model for Enigm OS.
 ---
 
-Enigm OS is a controlled secure device platform within the Enigm ecosystem. It is designed to provide additional device trust, platform hardening, and security control for users and deployments that require a dedicated secure device layer.
+Enigm OS is a controlled secure device platform within the Enigm ecosystem. It is designed to provide additional Device Trust, platform hardening, and security control for users and deployments that require a dedicated secure device layer.
 
 Enigm OS is not the primary Enigm product. Enigm App remains the primary user-facing product for secure messaging, secure calls, account workflows, and user interaction. Enigm OS strengthens the device environment in which Enigm App and managed device workflows may operate.
 
@@ -11,7 +11,7 @@ This document is intended for Android engineers, security auditors, enterprise c
 
 ## Overview
 
-Enigm OS establishes device trust through multiple independent security layers. These layers are intended to make device state observable, enforce security policy, reduce unnecessary system exposure, and support controlled update and device lifecycle operations.
+Enigm OS establishes Device Trust through multiple independent security layers. These layers are intended to make device state observable, enforce security policy, reduce unnecessary system exposure, and support controlled update and device lifecycle operations.
 
 The architecture focuses on:
 
@@ -31,7 +31,7 @@ Enigm OS does not replace end-to-end encryption, protected Enigm App key materia
 The primary security objectives of Enigm OS are:
 
 - Provide a controlled secure device platform for supported deployments.
-- Establish device trust using layered security signals.
+- Establish Device Trust using layered security signals.
 - Reduce attack surface through platform hardening.
 - Enforce security-focused defaults.
 - Support secure device management and lifecycle operations.
@@ -47,11 +47,11 @@ Enigm OS security architecture is organized around device state, software trust,
 
 At a high level:
 
-- Hardware and device integrity provide the lowest-level device trust foundation.
+- Hardware and device integrity provide the lowest-level Device Trust foundation.
 - Verified software state provides assurance that the device is running trusted production software.
 - Operating system hardening reduces exposure from unnecessary capabilities and unsafe defaults.
 - Network and policy controls constrain device behavior according to security policy.
-- Trust Security Center presents security posture and trust state to users and administrators where supported.
+- Trust Security Center presents security posture and trust state to users and administrators.
 - Enigm App uses app-level cryptography and protected key material independently of OS-level controls.
 
 ```mermaid
@@ -85,13 +85,13 @@ Enigm OS separates the following trust domains:
 - Enigm Command device lifecycle management.
 - OTA release and verification lifecycle.
 
-These boundaries are important because no single layer is treated as sufficient for complete platform trust. Device trust is built from multiple signals, and application-level confidentiality remains separate from device administration.
+These boundaries are important because no single layer is treated as sufficient for complete platform trust. Device Trust is built from multiple signals, and application-level confidentiality remains separate from device administration.
 
 Administrative visibility into device posture is not equivalent to access to Enigm App message plaintext.
 
 ## Device Trust Model
 
-Device trust in Enigm OS is based on multiple independent security layers.
+Device Trust in Enigm OS is based on multiple independent security layers.
 
 Relevant trust inputs include:
 
@@ -105,9 +105,9 @@ Relevant trust inputs include:
 - OTA verification state.
 - Managed device state where enabled.
 
-Device trust is not a single binary claim. It is a security posture model that can inform Enigm App, Enigm Command, managed device workflows, and enterprise review processes.
+Device Trust is not a single binary claim. It is a security posture model that can inform Enigm App, Enigm Command, managed device workflows, and enterprise review processes.
 
-Device trust also remains distinct from account trust. A device may be associated with an Enigm account, but account authorization and device posture are separate security concepts.
+Device Trust also remains distinct from Account Trust. A device may be associated with an Enigm account, but account authorization and device posture are separate security concepts.
 
 ## Platform Hardening
 
@@ -124,7 +124,7 @@ Platform hardening includes:
 - Controlled setup and onboarding behavior.
 - Security service enforcement.
 
-These controls are intended to reduce risk and constrain unsafe device behavior. They do not make endpoint compromise impossible and must be evaluated alongside user behavior, account state, and application-level controls.
+These controls are intended to reduce risk and constrain unsafe device behavior. They do not eliminate endpoint compromise risk and must be evaluated alongside user behavior, account state, and application-level controls.
 
 ## Security Layers
 
@@ -132,9 +132,9 @@ Enigm OS uses a layered security model.
 
 ### Layer 1: Hardware And Device Integrity
 
-The hardware and device integrity layer provides the foundation for device trust. It supports evaluation of whether the device remains in an expected trust state before higher-level security decisions rely on it.
+The hardware and device integrity layer provides the foundation for Device Trust. It supports evaluation of whether the device remains in an expected trust state before higher-level security decisions rely on it.
 
-This layer is relevant to protected key material, device posture, and managed device trust decisions.
+This layer is relevant to protected key material, device posture, and managed Device Trust decisions.
 
 ### Layer 2: Verified Boot And Software Trust
 
@@ -160,7 +160,7 @@ Network controls do not replace Enigm App end-to-end encryption or protected key
 
 Trust Security Center provides user-visible and administrator-reviewable security posture.
 
-It helps surface device trust state, security service state, policy posture, and relevant trust signals without exposing message plaintext or bypassing app-level confidentiality controls.
+It helps surface Device Trust state, security service state, policy posture, and relevant trust signals without exposing message plaintext or bypassing app-level confidentiality controls.
 
 ### Layer 6: Application-Level Security
 
@@ -206,9 +206,9 @@ Trust Security Center does not replace cryptographic verification workflows in E
 
 OTA is the controlled update architecture for Enigm OS.
 
-OTA supports release lifecycle, signing, update verification, controlled rollout, client verification, and rollback-aware security policy where supported. The update chain is part of the Enigm OS trust model because device security depends on trusted production software state.
+OTA supports release lifecycle, signing, update verification, controlled rollout, client verification, and rollback-aware security policy. The update chain is part of the Enigm OS trust model because device security depends on trusted production software state.
 
-OTA does not replace device trust evaluation. It contributes to trusted software state as one layer in the broader security architecture.
+OTA does not replace Device Trust evaluation. It contributes to trusted software state as one layer in the broader security architecture.
 
 ## Security Limitations
 

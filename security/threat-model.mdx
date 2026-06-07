@@ -3,7 +3,7 @@ title: Threat Model
 description: Public threat-model framework for Enigm products and services.
 ---
 
-The Enigm threat model covers Enigm App, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, Enigm Command, VPN Network, Proxy Network, Tor Gateway, hardware-backed signing, and controlled device management.
+The Enigm threat model covers Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing, and Controlled Device Management.
 
 This document provides a public framework for review. It avoids deployment-specific topology, non-public component identifiers, environment-specific network details, and operational details that could reduce system security.
 
@@ -12,11 +12,15 @@ This document provides a public framework for review. It avoids deployment-speci
 The threat model considers the following asset categories:
 
 - Enigm App account state, session state, secure messaging state, secure call state, and multi-device state
-- Privacy-preserving device handles and controlled device management lifecycle records
+- Privacy-Preserving Device Handles and Controlled Device Management lifecycle records
 - Enigm OS trust state, Trust Security Center state, network policy, privacy mode, and device-management state
 - OTA release artifacts, release metadata, signing state, rollout state, client-verification state, and Remote Attestation outcomes
-- Enigm Command administrative actions, approval history, and policy assignments
-- VPN Network, Proxy Network, and Tor Gateway policy outcomes
+- Enigm Command account lifecycle actions, deletion workflows, session controls, device lifecycle actions, product lifecycle actions, approval history, and policy assignments
+- Enigm Server join request state, membership state, server-scoped lifecycle state, and audit visibility
+- Enigm eSIM activation state, Enigm account association, lifecycle state, and connectivity policy outcomes
+- Payment status, product entitlement state, payment method category, Code Coin redemption state, purchase country selected by the user, and invoice records when requested
+- VPN Service and Proxy Network policy outcomes
+- Tor Gateway access outcomes for selected web surfaces
 - Threat Intelligence Platform signals, Enyra outputs, risk categories, and blocking outcomes
 - Audit records
 
@@ -28,11 +32,19 @@ An actor attempts to misuse Enigm App account state, session state, secure messa
 
 Expected controls include secure identity layer enforcement, scoped authorization, key-management controls, multi-device lifecycle controls, and audit records.
 
+### Conversation policy misuse
+
+An actor attempts to misuse conversation or group policy to send, forward, delete, retain, or expose protected messages, files, images, videos, or other supported multimedia outside authorized policy.
+
+Expected controls include conversation policy evaluation, group permission enforcement, Device Trust checks, protected key material, secure viewers, lifecycle auditability, expiration policy, forwarding controls, deletion controls, and separation from administrative plaintext access.
+
+Capture-resistance controls are modeled as exposure-reduction controls. They are not modeled as complete protection against compromised endpoints, external recording, intentional user disclosure, or modified operating environments.
+
 ### Device lifecycle abuse
 
-An actor attempts to enroll, reactivate, suspend, revoke, or retire a device outside authorized controlled device management workflows.
+An actor attempts to enroll, reactivate, suspend, revoke, or retire a device outside authorized Controlled Device Management workflows.
 
-Expected controls include privacy-preserving device handles, Enigm Command authorization, lifecycle audit events, and deny-by-default policy behavior.
+Expected controls include Privacy-Preserving Device Handles, Enigm Command authorization, lifecycle audit events, and deny-by-default policy behavior.
 
 ### Enigm OS policy bypass
 
@@ -44,13 +56,31 @@ Expected controls include device-level policy enforcement, Trust Security Center
 
 An update package, policy bundle, configuration bundle, release metadata, or device-facing artifact is modified, misclassified, or accepted without valid verification.
 
-Expected controls include OTA Architecture release controls, hardware-backed signing where applicable, client verification, Remote Attestation where applicable, release traceability, and rejection of failed verification.
+Expected controls include OTA Architecture release controls, Hardware-Backed Signing for security-sensitive release materials, client verification, Remote Attestation as an OTA Eligibility signal, release traceability, and rejection of failed verification.
 
 ### Network-policy misuse
 
-An actor attempts to misuse VPN Network, Proxy Network, or Tor Gateway policy, routing eligibility, or blocking outcomes.
+An actor attempts to misuse VPN Service, Proxy Network, Enigm eSIM connectivity policy, or Tor Gateway policy, routing eligibility, access eligibility, or blocking outcomes.
 
 Expected controls include policy evaluation, authorization, audit records, separation from protected content logging, and controlled configuration review.
+
+### Enigm Key misuse
+
+An actor attempts to misuse Enigm Key association, emergency activation, device authentication, emergency contacts, event-bound location sharing, revocation, replacement, or lifecycle visibility.
+
+Expected controls include Enigm App initial linking, user-controlled emergency contact configuration, device-bound authenticated signing material, encrypted communication, rejection of unauthenticated device traffic, event-bound location sharing, Enigm Command lifecycle scoping, and revocation for lost, stolen, retired, or replaced devices.
+
+Enigm Key emergency workflows are modeled as bounded emergency events. They are not modeled as routine location tracking, protected message access, secure call access, attachment access, or private key access.
+
+### Enigm Server abuse
+
+An actor attempts to misuse Enigm Server purchase, creation, server ID join requests, membership control, server-scoped content lifecycle controls, region selection, or deletion workflows.
+
+Expected controls include Enigm Command authorization, server owner or authorized administrator scoping, join request auditability, server membership review, encrypted content availability controls, and separation from message plaintext, attachment plaintext, user communications, private key material, and cryptographic authority.
+
+The server ID is modeled as a join-request locator, not as an access credential. Possession or disclosure of a server ID should not grant membership, Device Trust, protected key access, or encrypted content access without administrator approval and normal Enigm App authorization controls.
+
+Administrative deletion controls are modeled as lifecycle and availability controls over encrypted content objects. They are not modeled as content visibility, content decryption, plaintext access, or cryptographic key access.
 
 ### Intelligence manipulation
 
@@ -60,7 +90,7 @@ Expected controls include classified handling, source authorization, normalizati
 
 ### Enigm Command abuse
 
-An actor attempts to misuse privileged administrative workflows, change policy, alter device-management state, view restricted audit data, or alter rollout state outside approved scope.
+An actor attempts to misuse privileged workflows, delete account or platform data outside authorized scope, close or preserve sessions improperly, remove or retain devices improperly, change policy, alter device-management state, view restricted audit data, or alter rollout state outside approved scope.
 
 Expected controls include strong administrative identity, explicit authorization, role separation, approval workflows, and auditability.
 
@@ -68,7 +98,7 @@ Expected controls include strong administrative identity, explicit authorization
 
 Security-relevant events are unavailable, incomplete, or insufficient to support investigation and compliance review.
 
-Expected controls include audit event generation for Enigm App, Enigm OS, Trust Security Center, Enigm Command, OTA Architecture, network policy, Threat Intelligence Platform, Enyra, and controlled device management.
+Expected controls include audit event generation for Enigm App, Enigm OS, Trust Security Center, Enigm Command, OTA Architecture, network policy, Threat Intelligence Platform, Enyra, and Controlled Device Management.
 
 ## Trust boundaries
 
@@ -77,24 +107,26 @@ Threat modeling should evaluate transitions between:
 - User and Enigm App
 - Enigm App and Enigm OS device state
 - Enigm OS and Trust Security Center posture representation
-- Device lifecycle and Enigm Command controlled device management
+- Device lifecycle and Enigm Command Controlled Device Management
 - Enigm OS and OTA Architecture
-- Remote Attestation and OTA eligibility decisions
-- Hardware-backed signing and artifact distribution
-- VPN Network, Proxy Network, Tor Gateway, and network-policy enforcement
+- Remote Attestation and OTA Eligibility decisions
+- Hardware-Backed Signing and artifact distribution
+- VPN Service, Proxy Network, and network-policy enforcement
+- Enigm Command, Tor Gateway access, and selected web-surface exposure
+- Enigm Command, Enigm Server management, join requests, membership, and server-scoped content lifecycle
 - Threat Intelligence Platform, Enyra, and blocking architecture
 - Enigm Command and enterprise administrative workflows
 
-Specific boundary implementation is **Implementation-dependent**.
+Each boundary is reviewed according to its documented trust domain. Public documentation describes the security objective, data exposure constraint, and authorization model for each boundary without exposing internal topology or operational procedures.
 
 ## Control mapping
 
-Threats are evaluated against defense-in-depth controls across identity, app state, OS state, privacy-preserving device handles, controlled device management, Trust Security Center posture, network policy, OTA verification, Remote Attestation, hardware-backed signing, Threat Intelligence Platform handling, Enyra outputs, and Enigm Command authorization.
+Threats are evaluated against defense-in-depth controls across identity, app state, OS state, Privacy-Preserving Device Handles, Controlled Device Management, Trust Security Center posture, network policy, OTA verification, Remote Attestation, Hardware-Backed Signing, Threat Intelligence Platform handling, Enyra outputs, and Enigm Command authorization.
 
 ## Residual risk
 
-Residual risk depends on deployment configuration, enterprise policy, integration depth, operational maturity, and product scope. Residual risk statements are **Implementation-dependent** and should be reviewed with deployment-specific evidence.
+Residual risk depends on deployment configuration, enterprise policy, integration depth, operational maturity, and product scope. Residual risk is reviewed against documented controls, available evidence, deployment constraints, and the separation between Account Trust, Device Trust, OTA Eligibility, Remote Attestation, and Administrative Authorization.
 
 ## Review cadence
 
-Threat-model review cadence and evidence format are **Implementation-dependent**.
+Threat-model reviews are part of Enigm security governance. Review evidence is maintained at a level appropriate for audit and enterprise assurance while avoiding public disclosure of operational procedures, internal topology, or implementation-sensitive controls.

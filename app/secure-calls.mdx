@@ -3,7 +3,7 @@ title: Secure Calls
 description: Public security model for Enigm secure voice and video communications.
 ---
 
-Enigm App supports secure voice and video communications. Secure calling follows the same trust model as secure messaging: account trust, device trust, protected key material, session authorization, and policy state are evaluated before protected communication is established.
+Enigm App supports secure voice and video communications. Secure calling follows the same trust model as secure messaging: Account Trust, Device Trust, protected key material, session authorization, and policy state are evaluated before protected communication is established.
 
 This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public security architecture for Enigm secure calling without exposing protocol internals, infrastructure names, routing details, media service names, transport implementation details, non-public routing identifiers, key values, or sensitive authorization material.
 
@@ -13,16 +13,16 @@ Enigm secure calling is designed to protect voice and video communications in tr
 
 The model separates:
 
-- Call identity from device trust.
+- Call identity from Device Trust.
 - Call authorization from media transport.
 - Channel access authorization from media encryption state.
 - Administrative visibility from call content access.
 
-Call security is independent from the transport network used by the device. VPN Network, Proxy Network, Enigm eSIM, Tor Gateway, or standard connectivity may affect network path and policy, but they do not define the call security model.
+Call security is independent from the transport network used by the device. VPN Service, Proxy Network, Enigm eSIM, or standard connectivity may affect network path and policy, but they do not define the call security model.
 
 ## Secure Communication Model
 
-Secure calling is an Enigm App-level security workflow. The app evaluates participant identity, device association, device trust state, protected key material, and call policy before allowing protected media exchange.
+Secure calling is an Enigm App-level security workflow. The app evaluates participant identity, device association, Device Trust state, protected key material, and call policy before allowing protected media exchange.
 
 The secure communication model is designed to:
 
@@ -46,20 +46,20 @@ At a documentation-safe level, call setup includes:
 2. Recipient account and device eligibility evaluation.
 3. Policy evaluation for call participation.
 4. Protected key material preparation.
-5. Post-quantum protection for call-channel join key material where applicable.
+5. Post-quantum protection for call-channel join key material.
 6. Issuance or validation of ephemeral channel authorization tokens for joining the call channel.
 7. Secure media session establishment.
 8. Voice or video media exchange after authorization succeeds.
 
-The encryption key material used to join a call channel is protected by the Enigm post-quantum security model where applicable. Separately, Enigm uses an authorization-token model for joining the call channel. These tokens represent channel access authorization; they must not grant access to call plaintext outside the authorized secure session.
+The encryption key material used to join a call channel is protected by the Enigm post-quantum security model. Separately, Enigm uses an authorization-token model for joining the call channel. These tokens represent channel access authorization; they must not grant access to call plaintext outside the authorized secure session.
 
 Token values, token formats, cryptographic parameters, signaling details, media negotiation details, and transport behavior are not disclosed in public documentation.
 
 ## Device Trust Requirements
 
-Device trust remains relevant for call security. A valid account session does not automatically make a device eligible for secure voice or video calls.
+Device Trust remains relevant for call security. A valid account session does not automatically make a device eligible for secure voice or video calls.
 
-Device trust may evaluate:
+Device Trust may evaluate:
 
 - Account association.
 - Privacy-preserving device handle.
@@ -70,7 +70,7 @@ Device trust may evaluate:
 - Local unlock state.
 - OS security posture.
 - Optional Trust Security Center posture where Enigm OS is deployed.
-- Optional Remote Attestation outcome where applicable.
+- Remote Attestation outcome when device-integrity evidence is required.
 
 A revoked device should lose future eligibility for secure call participation according to lifecycle policy.
 
@@ -86,7 +86,7 @@ Voice call handling should:
 - Avoid retaining call audio content in routine workflows.
 - Avoid exposing audio content to administrative systems.
 
-Voice modulation may be available as a privacy feature where implemented and enabled by user or policy. Voice modulation is intended to reduce direct voice recognizability during supported calls. It does not guarantee anonymity, does not replace secure session establishment, and does not protect against endpoint compromise, external recording, or voice analysis outside Enigm controls.
+Voice modulation is a privacy feature when enabled by user or policy. Voice modulation is intended to reduce direct voice recognizability during supported calls. It does not eliminate voice-identification risk, does not replace secure session establishment, and does not protect against endpoint compromise, external recording, or voice analysis outside Enigm controls.
 
 Call quality, retry behavior, network adaptation, and transport behavior are not described in public documentation.
 
@@ -97,7 +97,7 @@ Secure video communications follow the same security model as voice communicatio
 Video call handling should:
 
 - Require secure session establishment before media exchange.
-- Apply the same participant and device trust checks as voice calls.
+- Apply the same participant and Device Trust checks as voice calls.
 - Protect video media in transit.
 - Avoid exposing video content to administrative systems.
 - Avoid routine retention of protected video content.
@@ -114,8 +114,8 @@ Metadata may be required for:
 - Participant eligibility.
 - Device lifecycle evaluation.
 - Channel authorization.
-- Abuse handling where applicable.
-- Enterprise policy enforcement where applicable.
+- Abuse handling.
+- Enterprise policy enforcement.
 - Audit-relevant lifecycle events.
 
 Metadata should be separated from call content. Administrative systems may review lifecycle or policy evidence, but they must not provide access to call audio, video, or decrypted media content.
@@ -158,7 +158,7 @@ Remote participants and endpoint environments remain part of the security bounda
 
 Enigm OS can provide additional hardening for deployments that require a dedicated secure device layer. It may contribute Trust Security Center posture, network-policy state, privacy-mode state, managed device state, OTA verification state, and Remote Attestation outcomes.
 
-Enigm OS hardening can strengthen device trust decisions, but Enigm secure calling remains an Enigm App-level security model. The secure calling model must remain understandable and enforceable even when Enigm OS is not deployed.
+Enigm OS hardening can strengthen Device Trust decisions, but Enigm secure calling remains an Enigm App-level security model. The secure calling model must remain understandable and enforceable even when Enigm OS is not deployed.
 
 ## Threat Model References
 
