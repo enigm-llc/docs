@@ -4,129 +4,121 @@ description: Frequently asked questions about Enigm products, privacy, security,
 mode: wide
 ---
 
-This FAQ summarizes common questions about the Enigm ecosystem at a public architecture level.
+A collection of common questions about the Enigm ecosystem.
 
-## Products
+<AccordionGroup>
+  <Accordion title="What is Enigm?">
+    Enigm is the private messaging product in the Enigm ecosystem. It provides secure messaging, secure calls, account onboarding, device association, Active Defense, multi-device workflows, VPN Service usage, and Proxy Network traffic separation.
+  </Accordion>
 
-### What is Enigm?
+  <Accordion title="What is Enigm Command?">
+    Enigm Command is the web control panel for account lifecycle, device visibility, session control, Enigm Server management, Enigm eSIM management, Enigm Key device visibility, product lifecycle, payment workflows, and managed-device operations.
 
-Enigm is the private messaging product in the Enigm ecosystem. It provides secure messaging, secure calls, account onboarding, device association, Active Defense, multi-device workflows, VPN Service usage, and Proxy Network traffic separation.
+    Enigm Command is not a messaging client and does not provide plaintext access to messages, attachments, calls, or private keys.
+  </Accordion>
 
-### What is Enigm Command?
+  <Accordion title="What is Enigm Server?">
+    Enigm Server is a dedicated private messaging environment for approved Enigm users. It supports controlled membership, server ID join requests, administrator approval, region selection, and lifecycle control over server-scoped encrypted content.
 
-Enigm Command is the web control panel for account lifecycle, device visibility, session control, Enigm Server management, Enigm eSIM management, Enigm Key device visibility, product lifecycle, payment workflows, and managed-device operations.
+    Server administrators can manage membership and encrypted content availability. They cannot read message plaintext, attachment plaintext, user communications, or private key material.
+  </Accordion>
 
-Enigm Command is not a messaging client and does not provide plaintext access to messages, attachments, calls, or private keys.
+  <Accordion title="What is Enigm OS?">
+    Enigm OS is a secure operating system designed to provide additional Device Trust, platform hardening, Trust Security Center visibility, network policy controls, controlled device management, and secure update governance.
 
-### What is Enigm Server?
+    Enigm OS strengthens device posture, but it does not replace end-to-end encryption, user trust decisions, secure messaging architecture, or security awareness.
+  </Accordion>
 
-Enigm Server is a dedicated private messaging environment for approved Enigm users. It supports controlled membership, server ID join requests, administrator approval, region selection, and lifecycle control over server-scoped encrypted content.
+  <Accordion title="What is Enigm Key?">
+    Enigm Key is a physical emergency key device. It allows a user to trigger an SOS workflow that notifies selected contacts and shares event-bound location information until the user cancels the emergency sending workflow.
 
-Server administrators can manage membership and encrypted content availability. They cannot read message plaintext, attachment plaintext, user communications, or private key material.
+    Enigm Key remains dormant during normal non-emergency operation to support user privacy.
+  </Accordion>
 
-### What is Enigm OS?
+  <Accordion title="What is Enigm eSIM?">
+    Enigm eSIM is a private connectivity product focused on data-only mobile connectivity. It is purchased and managed through Enigm Command and linked to the user's Enigm account.
 
-Enigm OS is a secure operating system designed to provide additional Device Trust, platform hardening, Trust Security Center visibility, network policy controls, controlled device management, and secure update governance.
+    Enigm eSIM is separate from secure messaging, end-to-end encryption, VPN Service, Proxy Network, and Device Trust.
+  </Accordion>
 
-Enigm OS strengthens device posture, but it does not replace end-to-end encryption, user trust decisions, secure messaging architecture, or security awareness.
+  <Accordion title="Does Enigm require email, phone number, or identity document for standard account registration?">
+    Standard Enigm account registration is designed to minimize dependency on public identifiers. Enigm does not require email address, phone number, or identity document collection for normal account registration.
+  </Accordion>
 
-### What is Enigm Key?
+  <Accordion title="What data does Enigm minimize?">
+    Enigm is designed around data minimization, identity minimization, metadata reduction, privacy-preserving identifiers, content confidentiality, and user control.
 
-Enigm Key is a physical emergency key device. It allows a user to trigger an SOS workflow that notifies selected contacts and shares event-bound location information until the user cancels the emergency sending workflow.
+    The platform collects and retains only the information required to operate services, provide security functions, maintain platform integrity, support lawful compliance obligations, and preserve operational reliability.
+  </Accordion>
 
-Enigm Key remains dormant during normal non-emergency operation to support user privacy.
+  <Accordion title="Can Enigm read messages or attachments?">
+    Enigm administrative systems are not intended to provide plaintext access to messages, attachments, secure call content, media, or user conversations.
 
-### What is Enigm eSIM?
+    Server-side message storage, where required for delivery, stores encrypted content objects.
+  </Accordion>
 
-Enigm eSIM is a private connectivity product focused on data-only mobile connectivity. It is purchased and managed through Enigm Command and linked to the user's Enigm account.
+  <Accordion title="Are metadata and operational identifiers protected?">
+    Metadata and operational identifiers are minimized, purpose-limited, access-controlled, and protected at rest and in transit. Enigm uses privacy-preserving identifiers where device or lifecycle correlation is required.
 
-Enigm eSIM is separate from secure messaging, end-to-end encryption, VPN Service, Proxy Network, and Device Trust.
+    Some operational identifiers remain necessary to route services, authenticate requests, enforce lifecycle controls, support security monitoring, and maintain platform integrity.
+  </Accordion>
 
-## Privacy
+  <Accordion title="How does Enigm protect messages?">
+    Enigm messaging uses end-to-end encryption. Message access depends on trusted device association and protected key material. Administrative controls do not grant message plaintext access.
+  </Accordion>
 
-### Does Enigm require email, phone number, or identity document for standard account registration?
+  <Accordion title="How are keys protected?">
+    Keys are generated on the device. Private key material is intended to remain device-bound, protected by secure device storage, and protected by hardware-backed mechanisms where available.
 
-Standard Enigm account registration is designed to minimize dependency on public identifiers. Enigm does not require email address, phone number, or identity document collection for normal account registration.
+    On iOS, protected storage uses Keychain and Secure Enclave capabilities where available. On Android, protected storage uses the platform keystore and hardware-backed key protection where available.
+  </Accordion>
 
-### What data does Enigm minimize?
+  <Accordion title="Does Enigm use post-quantum cryptography?">
+    Enigm incorporates post-quantum cryptographic algorithms standardized by NIST as part of its cryptographic architecture.
 
-Enigm is designed around data minimization, identity minimization, metadata reduction, privacy-preserving identifiers, content confidentiality, and user control.
+    This statement does not mean that Enigm itself is certified, approved, or audited by NIST.
+  </Accordion>
 
-The platform collects and retains only the information required to operate services, provide security functions, maintain platform integrity, support lawful compliance obligations, and preserve operational reliability.
+  <Accordion title="What is Active Defense?">
+    Active Defense is an Enigm App security capability available in production to a selected user pool. It analyzes security-relevant network behavior over a bounded assessment period to help identify suspicious mobile malware or spyware risk patterns.
 
-### Can Enigm read messages or attachments?
+    Active Defense does not inspect message plaintext, call content, attachments, media, documents, user conversations, private keys, or recovery phrases.
+  </Accordion>
 
-Enigm administrative systems are not intended to provide plaintext access to messages, attachments, secure call content, media, or user conversations.
+  <Accordion title="What is Device Trust?">
+    Device Trust is the evaluation of whether a device should be treated as trusted for account, messaging, or management workflows. Device Trust is separate from Account Trust, administrative authorization, Remote Attestation, and OTA eligibility.
+  </Accordion>
 
-Server-side message storage, where required for delivery, stores encrypted content objects.
+  <Accordion title="What is Trust Security Center?">
+    Trust Security Center is the local Enigm OS device trust evaluation system. It evaluates device security signals and presents user-visible trust states: Protected, Review Required, and Inactive.
 
-### Are metadata and operational identifiers protected?
+    Trust Security Center is not an antivirus and not a numeric security score.
+  </Accordion>
 
-Metadata and operational identifiers are minimized, purpose-limited, access-controlled, and protected at rest and in transit. Enigm uses privacy-preserving identifiers where device or lifecycle correlation is required.
+  <Accordion title="Can administrators bypass encryption?">
+    No. Administrative authority can manage lifecycle, membership, devices, sessions, product state, and encrypted content availability where authorized. It does not provide cryptographic authority or plaintext access.
+  </Accordion>
 
-Some operational identifiers remain necessary to route services, authenticate requests, enforce lifecycle controls, support security monitoring, and maintain platform integrity.
+  <Accordion title="Can Enigm export user data?">
+    Enigm does not currently provide user data export workflows. Enigm cannot export plaintext messages, plaintext attachments, secure call content, private keys, or data that is technically unavailable.
+  </Accordion>
 
-## Security
+  <Accordion title="Is Enigm ISO 27001 certified?">
+    Yes. Enigm maintains ISO/IEC 27001:2022 certification for the documented certified scope. The public certificate is available in the Security Assurance section.
+  </Accordion>
 
-### How does Enigm protect messages?
+  <Accordion title="Are security audits public?">
+    Enigm maintains private assessment evidence under NDA, including cryptographic assessment, penetration testing, mobile application assessment, infrastructure assessment, and broader security review materials.
 
-Enigm messaging uses end-to-end encryption. Message access depends on trusted device association and protected key material. Administrative controls do not grant message plaintext access.
+    Public documentation does not publish private reports, sensitive findings, remediation records, internal procedures, or assessment workpapers.
+  </Accordion>
 
-### How are keys protected?
+  <Accordion title="How many legal requests has Enigm received?">
+    The public transparency report lists zero legal requests for 2024, 2025, and 2026.
+  </Accordion>
 
-Keys are generated on the device. Private key material is intended to remain device-bound, protected by secure device storage, and protected by hardware-backed mechanisms where available.
-
-On iOS, protected storage uses Keychain and Secure Enclave capabilities where available. On Android, protected storage uses the platform keystore and hardware-backed key protection where available.
-
-### Does Enigm use post-quantum cryptography?
-
-Enigm incorporates post-quantum cryptographic algorithms standardized by NIST as part of its cryptographic architecture.
-
-This statement does not mean that Enigm itself is certified, approved, or audited by NIST.
-
-### What is Active Defense?
-
-Active Defense is an Enigm App security capability available in production to a selected user pool. It analyzes security-relevant network behavior over a bounded assessment period to help identify suspicious mobile malware or spyware risk patterns.
-
-Active Defense does not inspect message plaintext, call content, attachments, media, documents, user conversations, private keys, or recovery phrases.
-
-## Trust And Administration
-
-### What is Device Trust?
-
-Device Trust is the evaluation of whether a device should be treated as trusted for account, messaging, or management workflows. Device Trust is separate from Account Trust, administrative authorization, Remote Attestation, and OTA eligibility.
-
-### What is Trust Security Center?
-
-Trust Security Center is the local Enigm OS device trust evaluation system. It evaluates device security signals and presents user-visible trust states: Protected, Review Required, and Inactive.
-
-Trust Security Center is not an antivirus and not a numeric security score.
-
-### Can administrators bypass encryption?
-
-No. Administrative authority can manage lifecycle, membership, devices, sessions, product state, and encrypted content availability where authorized. It does not provide cryptographic authority or plaintext access.
-
-### Can Enigm export user data?
-
-Enigm does not currently provide user data export workflows. Enigm cannot export plaintext messages, plaintext attachments, secure call content, private keys, or data that is technically unavailable.
-
-## Legal And Compliance
-
-### Is Enigm ISO 27001 certified?
-
-Yes. Enigm maintains ISO/IEC 27001:2022 certification for the documented certified scope. The public certificate is available in the Security Assurance section.
-
-### Are security audits public?
-
-Enigm maintains private assessment evidence under NDA, including cryptographic assessment, penetration testing, mobile application assessment, infrastructure assessment, and broader security review materials.
-
-Public documentation does not publish private reports, sensitive findings, remediation records, internal procedures, or assessment workpapers.
-
-### How many legal requests has Enigm received?
-
-The public transparency report lists zero legal requests for 2024, 2025, and 2026.
-
-### Can Enigm notify users about legal requests?
-
-Enigm does not currently provide a user-notification mechanism for legal requests.
+  <Accordion title="Can Enigm notify users about legal requests?">
+    Enigm does not currently provide a user-notification mechanism for legal requests.
+  </Accordion>
+</AccordionGroup>
 

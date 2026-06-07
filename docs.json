@@ -142,6 +142,13 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "FAQ & support",
+            "pages": [
+              "support/get-help",
+              "support/faq"
+            ]
           }
         ]
       },
@@ -195,24 +202,6 @@
               "legal/business-continuity-user-impact",
               "legal/responsible-disclosure",
               "legal/security-contact"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "FAQ & Support",
-        "groups": [
-          {
-            "group": "Get Help",
-            "expanded": true,
-            "pages": [
-              "support/get-help"
-            ]
-          },
-          {
-            "group": "FAQ",
-            "pages": [
-              "support/faq"
             ]
           }
         ]
