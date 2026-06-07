@@ -12,119 +12,191 @@
   },
   "logo": {
     "light": "/assets/brand/logo.svg",
-    "dark": "/assets/brand/logo-white.svg"
+    "dark": "/assets/brand/logo-white.svg",
+    "href": "/"
   },
   "favicon": "/assets/brand/favicon.svg",
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Website",
+        "href": "https://enigm.io"
+      },
+      {
+        "label": "Legal",
+        "href": "https://enigm.io/legal"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Security Contact",
+      "href": "/legal/security-contact"
+    }
+  },
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Introduction",
-        "pages": [
-          "introduction",
-          "platform/architecture"
+        "tab": "Products",
+        "icon": "shield",
+        "groups": [
+          {
+            "group": "Start",
+            "icon": "sparkles",
+            "expanded": true,
+            "pages": [
+              "introduction",
+              "platform/architecture"
+            ]
+          },
+          {
+            "group": "Enigm",
+            "icon": "message-circle",
+            "pages": [
+              "app/overview",
+              "app/account-model",
+              "app/key-management",
+              "app/secure-messaging",
+              "app/secure-calls",
+              "app/active-defense",
+              "app/multi-device"
+            ]
+          },
+          {
+            "group": "Enigm Command",
+            "icon": "panel-top",
+            "pages": [
+              "platform/control-panel"
+            ]
+          },
+          {
+            "group": "Enigm Server",
+            "icon": "server",
+            "pages": [
+              "platform/private-environments",
+              "platform/vpn",
+              "platform/proxy-network",
+              "platform/tor-gateway"
+            ]
+          },
+          {
+            "group": "Enigm eSIM",
+            "icon": "radio-tower",
+            "pages": [
+              "platform/esim"
+            ]
+          },
+          {
+            "group": "Enigm Key",
+            "icon": "key-round",
+            "pages": [
+              "platform/enigm-key"
+            ]
+          },
+          {
+            "group": "Enigm OS",
+            "icon": "smartphone",
+            "pages": [
+              "os/overview",
+              "os/security-architecture",
+              "os/trust-security-center",
+              "os/setup-wizard",
+              "os/launcher",
+              "os/network-policy",
+              "os/privacy-mode",
+              "os/device-management",
+              {
+                "group": "OTA",
+                "icon": "download",
+                "pages": [
+                  "os/ota/overview",
+                  "os/ota/security-model",
+                  "os/ota/remote-attestation",
+                  "os/ota/signing",
+                  "os/ota/release-lifecycle",
+                  "os/ota/client-verification"
+                ]
+              },
+              "os/production-gates"
+            ]
+          }
         ]
       },
       {
-        "group": "Enigm",
-        "pages": [
-          "app/overview",
-          "app/account-model",
-          "app/key-management",
-          "app/secure-messaging",
-          "app/secure-calls",
-          "app/active-defense",
-          "app/multi-device"
+        "tab": "Security & Trust",
+        "icon": "lock-keyhole",
+        "groups": [
+          {
+            "group": "Security",
+            "icon": "shield-check",
+            "expanded": true,
+            "pages": [
+              "security/security-model",
+              "security/privacy-principles",
+              "security/privacy-model",
+              "security/threat-model",
+              "security/cryptography",
+              "security/compliance",
+              "security/transparency"
+            ]
+          },
+          {
+            "group": "Intelligence",
+            "icon": "scan-search",
+            "pages": [
+              "intelligence/overview",
+              "intelligence/threat-intelligence",
+              "intelligence/enyra",
+              "intelligence/detection-pipeline",
+              "intelligence/risk-model",
+              "intelligence/blocking-architecture"
+            ]
+          },
+          {
+            "group": "Infrastructure",
+            "icon": "network",
+            "pages": [
+              "infrastructure/architecture",
+              "infrastructure/secure-sdlc",
+              "infrastructure/monitoring",
+              "infrastructure/incident-response",
+              "infrastructure/backup-recovery"
+            ]
+          }
         ]
       },
       {
-        "group": "Enigm Command",
-        "pages": [
-          "platform/control-panel"
-        ]
-      },
-      {
-        "group": "Enigm Server",
-        "pages": [
-          "platform/private-environments",
-          "platform/vpn",
-          "platform/proxy-network",
-          "platform/tor-gateway"
-        ]
-      },
-      {
-        "group": "Enigm eSIM",
-        "pages": [
-          "platform/esim"
-        ]
-      },
-      {
-        "group": "Enigm Key",
-        "pages": [
-          "platform/enigm-key"
-        ]
-      },
-      {
-        "group": "Enigm OS",
-        "pages": [
-          "os/overview",
-          "os/security-architecture",
-          "os/trust-security-center",
-          "os/setup-wizard",
-          "os/launcher",
-          "os/network-policy",
-          "os/privacy-mode",
-          "os/device-management",
-          "os/ota/overview",
-          "os/ota/security-model",
-          "os/ota/remote-attestation",
-          "os/ota/signing",
-          "os/ota/release-lifecycle",
-          "os/ota/client-verification",
-          "os/production-gates"
-        ]
-      },
-      {
-        "group": "Security",
-        "pages": [
-          "security/security-model",
-          "security/privacy-principles",
-          "security/privacy-model",
-          "security/threat-model",
-          "security/cryptography",
-          "security/compliance",
-          "security/transparency"
-        ]
-      },
-      {
-        "group": "Intelligence",
-        "pages": [
-          "intelligence/overview",
-          "intelligence/threat-intelligence",
-          "intelligence/enyra",
-          "intelligence/detection-pipeline",
-          "intelligence/risk-model",
-          "intelligence/blocking-architecture"
-        ]
-      },
-      {
-        "group": "Infrastructure",
-        "pages": [
-          "infrastructure/architecture",
-          "infrastructure/secure-sdlc",
-          "infrastructure/monitoring",
-          "infrastructure/incident-response",
-          "infrastructure/backup-recovery"
-        ]
-      },
-      {
-        "group": "Legal",
-        "pages": [
-          "platform/payments",
-          "legal/data-retention",
-          "legal/responsible-disclosure",
-          "legal/security-contact"
+        "tab": "Legal",
+        "icon": "scale",
+        "groups": [
+          {
+            "group": "Legal",
+            "icon": "file-lock",
+            "pages": [
+              "platform/payments",
+              "legal/data-retention",
+              "legal/responsible-disclosure",
+              "legal/security-contact"
+            ]
+          }
         ]
       }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode"
     ]
   }
 }

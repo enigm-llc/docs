@@ -1,6 +1,9 @@
 ---
 title: Enigm Documentation
+sidebarTitle: Introduction
 description: Public technical introduction to Enigm product documentation.
+icon: "sparkles"
+mode: wide
 ---
 
 Enigm documentation describes the public security model, product architecture, operating-system components, intelligence workflows, and governance controls used across Enigm products and services.
@@ -11,12 +14,26 @@ This documentation is intended for auditors, developers, enterprise customers, a
 
 The Enigm ecosystem is documented around the following primary products:
 
-- **Enigm**: private messaging, secure calls, account onboarding, Active Defense, trusted devices, and multi-device workflows. This section uses the app documentation structure because Enigm is delivered through the user-facing application.
-- **Enigm OS**: secure operating system for additional device trust, platform hardening, controlled device experience, and secure update governance.
-- **Enigm Command**: web control panel for account lifecycle, connected-device visibility, session control, private environments, Enigm eSIM, Enigm Key, and managed security workflows.
-- **Enigm Key**: emergency key device for user-controlled SOS alerting and event-bound location sharing.
-- **Enigm eSIM**: private mobile data connectivity.
-- **Enigm Server**: dedicated private server environment for controlled access, private administration, and reduced exposure.
+<CardGroup cols={2}>
+  <Card title="Enigm" icon="message-circle" href="/app/overview">
+    Private messaging, secure calls, account onboarding, Active Defense, trusted devices, and multi-device workflows.
+  </Card>
+  <Card title="Enigm OS" icon="smartphone" href="/os/overview">
+    Secure operating system for additional device trust, platform hardening, controlled device experience, and secure update governance.
+  </Card>
+  <Card title="Enigm Command" icon="panel-top" href="/platform/control-panel">
+    Web control panel for account lifecycle, connected-device visibility, session control, private environments, and managed security workflows.
+  </Card>
+  <Card title="Enigm Server" icon="server" href="/platform/private-environments">
+    Dedicated private server environment for controlled access, private administration, and reduced exposure.
+  </Card>
+  <Card title="Enigm eSIM" icon="radio-tower" href="/platform/esim">
+    Private mobile data connectivity designed to reduce unnecessary identity exposure where possible.
+  </Card>
+  <Card title="Enigm Key" icon="key-round" href="/platform/enigm-key">
+    Emergency key device for user-controlled SOS alerting and event-bound location sharing.
+  </Card>
+</CardGroup>
 
 ## Privacy-first architecture
 
@@ -25,6 +42,18 @@ The Enigm ecosystem is designed around privacy, data minimization, identity prot
 Across the documentation, Enigm uses privacy-oriented and identity-minimizing language carefully. The platform is described as designed to reduce exposure, lower metadata visibility, and minimize unnecessary collection or retention. It is not described with absolute anonymity or traceability guarantees.
 
 Administrative systems are not intended to provide plaintext access to messages, calls, media, attachments, or user conversations.
+
+<CardGroup cols={3}>
+  <Card title="Privacy by design" icon="shield-check" href="/security/privacy-principles">
+    Foundational privacy principles for data minimization, identity minimization, metadata reduction, and user control.
+  </Card>
+  <Card title="Security model" icon="lock-keyhole" href="/security/security-model">
+    Defense-in-depth model across Enigm, Enigm OS, Enigm Command, Enigm Server, Enigm Key, and Enigm eSIM.
+  </Card>
+  <Card title="Product architecture" icon="network" href="/platform/architecture">
+    High-level product architecture and trust boundaries for the Enigm ecosystem.
+  </Card>
+</CardGroup>
 
 ## Documentation boundaries
 
