@@ -16,6 +16,8 @@ The proxy network is separate from end-to-end encryption, separate from Enigm Se
 
 The proxy layer provides an additional privacy boundary between user devices and platform services. It can help reduce direct network exposure, lower confidence in simple traffic correlation, and support traffic-separation objectives according to platform policy.
 
+The proxy network is part of Enigm's metadata-reduction model. It is designed to reduce direct network association between client devices and platform services while preserving the operational identifiers required for routing, authentication, availability, abuse prevention, and security monitoring.
+
 ```mermaid
 flowchart TD
   Device["User Device"]
@@ -72,6 +74,10 @@ Metadata reduction may include reducing direct exposure of:
 
 Metadata reduction is not metadata elimination. Some metadata may remain necessary for delivery, abuse handling, policy enforcement, availability, and security review.
 
+Metadata handled inside the Enigm platform is encrypted according to the applicable product and storage domain. Operational identifiers required for routing or request handling should be short-lived or scoped where possible, purpose-limited, access-controlled, and separated from message plaintext, secure call content, media, attachments, user conversations, and private key material.
+
+The proxy network is not documented as a claim that Enigm services never process operational identifiers. It is a privacy boundary intended to reduce exposure, lower confidence in simple correlation, and avoid unnecessary direct client-to-service visibility.
+
 ## Relationship With End-to-End Encryption
 
 The proxy network is separate from end-to-end encryption.
@@ -100,6 +106,8 @@ These techniques are intended to:
 - Lower confidence in simple observer assumptions.
 
 They do not remove traffic-analysis risk. Strong adversarial traffic analysis may still use timing, volume, endpoint behavior, user behavior, or external signals.
+
+Additional network activity should not be interpreted as proof of active user communications. Traffic shaping, proxy mediation, optional VPN Service usage, metadata minimization, and encrypted metadata handling are complementary controls.
 
 ## Security Limitations
 

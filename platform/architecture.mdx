@@ -17,6 +17,8 @@ Enigm OS is an optional dedicated secure device layer. When deployed, it contrib
 
 The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key, and Enigm eSIM. Supporting components such as VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, and Enyra extend those product surfaces without changing the product taxonomy.
 
+Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. Region selection for Enigm Server controls product deployment region categories, but it does not change the Enigm legal governance model or the separation between administration and protected content confidentiality.
+
 ## Architecture objectives
 
 - Keep Enigm as the primary user-facing private messaging product.
@@ -30,6 +32,7 @@ The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key
 - Support mobile connectivity, emergency alerting, and payment privacy through Enigm eSIM, Enigm Key, and Payment Privacy.
 - Process security signals through Threat Intelligence Platform and Enyra.
 - Govern administrative workflows through Enigm Command.
+- Encrypt metadata according to the applicable product, storage, and security domain while preserving only the operational identifiers required for routing, authentication, availability, security, and compliance.
 
 ## Core components
 
@@ -111,6 +114,8 @@ The device boundary covers optional Enigm OS policy, Trust Security Center postu
 
 The network boundary covers VPN Service, Proxy Network, Enigm eSIM connectivity, Enigm Key connectivity, network-policy decisions, and related audit outcomes.
 
+The network boundary is designed to reduce direct exposure between user devices and platform services. Limited routing, request-handling, authentication, and security identifiers remain necessary to operate the platform. These identifiers should be minimized, encrypted according to the applicable product and storage domain, and separated from message plaintext, secure call content, media, attachments, user conversations, and private key material.
+
 ### Intelligence boundary
 
 The intelligence boundary covers Threat Intelligence Platform ingestion, normalization, Enyra evaluation, risk categorization, and blocking architecture.
@@ -152,7 +157,9 @@ The release boundary covers OTA Architecture, Hardware-Backed Signing, Remote At
 
 The platform is privacy-oriented by design. It should minimize collection, separate protected content from operational metadata by trust domain, and use Privacy-Preserving Device Handles for device lifecycle and audit correlation.
 
-Network-policy metadata, intelligence signals, device-management records, and audit records should be classified, minimized, and retained only for defined product, security, legal, or operational purposes.
+Network-policy metadata, intelligence signals, device-management records, and audit records should be classified, encrypted, minimized, and retained only for defined product, security, legal, or operational purposes.
+
+Metadata reduction is implemented through complementary controls such as Proxy Network traffic separation, optional VPN Service transport protection, Tor Gateway access for selected web surfaces, Privacy-Preserving Device Handles, traffic shaping where used, and retention limits. These controls reduce exposure and lower confidence in simple communication-pattern inference; they are not documented as complete traffic-analysis resistance.
 
 ## Trust boundaries
 

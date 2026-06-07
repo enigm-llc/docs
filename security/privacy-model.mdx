@@ -11,6 +11,8 @@ Standard Enigm account registration uses an identity-minimizing model and does n
 
 Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest complements, but does not replace, end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
+Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles.
+
 ## Objectives
 
 - Limit collection to defined product, security, support, and compliance purposes.
@@ -20,6 +22,14 @@ Data handled by Enigm is encrypted at rest according to the applicable product, 
 - Avoid exposing protected content or unnecessary identity metadata in logs, examples, or public documentation.
 - Retain records only according to documented policy and applicable obligations.
 - Support enterprise review without disclosing non-public operational detail.
+
+## Jurisdiction And GDPR/RGPD Alignment
+
+Enigm's privacy model is implemented within the legal governance framework of Enigm's Swiss subsidiary for Enigm servers and services.
+
+For EU-related processing, Enigm's privacy model is designed to support GDPR/RGPD principles including purpose limitation, data minimization, storage limitation, confidentiality, integrity, and accountability.
+
+Server region selection is a product and deployment control for Enigm Server environments. It does not create a different plaintext access model and does not weaken the Enigm end-to-end encryption, Device Trust, or metadata minimization model.
 
 ## Data categories
 
@@ -59,6 +69,8 @@ VPN Service and Proxy Network use policy metadata to enforce access, evaluate ri
 
 Network-policy records should be minimized, purpose-limited, and separated from message, call, media, and attachment content.
 
+Network and routing metadata is encrypted according to the applicable product and storage domain. Limited operational identifiers can be required for routing, request handling, authentication, abuse prevention, security monitoring, and availability. These identifiers should remain minimized, protected, and scoped to their operational purpose.
+
 ### Enigm eSIM data
 
 Enigm eSIM uses an identity-minimizing activation model for global data-only mobile connectivity. Standard activation does not require KYC verification, email address, phone number, or identity document.
@@ -72,6 +84,8 @@ Threat Intelligence Platform and Enyra process security signals for detection, r
 ### Audit records
 
 Audit records support compliance review, investigation, Controlled Device Management, Enigm Command accountability, OTA release review, and network-policy review. Audit records should provide useful evidence without storing unnecessary protected content.
+
+Audit records and security metadata should use encrypted storage and Privacy-Preserving Device Handles where device correlation is required. They should not contain message plaintext, attachment plaintext, secure call content, user conversations, or private key material.
 
 ## Handling principles
 

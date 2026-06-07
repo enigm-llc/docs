@@ -10,6 +10,8 @@ Enigm uses an identity-minimizing account model for standard registration. Stand
 
 Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest does not replace end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
+Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles including data minimization, purpose limitation, storage limitation, integrity, confidentiality, and accountability.
+
 This document is intended for enterprise customers, security auditors, privacy reviewers, and technical partners.
 
 ## Overview
@@ -40,6 +42,16 @@ Data minimization means:
 - Separate security visibility from message confidentiality.
 - Encrypt data at rest according to the applicable product and storage domain.
 
+## Jurisdiction And Legal Governance
+
+Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance.
+
+Server region selection for Enigm Server is a product and deployment control. It does not change the legal governance statement for Enigm servers and services.
+
+Legal governance does not create plaintext access to protected communications. Enigm Command, Enigm Server administration, operational workflows, and legal workflows must remain separate from message plaintext, attachment plaintext, secure call content, user conversations, and private key material.
+
+For EU-related processing, Enigm's retention model is designed to support GDPR/RGPD principles through purpose limitation, minimized retention, encryption, deletion workflows, and documented retention categories.
+
 ## Standard Registration Data
 
 Standard Enigm account registration is designed to avoid unnecessary public identifiers.
@@ -63,7 +75,7 @@ The following table summarizes the public retention model for major Enigm data c
 | Device state | Trusted device list, enrollment state, revocation state, replacement state, Privacy-Preserving Device Handles, Device Trust status, optional Enigm OS trust signals | Retained until the user removes the device, deletes the account, or the lifecycle state is no longer required. Device deletion removes the associated device state from normal operation. |
 | Session state | Active sessions, session creation state, last activity state, termination state | Enigm sessions are limited to 6 hours. Session lifecycle records are minimized and retained only as required for security, abuse prevention, or operational review. |
 | Message content | Encrypted messages, encrypted attachments, encrypted multimedia | User-defined message lifetime up to a maximum of 30 days. Users can manually delete messages immediately. Server-side storage, where required, stores encrypted content only. |
-| Message metadata | Delivery state, synchronization state, expiration state, conversation membership, lifecycle markers | Follows the message lifecycle where possible, with a maximum of 30 days for normal message-related lifecycle state unless security, abuse, or legal constraints require limited preservation. |
+| Message metadata | Delivery state, synchronization state, expiration state, conversation membership, lifecycle markers | Encrypted according to the applicable product and storage domain. Follows the message lifecycle where possible, with a maximum of 30 days for normal message-related lifecycle state unless security, abuse, or legal constraints require limited preservation. |
 | Enigm Server lifecycle data | Server lifecycle state, server ID join requests, membership, region selection, server audit visibility | Retained while the user or customer maintains the Enigm Server service. Deleted when the user or customer deletes the server environment, subject only to legal, security, or compliance constraints. |
 | Enigm Server content | Server-scoped encrypted messages, encrypted attachments, encrypted multimedia, encrypted user-generated content | Follows the message-content retention model: user-defined lifetime up to a maximum of 30 days, with immediate manual deletion where authorized by policy. |
 | Enigm Key emergency data | Emergency alert messages, emergency contacts, emergency activation event, event-bound location sharing, emergency event end state | Treated as message and emergency-event data. Retained according to the message lifecycle, up to a maximum of 30 days, and minimized after the user cancels the emergency sending workflow. |
@@ -105,6 +117,18 @@ Security data may support:
 Retention should be proportional to operational and security requirements. Security data should not be used as a substitute for message content access.
 
 Normal security data retention is limited to a maximum of 30 days unless an active investigation, legal obligation, or security requirement requires preservation.
+
+## Metadata And Operational Identifiers
+
+Enigm treats metadata as security-sensitive information.
+
+Metadata is encrypted according to the applicable product, storage, and security domain. Metadata should not be documented or handled as plaintext operational data.
+
+Some identifiers remain necessary to operate the platform. These include session identifiers, Privacy-Preserving Device Handles, delivery and synchronization state, server membership state, join request state, connectivity lifecycle state, security event correlation state, and short-lived routing or request-handling identifiers.
+
+Operational identifiers are used to provide routing, authentication, availability, abuse prevention, security monitoring, lifecycle control, and compliance support. They should be minimized, purpose-limited, access-controlled, encrypted, and retained according to the documented retention model.
+
+Connection metadata, such as limited connection source information, authentication event state, request timing, rate-limit events, and security-control events, is treated as operational or security metadata. It must remain separated from message plaintext, attachment plaintext, secure call content, media, user conversations, and private key material.
 
 ## Device Data
 

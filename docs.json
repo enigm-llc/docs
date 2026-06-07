@@ -180,6 +180,7 @@
             "group": "Legal and Privacy",
             "pages": [
               "platform/payments",
+              "legal/jurisdiction-compliance",
               "legal/data-retention",
               "legal/responsible-disclosure",
               "legal/security-contact"

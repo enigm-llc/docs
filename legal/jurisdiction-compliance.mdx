@@ -1,0 +1,145 @@
+---
+title: Jurisdiction and Legal Compliance
+sidebarTitle: Jurisdiction
+description: Public jurisdiction, legal governance, GDPR, and metadata handling model for Enigm.
+---
+
+Enigm operates its servers and services under its Swiss subsidiary and under Swiss legal governance.
+
+This document explains Enigm's public jurisdiction and metadata handling model for enterprise customers, security auditors, privacy reviewers, and technical partners. It does not publish internal legal procedures, non-public infrastructure details, internal routing design, lawful request handling procedures, or operational playbooks.
+
+## Overview
+
+Enigm is designed as a privacy-first communications platform. Legal governance, infrastructure operation, metadata handling, and retention controls are evaluated in support of that privacy objective.
+
+The public model is based on:
+
+- Swiss legal governance for Enigm servers and services.
+- GDPR/RGPD alignment for personal data processing involving users in the European Union.
+- Data minimization.
+- Metadata encryption.
+- Purpose-limited operational identifiers.
+- Metadata reduction through traffic separation and privacy-oriented network controls.
+- Separation between legal or administrative workflows and message plaintext.
+
+## Swiss Legal Governance
+
+Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance.
+
+This legal governance model is intended to provide a clear public jurisdictional basis for Enigm service operation, privacy review, contractual review, and enterprise due diligence.
+
+Swiss legal governance does not change the Enigm cryptographic security model. Administrative, legal, operational, or server-management workflows must not provide access to message plaintext, attachment plaintext, secure call content, user conversations, or private key material.
+
+## GDPR And RGPD Alignment
+
+For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles.
+
+Relevant principles include:
+
+- Lawfulness, fairness, and transparency.
+- Purpose limitation.
+- Data minimization.
+- Accuracy where user or operational data is retained.
+- Storage limitation.
+- Integrity and confidentiality.
+- Accountability.
+
+Enigm's public data-retention model, privacy model, and security governance documentation are intended to support enterprise and auditor review of these principles.
+
+## Metadata Handling
+
+Enigm treats metadata as security-sensitive information.
+
+Metadata handled by Enigm is encrypted according to the applicable product, storage, and security domain. This includes metadata associated with message lifecycle, delivery state, session state, device lifecycle, server membership, security events, operational logs, and service health records.
+
+Enigm does not document metadata as plaintext operational data. Metadata handling should remain minimized, purpose-limited, access-controlled, and separated from protected content.
+
+## Operational Identifiers
+
+Some identifiers are required to operate the platform.
+
+Examples include:
+
+- Session identifiers.
+- Privacy-Preserving Device Handles.
+- Delivery and synchronization state.
+- Server membership state.
+- Enigm Server join request state.
+- Connectivity lifecycle state.
+- Security event correlation state.
+- Short-lived routing or request-handling identifiers.
+
+These identifiers are operational controls, not user profiling objectives. They should be minimized, scoped to their operational purpose, protected at rest and in transit, and retained according to the documented retention model.
+
+## Connection Metadata
+
+Networked services require limited connection metadata to provide availability, authentication, abuse prevention, security monitoring, and routing.
+
+Connection metadata can include limited technical records such as connection source information, authentication event state, request timing, service health events, rate-limit events, or security-control events.
+
+Connection metadata is treated as operational or security metadata. It should be:
+
+- Minimized.
+- Purpose-limited.
+- Encrypted according to the applicable product and storage domain.
+- Separated from message plaintext, attachment plaintext, secure call content, media, and user conversations.
+- Retained for the shortest documented period required for security, operational, legal, or compliance purposes.
+
+## Server Region Selection
+
+Enigm Server supports user-selected geographic deployment region categories.
+
+Region selection controls where a dedicated private messaging environment is deployed from a product and operational perspective. It does not change the Enigm legal governance statement that Enigm servers and services are operated under the Swiss subsidiary and Swiss legal governance.
+
+Region selection also does not create plaintext access for administrators, hosting environments, operational systems, or legal workflows. Enigm Server remains bound by the Enigm App end-to-end encryption model, Device Trust, protected key material, and server-scoped encrypted content lifecycle controls.
+
+## Routing And Metadata Reduction
+
+Enigm uses privacy-oriented network controls to reduce metadata exposure and communication-pattern visibility.
+
+Relevant controls include:
+
+- Proxy Network traffic separation.
+- VPN Service transport protection where enabled.
+- Tor Gateway access for selected public or administrative web surfaces where enabled.
+- Traffic shaping and background network activity where used to lower confidence in simple timing-correlation analysis.
+- Privacy-Preserving Device Handles for device correlation.
+- Data minimization and retention limits.
+
+These controls are designed to reduce exposure and make simple communication-pattern inference less reliable. They are not documented as absolute identity protection, complete traffic-analysis resistance, or a claim that no metadata exists.
+
+## Lawful Request Boundaries
+
+Legal and compliance obligations can require Enigm to evaluate lawful requests according to the applicable legal framework.
+
+Lawful request handling must remain bounded by Enigm's technical architecture:
+
+- End-to-end encryption does not provide server-side message plaintext.
+- Enigm Server administration does not provide cryptographic authority.
+- Enigm Command does not provide message plaintext access.
+- Operational metadata is minimized and encrypted according to the applicable product and storage domain.
+- Retention limits reduce the amount of data available after lifecycle expiration.
+
+Public documentation does not disclose legal response procedures, verification workflows, escalation paths, internal tools, or operational playbooks.
+
+## Privacy Limitations
+
+Jurisdiction, GDPR/RGPD alignment, encryption, and metadata reduction improve privacy posture, but they do not eliminate all legal, operational, or network metadata risk.
+
+Important limitations include:
+
+- Some operational identifiers are required to operate the platform.
+- Network services require limited connection metadata.
+- Legal obligations can require evaluation of lawful requests.
+- User behavior can create exposure outside Enigm controls.
+- External networks can observe traffic characteristics outside Enigm-controlled layers.
+- Metadata reduction lowers exposure but does not eliminate all traffic-analysis risk.
+
+## Related Documents
+
+- [Privacy Model](/security/privacy-model)
+- [Data Retention](/legal/data-retention)
+- [Proxy Network](/platform/proxy-network)
+- [VPN Service](/platform/vpn)
+- [Enigm Server](/platform/private-environments)
+- [Compliance](/security/compliance)
