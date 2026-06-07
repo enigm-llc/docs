@@ -1,13 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "Enigm",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#000000",
+    "light": "#848484",
+    "dark": "#ffffff"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/favicon-enigm.png",
+    "dark": "/images/favicon-enigm.png"
+  },
   "navigation": {
     "pages": [
       {
@@ -35,13 +38,13 @@
   },
   "logo": {
     "light": "/images/logo-enigm-comp.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/images/logo-enigm-comp-white.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@enigm.ioo"
       }
     ],
     "primary": {
@@ -64,9 +67,11 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/enigm_io",
+      "github": "https://github.com/enigm-llc",
+      "linkedin": "https://www.linkedin.com/company/enigm-io",
+      "instagram": "https://www.instagram.com/enigm.io",
+      "youtube": "https://www.youtube.com/@Enigm-io"
     }
   }
 }
