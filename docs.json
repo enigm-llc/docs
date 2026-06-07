@@ -191,8 +191,21 @@
   },
   "contextual": {
     "options": [
+      "assistant",
       "copy",
-      "view"
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "grok",
+      "aistudio",
+      "devin",
+      "windsurf",
+      "mcp",
+      "add-mcp",
+      "cursor",
+      "vscode",
+      "devin-mcp"
     ]
   }
 }
