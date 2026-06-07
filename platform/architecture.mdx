@@ -1,0 +1,155 @@
+---
+title: Product Architecture
+description: Public product architecture overview for the Enigm ecosystem.
+---
+
+The Enigm product architecture is centered on Enigm as the private messaging product. Supporting products provide web administration, dedicated private server environments, private connectivity, emergency alerting, security intelligence, and optional secure operating-system capabilities.
+
+This document is intended for auditors, enterprise customers, engineers, and technical partners. It describes the Enigm ecosystem without disclosing deployment-specific platform details, non-public component identifiers, sensitive values, credential material, environment-specific network details, or operational details that could reduce system security.
+
+## Overview
+
+Enigm provides the primary account, communication, key-management, and multi-device experience. The platform around it is designed to support policy, visibility, secure networking, device lifecycle, threat intelligence, and controlled release.
+
+Enigm OS is an optional dedicated secure device layer. When deployed, it contributes Trust Security Center posture, device-level policy enforcement, controlled device management, OTA Architecture, Remote Attestation, and update verification. It is not the center of the platform; it is an optional hardening layer for deployments that require dedicated device control.
+
+The primary products are Enigm, Enigm OS, Enigm Command, Enigm Key, Enigm eSIM, and Enigm Server. Supporting components such as VPN Network, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, and Enyra extend those product surfaces.
+
+## Architecture objectives
+
+- Keep Enigm as the primary user-facing private messaging product.
+- Provide policy-aware supporting services without making them implicit trust roots.
+- Support optional Enigm OS posture for dedicated secure-device deployments.
+- Use privacy-preserving device handles for secure device management and audit correlation.
+- Protect OTA Architecture with release lifecycle controls, Remote Attestation where applicable, client verification, controlled rollout infrastructure, and hardware-backed signing.
+- Support network policy, mobile connectivity, emergency connectivity, private environments, and payment privacy through VPN Network, Proxy Network, Enigm eSIM, Enigm Key, Enigm Server, Payment Privacy, and Tor Gateway where enabled.
+- Process security signals through Threat Intelligence Platform and Enyra.
+- Govern administrative workflows through Enigm Command.
+
+## Core components
+
+### Enigm
+
+Enigm is the private messaging product and primary user-facing security surface. It is delivered through the app and participates in account lifecycle, key management, secure messaging, secure calls, Active Defense, and multi-device workflows. It consumes policy and device state rather than assuming that account authentication alone is sufficient for protected operations.
+
+### Enigm OS
+
+Enigm OS is an optional dedicated secure device layer. It provides security architecture, setup controls, launcher policy, network policy, privacy mode, controlled device management, and OTA verification behavior for deployments that require OS-level hardening.
+
+### Trust Security Center
+
+Trust Security Center is the device posture interface. It represents security state for users and administrators, including supported network-policy, privacy, device-management, and update-related signals.
+
+### Enigm Command
+
+Enigm Command is a product and administrative surface for policy assignment, account lifecycle, session review, connected-device visibility, managed device operations, Enigm Server, Enigm eSIM, Enigm Key configuration, rollout review, audit review, and security posture workflows. Enigm Command actions should be authenticated, authorized, and auditable.
+
+### Enigm Server
+
+Enigm Server provides private, policy-controlled environments for supported Enigm workflows. It supports dedicated administrative boundaries, membership control, visibility configuration, and reduced exposure without replacing Enigm cryptography or device trust.
+
+### OTA Architecture
+
+OTA Architecture manages update security from preparation through release lifecycle, signing, controlled rollout, client verification, and post-release review. Remote Attestation can be used where applicable to evaluate device state before update eligibility or other sensitive actions.
+
+### Hardware-backed signing
+
+Hardware-backed signing protects release artifacts, policy bundles, configuration bundles, and device-facing materials where applicable. Public documentation describes signing at a trust-boundary level and avoids deployable signing details.
+
+### Network security components
+
+VPN Network, Proxy Network, Enigm eSIM, and Tor Gateway provide supporting policy-governed network capabilities. They should be integrated with identity, device posture, network policy, and audit workflows where applicable.
+
+### Enigm Key
+
+Enigm Key is a privacy-oriented emergency connectivity device. It supports account-associated emergency alerting, selected-contact notification, and event-bound location sharing while remaining dormant during normal non-emergency operation.
+
+### Payment Privacy
+
+Payment Privacy describes supported commercial workflows that are designed to reduce unnecessary identity linkage while preserving compliance, legal, security, and operational boundaries.
+
+### Threat Intelligence Platform and Enyra
+
+Threat Intelligence Platform processes security signals for detection, risk modeling, and blocking architecture. Enyra is an intelligence capability in the Enigm ecosystem that contributes evaluated outcomes to authorized review or defensive workflows. These systems should support data minimization, privacy-preserving identifiers, and category-level risk explanations.
+
+## Boundary model
+
+The platform separates app, optional OS, network, intelligence, administrative, and release-governance responsibilities.
+
+### App boundary
+
+The app boundary covers account state, secure messaging, secure calls, key-management flows, and multi-device state.
+
+### Device boundary
+
+The device boundary covers optional Enigm OS policy, Trust Security Center posture, privacy mode, network policy, controlled device management, and OTA eligibility.
+
+### Network boundary
+
+The network boundary covers VPN Network, Proxy Network, Enigm eSIM, Enigm Key connectivity, Tor Gateway, network-policy decisions, and related audit outcomes.
+
+### Intelligence boundary
+
+The intelligence boundary covers Threat Intelligence Platform ingestion, normalization, Enyra evaluation, risk categorization, and blocking architecture.
+
+### Administrative boundary
+
+The administrative boundary covers Enigm Command, Enigm Server, policy assignment, device lifecycle actions, release review, and audit review.
+
+### Release boundary
+
+The release boundary covers OTA Architecture, hardware-backed signing, Remote Attestation where applicable, client verification, controlled rollout, and rollback planning.
+
+## Reference flow
+
+1. A user authenticates in Enigm.
+2. The Enigm app evaluates account, session, and multi-device state.
+3. Optional Enigm OS contributes device posture through Trust Security Center and policy state where deployed.
+4. A privacy-preserving device handle supports device lifecycle and audit correlation.
+5. Enigm Command applies authorized policy for enterprise or administrative workflows.
+6. VPN Network, Proxy Network, Enigm eSIM, Enigm Key, Enigm Server, Payment Privacy, or Tor Gateway apply connectivity, private environment, commercial, or network policy where enabled.
+7. Threat Intelligence Platform and Enyra process security signals for risk or blocking outcomes.
+8. OTA Architecture verifies release metadata and artifacts through client verification, Remote Attestation where applicable, and hardware-backed signing.
+9. Controlled rollout and rollback workflows govern broad exposure of security-sensitive changes.
+
+## Security considerations
+
+- Enigm account authentication should not imply device trust or administrative authorization.
+- Supporting network components should enforce policy without becoming broad data-collection points.
+- Enigm Command should be separated from routine user workflows.
+- Optional Enigm OS posture should harden supported deployments without making app security dependent on OS-only assumptions.
+- OTA Architecture should reject artifacts that fail verification.
+- Threat Intelligence Platform and Enyra outputs should be auditable at the decision-category level without exposing non-public detection methods.
+
+## Privacy considerations
+
+The platform is privacy-oriented by design. It should minimize collection, separate protected content from metadata where applicable, and use privacy-preserving device handles for device lifecycle and audit correlation.
+
+Network-policy metadata, intelligence signals, device-management records, and audit records should be classified, minimized, and retained only for defined product, security, legal, or operational purposes.
+
+## Trust boundaries
+
+The primary trust boundaries are:
+
+- User to Enigm
+- Enigm to identity platform
+- Enigm to secure device management
+- Enigm to optional Enigm OS posture
+- Enigm to network-supporting components
+- Enigm to Enigm Intelligence outcomes
+- Enigm Command to administrative policy
+- OTA Architecture to device verification
+
+## Limitations
+
+The public architecture does not define deployment-specific policy depth, device support, retention periods, network behavior, attestation evidence formats, or rollout mechanics. Those details should be reviewed in the relevant deployment or assurance context.
+
+## Threat model references
+
+Relevant threat-model areas include account and app compromise, device lifecycle abuse, Enigm OS policy bypass, network-policy misuse, intelligence manipulation, OTA integrity failure, Enigm Command abuse, and loss of audit visibility.
+
+## Failure behavior
+
+The platform should deny protected operations when required identity, authorization, device posture, privacy-preserving device handle, policy, OTA integrity, Remote Attestation outcome, or intelligence state cannot be established.
+
+Error responses should expose stable categories for authorized debugging without disclosing protected content or increasing metadata exposure.

@@ -1,77 +1,130 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
-  "name": "Enigm",
+  "name": "Enigm Documentation",
+  "theme": "mint",
+  "modeToggle": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#000000",
-    "light": "#848484",
-    "dark": "#ffffff"
-  },
-  "favicon": {
-    "light": "/images/favicon-enigm.png",
-    "dark": "/images/favicon-enigm.png"
-  },
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    "light": "#000000",
+    "dark": "#FFFFFF"
   },
   "logo": {
-    "light": "/images/logo-enigm-comp.svg",
-    "dark": "/images/logo-enigm-comp-white.svg"
+    "light": "/assets/brand/logo.svg",
+    "dark": "/assets/brand/logo-white.svg"
   },
-  "navbar": {
-    "links": [
+  "favicon": "/assets/brand/favicon.svg",
+  "navigation": {
+    "groups": [
       {
-        "label": "Support",
-        "href": "mailto:support@enigm.ioo"
+        "group": "Introduction",
+        "pages": [
+          "introduction",
+          "platform/architecture"
+        ]
+      },
+      {
+        "group": "Enigm",
+        "pages": [
+          "app/overview",
+          "app/account-model",
+          "app/key-management",
+          "app/secure-messaging",
+          "app/secure-calls",
+          "app/active-defense",
+          "app/multi-device"
+        ]
+      },
+      {
+        "group": "Enigm Command",
+        "pages": [
+          "platform/control-panel"
+        ]
+      },
+      {
+        "group": "Enigm Server",
+        "pages": [
+          "platform/private-environments",
+          "platform/vpn",
+          "platform/proxy-network",
+          "platform/tor-gateway"
+        ]
+      },
+      {
+        "group": "Enigm eSIM",
+        "pages": [
+          "platform/esim"
+        ]
+      },
+      {
+        "group": "Enigm Key",
+        "pages": [
+          "platform/enigm-key"
+        ]
+      },
+      {
+        "group": "Enigm OS",
+        "pages": [
+          "os/overview",
+          "os/security-architecture",
+          "os/trust-security-center",
+          "os/setup-wizard",
+          "os/launcher",
+          "os/network-policy",
+          "os/privacy-mode",
+          "os/device-management",
+          "os/ota/overview",
+          "os/ota/security-model",
+          "os/ota/remote-attestation",
+          "os/ota/signing",
+          "os/ota/release-lifecycle",
+          "os/ota/client-verification",
+          "os/production-gates"
+        ]
+      },
+      {
+        "group": "Security",
+        "pages": [
+          "security/security-model",
+          "security/privacy-principles",
+          "security/privacy-model",
+          "security/threat-model",
+          "security/cryptography",
+          "security/compliance",
+          "security/transparency"
+        ]
+      },
+      {
+        "group": "Intelligence",
+        "pages": [
+          "intelligence/overview",
+          "intelligence/threat-intelligence",
+          "intelligence/enyra",
+          "intelligence/detection-pipeline",
+          "intelligence/risk-model",
+          "intelligence/blocking-architecture"
+        ]
+      },
+      {
+        "group": "Infrastructure",
+        "pages": [
+          "infrastructure/architecture",
+          "infrastructure/secure-sdlc",
+          "infrastructure/monitoring",
+          "infrastructure/incident-response",
+          "infrastructure/backup-recovery"
+        ]
+      },
+      {
+        "group": "Legal",
+        "pages": [
+          "platform/payments",
+          "legal/data-retention",
+          "legal/responsible-disclosure",
+          "legal/security-contact"
+        ]
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
     ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/enigm_io",
-      "github": "https://github.com/enigm-llc",
-      "linkedin": "https://www.linkedin.com/company/enigm-io",
-      "instagram": "https://www.instagram.com/enigm.io",
-      "youtube": "https://www.youtube.com/@Enigm-io"
-    }
   }
 }

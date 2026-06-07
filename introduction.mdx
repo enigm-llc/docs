@@ -1,0 +1,49 @@
+---
+title: Enigm Documentation
+description: Public technical introduction to Enigm product documentation.
+---
+
+Enigm documentation describes the public security model, product architecture, operating-system components, intelligence workflows, and governance controls used across Enigm products and services.
+
+This documentation is intended for auditors, developers, enterprise customers, and security reviewers. It is technical, precise, and intentionally limited to information that is safe for public distribution.
+
+## Products
+
+The Enigm ecosystem is documented around the following primary products:
+
+- **Enigm**: private messaging, secure calls, account onboarding, Active Defense, trusted devices, and multi-device workflows. This section uses the app documentation structure because Enigm is delivered through the user-facing application.
+- **Enigm OS**: secure operating system for additional device trust, platform hardening, controlled device experience, and secure update governance.
+- **Enigm Command**: web control panel for account lifecycle, connected-device visibility, session control, private environments, Enigm eSIM, Enigm Key, and managed security workflows.
+- **Enigm Key**: emergency key device for user-controlled SOS alerting and event-bound location sharing.
+- **Enigm eSIM**: private mobile data connectivity.
+- **Enigm Server**: dedicated private server environment for controlled access, private administration, and reduced exposure.
+
+## Privacy-first architecture
+
+The Enigm ecosystem is designed around privacy, data minimization, identity protection, and metadata reduction. Security exists to support privacy and content confidentiality; privacy is not an optional feature.
+
+Across the documentation, Enigm uses privacy-oriented and identity-minimizing language carefully. The platform is described as designed to reduce exposure, lower metadata visibility, and minimize unnecessary collection or retention. It is not described with absolute anonymity or traceability guarantees.
+
+Administrative systems are not intended to provide plaintext access to messages, calls, media, attachments, or user conversations.
+
+## Documentation boundaries
+
+This documentation describes public architecture and governance without publishing operationally sensitive deployment detail.
+
+## Architecture vocabulary
+
+The documentation uses generic architecture terms, including:
+
+- Edge runtime
+- Private object storage
+- Metadata store
+- Secure identity layer
+- Threat intelligence pipeline
+- Hardware-backed signing
+- Controlled rollout system
+
+## Status language
+
+When a detail varies by deployment, the documentation describes the behavior at a public architecture level and avoids deployable operational specifics.
+
+When a control is not represented as current functionality, the documentation marks it as **Planned hardening layer** only when explicitly required.

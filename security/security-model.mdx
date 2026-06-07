@@ -1,0 +1,103 @@
+---
+title: Security Model
+description: Public security model for Enigm products and services.
+---
+
+Enigm uses a defense-in-depth security model across Enigm App, Enigm OS, Trust Security Center, OTA Architecture, Enigm Command, VPN Network, Proxy Network, Tor Gateway, Threat Intelligence Platform, and Enyra.
+
+Security exists to support privacy, data minimization, identity protection, metadata reduction, and content confidentiality. This document describes the public security posture at an architectural level for security auditors, enterprise customers, engineers, and technical partners.
+
+## Security objectives
+
+- Establish explicit trust between users, devices, Enigm App sessions, Enigm OS state, and administrative workflows.
+- Use Trust Security Center as the user-visible and administrator-reviewable surface for device posture and security state.
+- Protect OTA Architecture with hardware-backed signing, release lifecycle controls, client verification, and Remote Attestation where applicable.
+- Apply controlled device management for enrollment, policy assignment, suspension, revocation, and retirement.
+- Route network-security decisions through policy-aware VPN Network, Proxy Network, and Tor Gateway components where enabled.
+- Process security signals through the Threat Intelligence Platform and Enyra while preserving data minimization and content confidentiality.
+- Preserve audit evidence for security-relevant decisions without storing unnecessary protected content.
+
+## Enigm security terms
+
+The following terms are used consistently across Enigm documentation:
+
+- **Defense in Depth**: layered controls across Enigm App, Enigm OS, network policy, intelligence, signing, rollout governance, and administration.
+- **Hardware-backed Signing**: protected signing for security-sensitive artifacts where applicable.
+- **Privacy-Preserving Device Handles**: device correlation identifiers designed to support policy and audit workflows without public exposure of direct device identifiers.
+- **Controlled Device Management**: authorized device enrollment, policy assignment, suspension, revocation, and retirement.
+
+## Trust model
+
+Enigm treats trust as contextual and bounded. A valid account session in Enigm App does not automatically imply device trust, administrative authorization, network-policy eligibility, or OTA eligibility.
+
+Trust decisions should consider:
+
+- Actor identity
+- Privacy-preserving device handle
+- Enigm OS trust state
+- Trust Security Center posture
+- Enigm App session state
+- Requested action
+- Resource category
+- Policy state
+- Integrity state
+- Remote Attestation outcome where applicable
+
+Where a required trust signal is unavailable, protected operations should fail closed.
+
+## Enforcement layers
+
+### Enigm App
+
+Enigm App establishes authenticated user context, manages account lifecycle, coordinates secure messaging and secure calls, and participates in multi-device state. The app should treat authorization failures as expected security outcomes and avoid logging protected content.
+
+### Enigm OS
+
+Enigm OS provides device-level policy enforcement, Trust Security Center state, setup controls, launcher policy, network policy, privacy mode, device management, and OTA verification. OS security state should be represented through clear status categories without exposing non-public implementation details.
+
+### Trust Security Center
+
+Trust Security Center is the posture and security-state surface for Enigm OS. It should summarize device trust state, network-policy state, privacy controls, and security warnings in a way that is reviewable by users and administrators.
+
+### Enigm Command
+
+Enigm Command governs administrative workflows such as policy assignment, controlled device management, rollout visibility, audit review, and security posture review. Administrative actions should require strong identity context, explicit authorization, and audit records.
+
+### Network controls
+
+VPN Network, Proxy Network, and Tor Gateway are treated as policy-governed network paths. Their use should be authorized, auditable where security-relevant, and separated from protected content logging.
+
+### Threat intelligence
+
+The Threat Intelligence Platform processes security signals for detection, risk evaluation, and blocking architecture. Enyra is documented as an intelligence capability within that ecosystem. Intelligence outputs should use category-level risk context and avoid unnecessary identity metadata or protected content.
+
+### OTA and integrity
+
+OTA Architecture uses release lifecycle controls, client verification, Remote Attestation where applicable, and hardware-backed signing for security-sensitive artifacts. Artifacts that fail verification should be rejected.
+
+## Administrative security
+
+Administrative functions are treated as high-risk control-plane operations. Enigm Command actions should identify the actor, action category, target resource category, timestamp, outcome, and change reference where applicable.
+
+Privileged actions should be separated from routine runtime activity. Approval and review models should support least privilege, separation of duties, and auditable authorization.
+
+## Audit expectations
+
+Security-relevant events should be recorded with enough context to support investigation and compliance review. Audit events should minimize metadata and must not include protected content or credential material.
+
+Auditable event categories include:
+
+- Enigm App authentication and authorization outcomes
+- Device enrollment, suspension, revocation, and retirement events
+- Trust Security Center state changes
+- Enigm Command administrative changes
+- VPN Network, Proxy Network, and Tor Gateway policy outcomes where applicable
+- OTA release, rollout, Remote Attestation, and client-verification outcomes
+- Hardware-backed signing and artifact-verification events
+- Threat Intelligence Platform and Enyra detection or blocking outcomes
+
+## Failure behavior
+
+Protected operations should fail closed when identity, authorization, policy, integrity, or required metadata state cannot be established.
+
+User-facing errors should provide stable categories without exposing protected content, unnecessary identity metadata, or sensitive operational detail.

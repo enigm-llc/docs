@@ -1,0 +1,289 @@
+---
+title: Secure Messaging
+description: Public architecture and security model for Enigm App secure messaging.
+---
+
+Enigm App provides secure text and multimedia messaging as an app-level security model. Messaging protection is centered in the client application, supported by device trust, protected key material, controlled message lifetime, and verification workflows.
+
+This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It explains the Enigm secure messaging model without exposing protocol internals, implementation-sensitive storage paths, non-public routing identifiers, infrastructure names, operational topology, sensitive values, or cryptographic parameters.
+
+## Overview
+
+Enigm secure messaging is designed to protect message and attachment content while preserving enough lifecycle metadata for delivery, synchronization, expiration, and authorized audit workflows.
+
+The model is based on these principles:
+
+- Messages are end-to-end encrypted.
+- Message plaintext is not intended to be accessible to server-side components.
+- Server-side message storage, when required for delivery, stores encrypted message data only.
+- Message access depends on trusted device association and protected key material.
+- Multi-device messaging requires explicit trust establishment.
+- Attachments follow the same confidentiality model as messages.
+- Groups may support advanced permission controls for forwarding, deletion, sending, and media handling where enabled.
+- Administrative controls must not grant access to message plaintext.
+- Enigm OS can provide additional hardening, but Enigm secure messaging remains an Enigm App-level security model.
+
+## End-to-End Encryption Model
+
+Enigm messaging is designed so that plaintext message content is prepared and encrypted inside the sender-side Enigm App context before delivery.
+
+At a high level:
+
+1. Enigm App evaluates sender account state, sender device association, and applicable policy.
+2. Recipient account and recipient device eligibility are resolved through authorized metadata.
+3. Protected key material is used to establish an authorized encryption context.
+4. Message plaintext is encrypted locally in Enigm App.
+5. Encrypted message data is submitted for delivery.
+6. Recipient-side Enigm App verifies device eligibility and protected key state.
+7. Message content is decrypted locally only where permitted.
+
+Server-side components should not require message plaintext to route, store, synchronize, or expire messages.
+
+## Message Lifecycle
+
+The message lifecycle is structured around client-side protection and device-aware authorization.
+
+```mermaid
+sequenceDiagram
+  participant Sender as Sender Enigm App
+  participant Policy as Account and Device Policy
+  participant Keys as Protected Key Material
+  participant Store as Encrypted Storage and Delivery
+  participant Recipient as Recipient Enigm App
+
+  Sender->>Policy: Evaluate sender account, device, and policy state
+  Sender->>Keys: Resolve authorized encryption context
+  Sender->>Sender: Encrypt message plaintext locally
+  Sender->>Store: Submit encrypted message data
+  Store->>Recipient: Deliver encrypted message data
+  Recipient->>Policy: Verify recipient device eligibility
+  Recipient->>Keys: Resolve authorized decryption context
+  Recipient->>Recipient: Decrypt only required content for current action
+```
+
+The lifecycle includes:
+
+- Sender account and session evaluation.
+- Sender device trust evaluation.
+- Recipient device eligibility evaluation.
+- Local encryption using protected key material.
+- Encrypted delivery and synchronization.
+- Recipient-side verification.
+- Local decryption for authorized user action.
+- Expiration or deletion according to user or conversation policy.
+
+The client should retrieve and decrypt only the message content required for the current user action.
+
+## Server-Side Encrypted Storage
+
+Server-side message storage may be required for delivery, synchronization, offline retrieval, expiration coordination, or abuse-resistant lifecycle management.
+
+When server-side storage is required, it should store encrypted message data only. Message plaintext is not intended to be accessible to server-side components.
+
+Server-side systems may process limited metadata required for:
+
+- Delivery state.
+- Synchronization state.
+- Expiration state.
+- Conversation membership.
+- Abuse handling where applicable.
+- Audit-relevant lifecycle events.
+
+This metadata should be minimized and separated from protected message content.
+
+## Local Message Handling
+
+Local message handling defines how Enigm App treats decrypted content after authorized retrieval.
+
+Enigm App is designed so that:
+
+- Decrypted message content is handled inside authorized app contexts.
+- Decrypted message content should not be persistently stored on the device.
+- The system should avoid unnecessary local persistence.
+- Memory-only handling should be used for selected processing stages where supported.
+- Local caching, previews, search, backups, and enterprise retention controls must not silently bypass message confidentiality policy.
+
+Secure viewers should handle message and attachment content without exporting plaintext to external apps. Where external sharing or export is allowed by user action or policy, that action is outside the normal protected-viewing model and should be treated as a disclosure boundary.
+
+## Attachment Handling
+
+Attachments must follow the same confidentiality model as messages.
+
+Attachment handling is designed to:
+
+- Support protected files, images, videos, and other supported media objects.
+- Encrypt attachment content before transfer or storage.
+- Store attachment data as encrypted material where server-side storage is required.
+- Retrieve only attachment content required for the current user action.
+- Decrypt attachment content locally only where permitted.
+- Use secure viewers where supported.
+- Avoid plaintext export to external apps during normal protected viewing.
+- Apply expiration and deletion policy to attachment availability.
+
+Attachment metadata should be minimized to what is required for delivery, synchronization, expiration, and authorized review.
+
+## Group Permissions
+
+Group conversations may support advanced permission controls where enabled.
+
+Permission controls may include:
+
+- Sending eligibility.
+- Forwarding restrictions.
+- Deletion permissions.
+- Media sending permissions.
+- File sharing permissions.
+- Member management permissions.
+- Conversation visibility controls.
+
+Group permissions are intended to support controlled communication spaces while preserving the end-to-end encryption model. Administrative or group-level controls must not create plaintext access for server-side systems or Enigm Command workflows.
+
+## Media Protection And Local Permissions
+
+Enigm App secure media handling is designed to reduce unnecessary plaintext exposure during normal use.
+
+Media protection may include:
+
+- Secure viewing for supported files, images, and videos.
+- Avoiding unnecessary local persistence.
+- Restricting export paths where policy requires.
+- Limiting forwarding where conversation policy requires.
+- Applying message and attachment expiration.
+- Presenting protected media only inside authorized app contexts where supported.
+
+Screen capture and screen recording protections may be applied where supported by the operating system and device policy. These protections are intended to reduce accidental or unauthorized capture during normal app use, but they cannot guarantee prevention against all capture methods, compromised devices, external cameras, or modified operating environments.
+
+## Message Expiration
+
+Messages have a configurable lifetime and can expire according to user or conversation policy.
+
+Expiration may apply to:
+
+- Message content.
+- Attachment content.
+- Delivery references.
+- Local decrypted state.
+- Cached previews.
+- Conversation lifecycle metadata where applicable.
+
+Expiration is designed to reduce unnecessary long-term availability of protected content. Expiration does not necessarily remove every non-content metadata record, because delivery, audit, compliance, abuse handling, or legal workflows may require limited lifecycle records.
+
+## Device Trust Requirements
+
+Message access depends on trusted device association and protected key material.
+
+Device trust evaluates:
+
+- Account association.
+- Privacy-preserving device handle.
+- Device enrollment state.
+- Device replacement state.
+- Device revocation or retirement state.
+- Device-associated protected key material.
+- Local unlock state.
+- OS security posture.
+- Optional Trust Security Center posture where Enigm OS is deployed.
+- Optional Remote Attestation outcome where applicable.
+
+A valid account session does not automatically make a device eligible for message access. Revoked devices should lose future message synchronization and decryption eligibility according to lifecycle policy.
+
+## Multi-Device Messaging
+
+Multi-device messaging requires explicit trust establishment.
+
+A newly enrolled device should be evaluated as a new trust participant, not as an automatic extension of an existing session. Multi-device workflows should evaluate:
+
+- Account state.
+- Device enrollment state.
+- Device-associated protected key material.
+- Conversation membership.
+- Message expiration policy.
+- Existing trusted device approval or managed approval where applicable.
+- Enigm Command policy where managed administration applies.
+- Optional Enigm OS Trust state where deployed.
+
+Multi-device support must not silently copy private key material without an explicit trust workflow.
+
+Historical message availability for newly enrolled devices depends on key lifecycle, message lifetime, recovery design, and policy.
+
+## Verification Workflows
+
+Verification workflows should allow users to confirm device or contact trust where supported.
+
+Verification may include:
+
+- Contact or account verification.
+- Device membership verification.
+- Device replacement review.
+- Key state verification.
+- Conversation membership verification.
+- Optional Trust Security Center posture where Enigm OS is deployed.
+- Managed policy verification through Enigm Command where applicable.
+
+Verification output should provide understandable status or decision categories without exposing private key material, cryptographic internals, protocol details, or protected message content.
+
+## Metadata Minimization
+
+Message metadata should be minimized.
+
+The system should avoid unnecessary collection, retention, and exposure of metadata related to:
+
+- Message delivery.
+- Message read or retrieval state.
+- Attachment lifecycle.
+- Device correlation.
+- Conversation membership.
+- Expiration behavior.
+- Audit lifecycle.
+
+Where metadata is required, privacy-preserving identifiers should be preferred over direct public identifiers where possible.
+
+Administrative controls should expose lifecycle and policy evidence without exposing message plaintext.
+
+## Traffic Analysis Resistance
+
+The Enigm messaging architecture may generate additional network activity that is not directly tied to active user conversations.
+
+This mechanism is intended to reduce the reliability of simple traffic-correlation techniques that attempt to infer communication relationships from observable network patterns, including packet timing, message timing, traffic bursts, connection cadence, or similar signals.
+
+The goal is not to claim identity-hiding guarantees or resistance to advanced traffic analysis. The goal is to lower confidence in basic timing-correlation and communication-pattern analysis.
+
+Traffic shaping is an additional privacy layer. Communication confidentiality continues to rely on end-to-end encryption and protected key material.
+
+Additional network activity should not be interpreted as proof of active user communications. Network observers may still perform traffic analysis under certain circumstances, especially when they can combine timing, volume, endpoint behavior, user behavior, or external signals.
+
+This mechanism is intended to:
+
+- Reduce direct timing correlation.
+- Mitigate simple communication-pattern inference.
+- Lower confidence in basic observer assumptions.
+- Increase difficulty for simple traffic-burst analysis.
+- Make basic communication correlation less reliable.
+
+Public documentation does not disclose cadence, timing characteristics, generation logic, runtime tuning details, or implementation-sensitive behavior.
+
+### Relationship With Metadata Protection
+
+Traffic shaping, metadata minimization, proxy infrastructure, and transport protections are complementary controls.
+
+Metadata minimization reduces unnecessary metadata collection and exposure. Proxy infrastructure can provide an additional traffic-separation layer. Transport protections can reduce visibility from some network observers. Traffic shaping can make simple timing-based inference less reliable.
+
+These controls do not replace end-to-end encryption, device trust, protected key material, message expiration, or verification workflows.
+
+## Security Limitations
+
+Enigm secure messaging is designed to reduce exposure of message content, but it does not claim absolute protection against every risk or environment.
+
+Important limitations:
+
+- A compromised authorized device may expose content after local decryption.
+- An authorized recipient can intentionally disclose content outside Enigm controls.
+- Message expiration cannot guarantee removal of content already exported or captured outside Enigm controls.
+- Server-side encrypted storage still requires limited metadata for delivery, synchronization, expiration, and authorized lifecycle workflows.
+- Secure viewers reduce plaintext exposure during normal viewing but cannot control all behavior after intentional export.
+- Enigm OS can provide additional hardening, but Enigm secure messaging must remain valid as an App-level security model.
+- Administrative controls must not grant access to message plaintext, private key material, or decrypted attachments.
+
+## Threat Model References
+
+Relevant threat-model areas include account and app compromise, device lifecycle abuse, secure messaging compromise attempts, Enigm Command abuse, Enigm OS policy bypass where deployed, network-policy misuse where supporting network components are enabled, and loss of audit visibility.

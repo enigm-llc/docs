@@ -1,0 +1,189 @@
+---
+title: Device Management
+description: Public architecture specification for Enigm OS managed-device capabilities.
+---
+
+Enigm OS device management is an optional managed-device capability within the Enigm ecosystem. It is intended to let users manage trusted devices, review device posture, and perform supported lifecycle actions through explicit enrollment.
+
+Device management is not mandatory for normal Enigm OS operation. Managed-device functionality becomes available only after explicit user enrollment.
+
+This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
+
+## Overview
+
+Device management provides an optional layer for managing enrolled Enigm OS devices.
+
+Managed-device capabilities may include:
+
+- Device visibility.
+- Device status.
+- Device trust state.
+- Device lifecycle actions.
+- Trust reporting.
+- Remote operations.
+- Remote wipe where enabled.
+
+```mermaid
+flowchart TD
+  User["User"]
+  CP["Enigm Command"]
+  Device["Managed Device"]
+  Trust["Trust Reporting"]
+  Status["Device Status"]
+  Remote["Remote Operations"]
+
+  User --> CP
+  CP --> Device
+  Device --> Trust
+  Device --> Status
+  Device --> Remote
+```
+
+Managed-device visibility is not message visibility. Device management does not provide access to Enigm App message plaintext.
+
+## Design Objectives
+
+Enigm OS device management is designed to:
+
+- Support optional managed-device enrollment.
+- Provide device lifecycle visibility.
+- Support trusted device review.
+- Surface device trust state.
+- Support remote device operations where enabled.
+- Support remote wipe for lost, stolen, or compromised devices.
+- Keep administrative control separate from message confidentiality.
+- Preserve user choice for managed-device mode.
+
+Device management supports operational control over enrolled devices without weakening Enigm App end-to-end encryption.
+
+## Managed Device Model
+
+Enigm OS supports an optional managed-device capability.
+
+The goal is to allow users to manage trusted devices through the Enigm ecosystem. Managed-device mode can support visibility, lifecycle management, trust reporting, and remote operations for devices that users explicitly enroll.
+
+Managed-device mode is not required for normal Enigm OS operation. A user may operate Enigm OS and Enigm App without enrolling the device into managed-device mode, subject to applicable deployment policy.
+
+## Device Enrollment
+
+Enrollment is explicit.
+
+Users may be offered managed-device enrollment after signing into the Enigm ecosystem. Enrollment is optional and should clearly communicate the capabilities that become available when managed-device mode is enabled.
+
+Enrollment should establish that:
+
+- The user has chosen managed-device mode.
+- The device is associated with the user’s Enigm ecosystem context.
+- Device status and trust reporting may become visible through supported management surfaces.
+- Remote operations may become available where enabled.
+
+Managed-device enrollment is separate from Enigm App account authentication and separate from message decryption.
+
+## Device Trust Reporting
+
+Managed devices may report security status information.
+
+Examples of reported status categories include:
+
+- Device integrity state.
+- Trust state.
+- Security status.
+- Device management status.
+
+Trust reporting exists to provide visibility, not message access.
+
+Reported device state may support:
+
+- User review of trusted devices.
+- Enigm Command device visibility.
+- Trust Security Center integration.
+- Device lifecycle decisions.
+- Managed device security review.
+
+Device trust reporting should be limited to security and lifecycle posture. It should not include message content, media content, call content, attachments, documents, or user conversations.
+
+## Remote Device Operations
+
+Managed devices may support remote device operations where enabled.
+
+Remote operations may include:
+
+- Device lifecycle actions.
+- Device status review.
+- Trust state review.
+- Managed device policy actions.
+- Remote wipe initiation where supported.
+
+Remote operations must remain bounded by the managed-device trust domain. Administrative device control does not imply access to Enigm App plaintext or user content.
+
+## Remote Wipe
+
+Managed devices may support remote wipe functionality.
+
+Remote wipe is intended for lost, stolen, or compromised devices. It is a managed-device action designed to affect device access and reduce future risk from a device that should no longer be trusted.
+
+Remote wipe:
+
+- Is available only for enrolled managed devices where enabled.
+- Is intended to affect device access.
+- Is intended to support device lifecycle security.
+- Does not provide access to protected content.
+- Does not bypass Enigm App end-to-end encryption.
+- Does not recover message plaintext for administrators.
+
+Remote wipe cannot provide assurance for content already exported, captured outside Enigm controls, or disclosed by authorized users before the action completes.
+
+## Relationship With Enigm Command
+
+The Enigm Command acts as the management surface for enrolled managed devices.
+
+Enigm Command may provide:
+
+- Device visibility.
+- Device status.
+- Device trust state.
+- Device lifecycle actions.
+- Remote operation initiation where enabled.
+- Managed device review.
+
+Enigm Command management functions must remain separate from message confidentiality. Administrative access to device status does not grant access to message plaintext.
+
+## Relationship With Trust Security Center
+
+Trust Security Center provides local device trust evaluation and posture visibility.
+
+Managed-device workflows may use Trust Security Center state to support device reporting, lifecycle decisions, and security review. Trust Security Center may provide local posture signals, while Enigm Command may present management visibility for enrolled devices.
+
+Trust Security Center does not inspect message content, and managed-device reporting must not convert trust visibility into plaintext access.
+
+## Privacy Considerations
+
+Device management should be limited to security and lifecycle information required for enrolled managed-device workflows.
+
+Privacy considerations include:
+
+- Enrollment is explicit.
+- Managed-device mode is optional.
+- Device reporting should avoid unnecessary identity metadata.
+- Trust reporting should focus on device posture rather than user content.
+- Administrative visibility should remain limited to device management and security state.
+- Message content, media content, call content, attachments, documents, and user conversations must remain outside managed-device reporting.
+
+Users should be able to understand what managed-device mode enables before enrollment.
+
+## Security Limitations
+
+Device management reduces risk for enrolled devices, but it does not eliminate device or account risk.
+
+Limitations include:
+
+- Managed-device mode does not replace Enigm App end-to-end encryption.
+- Administrative device control does not imply message access.
+- Device trust reporting does not guarantee all future device behavior.
+- Remote wipe may not affect content already disclosed or captured outside Enigm controls.
+- Remote operations depend on device availability and state.
+- Device management does not prevent social engineering.
+- Device management does not make compromised trusted users safe.
+- Device management does not provide assurance for systems outside Enigm control.
+
+End-to-end encryption trust boundaries remain unchanged. Device management should be evaluated as an optional operational control layer, separate from message confidentiality and application-level cryptography.

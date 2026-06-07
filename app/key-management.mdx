@@ -1,0 +1,212 @@
+---
+title: Key Management
+description: Public key management model for Enigm App.
+---
+
+Key management in Enigm App defines how device-generated key material is protected, associated with trusted devices, used for secure messaging, and managed across lifecycle events such as rotation, replacement, revocation, and recovery.
+
+This document explains the Enigm key management architecture without disclosing algorithms, protocol-level details, key derivation parameters, protocol-sensitive material, source code names, operational procedures, non-public routing identifiers, infrastructure names, or deployment topology.
+
+## Overview
+
+Enigm App keys are generated on the device. Private key material is intended to remain device-bound and must not be stored in plaintext.
+
+The model uses protected device storage for private key protection. Hardware-backed protection is used where available. When larger cryptographic material cannot be directly stored inside a secure hardware boundary, the material may require wrapping or protection outside that boundary. In that case, the secure hardware boundary is used where available to protect wrapping keys, access-control material, or authorization conditions.
+
+Key access is affected by:
+
+- Device authentication.
+- Local unlock state.
+- App authorization state.
+- Device association state.
+- Device revocation state.
+- OS security posture.
+- Optional Enigm OS Trust state where deployed.
+
+Message encryption relies on protected key material. Device association requires explicit trust establishment. Multi-device support must not silently copy private keys without an explicit trust workflow.
+
+## Key Generation
+
+Keys are generated on the device during authorized lifecycle events.
+
+Key generation may occur during:
+
+- Account setup.
+- Device enrollment.
+- Secure messaging setup.
+- Secure call setup.
+- Key rotation.
+- Device replacement.
+- Recovery-assisted re-establishment of device association.
+
+Generated private key material is intended to remain within the device trust context. It should not be exported through routine app workflows, Enigm Command workflows, logs, audit records, diagnostics, support output, or documentation examples.
+
+Generated key state should be bound to the relevant account, device, and policy context. A key created for one device should not automatically establish trust for another device.
+
+## Private Key Protection
+
+Private key material must not be stored in plaintext.
+
+Enigm App uses protected device storage for app-controlled private key material and related key state. The protection model is designed to reduce exposure of private key material during storage, access, and lifecycle changes.
+
+Private key protection should include:
+
+- Protected storage for private key material.
+- Restriction of routine private key export.
+- Separation between long-lived device or identity key material and short-lived message or session key material.
+- Access control tied to device state, app state, and policy state.
+- Lifecycle handling for rotation, replacement, and revocation.
+
+Private key material should not be exposed through administrative actions. Administrative workflows may affect lifecycle state, but they must not grant plaintext access to messages or private key material.
+
+## Hardware-Backed Protection
+
+Hardware-backed protection is used where available.
+
+The secure hardware boundary may be used to protect:
+
+- Device-bound keys.
+- Wrapping keys.
+- Access-control material.
+- Authorization conditions.
+- Signing or decryption authorization where supported.
+
+Larger cryptographic material may require wrapping or protection outside the secure hardware boundary when the hardware enclave cannot directly store it. In that design, the protected hardware boundary is still used where available to control access to the wrapping material or authorization state.
+
+This model is designed to avoid overclaiming hardware guarantees. Hardware-backed protection hardens key access where available, but security still depends on device state, local unlock state, OS security posture, app authorization, lifecycle policy, and supported device class.
+
+## Platform-Specific Protection Model
+
+Enigm App documentation evaluates key protection across both iOS and Android architectures.
+
+### iOS
+
+On iOS, Enigm App uses Keychain for protected key storage and Secure Enclave-backed protection where available and appropriate for the key material or access-control operation.
+
+Secure Enclave may be used to protect device-bound keys, wrapping keys, or access-control material. Larger cryptographic material may require wrapping or protected storage outside Secure Enclave when it cannot be stored directly inside the hardware boundary.
+
+Key access can be affected by device authentication, local unlock state, app authorization, and OS security posture.
+
+### Android
+
+On Android, Enigm App uses Android Keystore-backed protection for private key material and related access-control operations where available. Hardware-backed Keystore or StrongBox-backed protection is used where supported by the device class and deployment.
+
+When larger cryptographic material cannot be directly stored in the hardware-backed boundary, Enigm App may protect that material through wrapping or protected storage, with hardware-backed keys or access-control material protecting the wrapping operation where available.
+
+Key access can be affected by device authentication, local unlock state, app authorization, OS security posture, and optional Enigm OS Trust state where deployed.
+
+## Device-Bound Trust
+
+Device-bound trust means that private key material and protected key state are associated with a specific enrolled device context.
+
+Device trust evaluates:
+
+- Device enrollment state.
+- Device association state.
+- Device authentication.
+- Local unlock state.
+- Device revocation state.
+- Protected key state.
+- OS security posture.
+- Optional Trust Security Center posture where Enigm OS is deployed.
+- Optional Remote Attestation outcome where applicable.
+
+A valid account session does not automatically make a device trusted. A device must be explicitly associated and must satisfy required policy before it can participate in protected operations.
+
+Message encryption relies on protected key material from trusted device contexts. A revoked device should not remain trusted for future protected messaging operations.
+
+## Multi-Device Key Handling
+
+Multi-device support must not silently copy private keys without an explicit trust workflow.
+
+Each device should establish trust through an authorized enrollment or replacement process. Multi-device workflows should evaluate:
+
+- Account authentication state.
+- Existing device trust state where applicable.
+- New device association state.
+- Device-generated key state.
+- Policy constraints.
+- Enigm Command approval where managed administration applies.
+- Optional Enigm OS Trust state where deployed.
+
+Historical message access, synchronization behavior, and recovery-assisted access depend on key lifecycle and retention policy. A newly enrolled device should not automatically inherit all prior message access unless an explicit policy and trust workflow allows it.
+
+## Revocation
+
+Device revocation must prevent future trust in the revoked device.
+
+Revocation should affect:
+
+- Device association state.
+- Message synchronization eligibility.
+- Secure messaging eligibility.
+- Secure call eligibility.
+- Future key-use authorization.
+- Enigm Command lifecycle status.
+- Optional Enigm OS device-management state where deployed.
+
+Revocation does not imply that all previously delivered content can be removed from a device that already received and decrypted it. This is a security limitation of any model where an authorized endpoint has previously accessed content.
+
+Key revocation, replacement, and rotation should be supported as lifecycle events and should be auditable without exposing private key material.
+
+## Recovery Boundaries
+
+Recovery flows must be separated from normal message access.
+
+Recovery may support:
+
+- Account continuity.
+- Device replacement.
+- Re-establishment of device association.
+- Restoration of policy eligibility.
+- Administrative review of lifecycle state.
+
+Recovery must not automatically grant plaintext access to messages. Recovery must not provide administrators with private key material. Recovery workflows should be designed so that restoring account access does not weaken normal message confidentiality.
+
+Enigm Command may support lifecycle actions, but administrative actions must not grant plaintext access to messages.
+
+## Security Limitations
+
+The Enigm key management model is designed to reduce key exposure and harden device-bound trust, but it does not eliminate every risk.
+
+Important limitations:
+
+- Hardware-backed protection is available only where supported by the device and deployment.
+- Larger cryptographic material may require protected wrapping outside the secure hardware boundary.
+- A compromised device may expose content after authorized local decryption.
+- Device revocation prevents future trust but cannot guarantee removal of content already accessed by the revoked device.
+- Recovery workflows can preserve account continuity, but they must not be treated as message plaintext access workflows.
+- Administrative lifecycle control does not equal access to private key material.
+- OS security posture affects key access and must be considered part of the device trust model.
+
+## Lifecycle Summary
+
+Key lifecycle events include:
+
+- **Creation**: keys are generated on the device during authorized setup or lifecycle events.
+- **Activation**: key material becomes eligible for protected operations after required trust checks.
+- **Rotation**: key material is updated according to lifecycle or security policy.
+- **Replacement**: key material is superseded during device replacement or account lifecycle changes.
+- **Revocation**: key material is restricted from future trusted use.
+- **Retirement**: key material is removed from active lifecycle use according to policy.
+
+Lifecycle transitions should be auditable at the state and decision level without exposing private key material.
+
+## Trust Boundaries
+
+The main trust boundaries are:
+
+- Enigm App to protected device storage.
+- Protected device storage to hardware-backed protection where available.
+- Hardware-backed protection to wrapping keys or access-control material.
+- Device authentication to key access.
+- Local unlock state to key access.
+- OS security posture to device trust.
+- Device association to message encryption eligibility.
+- Multi-device enrollment to key trust establishment.
+- Recovery workflow to normal message access.
+- Enigm Command lifecycle actions to key lifecycle state.
+
+## Threat Model References
+
+Relevant threat-model areas include account and app compromise, device lifecycle abuse, secure messaging compromise attempts, Enigm Command abuse, Enigm OS policy bypass where deployed, and loss of audit visibility.

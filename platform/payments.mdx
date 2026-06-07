@@ -1,0 +1,135 @@
+---
+title: Payment Privacy
+description: Public model for payment privacy, reduced identity linkage, and compliance boundaries.
+---
+
+Payment Privacy describes how Enigm approaches payment-related privacy for supported commercial workflows.
+
+Payment systems are separate from Enigm App cryptography, message confidentiality, secure calls, Enigm Server, Enigm Key, Enigm eSIM, and Enigm OS device trust. Payment privacy can reduce identity linkage in supported contexts, but it does not provide anonymity guarantees and does not replace legal, tax, compliance, or user responsibility obligations.
+
+## Overview
+
+Enigm is designed around privacy, data minimization, identity protection, and metadata reduction. Payment workflows should follow the same principles where supported.
+
+Payment Privacy is intended to:
+
+- Reduce unnecessary linkage between payment activity and platform activity.
+- Minimize collection of payment-related identity information where possible.
+- Separate payment records from protected communication content.
+- Support user choice in supported payment methods.
+- Preserve compliance and security boundaries.
+
+## Supported Payment Model
+
+Supported payment workflows may include privacy-oriented payment options where available and lawful.
+
+At a public architecture level, payment handling should:
+
+- Collect only payment information required for the transaction, support, compliance, fraud prevention, or legal obligations.
+- Avoid connecting payment metadata to message content, call content, media, attachments, or user conversations.
+- Keep payment status separate from cryptographic access to protected communications.
+- Maintain lifecycle records only where required for operational, security, compliance, or legal purposes.
+
+Public documentation does not describe payment processors, treasury operations, settlement workflows, wallet infrastructure, fraud-detection logic, internal accounting systems, or operational controls.
+
+## Privacy Objectives
+
+Payment Privacy is designed to support:
+
+- Reduced identity linkage.
+- Purpose-limited payment metadata.
+- Separation between commercial records and protected content.
+- Minimized retention where possible.
+- User control over supported payment choices.
+- Privacy-oriented procurement for supported deployments.
+
+These objectives reduce exposure but do not guarantee anonymity.
+
+## Cryptocurrency Payments
+
+Where supported, cryptocurrency payments may provide an additional payment option for users who prefer reduced reliance on traditional payment identity workflows.
+
+Cryptocurrency payments should be documented carefully:
+
+- They do not guarantee anonymity.
+- Public ledger activity may create external metadata.
+- Users remain responsible for the privacy properties of the payment method they choose.
+- Legal, tax, compliance, and sanctions obligations may still apply.
+- Payment confirmation does not grant access to protected message plaintext or private key material.
+
+Enigm should avoid claiming that cryptocurrency payments erase identity risk or remove all external payment correlation.
+
+## Compliance Boundaries
+
+Payment privacy must coexist with compliance requirements.
+
+Enigm may retain or process payment-related information when required for:
+
+- Transaction completion.
+- Fraud prevention.
+- Abuse prevention.
+- Legal obligations.
+- Tax or accounting obligations.
+- Customer support.
+- Enterprise procurement.
+- Security investigations where authorized.
+
+Compliance requirements may vary by jurisdiction, payment method, and deployment context.
+
+## Relationship With Enigm App
+
+Payment state is separate from Enigm App content security.
+
+Payment workflows must not provide access to:
+
+- Message plaintext.
+- Call content.
+- Media content.
+- Attachments.
+- User conversations.
+- Private key material.
+
+Enigm App protected operations remain governed by account state, device trust, protected key material, and policy.
+
+## Relationship With Enigm Server
+
+Payment workflows may support access to Enigm Server or private environment subscriptions where applicable.
+
+Commercial authorization is not the same as trust authorization. A paid environment, subscription, or private server access state must still respect account policy, device trust, and protected communication boundaries.
+
+## Data Minimization
+
+Payment workflows should minimize:
+
+- Unnecessary identity metadata.
+- Long-term retention beyond defined purposes.
+- Linkage between payment records and communication activity.
+- Exposure of payment data in administrative views.
+- Disclosure of payment context to unrelated platform components.
+
+Where payment correlation is required, it should be scoped to the supported commercial, security, legal, or operational purpose.
+
+## Security Considerations
+
+- Payment records should be protected as sensitive commercial data.
+- Payment access should be separated from message and call confidentiality.
+- Payment workflows should not weaken account recovery or device trust.
+- Fraud and abuse controls should avoid unnecessary content inspection.
+- Administrative payment visibility should remain role-scoped and auditable.
+
+## Security Limitations
+
+Payment Privacy reduces unnecessary exposure, but it does not eliminate payment-related risk.
+
+Important limitations:
+
+- Payment methods may expose metadata outside Enigm control.
+- Cryptocurrency transactions may be visible on public ledgers.
+- Compliance obligations may require retention or disclosure in specific circumstances.
+- Commercial records may be required for support, accounting, security, or legal purposes.
+- Payment privacy does not protect against endpoint compromise, social engineering, or user disclosure.
+- Payment status does not imply device trust or protected-content access.
+
+## Threat Model References
+
+Relevant threat-model areas include identity linkage, payment metadata exposure, account compromise, procurement privacy, external payment metadata, legal disclosure boundaries, and administrative access control.
