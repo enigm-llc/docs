@@ -167,12 +167,6 @@ html.dark .mdx-content ul > li::marker {
   overflow: hidden !important;
   padding: 0.875rem !important;
   position: relative !important;
-  cursor: zoom-in !important;
-}
-
-.mdx-content div:has(> .mermaid),
-.mdx-content div.group.relative.overflow-hidden:has(.mermaid) {
-  cursor: zoom-in !important;
 }
 
 html.dark .mermaid {
