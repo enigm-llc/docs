@@ -4,47 +4,343 @@
   --enigm-red: #ff2d3d;
   --enigm-line-light: rgba(0, 0, 0, 0.16);
   --enigm-line-dark: rgba(255, 255, 255, 0.18);
+  --enigm-line-dark-strong: rgba(255, 255, 255, 0.72);
 }
 
 #topbar-right-container a[href="https://app.enigm.io"],
 [id="topbar-right-container"] a[href="https://app.enigm.io"],
-nav a[href="https://app.enigm.io"] {
+nav a[href="https://app.enigm.io"],
+#topbar-cta-button a[href="https://app.enigm.io"] {
   background: var(--enigm-black) !important;
   border: 1px solid var(--enigm-black) !important;
+  border-radius: 0.875rem !important;
   color: var(--enigm-white) !important;
+  box-sizing: border-box !important;
   font-weight: 650 !important;
-  min-width: 142px;
-  justify-content: center;
+  min-width: 156px;
+  height: 36px !important;
+  min-height: 36px;
+  justify-content: center !important;
+  padding: 0 0.875rem !important;
   box-shadow: none !important;
 }
 
 #topbar-right-container a[href="https://app.enigm.io"] *,
 [id="topbar-right-container"] a[href="https://app.enigm.io"] *,
-nav a[href="https://app.enigm.io"] * {
+nav a[href="https://app.enigm.io"] *,
+#topbar-cta-button a[href="https://app.enigm.io"] * {
   color: inherit !important;
 }
 
 #topbar-right-container a[href="https://app.enigm.io"] > span.absolute,
 [id="topbar-right-container"] a[href="https://app.enigm.io"] > span.absolute,
-nav a[href="https://app.enigm.io"] > span.absolute {
+nav a[href="https://app.enigm.io"] > span.absolute,
+#topbar-cta-button a[href="https://app.enigm.io"] > span.absolute {
   background: inherit !important;
   border-color: inherit !important;
+  border-radius: inherit !important;
 }
 
 .dark #topbar-right-container a[href="https://app.enigm.io"],
 .dark [id="topbar-right-container"] a[href="https://app.enigm.io"],
-.dark nav a[href="https://app.enigm.io"] {
-  background: var(--enigm-white) !important;
-  border-color: var(--enigm-white) !important;
-  color: var(--enigm-black) !important;
+.dark nav a[href="https://app.enigm.io"],
+.dark #topbar-cta-button a[href="https://app.enigm.io"] {
+  background: var(--enigm-black) !important;
+  border-color: transparent !important;
+  box-shadow: rgba(79, 79, 79, 0.3) 0 0 0 1px !important;
+  color: var(--enigm-white) !important;
+}
+
+#topbar-cta-button a[href="https://app.enigm.io"],
+#topbar-cta-button a[href="https://app.enigm.io"] > span.absolute {
+  border-radius: 0.75rem !important;
 }
 
 #topbar-right-container a[href="https://app.enigm.io"]:hover,
 [id="topbar-right-container"] a[href="https://app.enigm.io"]:hover,
-nav a[href="https://app.enigm.io"]:hover {
-  background: var(--enigm-red) !important;
-  border-color: var(--enigm-red) !important;
+nav a[href="https://app.enigm.io"]:hover,
+#topbar-cta-button a[href="https://app.enigm.io"]:hover {
+  background: var(--enigm-black) !important;
+  border-color: var(--enigm-black) !important;
   color: var(--enigm-white) !important;
+  opacity: 0.92;
+}
+
+.dark #topbar-right-container a[href="https://app.enigm.io"]:hover,
+.dark [id="topbar-right-container"] a[href="https://app.enigm.io"]:hover,
+.dark nav a[href="https://app.enigm.io"]:hover,
+.dark #topbar-cta-button a[href="https://app.enigm.io"]:hover {
+  background: var(--enigm-black) !important;
+  border-color: transparent !important;
+  box-shadow: rgba(115, 115, 115, 0.3) 0 0 0 1px !important;
+  color: var(--enigm-white) !important;
+}
+
+button:has(.lucide-sparkles),
+button:has(.lucide-sparkle),
+button:has(span):has(svg[class*="spark"]) {
+  display: none !important;
+}
+
+#chat-assistant-textarea,
+form:has(#chat-assistant-textarea),
+div:has(> #chat-assistant-textarea) {
+  display: none !important;
+}
+
+html.light #navbar-transition {
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.dark #navbar-transition {
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.light .nav-tabs-item > .absolute.bottom-0 {
+  background: rgba(0, 0, 0, 0.18) !important;
+}
+
+html.dark .nav-tabs-item > .absolute.bottom-0 {
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+html.light .nav-tabs-item[aria-current="page"] > .absolute.bottom-0,
+html.light .nav-tabs-item > .absolute.bottom-0[class*="bg-primary"] {
+  background: var(--enigm-black) !important;
+}
+
+html.dark .nav-tabs-item[aria-current="page"] > .absolute.bottom-0,
+html.dark .nav-tabs-item > .absolute.bottom-0[class*="bg-primary"] {
+  background: var(--enigm-white) !important;
+}
+
+html.dark #sidebar-content a {
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+html.dark #sidebar-content a:hover {
+  color: var(--enigm-white) !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+}
+
+html.dark #sidebar-content a[aria-current="page"],
+html.dark #sidebar-content a[class*="bg-primary"] {
+  background: rgba(255, 255, 255, 0.075) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light #sidebar-content a:hover {
+  background: rgba(0, 0, 0, 0.035) !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+html.light #sidebar-content a[aria-current="page"],
+html.light #sidebar-content a[class*="bg-primary"] {
+  background: rgba(0, 0, 0, 0.055) !important;
+  color: rgba(0, 0, 0, 0.88) !important;
+}
+
+html.dark #sidebar-content h5,
+html.dark #sidebar-content [class*="font-semibold"] {
+  color: var(--enigm-white) !important;
+}
+
+html.dark .text-primary,
+html.dark .dark\:text-primary-light,
+html.dark .hover\:text-gray-900:hover,
+html.dark .group:hover .group-hover\:text-gray-900 {
+  color: var(--enigm-white) !important;
+}
+
+.mdx-content ol > li::marker,
+.mdx-content ul > li::marker {
+  color: currentColor !important;
+  font-size: 0.92em;
+  font-weight: inherit;
+}
+
+html.dark .mdx-content ol > li::marker,
+html.dark .mdx-content ul > li::marker {
+  color: currentColor !important;
+}
+
+.mermaid {
+  align-items: center !important;
+  background: rgba(0, 0, 0, 0.012) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 1.25rem 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 178px !important;
+  overflow: hidden !important;
+  padding: 0.875rem !important;
+  position: relative !important;
+  cursor: zoom-in !important;
+}
+
+.mdx-content div:has(> .mermaid),
+.mdx-content div.group.relative.overflow-hidden:has(.mermaid) {
+  cursor: zoom-in !important;
+}
+
+.chat-assistant-send-button {
+  display: none !important;
+}
+
+html.dark .mermaid {
+  background: rgba(255, 255, 255, 0.018) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: none !important;
+}
+
+.mermaid svg {
+  background: transparent !important;
+  height: auto !important;
+  max-height: 240px !important;
+  max-width: min(100%, 700px) !important;
+  width: auto !important;
+}
+
+.mermaid svg g {
+  transform-box: fill-box;
+}
+
+.mdx-content div[class*="bottom-2"][class*="right-2"] button[title],
+.mdx-content div[class*="bottom-2"][class*="right-2"] button[aria-label],
+.mdx-content button[title^="Pan "],
+.mdx-content button[title^="Zoom "],
+.mdx-content button[title="Reset view"],
+.mdx-content button[aria-label^="Pan "],
+.mdx-content button[aria-label^="Zoom "],
+.mdx-content button[aria-label="Reset view"] {
+  border-radius: 0.375rem !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  min-width: 22px !important;
+  padding: 0 !important;
+  width: 22px !important;
+}
+
+.mdx-content div[class*="bottom-2"][class*="right-2"] button[title] svg,
+.mdx-content div[class*="bottom-2"][class*="right-2"] button[aria-label] svg,
+.mdx-content button[title^="Pan "] svg,
+.mdx-content button[title^="Zoom "] svg,
+.mdx-content button[title="Reset view"] svg,
+.mdx-content button[aria-label^="Pan "] svg,
+.mdx-content button[aria-label^="Zoom "] svg,
+.mdx-content button[aria-label="Reset view"] svg {
+  height: 13px !important;
+  width: 13px !important;
+}
+
+.mdx-content div[class*="bottom-2"][class*="right-2"]:has(button[title^="Pan "]),
+.mdx-content div[class*="bottom-2"][class*="right-2"]:has(button[aria-label^="Pan "]) {
+  gap: 0.125rem !important;
+}
+
+.mermaid svg text,
+.mermaid svg .label,
+.mermaid svg .nodeLabel,
+.mermaid svg .edgeLabel,
+.mermaid svg .messageText,
+.mermaid svg .loopText {
+  color: var(--enigm-black) !important;
+  fill: var(--enigm-black) !important;
+}
+
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node ellipse,
+.mermaid svg .node polygon,
+.mermaid svg .node path,
+.mermaid svg rect.actor,
+.mermaid svg .cluster rect {
+  fill: var(--enigm-white) !important;
+  stroke: var(--enigm-black) !important;
+  stroke-width: 1.25px !important;
+  filter: none !important;
+  rx: 12px;
+  ry: 12px;
+}
+
+.mermaid svg .edgePath path,
+.mermaid svg .flowchart-link,
+.mermaid svg .messageLine0,
+.mermaid svg .messageLine1,
+.mermaid svg line {
+  stroke: var(--enigm-black) !important;
+}
+
+.mermaid svg marker path,
+.mermaid svg .arrowheadPath {
+  fill: var(--enigm-black) !important;
+  stroke: var(--enigm-black) !important;
+}
+
+.mermaid svg .edgeLabel,
+.mermaid svg .edgeLabel p {
+  background: var(--enigm-white) !important;
+  color: var(--enigm-black) !important;
+}
+
+html.dark .mermaid svg text,
+html.dark .mermaid svg .label,
+html.dark .mermaid svg .nodeLabel,
+html.dark .mermaid svg .edgeLabel,
+html.dark .mermaid svg .messageText,
+html.dark .mermaid svg .loopText {
+  color: var(--enigm-white) !important;
+  fill: var(--enigm-white) !important;
+}
+
+html.dark .mermaid svg .node rect,
+html.dark .mermaid svg .node circle,
+html.dark .mermaid svg .node ellipse,
+html.dark .mermaid svg .node polygon,
+html.dark .mermaid svg .node path,
+html.dark .mermaid svg rect.actor,
+html.dark .mermaid svg .cluster rect {
+  fill: var(--enigm-black) !important;
+  stroke: var(--enigm-white) !important;
+  filter: none !important;
+}
+
+html.dark .mermaid svg .edgePath path,
+html.dark .mermaid svg .flowchart-link,
+html.dark .mermaid svg .messageLine0,
+html.dark .mermaid svg .messageLine1,
+html.dark .mermaid svg line {
+  stroke: var(--enigm-white) !important;
+}
+
+html.dark .mermaid svg marker path,
+html.dark .mermaid svg .arrowheadPath {
+  fill: var(--enigm-white) !important;
+  stroke: var(--enigm-white) !important;
+}
+
+html.dark .mermaid svg .edgeLabel,
+html.dark .mermaid svg .edgeLabel p {
+  background: var(--enigm-black) !important;
+  color: var(--enigm-white) !important;
+}
+
+.nav-tabs-item {
+  border-bottom-color: transparent !important;
+}
+
+html.light .nav-tabs-item[aria-current="page"],
+html.light .nav-tabs-item:hover {
+  border-bottom-color: var(--enigm-black) !important;
+}
+
+html.dark .nav-tabs-item[aria-current="page"],
+html.dark .nav-tabs-item:hover {
+  border-bottom-color: var(--enigm-white) !important;
 }
 
 .enigm-card-grid a,
@@ -86,4 +382,155 @@ html.dark .enigm-card-grid .card:focus-visible {
 .enigm-card-grid--compact a,
 .enigm-card-grid--compact .card {
   min-height: 128px;
+}
+
+html.dark [aria-label="Table of contents"] a[aria-current="true"],
+html.dark [aria-label="Table of contents"] a[aria-current="page"],
+html.dark [aria-label="Table of contents"] a[class*="active"],
+html.dark [aria-label="Table of contents"] a[class*="text-gray-900"],
+html.dark [aria-label="Table of contents"] a[class*="text-primary"],
+html.dark [aria-label="On this page"] a[aria-current="true"],
+html.dark [aria-label="On this page"] a[aria-current="page"],
+html.dark [aria-label="On this page"] a[class*="active"],
+html.dark [aria-label="On this page"] a[class*="text-gray-900"],
+html.dark [aria-label="On this page"] a[class*="text-primary"] {
+  color: var(--enigm-white) !important;
+}
+
+html.dark [aria-label="Table of contents"] a[aria-current="true"] *,
+html.dark [aria-label="Table of contents"] a[aria-current="page"] *,
+html.dark [aria-label="Table of contents"] a[class*="active"] *,
+html.dark [aria-label="Table of contents"] a[class*="text-gray-900"] *,
+html.dark [aria-label="Table of contents"] a[class*="text-primary"] *,
+html.dark [aria-label="On this page"] a[aria-current="true"] *,
+html.dark [aria-label="On this page"] a[aria-current="page"] *,
+html.dark [aria-label="On this page"] a[class*="active"] *,
+html.dark [aria-label="On this page"] a[class*="text-gray-900"] *,
+html.dark [aria-label="On this page"] a[class*="text-primary"] * {
+  color: var(--enigm-white) !important;
+}
+
+html.dark toc-item:hover,
+html.dark toc-item:hover *,
+html.dark #table-of-contents toc-item:hover,
+html.dark #table-of-contents toc-item:hover * {
+  color: var(--enigm-white) !important;
+}
+
+html.dark toc-item[data-active],
+html.dark toc-item[data-active] *,
+html.dark toc-item[data-active-deepest],
+html.dark toc-item[data-active-deepest] *,
+html.dark #table-of-contents toc-item[data-active],
+html.dark #table-of-contents toc-item[data-active] *,
+html.dark #table-of-contents toc-item[data-active-deepest],
+html.dark #table-of-contents toc-item[data-active-deepest] * {
+  color: var(--enigm-white) !important;
+}
+
+.enigm-feedback-toolbar {
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin: 2.5rem 0 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.enigm-feedback-toolbar p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.enigm-feedback-rating,
+.enigm-feedback-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.enigm-feedback-actions {
+  margin-left: auto;
+}
+
+.enigm-feedback-button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.625rem;
+  color: rgba(0, 0, 0, 0.72);
+  display: inline-flex;
+  font-size: 0.84rem;
+  font-weight: 500;
+  gap: 0.45rem;
+  height: 34px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 0.75rem;
+  text-decoration: none !important;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+  white-space: nowrap;
+}
+
+.enigm-feedback-button svg {
+  height: 15px;
+  width: 15px;
+}
+
+.enigm-feedback-button:hover,
+.enigm-feedback-toolbar[data-feedback="yes"] .enigm-feedback-yes,
+.enigm-feedback-toolbar[data-feedback="no"] .enigm-feedback-no {
+  background: var(--enigm-white);
+  border-color: var(--enigm-black);
+  color: var(--enigm-black);
+}
+
+html.dark .enigm-feedback-toolbar {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .enigm-feedback-toolbar p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html.dark .enigm-feedback-button {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+html.dark .enigm-feedback-button:hover,
+html.dark .enigm-feedback-toolbar[data-feedback="yes"] .enigm-feedback-yes,
+html.dark .enigm-feedback-toolbar[data-feedback="no"] .enigm-feedback-no {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: var(--enigm-white);
+  color: var(--enigm-white);
+}
+
+@media (max-width: 960px) {
+  .enigm-feedback-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .enigm-feedback-actions {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .enigm-feedback-rating,
+  .enigm-feedback-actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .enigm-feedback-button {
+    width: 100%;
+  }
 }

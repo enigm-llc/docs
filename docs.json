@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Enigm Documentation",
+  "name": "Enigm",
   "theme": "mint",
   "modeToggle": {
     "default": "dark"
@@ -33,6 +33,15 @@
       "type": "button",
       "label": "Enigm Command",
       "href": "https://app.enigm.io"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/enigm_io",
+      "instagram": "https://www.instagram.com/enigm.io/",
+      "github": "https://github.com/enigm-llc",
+      "linkedin": "https://www.linkedin.com/company/enigm-io/",
+      "youtube": "https://www.youtube.com/@Enigm-io"
     }
   },
   "navigation": {
