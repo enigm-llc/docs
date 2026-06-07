@@ -62,7 +62,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Products",
+        "tab": "Enigm Docs",
         "groups": [
           {
             "group": "Start",
@@ -73,67 +73,74 @@
             ]
           },
           {
-            "group": "Enigm",
+            "group": "Products",
+            "expanded": true,
             "pages": [
-              "app/overview",
-              "app/account-model",
-              "app/key-management",
-              "app/secure-messaging",
-              "app/secure-calls",
-              "app/active-defense",
-              "app/multi-device",
-              "platform/vpn",
-              "platform/proxy-network"
-            ]
-          },
-          {
-            "group": "Enigm Command",
-            "pages": [
-              "platform/control-panel",
-              "platform/tor-gateway"
-            ]
-          },
-          {
-            "group": "Enigm Server",
-            "pages": [
-              "platform/private-environments"
-            ]
-          },
-          {
-            "group": "Enigm OS",
-            "pages": [
-              "os/overview",
-              "os/security-architecture",
-              "os/trust-security-center",
-              "os/setup-wizard",
-              "os/launcher",
-              "os/network-policy",
-              "os/privacy-mode",
-              "os/device-management",
               {
-                "group": "OTA",
+                "group": "Enigm",
                 "pages": [
-                  "os/ota/overview",
-                  "os/ota/security-model",
-                  "os/ota/remote-attestation",
-                  "os/ota/signing",
-                  "os/ota/release-lifecycle",
-                  "os/ota/client-verification"
+                  "app/overview",
+                  "app/account-model",
+                  "app/key-management",
+                  "app/secure-messaging",
+                  "app/secure-calls",
+                  "app/active-defense",
+                  "app/multi-device",
+                  "app/vpn",
+                  "app/proxy-network"
                 ]
               },
-              "os/production-gates"
-            ]
-          },
-          {
-            "group": "Enigm Key",
-            "pages": [
-              "platform/enigm-key"
-            ]
-          },
-          {
-            "group": "Enigm eSIM",
-            "pages": [
-              "platform/esim"
+              {
+                "group": "Enigm Command",
+                "pages": [
+                  "command/overview",
+                  "command/payments",
+                  "command/tor-gateway"
+                ]
+              },
+              {
+                "group": "Enigm Server",
+                "pages": [
+                  "server/overview"
+                ]
+              },
+              {
+                "group": "Enigm OS",
+                "pages": [
+                  "os/overview",
+                  "os/security-architecture",
+                  "os/trust-security-center",
+                  "os/setup-wizard",
+                  "os/launcher",
+                  "os/network-policy",
+                  "os/privacy-mode",
+                  "os/device-management",
+                  {
+                    "group": "OTA",
+                    "pages": [
+                      "os/ota/overview",
+                      "os/ota/security-model",
+                      "os/ota/remote-attestation",
+                      "os/ota/signing",
+                      "os/ota/release-lifecycle",
+                      "os/ota/client-verification"
+                    ]
+                  },
+                  "os/production-gates"
+                ]
+              },
+              {
+                "group": "Enigm Key",
+                "pages": [
+                  "key/overview"
+                ]
+              },
+              {
+                "group": "Enigm eSIM",
+                "pages": [
+                  "esim/overview"
+                ]
+              }
             ]
           }
         ]
@@ -150,8 +157,11 @@
               "security/privacy-model",
               "security/threat-model",
               "security/cryptography",
+              "security/cryptography-audit",
+              "security/implementation-status",
               "security/compliance",
               "security/assurance-evidence",
+              "security/transparency-report",
               "security/transparency"
             ]
           },
@@ -179,11 +189,30 @@
           {
             "group": "Legal and Privacy",
             "pages": [
-              "platform/payments",
               "legal/jurisdiction-compliance",
+              "legal/legal-process-guidelines",
               "legal/data-retention",
+              "legal/business-continuity-user-impact",
               "legal/responsible-disclosure",
               "legal/security-contact"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "FAQ & Support",
+        "groups": [
+          {
+            "group": "Get Help",
+            "expanded": true,
+            "pages": [
+              "support/get-help"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "support/faq"
             ]
           }
         ]

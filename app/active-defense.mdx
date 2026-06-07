@@ -11,6 +11,8 @@ It is not a messaging feature, not an administrative bypass, and not an assuranc
 
 Active Defense analyzes security-relevant network behavior from the user's phone over a bounded assessment period. The objective is to identify indicators that may be consistent with mobile malware, commercial spyware, surveillance tooling, command-and-control behavior, or exfiltration-like activity.
 
+Active Defense is available in production to a selected user pool.
+
 Active Defense is designed as a non-intrusive capability:
 
 - It does not require root access.
@@ -20,6 +22,110 @@ Active Defense is designed as a non-intrusive capability:
 - It analyzes minimized technical signals, network-flow behavior, protocol characteristics, and security findings.
 
 Active Defense is part of Enigm App. Enigm OS may provide additional device integrity signals where deployed, but Active Defense remains an App-level security capability.
+
+## Purpose
+
+Active Defense is designed to evaluate mobile malware-risk and suspicious device activity risk without inspecting protected communications.
+
+The purpose is to provide privacy-preserving security context that can support:
+
+- User security decisions.
+- Device Trust evaluation.
+- Account and device lifecycle decisions.
+- Enigm Command review workflows where authorized.
+- Enigm Intelligence correlation where policy permits.
+
+Active Defense is not a forensic extraction system, not a content inspection system, and not a mechanism for administrative access to protected communications.
+
+## Security Signals
+
+Active Defense evaluates minimized security signals.
+
+Security signal categories may include:
+
+- Device security state.
+- App integrity signals.
+- Network-risk indicators.
+- Suspicious behavior indicators.
+- Malware-risk findings.
+- Security findings.
+- Device-risk context.
+- Network-flow characteristics.
+- Protocol and transport characteristics.
+- Device posture signals where available.
+
+These categories are documented at a public architecture level only. Public documentation does not disclose detection logic, rules, thresholds, signatures, internal tooling, or operational parameters.
+
+## What Active Defense Does Not Inspect
+
+Active Defense must not inspect:
+
+- Message plaintext.
+- Call content.
+- Media content.
+- Attachments.
+- User conversations.
+- Private keys.
+- Plaintext recovery phrases.
+- Device-held private key material.
+
+Protected content remains outside the Active Defense analysis model.
+
+## Device-Side Processing
+
+Active Defense assessments are initiated by the user from Enigm App. The user can see when analysis is active.
+
+Active Defense is designed to process security-relevant signals from the device with least access necessary for the assessment.
+
+Device-side processing should prioritize:
+
+- Minimized technical signals.
+- Security context rather than content.
+- Local device-risk evaluation where possible.
+- User visibility when assessment activity is active.
+- Separation from protected communications and private key material.
+
+Device-side processing must not weaken Enigm App end-to-end encryption, secure storage, protected key material, or message lifecycle controls.
+
+## Server-Side Processing
+
+Active Defense analysis is performed in an Enigm-controlled VPN analysis environment.
+
+Analysis data is protected in transit and at rest. Server-side processing remains limited to the security purpose and uses minimized security context. It must not require message plaintext, call content, media content, attachments, user conversations, or private keys.
+
+Where Active Defense findings are shared with Enigm Intelligence or Enigm Command, access must remain authorization-scoped and separated from protected content.
+
+## Telemetry Minimization
+
+Active Defense telemetry should be minimized.
+
+Telemetry minimization means:
+
+- Prefer aggregated security context over raw observations where possible.
+- Avoid unnecessary identity metadata.
+- Use privacy-preserving identifiers where device correlation is required.
+- Separate findings from protected content.
+- Avoid broad retention of raw network observations where security context is sufficient.
+
+## Data Retention
+
+Active Defense does not retain raw analysis data after the assessment workflow completes.
+
+Retained Active Defense state is limited to finding metadata and user-visible security context, such as whether suspicious behavior was detected, severity, category, and recommendation.
+
+The user controls whether Active Defense findings remain available in the app or are deleted.
+
+## Access Control
+
+Access to Active Defense findings should be restricted to authorized security workflows.
+
+Access control should:
+
+- Scope review by user role, account context, device context, and policy.
+- Preserve separation from protected communications.
+- Protect findings as security-sensitive information.
+- Avoid expanding access through conversational, administrative, or support workflows.
+- Ensure Enigm Command visibility does not become message content visibility.
 
 ## Design Objectives
 
@@ -143,13 +249,12 @@ Active Defense can help identify behavior consistent with advanced spyware class
 
 ## Assessment Workflows
 
-Active Defense supports security assessments initiated by the user or triggered by policy-supported security workflows.
+Active Defense supports security assessments initiated by the user.
 
 Conceptual assessment modes include:
 
 - **On-demand assessment**: initiated by the user before or after a security-sensitive activity.
-- **Startup assessment**: performed around device startup when early network behavior provides useful security context.
-- **High-risk review assessment**: used after the user suspects device seizure, tampering, exposure, or unusual behavior.
+- **High-risk review assessment**: initiated by the user after suspected device seizure, tampering, exposure, or unusual behavior.
 
 Assessment workflows should be designed to:
 
@@ -159,7 +264,7 @@ Assessment workflows should be designed to:
 - Separate informational observations from higher-risk findings.
 - Recommend next steps without making unsupported conclusions.
 
-Assessment duration, trigger policy, and report handling are deployment and product configuration concerns. Public documentation does not publish timing values, capture parameters, analysis thresholds, or operational workflow details.
+Assessment duration and report handling are product configuration concerns. Public documentation does not publish timing values, capture parameters, analysis thresholds, or operational workflow details.
 
 ## Privacy Model
 
@@ -183,7 +288,7 @@ Active Defense is not intended to inspect:
 - Documents.
 - User conversations.
 
-Security analysis should prefer minimized technical signals and aggregated findings where possible. Where raw security observations are required for analysis, retention should be minimized and governed by the Enigm data-retention model.
+Security analysis uses minimized technical signals and finding metadata. Raw Active Defense analysis data is not retained after the assessment workflow completes.
 
 ## Relationship With Enigm App
 
@@ -236,6 +341,20 @@ Guidance may include:
 - Contact security support through designated channels where appropriate.
 
 Findings should distinguish between confirmed policy failures, suspicious indicators, and informational observations.
+
+## User Visibility
+
+Active Defense should provide user-visible security context.
+
+User-facing output should be understandable and should distinguish:
+
+- Informational observations.
+- Suspicious findings.
+- Higher-risk findings.
+- Recommended review.
+- Recommended user action.
+
+Active Defense should avoid presenting findings as absolute proof of compromise or absence of compromise.
 
 ## Security Considerations
 
