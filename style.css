@@ -1,0 +1,89 @@
+:root {
+  --enigm-black: #000000;
+  --enigm-white: #ffffff;
+  --enigm-red: #ff2d3d;
+  --enigm-line-light: rgba(0, 0, 0, 0.16);
+  --enigm-line-dark: rgba(255, 255, 255, 0.18);
+}
+
+#topbar-right-container a[href="https://app.enigm.io"],
+[id="topbar-right-container"] a[href="https://app.enigm.io"],
+nav a[href="https://app.enigm.io"] {
+  background: var(--enigm-black) !important;
+  border: 1px solid var(--enigm-black) !important;
+  color: var(--enigm-white) !important;
+  font-weight: 650 !important;
+  min-width: 142px;
+  justify-content: center;
+  box-shadow: none !important;
+}
+
+#topbar-right-container a[href="https://app.enigm.io"] *,
+[id="topbar-right-container"] a[href="https://app.enigm.io"] *,
+nav a[href="https://app.enigm.io"] * {
+  color: inherit !important;
+}
+
+#topbar-right-container a[href="https://app.enigm.io"] > span.absolute,
+[id="topbar-right-container"] a[href="https://app.enigm.io"] > span.absolute,
+nav a[href="https://app.enigm.io"] > span.absolute {
+  background: inherit !important;
+  border-color: inherit !important;
+}
+
+.dark #topbar-right-container a[href="https://app.enigm.io"],
+.dark [id="topbar-right-container"] a[href="https://app.enigm.io"],
+.dark nav a[href="https://app.enigm.io"] {
+  background: var(--enigm-white) !important;
+  border-color: var(--enigm-white) !important;
+  color: var(--enigm-black) !important;
+}
+
+#topbar-right-container a[href="https://app.enigm.io"]:hover,
+[id="topbar-right-container"] a[href="https://app.enigm.io"]:hover,
+nav a[href="https://app.enigm.io"]:hover {
+  background: var(--enigm-red) !important;
+  border-color: var(--enigm-red) !important;
+  color: var(--enigm-white) !important;
+}
+
+.enigm-card-grid a,
+.enigm-card-grid a > div,
+.enigm-card-grid .card,
+.enigm-card-grid [role="link"] {
+  border-color: var(--enigm-line-light) !important;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.dark .enigm-card-grid a,
+.dark .enigm-card-grid a > div,
+.dark .enigm-card-grid .card,
+.dark .enigm-card-grid [role="link"] {
+  border-color: var(--enigm-line-dark) !important;
+}
+
+html.light .enigm-card-grid a:hover,
+html.light .enigm-card-grid a:hover > div,
+html.light .enigm-card-grid .card:hover,
+html.light .enigm-card-grid .card.group:hover,
+html.light .enigm-card-grid [role="link"]:hover,
+.enigm-card-grid a:focus-visible,
+.enigm-card-grid .card:focus-visible {
+  border-color: var(--enigm-black) !important;
+  transform: translateY(-1px);
+}
+
+html.dark .enigm-card-grid a:hover,
+html.dark .enigm-card-grid a:hover > div,
+html.dark .enigm-card-grid .card:hover,
+html.dark .enigm-card-grid .card.group:hover,
+html.dark .enigm-card-grid [role="link"]:hover,
+html.dark .enigm-card-grid a:focus-visible,
+html.dark .enigm-card-grid .card:focus-visible {
+  border-color: var(--enigm-white) !important;
+}
+
+.enigm-card-grid--compact a,
+.enigm-card-grid--compact .card {
+  min-height: 128px;
+}
