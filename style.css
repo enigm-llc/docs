@@ -76,18 +76,6 @@ nav a[href="https://app.enigm.io"]:hover,
   color: var(--enigm-white) !important;
 }
 
-button:has(.lucide-sparkles),
-button:has(.lucide-sparkle),
-button:has(span):has(svg[class*="spark"]) {
-  display: none !important;
-}
-
-#chat-assistant-textarea,
-form:has(#chat-assistant-textarea),
-div:has(> #chat-assistant-textarea) {
-  display: none !important;
-}
-
 html.light #navbar-transition {
   border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
@@ -185,10 +173,6 @@ html.dark .mdx-content ul > li::marker {
 .mdx-content div:has(> .mermaid),
 .mdx-content div.group.relative.overflow-hidden:has(.mermaid) {
   cursor: zoom-in !important;
-}
-
-.chat-assistant-send-button {
-  display: none !important;
 }
 
 html.dark .mermaid {
