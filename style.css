@@ -334,7 +334,7 @@ html.dark .nav-tabs-item:hover {
 .enigm-card-grid .card,
 .enigm-card-grid [role="link"] {
   border-color: var(--enigm-line-light) !important;
-  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  transition: border-color 160ms ease, background-color 160ms ease;
 }
 
 .dark .enigm-card-grid a,
@@ -352,7 +352,6 @@ html.light .enigm-card-grid [role="link"]:hover,
 .enigm-card-grid a:focus-visible,
 .enigm-card-grid .card:focus-visible {
   border-color: var(--enigm-black) !important;
-  transform: translateY(-1px);
 }
 
 html.dark .enigm-card-grid a:hover,
@@ -373,6 +372,26 @@ html.dark .enigm-card-grid [role="link"]:hover svg,
 html.dark .enigm-card-grid [role="link"]:focus-visible svg {
   color: var(--enigm-white) !important;
   stroke: var(--enigm-white) !important;
+}
+
+html.dark a[href][class*="border"]:hover,
+html.dark a[href][class*="border"]:focus-visible,
+html.dark [role="link"][class*="border"]:hover,
+html.dark [role="link"][class*="border"]:focus-visible,
+html.dark .card:hover,
+html.dark .card:focus-visible {
+  border-color: var(--enigm-white) !important;
+}
+
+html.dark a[href][class*="border"]:hover svg,
+html.dark a[href][class*="border"]:focus-visible svg,
+html.dark [role="link"][class*="border"]:hover svg,
+html.dark [role="link"][class*="border"]:focus-visible svg,
+html.dark .card:hover svg,
+html.dark .card:focus-visible svg {
+  color: var(--enigm-white) !important;
+  stroke: var(--enigm-white) !important;
+  fill: var(--enigm-white) !important;
 }
 
 .enigm-card-grid--compact a,
