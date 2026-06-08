@@ -131,7 +131,7 @@ html[lang="en"] #search-bar-entry div.truncate.min-w-0::after {
 }
 
 html[lang="es"] #search-bar-entry div.truncate.min-w-0::after {
-  content: "Buscar en la documentacion de Enigm...";
+  content: "Buscar en la documentación de Enigm...";
 }
 
 #topbar-right-container a[href="https://app.enigm.io"],

@@ -1,0 +1,59 @@
+---
+title: Key Management
+sidebarTitle: Key Management
+description: Modelo de generacion, protección y ciclo de vida de claves en Enigm App.
+mode: wide
+---
+
+La gestión de claves de Enigm App está diseñada para mantener el material privado asociado a dispositivos de confianza y separado de sistemas administrativos.
+
+## Overview
+
+Las claves se generan en el dispositivo. El material privado está destinado a permanecer ligado al dispositivo y no debe almacenarse en texto claro.
+
+La mensajería, llamadas, asociacion de dispositivos y verificacion dependen de material criptográfico protegido.
+
+## Key Generation
+
+La generacion de claves ocurre en el dispositivo del usuario. Este modelo reduce exposición de claves privadas fuera del endpoint esperado.
+
+Las claves privadas no deben registrarse en logs, diagnosticos, workflows de soporte, Enigm Command, repositorios ni salidas administrativas.
+
+## Private Key Protection
+
+Enigm utiliza almacenamiento protegido del dispositivo para material privado.
+
+- En iOS, el modelo utiliza Keychain y Secure Enclave donde está disponible.
+- En Android, utiliza platform keystore y protección hardware-backed donde está disponible.
+
+El material criptográfico de mayor tamano puede requerir wrapping cuando el enclave no puede almacenarlo directamente. En ese caso, la frontera segura protege claves de wrapping o material de control de acceso.
+
+## Hardware-Backed Protection
+
+La protección hardware-backed se usa donde está disponible para reducir riesgo de extraccion y reforzar control local de acceso.
+
+El acceso a claves puede depender de autenticación del dispositivo, estado de desbloqueo local y postura de seguridad del sistema operativo.
+
+## Device-Bound Trust
+
+La confianza de dispositivo se establece de forma explicita. Un dispositivo nuevo no debe recibir confianza ni material privado sin un flujo de autorización.
+
+La asociacion de dispositivo y los mensajes dependen de material protegido, no solo de una sesión activa.
+
+## Multi-Device Key Handling
+
+El soporte multi-dispositivo no debe copiar claves privadas silenciosamente. Cada dispositivo debe pasar por un flujo de confianza explicito.
+
+Los dispositivos existentes pueden participar en la incorporacion cuando el flujo lo permite, pero la autorización administrativa no debe convertirse en acceso a texto claro.
+
+## Revocation
+
+La revocacion impide confianza futura en el dispositivo revocado. Tambien debe afectar la entrega de contenido nuevo protegido.
+
+Los eventos de ciclo de vida incluyen creacion, rotacion, reemplazo y revocacion.
+
+## Recovery Boundaries
+
+La recuperacion se separa del acceso normal a mensajes. Las acciones administrativas pueden ayudar a recuperar o reemplazar una cuenta, pero no deben otorgar acceso a mensajes en texto claro.
+
+Consulta [Cryptography](/es/security/cryptography) y [Platform Limitations](/es/legal/limitations).

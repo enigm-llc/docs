@@ -1,0 +1,60 @@
+---
+title: OS Security Architecture
+sidebarTitle: Security Architecture
+description: Arquitectura pública de seguridad de Enigm OS.
+mode: wide
+---
+
+Enigm OS establece confianza de dispositivo mediante capas independientes de integridad, software verificado, endurecimiento y servicios de seguridad.
+
+## Overview
+
+Enigm OS es una plataforma de dispositivo seguro controlado dentro del ecosistema Enigm. No se documenta como una distribución genérica.
+
+## Security Objectives
+
+- Establecer Device Trust.
+- Reducir superficie de ataque.
+- Reforzar integridad de software.
+- Aplicar configuraciónes seguras.
+- Proporcionar visibilidad mediante Trust Security Center.
+- Mantener actúalizaciones protegidas.
+
+## Security Layers
+
+Las capas de alto nivel son:
+
+1. Hardware e integridad de dispositivo.
+2. Verified boot y confianza de software.
+3. Endurecimiento del sistema operativo.
+4. Controles de red y política.
+5. Trust Security Center.
+6. Seguridad de aplicación.
+
+```mermaid
+flowchart TD
+  Hardware["Hardware"]
+  Verified["Software verificado"]
+  Services["Servicios de seguridad Enigm OS"]
+  Trust["Trust Security Center"]
+  App["Enigm"]
+  User["Usuario"]
+
+  Hardware --> Verified --> Services --> Trust --> App --> User
+```
+
+## Device Trust Model
+
+Device Trust combina señales cómo integridad de dispositivo, estado de software verificado, material de claves protegido, cumplimiento de política y servicios de seguridad.
+
+Device Trust no equivale a Account Trust, Remote Attestation, OTA Eligibility ni autorización administrativa.
+
+## Platform Hardening
+
+El endurecimiento reduce capacidades innecesarias, exposición de aplicaciónes y superficie de sistema. Los valores por defecto se orientan a seguridad.
+
+## Production Security Requirements
+
+La postura de produccion requiere estado bloqueado, software verificado, signing de produccion, cadena de actúalizacion protegida y cumplimiento de políticas.
+
+Consulta [Production Gates](/es/os/production-gates) y [Platform Limitations](/es/legal/limitations).

@@ -61,11 +61,62 @@
 
 ## Spanish Documentation
 
-English remains the primary documentation language. Spanish documentation is available as a translated secondary locale and will expand by product area.
+English remains the primary documentation language. Spanish documentation is available as a translated secondary locale.
+
+### Primeros pasos
 
 - [Introduccion](https://docs.enigm.io/es/introduction): Introduccion tecnica publica al ecosistema Enigm.
-- [Obtener ayuda](https://docs.enigm.io/es/support/get-help): Puntos de contacto y soporte para Enigm.
-- [FAQ](https://docs.enigm.io/es/support/faq): Preguntas frecuentes en espanol sobre productos, privacidad, seguridad y limites de soporte.
+- [Arquitectura de producto](https://docs.enigm.io/es/platform/architecture): Arquitectura de producto y limites de confianza.
+
+### Productos
+
+- [Enigm Overview](https://docs.enigm.io/es/app/overview): Vision de Enigm como producto de mensajeria privada.
+- [Account Model](https://docs.enigm.io/es/app/account-model): Identidad, cuenta, recuperacion y dispositivos.
+- [Key Management](https://docs.enigm.io/es/app/key-management): Generacion, proteccion y ciclo de vida de claves.
+- [Secure Messaging](https://docs.enigm.io/es/app/secure-messaging): Mensajeria cifrada de extremo a extremo.
+- [Secure Calls](https://docs.enigm.io/es/app/secure-calls): Voz y video seguros.
+- [Active Defense](https://docs.enigm.io/es/app/active-defense): Analisis de riesgo de spyware y malware movil.
+- [Multi-Device](https://docs.enigm.io/es/app/multi-device): Confianza multi-dispositivo.
+- [Network Privacy](https://docs.enigm.io/es/app/network-privacy): VPN Service, Proxy Network y actividad aleatoria.
+- [Command Overview](https://docs.enigm.io/es/command/overview): Panel web de control.
+- [Payment Privacy](https://docs.enigm.io/es/command/payments): Privacidad de pagos.
+- [Tor Gateway](https://docs.enigm.io/es/command/tor-gateway): Acceso onion para superficies publicas.
+- [Server Overview](https://docs.enigm.io/es/server/overview): Entorno dedicado y limites administrativos.
+- [OS Overview](https://docs.enigm.io/es/os/overview): Plataforma de dispositivo seguro.
+- [OS Security Architecture](https://docs.enigm.io/es/os/security-architecture): Device Trust y hardening.
+- [Trust Security Center](https://docs.enigm.io/es/os/trust-security-center): Evaluacion local de confianza.
+- [OS Network Policy](https://docs.enigm.io/es/os/network-policy): Politica de red segura.
+- [OS Device Experience](https://docs.enigm.io/es/os/device-experience-management): Setup, Launcher, Privacy Mode y gestion.
+- [OTA Architecture](https://docs.enigm.io/es/os/ota-architecture): Ciclo de release y verificacion cliente.
+- [OTA Security](https://docs.enigm.io/es/os/ota-security): Seguridad OTA, signing y Remote Attestation.
+- [Production Gates](https://docs.enigm.io/es/os/production-gates): Validacion de postura de produccion.
+- [Key Overview](https://docs.enigm.io/es/key/overview): Llavero fisico de emergencia.
+- [eSIM Overview](https://docs.enigm.io/es/esim/overview): Conectividad privada de solo datos.
+
+### Seguridad y confianza
+
+- [Security Model](https://docs.enigm.io/es/security/security-model): Modelo de seguridad y defensa en profundidad.
+- [Threat Model](https://docs.enigm.io/es/security/threat-model): Amenazas y limites de confianza.
+- [Cryptography](https://docs.enigm.io/es/security/cryptography): Arquitectura criptografica.
+- [Security Governance](https://docs.enigm.io/es/security/governance): Governance, ISO 27001 y validacion.
+- [Transparency Report](https://docs.enigm.io/es/security/transparency-report): Transparencia y solicitudes legales.
+- [Privacy](https://docs.enigm.io/es/security/privacy): Principios y modelo de privacidad.
+- [Data Retention](https://docs.enigm.io/es/legal/data-retention): Retencion y minimizacion.
+- [Platform Limitations](https://docs.enigm.io/es/legal/limitations): Limitaciones consolidadas.
+- [Intelligence Overview](https://docs.enigm.io/es/intelligence/overview): Enigm Intelligence.
+- [Detection And Response](https://docs.enigm.io/es/intelligence/detection-and-response): Deteccion, riesgo y respuesta.
+- [Enyra](https://docs.enigm.io/es/intelligence/enyra): IA de seguridad y correlacion.
+- [Infrastructure Architecture](https://docs.enigm.io/es/infrastructure/architecture): Infraestructura de soporte.
+- [Secure SDLC](https://docs.enigm.io/es/infrastructure/secure-sdlc): Ciclo de desarrollo seguro.
+- [Operations And Resilience](https://docs.enigm.io/es/infrastructure/operations-resilience): Monitorizacion, incidentes y continuidad.
+- [Legal Governance](https://docs.enigm.io/es/legal/legal-governance): Jurisdiccion y compliance.
+- [Responsible Disclosure](https://docs.enigm.io/es/legal/responsible-disclosure): Divulgacion responsable.
+- [Security Contact](https://docs.enigm.io/es/legal/security-contact): Contacto de seguridad.
+
+### FAQ y soporte
+
+- [Obtener ayuda](https://docs.enigm.io/es/support/get-help): Puntos de contacto y soporte.
+- [FAQ](https://docs.enigm.io/es/support/faq): Preguntas frecuentes sobre Enigm.
 
 ## Security and Trust
 

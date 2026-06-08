@@ -1,0 +1,53 @@
+---
+title: Security Model
+sidebarTitle: Security Model
+description: Modelo público de seguridad y defensa en profundidad de Enigm.
+mode: wide
+---
+
+Enigm utiliza un modelo de defensa en profundidad para proteger privacidad, comunicaciones, dispositivos, administración, software delivery y operaciónes.
+
+## Overview
+
+La seguridad existe para sostener privacidad: confidencialidad de contenido, minimización de datos, identidad minimizada, reducción de metadatos y control del usuario.
+
+## Security Objectives
+
+- Proteger mensajes, llamadas, medios y adjuntos.
+- Separar administración de contenido.
+- Mantener claves privadas ligadas a dispositivos.
+- Reducir exposición de identidad y metadatos.
+- Proteger releases y actúalizaciones.
+- Aportar visibilidad de seguridad sin inspeccionar contenido.
+
+## Product Security Boundaries
+
+### Enigm
+
+Producto de mensajería privada con cifrado de extremo a extremo, llamadas seguras, Active Defense, multi-dispositivo y privacidad de red.
+
+### Enigm Command
+
+Panel web de ciclo de vida. Gestióna cuentas, dispositivos, productos, sesiones y operaciónes administrativas. No lee contenido protegido.
+
+### Enigm Server
+
+Entorno dedicado. El administrador gestiona membresia y disponibilidad de contenido cifrado, no texto claro.
+
+### Enigm OS
+
+Capa opcional de endpoint seguro con Trust Security Center, hardening, política de red y OTA Architecture.
+
+### Enigm eSIM And Enigm Key
+
+Enigm eSIM aporta conectividad de datos. Enigm Key aporta emergencia física y ubicación vinculada al evento.
+
+## Trust Separation
+
+Account Trust, Device Trust, Trust Security Center, Remote Attestation, OTA Eligibility y Administrative Authorization son conceptos separados.
+
+## Governance
+
+Enigm mantiene certificación ISO/IEC 27001:2022, revisiónes recurrentes, evaluaciónes de vulnerabilidad, pruebas adversariales y mejora continua.
+
+Consulta [Security Governance](/es/security/governance) y [Platform Limitations](/es/legal/limitations).

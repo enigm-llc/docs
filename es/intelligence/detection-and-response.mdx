@@ -1,0 +1,53 @@
+---
+title: Detection And Response
+sidebarTitle: Detection And Response
+description: Pipeline de detección, riesgo y respuesta defensiva de Enigm Intelligence.
+mode: wide
+---
+
+Detection And Response transforma observaciones de seguridad en contexto util para operadores y sistemas defensivos.
+
+## Detection Pipeline
+
+El pipeline incluye:
+
+- Signal collection.
+- Signal normalization.
+- Event correlation.
+- Risk evaluation.
+- Security context generation.
+- Defensive decision support.
+
+```mermaid
+flowchart TD
+  Signals["Security Signals"]
+  Normalization["Normalization"]
+  Correlation["Correlation"]
+  Risk["Risk Evaluation"]
+  Context["Security Context"]
+  Operators["Enyra / Operators"]
+
+  Signals --> Normalization --> Correlation --> Risk --> Context --> Operators
+```
+
+## Risk Model
+
+El modelo de riesgo es un marco de soporte de decisiones. Puede considerar severidad, contexto, recurrencia, actividad cross-surface e historial.
+
+Las clasificaciones Low, Medium, High y Critical representan prioridad operativa, no certeza absoluta.
+
+## Defensive Response
+
+La arquitectura de bloqueo existe para reducir riesgo de actividad hostil o sospechosa.
+
+Las respuestas pueden incluir restricciones de acceso, controles de tráfico, filtrado protector y medidas temporales. Las decisiones sensibles requieren supervisión humana.
+
+## Relationship With Enyra
+
+Enyra consume contexto de seguridad. No reemplaza detección, correlación, enforcement defensivo ni autorización humana.
+
+## Privacy Considerations
+
+El pipeline opera sobre contexto de seguridad y no está destinado a inspeccionar contenido protegido.
+
+Consulta [Platform Limitations](/es/legal/limitations).

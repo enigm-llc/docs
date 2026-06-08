@@ -1,0 +1,75 @@
+---
+title: Server Overview
+sidebarTitle: Overview
+description: Entorno dedicado de servidor privado y límites administrativos de Enigm Server.
+mode: wide
+---
+
+Enigm Server es un entorno dedicado de mensajería privada para usuarios aprobados. Puede utilizarlo un usuario individual o una empresa.
+
+Enigm Server se compra y crea desde Enigm Command. El usuario puede elegir region disponible actúalmente entre Estados Unidos, Europa o Asia.
+
+## Overview
+
+Enigm Server proporciona:
+
+- Entorno dedicado para el usuario o empresa.
+- ID de servidor para solicitudes de unión.
+- Aprobacion de solicitudes por administrador.
+- Gestión de membresia.
+- Borrado de contenido cifrado dentro del servidor.
+- Eliminación del entorno completo.
+
+## Membership Model
+
+El administrador comparte el ID del servidor. Los usuarios solicitan unirse y el administrador acepta o rechaza la solicitud.
+
+Dentro de Enigm Server existen dos tipos de rol: administrador y usuario.
+
+## Administrative Boundaries
+
+La administración de Enigm Server y la confidencialidad de contenido son dominios separados.
+
+Los administradores pueden gestionar ciclo de vida y disponibilidad de contenido cifrado dentro del servidor. No reciben acceso a texto claro de mensajes, adjuntos, multimedia, comunicaciones de usuarios ni claves criptográficas.
+
+Los administradores pueden:
+
+- Invitar usuarios.
+- Eliminar usuarios.
+- Gestiónar membresia.
+- Borrar contenido cifrado del servidor.
+- Borrar mensajes cifrados del servidor.
+- Borrar multimedia cifrada del servidor.
+- Borrar contenido generado por un usuario dentro del servidor.
+- Borrar todo el contenido cifrado de un usuario dentro del servidor.
+- Borrar todo el contenido cifrado del entorno.
+- Eliminar el entorno de servidor completo.
+
+La eliminación afecta disponibilidad y ciclo de vida. No implica visibilidad, descifrado ni acceso a texto claro.
+
+```mermaid
+flowchart TD
+  Admin["Administrador de servidor"]
+  Membership["Gestión de membresia"]
+  Lifecycle["Controles de ciclo de vida"]
+  Encrypted["Objetos cifrados"]
+
+  Devices["Dispositivos de usuario"]
+  Keys["Material protegido"]
+  Plaintext["Texto claro local"]
+
+  Admin --> Membership --> Lifecycle --> Encrypted
+  Devices --> Keys --> Plaintext
+```
+
+## Content Lifecycle
+
+Los mensajes y multimedia dentro de Enigm Server siguen la misma vida máxima que la mensajería de Enigm: hasta 30 dias, o el tiempo menor definido por la conversacion o el usuario.
+
+El usuario puede borrar contenido manualmente de forma inmediata.
+
+## Privacy Model
+
+Enigm Server reduce exposición mediante entorno dedicado, control de membresia, minimización de datos, identificadores privacy-preserving y separación entre administración y contenido.
+
+Consulta [Platform Limitations](/es/legal/limitations).

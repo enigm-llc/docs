@@ -1,0 +1,54 @@
+---
+title: Secure Calls
+sidebarTitle: Secure Calls
+description: Modelo de seguridad para voz y video en Enigm.
+mode: wide
+---
+
+Enigm soporta comunicaciones seguras de voz y video. Las llamadas siguen el mismo modelo de confianza que la mensajería: dispositivo confiable, material protegido y separación entre administración y contenido.
+
+## Overview
+
+Las comunicaciones se protegen en transito y requieren establecimiento seguro de sesión antes del intercambio de media.
+
+La seguridad de llamada es independiente de la red de transporte usada por el dispositivo. VPN Service o Proxy Network pueden aportar privacidad de transporte, pero no sustituyen la protección de la comunicación.
+
+## Session Establishment
+
+El acceso al canal de llamada requiere material criptográfico protegido y controles de unión al canal.
+
+Las claves de cifrado utilizadas para unirse al canal se protegen mediante el modelo post-cuantico documentado. Ademas, existen tokens de autorización para controlar la incorporacion al canal.
+
+## Voice Communications
+
+Las llamadas de voz se establecen entre dispositivos autorizados. La confidencialidad depende de endpoints confiables, establecimiento seguro de sesión y protección de claves.
+
+La modulación de voz puede utilizarse como función de privacidad cuando está habilitada. Reduce reconocibilidad directa, pero no garantiza protección frente a todos los métodos de identificación.
+
+## Video Communications
+
+El video sigue los mismos límites de confianza que la voz. La exposición de camara, pantalla o entorno físico depende del endpoint y del comportamiento del usuario.
+
+## Metadata Considerations
+
+Los metadatos de llamada deben minimizarse donde sea posible. Algunos datos operativos pueden ser necesarios para establecimiento de sesión, calidad, seguridad y disponibilidad.
+
+## Multi-Device Considerations
+
+Los dispositivos participantes deben estar asociados y ser confiables. Un dispositivo revocado no debe recibir nuevas comunicaciones protegidas.
+
+## Relationship With Enigm OS
+
+Enigm OS puede reforzar postura de dispositivo, política de red y visibilidad de confianza. No es requisito para el modelo de llamadas seguras de Enigm App.
+
+## What Is Not Protected
+
+El modelo no protege frente a:
+
+- Dispositivos comprometidos.
+- Malware con privilegios suficientes.
+- Grabaciones externas.
+- Ingeniería social.
+- Divulgación voluntaria por participantes autorizados.
+
+Consulta [Cryptography](/es/security/cryptography) y [Platform Limitations](/es/legal/limitations).

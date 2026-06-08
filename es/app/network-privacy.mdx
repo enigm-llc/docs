@@ -1,0 +1,43 @@
+---
+title: Network Privacy
+sidebarTitle: Network Privacy
+description: Privacidad de red, VPN Service, Proxy Network y actividad aleatoria en Enigm.
+mode: wide
+---
+
+Network Privacy describe las capas de privacidad de red utilizadas por Enigm App.
+
+## Overview
+
+Estas capas son independientes del cifrado de extremo a extremo. Su objetivo es reducir exposición de red, separar tráfico y bajar la fiabilidad de inferencias simples sobre patrones de comunicación.
+
+## VPN Service
+
+VPN Service es opcional. Reduce visibilidad frente a redes locales, Wi-Fi público y observadores intermedios.
+
+No sustituye Device Trust, cifrado de extremo a extremo ni decisiones de confianza del usuario.
+
+## Proxy Network
+
+Proxy Network reduce exposición directa entre dispositivos y servicios de plataforma. Aporta una frontera adicional de privacidad y separación de tráfico.
+
+La confidencialidad de comunicaciones sigue dependiendo del cifrado de aplicación y del material criptográfico protegido.
+
+## Randomized Network Activity
+
+Enigm App mantiene actividad de red aleatoria continua para que el tráfico observable de un dispositivo no se corresponda de forma simple con conversaciones activas.
+
+Esto está diseñado para:
+
+- Reducir confianza de correlaciones por timing.
+- Dificultar inferencias basadas en rafagas.
+- Bajar fiabilidad de patrones de frecuencia.
+- Evitar que actividad adicional se interprete cómo prueba de comunicación.
+
+No garantiza anonimato ni elimina análisis avanzado de tráfico.
+
+## Metadata Reduction
+
+La privacidad de red complementa minimización de metadatos, identificadores privacy-preserving, separación de tráfico y transporte protegido.
+
+Consulta [Platform Limitations](/es/legal/limitations).

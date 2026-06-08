@@ -1,0 +1,79 @@
+---
+title: App Overview
+sidebarTitle: Overview
+description: Visión pública de Enigm como producto de mensajería privada.
+mode: wide
+---
+
+Enigm es el producto de mensajería privada del ecosistema Enigm. Esta seccion utiliza la estructura de app porque Enigm se entrega cómo la aplicación principal orientada al usuario.
+
+Enigm permite onboarding, registro, identidad, mensajería segura, llamadas seguras, Active Defense, dispositivos de confianza, flujos multi-dispositivo, uso opcional de VPN Service, separación de tráfico mediante Proxy Network y acceso controlado a servicios de soporte.
+
+Enigm OS es una capa opcional de dispositivo seguro. Puede aportar señales de Trust Security Center, gestión de dispositivo, verificacion OTA y Remote Attestation, pero no sustituye a Enigm ni a su modelo de mensajería.
+
+## Overview
+
+Enigm coordina seis dominios principales:
+
+- **Identidad**: creacion de cuenta, autenticación, sesiones, recuperacion y política de cuenta.
+- **Comunicacion segura**: mensajes, llamadas, gestión de claves, expiracion y contenido protegido.
+- **Active Defense**: análisis de comportamiento de red para detectar riesgo de spyware o malware avanzado.
+- **Dispositivo**: asociacion explicita, reemplazo, revocacion y evaluación de ciclo de vida.
+- **Multi-dispositivo**: acceso controlado sin confiar automaticamente en dispositivos nuevos.
+- **Integración**: Enigm Command, Enigm Server, VPN Service, Proxy Network, Enigm eSIM, Enigm Key e Enigm Intelligence.
+
+Para el modelo criptográfico completo, consulta [Cryptography](/es/security/cryptography).
+
+## Secure Messaging
+
+La mensajería segura es el flujo principal de Enigm. El contenido se protege en la app antes de su entrega. El acceso depende de dispositivos de confianza, material criptográfico protegido, política de expiracion y elegibilidad del destinatario.
+
+Enigm soporta mensajes, archivos, imagenes, videos y multimedia. Los permisos de grupo pueden controlar envío, reenvío, borrado y tratamiento de medios sin crear acceso en texto claro para sistemas administrativos.
+
+## Onboarding And Registration
+
+El registro está diseñado para minimizar dependencia de identificadores públicos.
+
+El modelo incluye:
+
+- Username y password.
+- Frase de recuperacion.
+- Identidad creada en el dispositivo.
+- Asociacion inicial de dispositivo de confianza.
+- Separacion entre recuperacion de cuenta y acceso a mensajes protegidos.
+
+El registro estándar no requiere email, telefono ni documento de identidad. Las sesiones de Enigm App tienen una duracion de 6 horas.
+
+## Secure Calls
+
+Las llamadas seguras son flujos de comunicación en tiempo real protegidos por establecimiento de sesión seguro, confianza de dispositivo y material criptográfico protegido.
+
+La modulación de voz se documenta como función de privacidad cuando está habilitada por usuario o política. Reduce reconocibilidad directa de voz; no garantiza protección frente a todos los métodos de identificación.
+
+## Active Defense
+
+Active Defense está disponible en produccion para un grupo selecciónado de usuarios. Analiza comportamiento de red durante un período acotado solicitado por el usuario desde la app.
+
+El análisis no inspecciona mensajes, llamadas, adjuntos, medios, conversaciones, claves privadas ni frases de recuperacion. La retención se limita a metadata de resultado cuando el usuario decide conservarla.
+
+## Integration With Enigm Command
+
+Enigm Command es el panel web para ciclo de vida de cuenta, sesiones, dispositivos, Enigm Server, Enigm eSIM, Enigm Key, pagos, Tor Gateway, Enyra Product Assistant y operaciónes gestionadas.
+
+Enigm Command no debe exponer contenido de mensajes, llamadas, claves privadas ni estado sensible de protocolos.
+
+## Network Services
+
+VPN Service y Proxy Network son capas de privacidad de red. Son independientes del cifrado de extremo a extremo.
+
+- VPN Service reduce visibilidad frente a redes locales o intermedias.
+- Proxy Network separa tráfico y reduce exposición directa entre dispositivo y servicios.
+- La actividad de red aleatoria reduce la fiabilidad de correlaciones simples de tráfico.
+
+## Privacy And Security
+
+Enigm está diseñado alrededor de minimización de datos, minimización de identidad, reducción de metadatos, identificadores privacy-preserving y control del usuario.
+
+Los sistemas administrativos no proporcionan acceso en texto claro a mensajes, llamadas, adjuntos, medios, conversaciones ni claves privadas.
+
+Consulta [Platform Limitations](/es/legal/limitations).
