@@ -109,6 +109,16 @@ html.dark [data-component-part="localization-select-trigger"][aria-expanded="tru
   color: var(--enigm-nav-muted-dark-hover) !important;
 }
 
+html[lang="es"] #search-bar-entry div.truncate.min-w-0 {
+  font-size: 0 !important;
+}
+
+html[lang="es"] #search-bar-entry div.truncate.min-w-0::after {
+  content: "Buscar en la documentacion de Enigm...";
+  font-size: 0.875rem !important;
+  line-height: 1.5rem !important;
+}
+
 #topbar-right-container a[href="https://app.enigm.io"],
 [id="topbar-right-container"] a[href="https://app.enigm.io"],
 nav a[href="https://app.enigm.io"],
