@@ -64,6 +64,22 @@
       {
         "language": "en",
         "default": true,
+        "search": {
+          "prompt": "Search Enigm documentation..."
+        },
+        "navbar": {
+          "links": [
+            {
+              "label": "Website",
+              "href": "https://enigm.io"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Enigm Command",
+            "href": "https://app.enigm.io"
+          }
+        },
         "groups": [
           {
             "group": "Getting started",
@@ -189,6 +205,22 @@
       },
       {
         "language": "es",
+        "search": {
+          "prompt": "Buscar en la documentacion de Enigm..."
+        },
+        "navbar": {
+          "links": [
+            {
+              "label": "Web",
+              "href": "https://enigm.io"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Enigm Command",
+            "href": "https://app.enigm.io"
+          }
+        },
         "groups": [
           {
             "group": "Primeros pasos",

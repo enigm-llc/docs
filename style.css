@@ -5,6 +5,94 @@
   --enigm-line-light: rgba(0, 0, 0, 0.16);
   --enigm-line-dark: rgba(255, 255, 255, 0.18);
   --enigm-line-dark-strong: rgba(255, 255, 255, 0.72);
+  --enigm-nav-muted-light: rgba(0, 0, 0, 0.58);
+  --enigm-nav-muted-light-hover: rgba(0, 0, 0, 0.86);
+  --enigm-nav-muted-dark: rgba(255, 255, 255, 0.58);
+  --enigm-nav-muted-dark-hover: rgba(255, 255, 255, 0.9);
+}
+
+#topbar-right-container a[href="https://enigm.io"],
+[id="topbar-right-container"] a[href="https://enigm.io"],
+nav a[href="https://enigm.io"],
+#topbar-right-container button,
+[id="topbar-right-container"] button,
+nav button[aria-label*="language" i],
+nav button[aria-label*="theme" i],
+nav button[aria-label*="dark" i],
+nav button[aria-label*="light" i],
+nav button[aria-label*="idioma" i],
+nav button[aria-label*="tema" i] {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--enigm-nav-muted-light) !important;
+}
+
+#topbar-right-container a[href="https://enigm.io"] *,
+[id="topbar-right-container"] a[href="https://enigm.io"] *,
+nav a[href="https://enigm.io"] *,
+#topbar-right-container button *,
+[id="topbar-right-container"] button *,
+nav button[aria-label*="language" i] *,
+nav button[aria-label*="theme" i] *,
+nav button[aria-label*="dark" i] *,
+nav button[aria-label*="light" i] *,
+nav button[aria-label*="idioma" i] *,
+nav button[aria-label*="tema" i] * {
+  color: inherit !important;
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+#topbar-right-container a[href="https://enigm.io"]:hover,
+[id="topbar-right-container"] a[href="https://enigm.io"]:hover,
+nav a[href="https://enigm.io"]:hover,
+#topbar-right-container button:hover,
+[id="topbar-right-container"] button:hover,
+nav button[aria-label*="language" i]:hover,
+nav button[aria-label*="theme" i]:hover,
+nav button[aria-label*="dark" i]:hover,
+nav button[aria-label*="light" i]:hover,
+nav button[aria-label*="idioma" i]:hover,
+nav button[aria-label*="tema" i]:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--enigm-nav-muted-light-hover) !important;
+}
+
+html.dark #topbar-right-container a[href="https://enigm.io"],
+html.dark [id="topbar-right-container"] a[href="https://enigm.io"],
+html.dark nav a[href="https://enigm.io"],
+html.dark #topbar-right-container button,
+html.dark [id="topbar-right-container"] button,
+html.dark nav button[aria-label*="language" i],
+html.dark nav button[aria-label*="theme" i],
+html.dark nav button[aria-label*="dark" i],
+html.dark nav button[aria-label*="light" i],
+html.dark nav button[aria-label*="idioma" i],
+html.dark nav button[aria-label*="tema" i] {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--enigm-nav-muted-dark) !important;
+}
+
+html.dark #topbar-right-container a[href="https://enigm.io"]:hover,
+html.dark [id="topbar-right-container"] a[href="https://enigm.io"]:hover,
+html.dark nav a[href="https://enigm.io"]:hover,
+html.dark #topbar-right-container button:hover,
+html.dark [id="topbar-right-container"] button:hover,
+html.dark nav button[aria-label*="language" i]:hover,
+html.dark nav button[aria-label*="theme" i]:hover,
+html.dark nav button[aria-label*="dark" i]:hover,
+html.dark nav button[aria-label*="light" i]:hover,
+html.dark nav button[aria-label*="idioma" i]:hover,
+html.dark nav button[aria-label*="tema" i]:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--enigm-nav-muted-dark-hover) !important;
 }
 
 #topbar-right-container a[href="https://app.enigm.io"],
