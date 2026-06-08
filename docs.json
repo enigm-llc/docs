@@ -35,9 +35,6 @@
       "twitter:site": "@enigm_io"
     }
   },
-  "search": {
-    "prompt": "Search Enigm documentation..."
-  },
   "navbar": {
     "links": [
       {

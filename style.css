@@ -21,7 +21,9 @@ nav button[aria-label*="theme" i],
 nav button[aria-label*="dark" i],
 nav button[aria-label*="light" i],
 nav button[aria-label*="idioma" i],
-nav button[aria-label*="tema" i] {
+nav button[aria-label*="tema" i],
+#localization-select-trigger,
+[data-component-part="localization-select-trigger"] {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
@@ -38,7 +40,9 @@ nav button[aria-label*="theme" i] *,
 nav button[aria-label*="dark" i] *,
 nav button[aria-label*="light" i] *,
 nav button[aria-label*="idioma" i] *,
-nav button[aria-label*="tema" i] * {
+nav button[aria-label*="tema" i] *,
+#localization-select-trigger *,
+[data-component-part="localization-select-trigger"] * {
   color: inherit !important;
   fill: none !important;
   stroke: currentColor !important;
@@ -54,7 +58,11 @@ nav button[aria-label*="theme" i]:hover,
 nav button[aria-label*="dark" i]:hover,
 nav button[aria-label*="light" i]:hover,
 nav button[aria-label*="idioma" i]:hover,
-nav button[aria-label*="tema" i]:hover {
+nav button[aria-label*="tema" i]:hover,
+#localization-select-trigger:hover,
+#localization-select-trigger[aria-expanded="true"],
+[data-component-part="localization-select-trigger"]:hover,
+[data-component-part="localization-select-trigger"][aria-expanded="true"] {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
@@ -71,7 +79,9 @@ html.dark nav button[aria-label*="theme" i],
 html.dark nav button[aria-label*="dark" i],
 html.dark nav button[aria-label*="light" i],
 html.dark nav button[aria-label*="idioma" i],
-html.dark nav button[aria-label*="tema" i] {
+html.dark nav button[aria-label*="tema" i],
+html.dark #localization-select-trigger,
+html.dark [data-component-part="localization-select-trigger"] {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
@@ -88,7 +98,11 @@ html.dark nav button[aria-label*="theme" i]:hover,
 html.dark nav button[aria-label*="dark" i]:hover,
 html.dark nav button[aria-label*="light" i]:hover,
 html.dark nav button[aria-label*="idioma" i]:hover,
-html.dark nav button[aria-label*="tema" i]:hover {
+html.dark nav button[aria-label*="tema" i]:hover,
+html.dark #localization-select-trigger:hover,
+html.dark #localization-select-trigger[aria-expanded="true"],
+html.dark [data-component-part="localization-select-trigger"]:hover,
+html.dark [data-component-part="localization-select-trigger"][aria-expanded="true"] {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
