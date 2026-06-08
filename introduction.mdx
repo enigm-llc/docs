@@ -1,17 +1,19 @@
 ---
-title: Welcome to the Documentation
+title: Welcome to Enigm Documentation
 sidebarTitle: Introduction
-description: Public technical introduction to Enigm product architecture documentation.
+description: Public technical overview of Enigm private product architecture and trust.
 mode: wide
 ---
 
-Enigm documentation describes the public security model, product architecture, operating-system components, intelligence workflows, and governance controls used across Enigm products and services.
+Enigm is built for users and organizations that need private communications, controlled device trust, reduced identity exposure, and security governance that can withstand technical review.
 
-This documentation is intended for auditors, developers, enterprise customers, and security reviewers. It is technical, precise, and intentionally limited to information that is safe for public distribution.
+This documentation is the public technical record of that architecture. It explains how Enigm structures product security, privacy, device trust, encrypted communication, dedicated private environments, connectivity services, emergency workflows, intelligence capabilities, and governance controls across the Enigm ecosystem.
+
+The goal is to make Enigm understandable to enterprise customers, auditors, engineers, partners, and security reviewers without exposing operational details that could reduce platform security. The content is intentionally precise: it describes what Enigm is designed to protect, where trust boundaries exist, what administrators can and cannot do, and where the documented limitations are.
 
 ## Products
 
-The Enigm ecosystem is documented around the following primary products:
+The Enigm ecosystem is organized around six primary products. Each product has a defined security role, a clear trust boundary, and a documented relationship with the rest of the platform:
 
 <div className="enigm-card-grid">
   <CardGroup cols={2}>
@@ -38,11 +40,13 @@ The Enigm ecosystem is documented around the following primary products:
 
 ## Privacy-first architecture
 
-The Enigm ecosystem is designed around privacy, data minimization, identity protection, and metadata reduction. Security exists to support privacy and content confidentiality; privacy is not an optional feature.
+Privacy is the starting point for Enigm architecture. Security controls exist to support that privacy objective: content confidentiality, data minimization, identity minimization, metadata reduction, user control, and protected device access.
 
 Across the documentation, Enigm uses privacy-oriented and identity-minimizing language carefully. The platform is described as designed to reduce exposure, lower metadata visibility, and minimize unnecessary collection or retention. It is not described with absolute privacy or traceability claims.
 
 Administrative systems are not intended to provide plaintext access to messages, calls, media, attachments, or user conversations.
+
+For enterprise and auditor review, this distinction matters: Enigm does not treat administration, billing, connectivity, monitoring, or device management as shortcuts around end-to-end encryption or protected key material.
 
 <div className="enigm-card-grid enigm-card-grid--compact">
   <CardGroup cols={3}>
@@ -60,7 +64,9 @@ Administrative systems are not intended to provide plaintext access to messages,
 
 ## Documentation boundaries
 
-This documentation describes public architecture and governance without publishing operationally sensitive deployment detail.
+This documentation is written for public review. It provides enough detail to evaluate architecture, trust boundaries, privacy posture, governance maturity, and product responsibilities, while deliberately excluding deployment-specific details, private infrastructure relationships, internal routes, operational procedures, sensitive identifiers, secrets, and implementation-sensitive behavior.
+
+That boundary is part of the security model. Enigm should be understandable from the outside without making the platform easier to attack.
 
 ## Architecture vocabulary
 

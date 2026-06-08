@@ -5,13 +5,15 @@ description: Public product architecture overview for the Enigm ecosystem.
 mode: wide
 ---
 
-The Enigm product architecture is centered on Enigm as the private messaging product. Supporting products provide web administration, dedicated private messaging environments, private connectivity, emergency alerting, security intelligence, and optional secure operating-system capabilities.
+Enigm is designed as a privacy-first communications ecosystem, not as a single-purpose messaging application surrounded by unrelated services. The architecture is built around a simple principle: protected communications should remain confidential while supporting device trust, administrative governance, dedicated private environments, privacy-oriented connectivity, emergency workflows, and security visibility.
+
+Enigm is the private messaging product at the center of the user experience. Supporting products provide web administration, dedicated private messaging environments, secure operating-system hardening, emergency alerting, private connectivity, payment privacy, and defensive intelligence. Each product is documented as a separate trust domain so that security reviewers can evaluate what the component does, what it does not do, and how it interacts with protected content.
 
 This document is intended for auditors, enterprise customers, engineers, and technical partners. It describes the Enigm ecosystem without disclosing deployment-specific platform details, non-public component identifiers, sensitive values, credential material, environment-specific network details, or operational details that could reduce system security.
 
 ## Overview
 
-Enigm provides the primary account, communication, key-management, and multi-device experience. Enigm App also integrates optional VPN Service usage and Proxy Network traffic separation where enabled. The platform around it is designed to support policy, visibility, secure networking, Device Trust lifecycle, threat intelligence, and controlled release.
+Enigm provides the primary account, communication, key-management, and multi-device experience. Enigm App also integrates optional VPN Service usage and Proxy Network traffic separation where enabled. The platform around it exists to support policy, visibility, secure networking, Device Trust lifecycle, threat intelligence, and controlled release without turning those supporting systems into plaintext access paths.
 
 Enigm OS is an optional dedicated secure device layer. When deployed, it contributes Trust Security Center posture, device-level policy enforcement, Controlled Device Management, OTA Architecture, Remote Attestation, and update verification. It is not the center of the platform; it is an optional hardening layer for deployments that require dedicated device control.
 
@@ -19,9 +21,12 @@ The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key
 
 Enigm-controlled servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. Region selection for Enigm Server controls product deployment region categories, but it does not change the Enigm legal governance model or the separation between administration and protected content confidentiality. This governance statement does not imply that Enigm operates third-party carrier infrastructure used for Enigm eSIM carrier-layer connectivity.
 
+The architecture is intentionally layered. Account Trust, Device Trust, administrative authorization, network privacy, OTA Eligibility, Remote Attestation, and content confidentiality are separate concepts. Keeping those concepts separate reduces the risk that one administrative, commercial, network, or device-management workflow becomes an unintended authority over private communications.
+
 ## Architecture objectives
 
 - Keep Enigm as the primary user-facing private messaging product.
+- Preserve content confidentiality as the core product boundary.
 - Provide policy-aware supporting services without making them implicit trust roots.
 - Support optional Enigm OS posture for dedicated secure-device deployments.
 - Use Privacy-Preserving Device Handles for secure device management and audit correlation.
