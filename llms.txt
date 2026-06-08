@@ -53,6 +53,7 @@
 
 - [Key Overview](https://docs.enigm.io/key/overview): Emergency hardware workflow and event-bound location sharing.
 - [eSIM Overview](https://docs.enigm.io/esim/overview): Data-only private connectivity, third-party carrier boundaries, and compliance responsibilities.
+- [eSIM Data Rates](https://docs.enigm.io/esim/data-rates): DATA.PLUS consumption-rate reference by country for supported coverage areas.
 
 ### FAQ and Support
 

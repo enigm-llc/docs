@@ -122,7 +122,8 @@
           {
             "group": "Enigm eSIM",
             "pages": [
-              "esim/overview"
+              "esim/overview",
+              "esim/data-rates"
             ]
           }
         ]
