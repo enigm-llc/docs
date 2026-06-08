@@ -39,13 +39,38 @@ Communication confidentiality continues to depend on application-layer encryptio
 
 ## Traffic Analysis Considerations
 
-The platform can use traffic separation, background network activity, and traffic-shaping techniques designed to reduce confidence in simple timing-correlation and communication-pattern analysis.
+The platform can use traffic separation, background network activity, randomized network activity, and traffic-shaping techniques designed to reduce confidence in simple timing-correlation and communication-pattern analysis.
 
 These controls can make simple inference less reliable, but they do not guarantee anonymity or eliminate advanced traffic analysis.
 
+## Randomized Network Activity
+
+Enigm App network privacy controls can generate additional network activity that is not directly tied to active user conversations. This traffic is designed to make simple observation of two devices less useful when an observer attempts to infer whether two users are communicating.
+
+The objective is to reduce confidence in analysis based on:
+
+- Packet timing.
+- Message timing.
+- Traffic bursts.
+- Connection frequency.
+- Similarity between two device traffic patterns.
+- Conversation start and stop timing.
+
+When this control is active, network activity from one device should not be interpreted as proof that a specific conversation is taking place. Likewise, matching or non-matching traffic patterns between two devices should not be treated as reliable evidence of a communication relationship.
+
+This is a privacy layer, not a confidentiality layer. Communication confidentiality continues to rely on end-to-end encryption, protected key material, trusted device association, and verification workflows.
+
+Public documentation does not disclose cadence, generation logic, traffic volume, tuning values, scheduling behavior, or operational parameters.
+
+## Relationship With Metadata Reduction
+
+Randomized network activity works together with metadata minimization, Proxy Network traffic separation, optional VPN Service transport protection, Privacy-Preserving Device Handles, and retention limits.
+
+These controls are designed to reduce exposure and lower confidence in basic communication-pattern inference. They should not be interpreted as guaranteed anonymity, untraceability, or complete resistance to advanced traffic analysis.
+
 ## What These Controls Help Mitigate
 
-Network privacy controls can reduce exposure from untrusted local networks, public Wi-Fi, direct service exposure, simple timing-correlation, and some metadata observation scenarios.
+Network privacy controls can reduce exposure from untrusted local networks, public Wi-Fi, direct service exposure, simple timing-correlation, conversation-pattern inference, and some metadata observation scenarios.
 
 ## What These Controls Do Not Mitigate
 
