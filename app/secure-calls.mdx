@@ -6,7 +6,6 @@ description: Public security model for Enigm secure voice and video communicatio
 
 Enigm App supports secure voice and video communications. Secure calling follows the same trust model as secure messaging: Account Trust, Device Trust, protected key material, session authorization, and policy state are evaluated before protected communication is established.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public security architecture for Enigm secure calling without exposing protocol internals, infrastructure names, routing details, media service names, transport implementation details, non-public routing identifiers, key values, or sensitive authorization material.
 
 ## Overview
 
@@ -138,22 +137,8 @@ Multi-device workflows should evaluate:
 
 Multi-device support must not silently copy private key material without an explicit trust workflow.
 
-## Security Limitations
 
-Enigm secure calling is designed to reduce exposure of voice and video communications, but it does not remove every risk in every endpoint or user environment.
-
-The secure calling model does not protect against:
-
-- Compromised endpoint devices.
-- External recording devices.
-- Malware with sufficient privileges on a participant device.
-- Social engineering of authorized users or administrators.
-- User disclosure of call content.
-- Content captured after authorized local rendering or playback.
-- Incorrect policy configuration.
-- Unsupported device classes or unsupported operating conditions.
-
-Remote participants and endpoint environments remain part of the security boundary for real-time communications.
+See [Platform Limitations](/legal/limitations).
 
 ## Relationship With Enigm OS
 

@@ -6,7 +6,6 @@ description: Public architecture and security model for Enigm secure messaging.
 
 Enigm App provides secure text and multimedia messaging as an app-level security model. Messaging protection is centered in the client application, supported by Device Trust, protected key material, controlled message lifetime, and verification workflows.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It explains the Enigm secure messaging model without exposing protocol internals, implementation-sensitive storage paths, non-public routing identifiers, infrastructure names, operational topology, sensitive values, or cryptographic parameters.
 
 ## Overview
 
@@ -338,19 +337,8 @@ Metadata minimization reduces unnecessary metadata collection and exposure. Prox
 
 These controls do not replace end-to-end encryption, Device Trust, protected key material, message expiration, or verification workflows.
 
-## Security Limitations
 
-Enigm secure messaging is designed to reduce exposure of message content, but it does not claim absolute protection against every risk or environment.
-
-Important limitations:
-
-- A compromised authorized device may expose content after local decryption.
-- An authorized recipient can intentionally disclose content outside Enigm controls.
-- Message expiration cannot ensure removal of content already exported or captured outside Enigm controls.
-- Server-side encrypted storage still requires limited metadata for delivery, synchronization, expiration, and authorized lifecycle workflows.
-- Secure viewers reduce plaintext exposure during normal viewing but cannot control all behavior after intentional export.
-- Enigm OS can provide additional hardening, but Enigm secure messaging must remain valid as an App-level security model.
-- Administrative controls must not grant access to message plaintext, private key material, or decrypted attachments.
+See [Platform Limitations](/legal/limitations).
 
 ## Threat Model References
 

@@ -166,19 +166,8 @@ Recovery must not automatically grant plaintext access to messages. Recovery mus
 
 Enigm Command may support lifecycle actions, but administrative actions must not grant plaintext access to messages.
 
-## Security Limitations
 
-The Enigm key management model is designed to reduce key exposure and harden device-bound trust, but it does not eliminate every risk.
-
-Important limitations:
-
-- Hardware-backed protection depends on device capability and deployment requirements.
-- Larger cryptographic material may require protected wrapping outside the secure hardware boundary.
-- A compromised device may expose content after authorized local decryption.
-- Device revocation prevents future trust but cannot ensure removal of content already accessed by the revoked device.
-- Recovery workflows can preserve account continuity, but they must not be treated as message plaintext access workflows.
-- Administrative lifecycle control does not equal access to private key material.
-- OS security posture affects key access and must be considered part of the Device Trust model.
+See [Platform Limitations](/legal/limitations).
 
 ## Lifecycle Summary
 
