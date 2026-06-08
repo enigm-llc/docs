@@ -391,7 +391,6 @@ html.dark .card:hover svg,
 html.dark .card:focus-visible svg {
   color: var(--enigm-white) !important;
   stroke: var(--enigm-white) !important;
-  fill: var(--enigm-white) !important;
 }
 
 .enigm-card-grid--compact a,
