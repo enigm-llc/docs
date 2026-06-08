@@ -1,59 +1,68 @@
 ---
 title: Experiencia y gestión de Enigm OS
-sidebarTitle: Experiencia del dispositivo
-description: Asistente de configuración, Launcher, Modo de privacidad y gestión controlada de Enigm OS.
-mode: wide
+sidebarTitle: Experiencia y gestión de dispositivos
+description: Enigm OS configuración, iniciador, modo de privacidad y arquitectura de dispositivo administrado.
 ---
 
-Esta página consolida la experiencia de dispositivo de Enigm OS: provisionamiento inicial, launcher, Privacy Mode y Controlled Device Management.
+Enigm OS proporciona una experiencia controlada y segura en el dispositivo para los usuarios que requieren confianza adicional en el dispositivo, refuerzo de la plataforma y seguridad operativa. Esta página consolida la incorporación, la experiencia en el hogar, los controles de privacidad de los sensores y las capacidades opcionales de dispositivos administrados.
+
+## Resumen
+
+La experiencia y la administración del dispositivo cubren cuatro capas de seguridad orientadas al usuario:
+
+- Asistente de configuración para el aprovisionamiento inicial y el establecimiento de una línea de base segura.
+- Lanzador para una experiencia hogareña orientada a la seguridad y visibilidad de confianza.
+- Modo de privacidad para bloqueo de micrófono y cámara de acceso rápido.
+- Controlled Device Management para operaciones remotas y inscripción de dispositivos administrados opcionales.
+
+```mermaid
+flowchart TD
+  Setup["Asistente de configuración"]
+  Baseline["Línea base de seguridad del dispositivo"]
+  Launcher["Lanzacohetes"]
+  Trust["Trust Security Center"]
+  Privacy["Modo de privacidad"]
+  Management["Controlled Device Management"]
+  App["Enigm App"]
+
+  Setup --> Baseline
+  Baseline --> Launcher
+  Trust --> Launcher
+  Launcher --> App
+  Launcher --> Privacy
+  Management --> Trust
+```
 
 ## Asistente de configuración
 
-Setup Wizard establece una línea base segura antes de la operación normal.
+El asistente de configuración establece una base segura antes del funcionamiento normal. El flujo previsto incluye bienvenida, idioma y región, conectividad móvil, Wi-Fi seguro, fecha y hora, apariencia, configuración segura de PIN, inscripción biométrica opcional, introducción al modo de privacidad, términos y privacidad, y transición a Enigm App.
 
-Flujo previsto:
+La autenticación sólida es parte de la base. El flujo de configuración está diseñado para evitar credenciales débiles, priorizar la autenticación antes del uso normal y mantener la incorporación centrada en la funcionalidad de la plataforma Enigm.
 
-1. Welcome.
-2. Language and Region.
-3. Mobile Connectivity.
-4. Secure Wi-Fi.
-5. Date and Time.
-6. Appearance.
-7. Strong PIN Setup.
-8. Enrolamiento biométrico opcional.
-9. Introducción al Modo de privacidad.
-10. Términos y privacidad.
-11. Inicio de Enigm App.
+## Lanzador
 
-## Política de PIN fuerte
+El Iniciador es la principal experiencia doméstica orientada a la seguridad para Enigm OS. No pretende comportarse como un lanzador de uso general.
 
-El onboarding exige autenticación fuerte antes de uso normal. El objetivo es prevenir credenciales debiles y aplicar diseño authentication-first.
+El Iniciador presenta un estado de confianza resumido desde Trust Security Center, acceso directo a Enigm App, información operativa esencial, estado de red segura, estado del modo de privacidad, notificaciones de seguridad y estado del dispositivo administrado cuando sea relevante. No calcula la Confianza en sí.
 
-## Launcher
-
-El Launcher es la experiencia de inicio orientada a seguridad. Proporciona visibilidad de confianza, estado de red, Privacy Mode, notificaciones de seguridad y acceso directo a Enigm.
-
-El Launcher no calcula confianza; consume resumen de Trust Security Center.
+Los resúmenes de confianza visibles para el usuario incluyen Device Protected, Device At Risk y Protection Inactive.
 
 ## Modo de privacidad
 
-Privacy Mode permite control rápido sobre sensores sensibles.
+El modo de privacidad proporciona un control rápido del usuario sobre el acceso a sensores sensibles. Cuando está activo, el acceso a la cámara y al micrófono están bloqueados.
 
-Cuando está activo:
+El modo de privacidad admite la garantía de privacidad durante el funcionamiento normal, pero no reemplaza Device Trust, el cifrado de extremo a extremo, la mensajería segura, el refuerzo del sistema operativo ni la concienciación de seguridad del usuario.
 
-- Bloquea camara.
-- Bloquea microfono.
+## Controlled Device Management
 
-No sustituye Device Trust, cifrado de extremo a extremo ni controles del sistema operativo.
+Controlled Device Management es opcional. Los usuarios pueden inscribir un dispositivo en el modo de dispositivo administrado para permitir la visibilidad del ciclo de vida y las operaciones remotas a través de Enigm Command.
 
-## Gestión controlada de dispositivos
+Los dispositivos administrados pueden informar el estado de integridad del dispositivo, el estado de confianza, el estado de seguridad y el estado de administración. El borrado remoto está destinado a dispositivos perdidos, robados o comprometidos. El borrado remoto afecta el acceso al dispositivo y el estado del ciclo de vida; no proporciona acceso a contenido protegido.
 
-Controlled Device Management es opcional. El usuario puede enrolar el dispositivo en modo gestionado para visibilidad de ciclo de vida, estado de seguridad y operaciones remotas mediante Enigm Command.
+## Límites de seguridad y privacidad
 
-Remote wipe está disponible solo para dispositivos gestionados enrolados.
+Los informes de confianza, la visibilidad del iniciador, el estado del modo de privacidad y las operaciones de dispositivos gestionados son controles de seguridad del dispositivo. No inspeccionan el contenido de los mensajes, el contenido de los medios, el contenido de las llamadas, los archivos adjuntos, los documentos ni las conversaciones de los usuarios.
 
-## Límites de privacidad
+La gestión de dispositivos administrativos permanece separada de la confidencialidad de los mensajes y del material clave protegido.
 
-La gestión de dispositivo no proporciona acceso a mensajes, llamadas, multimedia, adjuntos, conversaciones ni claves privadas.
-
-Consulta [Trust Security Center](/es/os/trust-security-center) y [Limitaciones de plataforma](/es/legal/limitations).
+Ver [Limitaciones de la plataforma](/es/legal/limitations).

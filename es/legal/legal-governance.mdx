@@ -1,38 +1,48 @@
 ---
-title: Gobernanza legal
-sidebarTitle: Gobernanza legal
-description: Jurisdiccion, cumplimiento legal, límites de datos y continuidad.
-mode: wide
+title: Gobernanza jurídica
+sidebarTitle: Gobernanza jurídica
+description: Jurisdicción, manejo legal de solicitudes, límites de terceros y modelo de impacto en el usuario para Enigm.
 ---
 
-Gobernanza legal describe los límites legales, jurisdiccionales y de cumplimiento de Enigm.
+La gobernanza legal de Enigm define cómo se manejan en la documentación pública la jurisdicción, las solicitudes legales, los límites de las telecomunicaciones, la continuidad de la plataforma y los escenarios de impacto del usuario. El modelo está diseñado para respaldar la privacidad, la minimización de datos, la responsabilidad legal y la seguridad operativa.
 
-## Jurisdicción
+## Jurisdicción y Tramitación
 
-Los servidores y servicios de Enigm están operados bajo su filial en Suiza y bajo sus marcos legales aplicables.
+Los servicios de Enigm y las operaciones de la plataforma se rigen a través de la estructura operativa suiza de Enigm y los marcos legales aplicables. El procesamiento está diseñado en torno a la privacidad desde el diseño, la minimización de datos, la minimización de identidad, la limitación de fines, el almacenamiento cifrado y la reducción de metadatos.
 
-La selección de región para Enigm Server describe ubicación operativa del entorno dedicado, no cambia los límites de confidencialidad ni convierte administración en acceso a texto claro.
+Para los usuarios europeos y los clientes regulados, la documentación de Enigm está alineada con los principios GDPR/RGPD, que incluyen legalidad, equidad, transparencia, limitación de propósito, minimización de datos, limitación de almacenamiento, integridad, confidencialidad y responsabilidad.
 
-## RGPD y privacidad
+## Metadatos y límites de contenido
 
-Enigm está diseñado alrededor de minimización de datos, retención limitada, propósito definido y control del usuario.
+El cifrado de extremo a extremo protege el contenido de mensajes, llamadas, medios y archivos adjuntos del acceso administrativo en texto claro. Es posible que se requieran identificadores operativos y metadatos del ciclo de vida para enrutamiento, autenticación, disponibilidad, prevención de abusos, monitorización de seguridad, ciclo de vida de la cuenta y obligaciones legales.
 
-Los metadatos operativos se minimizan, se limitan por propósito, se protegen por control de acceso y se cifran parcialmente donde el dominio lo soporta.
+Los metadatos se minimizan, tienen un propósito limitado, se controla el acceso y se cifran parcialmente según el producto y el dominio de almacenamiento aplicables. Los identificadores operativos limitados pueden permanecer disponibles en forma controlada cuando sea necesario para enrutamiento, autenticación, disponibilidad, monitorización de seguridad, control del ciclo de vida, obligaciones legales o cumplimiento. La confidencialidad del contenido y la autoridad administrativa siguen siendo dominios de confianza separados.
 
-## Solicitudes legales
+## Manejo legal de solicitudes
 
-Enigm solo puede responder sobre información que posea y pueda acceder legal y técnicamente.
+Las solicitudes legales se evalúan de acuerdo con la ley aplicable, la jurisdicción, el alcance, la validez y la capacidad técnica de Enigm para responder. Enigm no puede proporcionar información que no posee y no puede proporcionar contenido de texto claro o material de clave privada cuando la arquitectura no otorga ese acceso.
 
-Enigm no puede proporcionar mensajes, llamadas, adjuntos, multimedia, claves privadas, frases de recuperación o registros carrier-side que no controle.
+Cuando lo permita la ley, Enigm respalda la presentación de informes de transparencia y la responsabilidad del usuario. Los datos de transparencia pública están documentados en [Informe de Transparencia](/es/security/transparency-report).
 
-## Límite de proveedor tercero
+## Límites de telecomunicaciones y terceros
 
-Enigm eSIM es facilitación comercial y gestión de ciclo de vida. Enigm no es operador móvil, MVNO, carrier ni operador de red.
+Algunos servicios de conectividad dependen de una infraestructura de terceros independientes. Enigm eSIM es una capa de facilitación comercial y gestión del ciclo de vida, no un operador de red móvil, un operador de red virtual móvil, un operador de telecomunicaciones ni un emisor de infraestructura de telecomunicaciones.
 
-La infraestructura carrier es operada por un proveedor independiente de telecomunicaciones.
+El tráfico de telecomunicaciones, los registros de conexión del lado del operador y las obligaciones de registro local se rigen por el proveedor de telecomunicaciones independiente y las leyes de las jurisdicciones donde se utiliza el servicio. Enigm no opera la infraestructura del operador y no controla los registros de la red del lado del operador.
 
-## Continuidad de negocio
+## Continuidad del negocio e impacto en el usuario
 
-Las capacidades de continuidad buscan restaurar funciones críticas sin romper cifrado de extremo a extremo ni acceso protegido.
+La planificación de la continuidad del negocio está diseñada para preservar las operaciones críticas de la plataforma y reducir el impacto en el usuario durante la interrupción operativa, los cambios en el ciclo de vida del producto, la eliminación de cuentas, la eliminación del servidor o la discontinuidad del servicio.
 
-Consulta [Retención de datos](/es/legal/data-retention) y [Limitaciones de plataforma](/es/legal/limitations).
+La eliminación afecta el estado del ciclo de vida y la disponibilidad. No implica acceso a texto claro, acceso a clave ni autoridad de descifrado. Enigm no proporciona una exportación amplia de comunicaciones protegidas de usuarios porque hacerlo podría debilitar las garantías de confidencialidad y entrar en conflicto con el modelo de contenido cifrado.
+
+## Documentos relacionados
+
+- [Privacidad](/es/security/privacy)
+- [Retención de datos](/es/legal/data-retention)
+- [Gobernanza de seguridad](/es/security/governance)
+- [Limitaciones de la plataforma](/es/legal/limitations)
+- [Enigm eSIM](/es/esim/overview)
+- [Enigm Server](/es/server/overview)
+
+Ver [Limitaciones de la plataforma](/es/legal/limitations).

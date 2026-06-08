@@ -1,59 +1,204 @@
 ---
-title: Gestión de claves
+title: Gestión de claves de Enigm App
 sidebarTitle: Gestión de claves
-description: Modelo de generacion, protección y ciclo de vida de claves en Enigm App.
-mode: wide
+description: Modelo de gestión de claves públicas para Enigm.
 ---
 
-La gestión de claves de Enigm App está diseñada para mantener el material privado asociado a dispositivos de confianza y separado de sistemas administrativos.
+La administración de claves en Enigm App define cómo se protege el material de claves generado por el dispositivo, se asocia con dispositivos de confianza, se usa para mensajería segura y se administra en eventos del ciclo de vida como rotación, reemplazo, revocación y recuperación.
+
+Este documento explica la arquitectura de administración de claves de Enigm sin revelar algoritmos, detalles a nivel de protocolo, parámetros de derivación de claves, material sensible al protocolo, nombres de códigos fuente, procedimientos operativos, identificadores de enrutamiento no públicos, nombres de infraestructura o topología de implementación.
 
 ## Resumen
 
-Las claves se generan en el dispositivo. El material privado está destinado a permanecer ligado al dispositivo y no debe almacenarse en texto claro.
+Las claves Enigm App se generan en el dispositivo. El material de clave privada está destinado a permanecer vinculado al dispositivo y no debe almacenarse en texto claro.
 
-La mensajería, llamadas, asociación de dispositivos y verificación dependen de material criptográfico protegido.
+Esta página se centra en el ciclo de vida de las claves Enigm App y la confianza vinculada al dispositivo. La arquitectura criptográfica de todo el ecosistema, que incluye cifrado de extremo a extremo, criptografía poscuántica, almacenamiento seguro, flujos de trabajo de verificación y criptografía OTA, está documentada en [Criptografía](/es/security/cryptography).
+
+El modelo utiliza almacenamiento de dispositivo protegido para proteger la clave privada. Cuando esté disponible, se utiliza protección respaldada por hardware. Cuando el material criptográfico de mayor tamaño no se puede almacenar directamente dentro de un límite de hardware seguro, es posible que sea necesario envolver o proteger el material fuera de ese límite. En ese caso, el límite de hardware seguro se utiliza cuando esté disponible para proteger las claves de envoltorio, el material de control de acceso o las condiciones de autorización.
+
+El acceso a las claves se ve afectado por:
+
+- Autenticación del dispositivo.
+- Estado de desbloqueo local.
+- Estado de autorización de la aplicación.
+- Estado de asociación del dispositivo.
+- Estado de revocación del dispositivo.
+- Postura de seguridad del sistema operativo.
+- Opcional Enigm OS Estado de confianza donde se implementó.
+
+El cifrado de mensajes se basa en material de clave protegido. La asociación de dispositivos requiere el establecimiento de una confianza explícita. La compatibilidad con múltiples dispositivos no debe copiar silenciosamente claves privadas sin un flujo de trabajo de confianza explícito.
 
 ## Generación de claves
 
-La generacion de claves ocurre en el dispositivo del usuario. Este modelo reduce exposición de claves privadas fuera del endpoint esperado.
+Las claves se generan en el dispositivo durante eventos autorizados del ciclo de vida.
 
-Las claves privadas no deben registrarse en logs, diagnosticos, workflows de soporte, Enigm Command, repositorios ni salidas administrativas.
+La generación de claves puede ocurrir durante:
 
-## Protección de claves privadas
+- Configuración de cuenta.
+- Inscripción de dispositivos.
+- Configuración de mensajería segura.
+- Configuración segura de llamadas.
+- Rotación de llaves.
+- Reemplazo de dispositivos.
+- Restablecimiento de la asociación del dispositivo asistido por recuperación.
 
-Enigm utiliza almacenamiento protegido del dispositivo para material privado.
+El material de clave privada generado debe permanecer dentro del contexto Device Trust. No debe exportarse a través de flujos de trabajo de aplicaciones de rutina, flujos de trabajo Enigm Command, registros, registros de auditoría, diagnósticos, resultados de soporte o ejemplos de documentación.
 
-- En iOS, el modelo utiliza Keychain y Secure Enclave donde está disponible.
-- En Android, utiliza platform keystore y protección hardware-backed donde está disponible.
+El estado de clave generado debe estar vinculado a la cuenta, el dispositivo y el contexto de política relevantes. Una clave creada para un dispositivo no debería generar confianza automáticamente para otro dispositivo.
 
-El material criptográfico de mayor tamano puede requerir wrapping cuando el enclave no puede almacenarlo directamente. En ese caso, la frontera segura protege claves de wrapping o material de control de acceso.
+## Protección de clave privada
+
+El material de clave privada no debe almacenarse en texto claro.
+
+Enigm App utiliza almacenamiento protegido en el dispositivo para el material de clave privada controlado por la aplicación y el estado de clave relacionado. El modelo de protección está diseñado para reducir la exposición del material de clave privada durante el almacenamiento, el acceso y los cambios en el ciclo de vida.
+
+La protección de clave privada debe incluir:
+
+- Protected almacenamiento de material de clave privada.
+- Restricción de la exportación rutinaria de claves privadas.
+- Separación entre material de clave de identidad o dispositivo de larga duración y material de clave de sesión o mensaje de corta duración.
+- Control de acceso vinculado al estado del dispositivo, el estado de la aplicación y el estado de la política.
+- Manejo del ciclo de vida para rotación, reemplazo y revocación.
+
+El material de clave privada no debe exponerse mediante acciones administrativas. Los flujos de trabajo administrativos pueden afectar el estado del ciclo de vida, pero no deben otorgar acceso de texto claro a mensajes o material de clave privada.
 
 ## Protección respaldada por hardware
 
-La protección hardware-backed se usa donde está disponible para reducir riesgo de extraccion y reforzar control local de acceso.
+Cuando esté disponible, se utiliza protección respaldada por hardware.
 
-El acceso a claves puede depender de autenticación del dispositivo, estado de desbloqueo local y postura de seguridad del sistema operativo.
+El límite de hardware seguro se puede utilizar para proteger:
+
+- Claves vinculadas al dispositivo.
+- Envoltura de llaves.
+- Material de control de acceso.
+- Condiciones de autorización.
+- Autorización de firma o descifrado.
+
+El material criptográfico de mayor tamaño puede requerir envoltura o protección fuera de los límites seguros del hardware cuando el enclave de hardware no puede almacenarlo directamente. En ese diseño, el límite de hardware protegido todavía se utiliza cuando esté disponible para controlar el acceso al material de embalaje o al estado de autorización.
+
+Este modelo está diseñado para evitar exagerar las garantías de hardware. La protección respaldada por hardware refuerza el acceso a las claves cuando esté disponible, pero la seguridad aún depende del estado del dispositivo, el estado de desbloqueo local, la postura de seguridad del sistema operativo, la autorización de la aplicación, la política de ciclo de vida y la clase de dispositivo compatible.
+
+## Modelo de protección específico de plataforma
+
+La documentación Enigm App evalúa la protección de claves en arquitecturas iOS y Android.
+
+### iOS
+
+En iOS, Enigm App usa Keychain para el almacenamiento protegido de claves y protección respaldada por Secure Enclave cuando esté disponible y sea apropiada para el material de la clave o la operación de control de acceso.
+
+Secure Enclave se puede utilizar para proteger claves vinculadas a dispositivos, claves de envoltorio o material de control de acceso. Es posible que el material criptográfico de mayor tamaño requiera envoltorio o almacenamiento protegido fuera de Secure Enclave cuando no se puede almacenar directamente dentro de los límites del hardware.
+
+El acceso a las claves puede verse afectado por la autenticación del dispositivo, el estado de desbloqueo local, la autorización de la aplicación y la postura de seguridad del sistema operativo.
+
+### Android
+
+En Android, Enigm App utiliza protección respaldada por Android Keystore para material de clave privada y operaciones de control de acceso relacionadas. La protección respaldada por Keystore o StrongBox respaldada por hardware se utiliza según la clase de dispositivo y la capacidad de implementación.
+
+Cuando el material criptográfico más grande no se puede almacenar directamente en el límite respaldado por hardware, Enigm App puede proteger ese material mediante envoltura o almacenamiento protegido, con claves respaldadas por hardware o material de control de acceso que proteja la operación de envoltura cuando esté disponible.
+
+El acceso a las claves puede verse afectado por la autenticación del dispositivo, el estado de desbloqueo local, la autorización de la aplicación, la postura de seguridad del sistema operativo y el estado de confianza Enigm OS opcional en el lugar de implementación.
 
 ## Confianza vinculada al dispositivo
 
-La confianza de dispositivo se establece de forma explicita. Un dispositivo nuevo no debe recibir confianza ni material privado sin un flujo de autorización.
+La confianza vinculada al dispositivo significa que el material de la clave privada y el estado de la clave protegida están asociados con un contexto de dispositivo inscrito específico.
 
-La asociación de dispositivo y los mensajes dependen de material protegido, no solo de una sesión activa.
+Device Trust evalúa:
 
-## Gestión de claves multi-dispositivo
+- Estado de inscripción del dispositivo.
+- Estado de asociación del dispositivo.
+- Autenticación del dispositivo.
+- Estado de desbloqueo local.
+- Estado de revocación del dispositivo.
+- Estado de la clave Protected.
+- Postura de seguridad del sistema operativo.
+- Postura Trust Security Center opcional donde se despliega Enigm OS.
+- Resultado Remote Attestation cuando se requiere evidencia de integridad del dispositivo.
 
-El soporte multi-dispositivo no debe copiar claves privadas silenciosamente. Cada dispositivo debe pasar por un flujo de confianza explicito.
+Una sesión de cuenta válida no hace que un dispositivo sea confiable automáticamente. Un dispositivo debe estar asociado explícitamente y debe cumplir con la política requerida antes de poder participar en operaciones protegidas.
 
-Los dispositivos existentes pueden participar en la incorporación cuando el flujo lo permite, pero la autorización administrativa no debe convertirse en acceso a texto claro.
+El cifrado de mensajes se basa en material de claves protegido de contextos de dispositivos de confianza. Un dispositivo revocado no debe seguir siendo confiable para futuras operaciones de mensajería protegida.
+
+## Manejo de claves en múltiples dispositivos
+
+La compatibilidad con múltiples dispositivos no debe copiar silenciosamente claves privadas sin un flujo de trabajo de confianza explícito.
+
+Cada dispositivo debe generar confianza a través de un proceso de inscripción o reemplazo autorizado. Los flujos multi-dispositivo deben evaluar:
+
+- Estado de autenticación de la cuenta.
+- Estado Device Trust existente.
+- Nuevo estado de asociación de dispositivos.
+- Estado de clave generado por el dispositivo.
+- Restricciones políticas.
+- Aprobación Enigm Command donde aplica la administración gestionada.
+- Opcional Enigm OS Estado de confianza donde se implementó.
+
+El acceso histórico a mensajes, el comportamiento de sincronización y el acceso asistido por recuperación dependen del ciclo de vida clave y de la política de retención. Un dispositivo recién inscrito no debería heredar automáticamente todo el acceso a mensajes anteriores a menos que una política explícita y un flujo de trabajo de confianza lo permitan.
 
 ## Revocación
 
-La revocación impide confianza futura en el dispositivo revocado. Tambien debe afectar la entrega de contenido nuevo protegido.
+La revocación del dispositivo debe impedir la confianza futura en el dispositivo revocado.
 
-Los eventos de ciclo de vida incluyen creacion, rotacion, reemplazo y revocación.
+La revocación debería afectar:
+
+- Estado de asociación del dispositivo.
+- Elegibilidad para la sincronización de mensajes.
+- Elegibilidad para mensajería segura.
+- Elegibilidad para llamadas seguras.
+- Autorización futura de uso de claves.
+- Estado del ciclo de vida Enigm Command.
+- Estado de administración de dispositivos Enigm OS opcional donde se implementó.
+
+La revocación no implica que todo el contenido entregado previamente pueda eliminarse de un dispositivo que ya lo recibió y descifró. Esta es una limitación de seguridad de cualquier modelo en el que un punto final autorizado haya accedido previamente al contenido.
+
+La revocación, el reemplazo y la rotación de claves deben admitirse como eventos del ciclo de vida y deben ser auditables sin exponer material de clave privada.
 
 ## Límites de recuperación
 
-La recuperación se separa del acceso normal a mensajes. Las acciones administrativas pueden ayudar a recuperar o reemplazar una cuenta, pero no deben otorgar acceso a mensajes en texto claro.
+Los flujos de recuperación deben estar separados del acceso normal a los mensajes.
 
-Consulta [Criptografía](/es/security/cryptography) y [Limitaciones de plataforma](/es/legal/limitations).
+La recuperación puede apoyar:
+
+- Continuidad de cuenta.
+- Reemplazo de dispositivos.
+- Restablecimiento de la asociación del dispositivo.
+- Restauración de la elegibilidad de la póliza.
+- Revisión administrativa del estado del ciclo de vida.
+
+La recuperación no debe otorgar automáticamente acceso de texto claro a los mensajes. La recuperación no debe proporcionar a los administradores material de clave privada. Los flujos de trabajo de recuperación deben diseñarse de modo que restaurar el acceso a la cuenta no debilite la confidencialidad normal de los mensajes.
+
+Enigm Command puede admitir acciones del ciclo de vida, pero las acciones administrativas no deben otorgar acceso de texto claro a los mensajes.
+
+
+Ver [Limitaciones de la plataforma](/es/legal/limitations).
+
+## Resumen del ciclo de vida
+
+Los eventos clave del ciclo de vida incluyen:
+
+- **Creación**: las claves se generan en el dispositivo durante la configuración autorizada o eventos del ciclo de vida.
+- **Activación**: el material clave se vuelve elegible para operaciones protegidas después de las verificaciones de confianza requeridas.
+- **Rotación**: el material de claves se actualiza según el ciclo de vida o la política de seguridad.
+- **Reemplazo**: el material clave se reemplaza durante el reemplazo del dispositivo o los cambios en el ciclo de vida de la cuenta.
+- **Revocación**: el material clave está restringido para un uso confiable en el futuro.
+- **Retiro**: el material clave se elimina del uso del ciclo de vida activo de acuerdo con la política.
+
+Las transiciones del ciclo de vida deben ser auditables a nivel de estado y de decisión sin exponer material de clave privada.
+
+## Límites de confianza
+
+Los principales límites de confianza son:
+
+- Enigm App al almacenamiento del dispositivo protegido.
+- Protected almacenamiento del dispositivo a protección respaldada por hardware cuando esté disponible.
+- Protección respaldada por hardware para envolver llaves o material de control de acceso.
+- Autenticación del dispositivo para acceso clave.
+- Estado de desbloqueo local para acceso clave.
+- Postura de seguridad del sistema operativo a Device Trust.
+- Asociación de dispositivos para elegibilidad de cifrado de mensajes.
+- Inscripción multidispositivo para el establecimiento de confianza clave.
+- Flujo de trabajo de recuperación para el acceso normal a mensajes.
+- Enigm Command acciones del ciclo de vida al estado clave del ciclo de vida.
+
+## Referencias de modelos de amenazas
+
+Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, el abuso del ciclo de vida del dispositivo, los intentos de comprometer la mensajería segura, el abuso de Enigm Command, la omisión de políticas Enigm OS cuando se implementan y la pérdida de visibilidad de la auditoría.

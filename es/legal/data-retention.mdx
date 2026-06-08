@@ -1,56 +1,290 @@
 ---
 title: Retención de datos
 sidebarTitle: Retención de datos
-description: Modelo de retención, borrado y minimización de datos.
-mode: wide
+description: Modelo de retención y minimización de datos públicos para Enigm.
 ---
 
-Enigm está diseñado para recoger y conservar solo la información necesaria para operar servicios, mantener seguridad y cumplir obligaciones legales.
+Enigm está diseñado en torno a la minimización de datos y la retención con un propósito limitado. La plataforma debe recopilar y conservar únicamente la información necesaria para operar los servicios de la plataforma, mantener funciones de seguridad, respaldar las obligaciones de cumplimiento y proteger a los usuarios.
+
+Enigm utiliza un modelo de cuenta que minimiza la identidad para el registro estándar. La creación de una cuenta Enigm estándar no requiere una email, un número de teléfono ni un documento de identidad.
+
+Los datos manejados por Enigm se cifran en reposo de acuerdo con el producto, el almacenamiento y el dominio de seguridad aplicables. El cifrado en reposo no reemplaza el cifrado de extremo a extremo, Device Trust, el control de acceso, los límites de retención ni los flujos de trabajo de eliminación.
+
+Los servidores y servicios controlados por Enigm son operados bajo la filial suiza de Enigm y bajo el gobierno legal suizo. Para las actividades de procesamiento que involucran a usuarios en la Unión Europea, Enigm está diseñado para alinearse con los principios GDPR/RGPD, incluida la minimización de datos, la limitación del propósito, la limitación del almacenamiento, la integridad, la confidencialidad y la responsabilidad.
+
+
+## Resumen
+
+El modelo de retención de datos de Enigm está alineado con el modelo de privacidad de Enigm.
+
+Las decisiones de retención se guían por:
+
+- Minimización de datos.
+- Limitación de finalidad.
+- Requisitos de seguridad.
+- Requisitos operativos.
+- Obligaciones legales o contractuales.
+- Reducción de riesgos.
+
+Las consultas legales relacionadas con la retención pueden dirigirse a [legal@enigm.io](mailto:legal@enigm.io).
+
+## Minimización de datos
+
+Enigm está diseñado para recopilar y retener únicamente la información necesaria para operar los servicios de la plataforma y las funciones de seguridad.
+
+Minimización de datos significa:
+
+- Evite recopilar datos innecesarios.
+- Conservar los datos únicamente para fines definidos.
+- Limitar el acceso a los flujos de trabajo autorizados.
+- Reducir los metadatos de identidad innecesarios cuando sea posible.
+- Separar la visibilidad de la seguridad de la confidencialidad de los mensajes.
+- Cifre los datos en reposo según el producto aplicable y el dominio de almacenamiento.
+
+## Jurisdicción y gobernanza legal
+
+Los servidores y servicios controlados por Enigm son operados bajo la filial suiza de Enigm y bajo el gobierno legal suizo.
+
+La selección de la región del servidor para Enigm Server es un control de implementación y de producto. No cambia la declaración de gobernanza legal para los servidores y servicios de Enigm.
+
+La gobernanza legal no crea acceso de texto claro a comunicaciones protegidas. La administración de Enigm Command, Enigm Server, los flujos de trabajo operativos y los flujos de trabajo legales deben permanecer separados del texto claro de los mensajes, el texto claro de los archivos adjuntos, el contenido seguro de las llamadas, las conversaciones de los usuarios y el material de clave privada.
+
+Para el procesamiento relacionado con la UE, el modelo de retención de Enigm está diseñado para respaldar los principios GDPR/RGPD a través de limitación de propósito, retención minimizada, cifrado, flujos de trabajo de eliminación y categorías de retención documentadas.
+
+## Datos de registro estándar
+
+El registro de cuenta estándar de Enigm está diseñado para evitar identificadores públicos innecesarios.
+
+El registro estándar no requiere:
+
+- Dirección de email.
+- Número de teléfono.
+- Documento de identidad.
+
+El modelo de cuenta es seudónimo y minimiza la identidad, no un reclamo absoluto de borrado de identidad. La actividad de la cuenta, el estado del dispositivo, los registros de pago, los eventos de seguridad, las obligaciones legales o el comportamiento del usuario aún pueden generar exposición fuera del modelo de registro normal.
+
+## Matriz de retención
+
+La siguiente tabla resume el modelo de retención pública para las principales categorías de datos de Enigm.
+
+| Categoría de datos | Ejemplos | Modelo de retención |
+| --- | --- | --- |
+| Estado de identidad de la cuenta | Nombre de usuario, estado de la cuenta, estado de creación de la cuenta, estado límite de recuperación, estado de eliminación de la cuenta | Se conserva mientras dure la relación de servicio. Se elimina de la operación normal del servicio cuando el usuario elimina la cuenta, sujeto únicamente a restricciones legales, de seguridad, de cumplimiento, contables o de preservación válida. |
+| Material de autenticación | Material de verificación de contraseña y estado relacionado con la recuperación, excluidas las contraseñas de texto claro o las frases de recuperación de texto claro | Se conserva mientras la cuenta exista. Se elimina de la operación normal del servicio cuando el usuario elimina la cuenta, sujeto únicamente a restricciones legales, de seguridad, de cumplimiento, contables o de preservación válida. No se deben conservar las contraseñas de texto claro ni las frases de recuperación de texto claro. |
+| Estado del dispositivo | Lista de dispositivos de confianza, estado de inscripción, estado de revocación, estado de reemplazo, estado Privacy-Preserving Device Handles, Device Trust, señales de confianza Enigm OS opcionales | Se conserva hasta que el usuario retira el dispositivo, elimina la cuenta o el estado del ciclo de vida ya no es necesario. La eliminación del dispositivo elimina el estado del dispositivo asociado del funcionamiento normal. |
+| Estado de la sesión | Sesiones activas, estado de creación de sesión, estado de última actividad, estado de terminación | Las sesiones de Enigm están limitadas a 6 horas. Los registros del ciclo de vida de la sesión se minimizan y se conservan solo según sea necesario por motivos de seguridad, prevención de abusos o revisión operativa. |
+| Contenido del mensaje | Mensajes cifrados, archivos adjuntos cifrados, multimedia cifrados | Duración del mensaje definida por el usuario hasta un máximo de 30 días. Los usuarios pueden eliminar mensajes manualmente de inmediato. El almacenamiento del lado del servidor, cuando sea necesario, almacena únicamente contenido cifrado. |
+| Metadatos del mensaje | Estado de entrega, estado de sincronización, estado de vencimiento, membresía de conversación, marcadores de ciclo de vida | Parcialmente cifrado y protegido de otro modo según el producto y el dominio de almacenamiento aplicables. Sigue el ciclo de vida del mensaje siempre que sea posible, con un máximo de 30 días para el estado normal del ciclo de vida relacionado con el mensaje, a menos que la seguridad, el abuso o las restricciones legales requieran una preservación limitada. |
+| Enigm Server datos del ciclo de vida | Estado del ciclo de vida del servidor, solicitudes de unión de ID del servidor, membresía, selección de región, visibilidad de auditoría del servidor | Se conserva mientras el usuario o cliente mantiene el servicio Enigm Server. Se elimina cuando el usuario o cliente elimina el entorno del servidor, sujeto únicamente a restricciones legales, de seguridad o de cumplimiento. |
+| Enigm Server contenido | Mensajes cifrados en el servidor, archivos adjuntos cifrados, multimedia cifrado, contenido cifrado generado por el usuario | Sigue el modelo de retención del contenido del mensaje: duración definida por el usuario hasta un máximo de 30 días, con eliminación manual inmediata cuando la política lo autorice. |
+| Enigm Key datos de emergencia | Mensajes de alerta de emergencia, contactos de emergencia, evento de activación de emergencia, uso compartido de ubicación vinculado a un evento, estado final del evento de emergencia | Tratados como mensajes y datos de eventos de emergencia. Se conserva según el ciclo de vida del mensaje, hasta un máximo de 30 días, y se minimiza después de que el usuario cancela el flujo de trabajo de envío de emergencia. |
+| Enigm Key datos del ciclo de vida del dispositivo | Asociación de cuentas, estado de vinculación inicial, estado de revocación de dispositivo, estado de pérdida, estado de reemplazo | Se conserva hasta que el usuario elimina o revoca el Enigm Key, elimina la cuenta o el estado del ciclo de vida ya no es necesario, sujeto únicamente a restricciones legales, de seguridad u operativas. |
+| Enigm eSIM datos | Estado de activación, asociación de cuenta Enigm, estado del ciclo de vida de la conectividad, metadatos del plan o estado, desvinculación, eliminación, reemplazo o estado de retiro | Se conserva hasta que el usuario elimine o retire el servicio Enigm eSIM, sujeto únicamente a restricciones legales, de seguridad u operativas. |
+| Datos de seguridad | Eventos de autenticación, eventos Device Trust, hallazgos Active Defense, eventos Enigm Intelligence, registros de incidentes, registros de acciones defensivas | Se conserva durante un máximo de 30 días para operaciones normales de seguridad, a menos que una investigación activa, una obligación legal o un requisito de seguridad requieran la conservación. |
+| Datos operativos | Eventos de estado del servicio, registros de errores, registros de disponibilidad, registros de prevención de abusos, eventos de límite de velocidad, eventos de control de seguridad | Anonimizado siempre que sea posible y conservado durante un máximo de 30 días para operaciones normales. |
+| Datos de pago | Estado de pago, estado de suscripción, estado de derecho, categoría de método de pago, país de compra seleccionado por el usuario, referencia de transacción, Code Coin estado de canje, factura o registros contables cuando se solicite | Se conservan mientras dure la relación de servicio al usuario y de acuerdo con las obligaciones legales, contables, fiscales, de prevención de abusos y de seguridad aplicables. La inscripción de pago estándar no requiere email, número de teléfono ni recopilación de documentos de identidad. |
+| Soporte y datos legales | Solicitudes de soporte, consultas legales, informes de divulgación de seguridad, comunicaciones de divulgación responsable, consultas de seguridad empresarial | Se conserva durante 30 días después de que se cierra el caso, a menos que las obligaciones legales, de seguridad, de cumplimiento o contractuales requieran la conservación. |
+
+## Datos de la cuenta
+
+Los datos de la cuenta pueden incluir información necesaria para operar los flujos de trabajo de la cuenta y la identidad.
+
+Los ejemplos conceptuales incluyen:
+
+- Estado de la cuenta.
+- Asociaciones de dispositivos.
+- Estado de seguridad.
+- Metadatos administrativos.
+
+Los datos de la cuenta respaldan el ciclo de vida de la identidad, la asociación de dispositivos, el control de acceso, los límites de recuperación de la cuenta y la revisión de seguridad.
+
+Los datos de la cuenta se conservan mientras dure la relación de servicio y se eliminan del funcionamiento normal del servicio cuando el usuario elimina la cuenta, sujeto únicamente a restricciones legales, de seguridad, de cumplimiento, contables o de preservación válidas.
+
+## Datos de seguridad
+
+La supervisión de la seguridad puede requerir una retención limitada de eventos relevantes para la seguridad.
+
+Los datos de seguridad pueden admitir:
+
+- Detección de amenazas.
+- Evaluación de riesgos.
+- Investigación de seguridad.
+- Respuesta a incidentes.
+- Respuesta defensiva.
+- Auditabilidad de decisiones relevantes para la seguridad.
+
+La retención debe ser proporcional a los requisitos operativos y de seguridad. Los datos de seguridad no deben utilizarse como sustituto del acceso al contenido de los mensajes.
+
+La retención normal de datos de seguridad se limita a un máximo de 30 días, a menos que una investigación activa, una obligación legal o un requisito de seguridad requieran su conservación.
+
+## Metadatos e identificadores operativos
+
+Enigm trata los metadatos como información sensible a la seguridad.
+
+Los metadatos se cifran parcialmente según el producto, el almacenamiento y el dominio de seguridad aplicables y, de otro modo, se protegen mediante control de acceso, limitación de finalidad, límites de retención y separación del contenido protegido. Los metadatos no se tratan como datos operativos de texto claro sin restricciones.
+
+Algunos identificadores siguen siendo necesarios para operar la plataforma. Estos incluyen identificadores de sesión, Privacy-Preserving Device Handles, estado de entrega y sincronización, estado de membresía del servidor, estado de solicitud de unión, estado del ciclo de vida de la conectividad, estado de correlación de eventos de seguridad e identificadores de enrutamiento de corta duración o manejo de solicitudes.
+
+Los identificadores operativos se utilizan para proporcionar enrutamiento, autenticación, disponibilidad, prevención de abusos, monitorización de seguridad, control del ciclo de vida y soporte de cumplimiento. Deben minimizarse, limitarse a un propósito, controlarse el acceso, cifrarse parcialmente cuando lo admita el dominio correspondiente y conservarse de acuerdo con el modelo de retención documentado.
+
+Los metadatos de conexión, como la información de origen de conexión limitada, el estado del evento de autenticación, el momento de la solicitud, los eventos de límite de velocidad y los eventos de control de seguridad, se tratan como metadatos operativos o de seguridad. Debe permanecer separado del texto claro del mensaje, el texto claro del archivo adjunto, el contenido de la llamada segura, los medios, las conversaciones de los usuarios y el material de clave privada.
+
+## Datos del dispositivo
+
+Los sistemas de confianza y administración de dispositivos pueden requerir información de estado relacionada con el dispositivo.
+
+Los datos del dispositivo pueden incluir:
+
+- Estado de asociación del dispositivo.
+- Estado de confianza.
+- Postura de seguridad.
+- Estado del dispositivo administrado cuando esté habilitado.
+- Estado del ciclo de vida del dispositivo.
+
+Los datos del dispositivo admiten flujos de trabajo de dispositivos de confianza, visibilidad Trust Security Center, operaciones de dispositivos gestionados cuando estén habilitadas y revisión de seguridad.
+
+Los datos del dispositivo se conservan hasta que el usuario elimina el dispositivo, elimina la cuenta o el estado del ciclo de vida ya no es necesario.
+
+## Datos de Enigm Server
+
+Los datos Enigm Server pueden incluir el estado limitado necesario para operar entornos de mensajería privados dedicados.
+
+Los ejemplos conceptuales incluyen:
+
+- Estado del ciclo de vida del servidor.
+- Estado del ciclo de vida de la invitación.
+- Estado de membresía del servidor.
+- Selección de región de despliegue geográfico.
+- Estado del ciclo de vida del contenido en el ámbito del servidor.
+- Visibilidad de la auditoría del servidor cuando corresponda.
+
+La retención de Enigm Server debe seguir teniendo un propósito limitado. Los controles del ciclo de vida del servidor deben gestionar la disponibilidad y eliminación del contenido cifrado de acuerdo con la política sin crear acceso administrativo al texto claro de los mensajes, el texto claro de los archivos adjuntos, las comunicaciones del usuario, el material de clave privada o la autoridad criptográfica.
+
+Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. La eliminación afecta la disponibilidad y el ciclo de vida del contenido; no implica visibilidad del contenido ni descifrado del contenido.
+
+Enigm Server los datos del ciclo de vida se conservan mientras el usuario o cliente mantiene el entorno del servidor. El contenido cifrado en el ámbito del servidor sigue el modelo de retención del contenido del mensaje, a menos que el usuario o los controles autorizados del ciclo de vida del servidor lo eliminen antes.
+
+## Datos de Enigm Key
+
+Los datos de emergencia Enigm Key se tratan como datos de comunicación de emergencia vinculados a eventos.
+
+Los ejemplos conceptuales incluyen:
+
+- Estado inicial de vinculación.
+- Estado de asociación de cuentas.
+- Configuración de contactos de emergencia.
+- Evento de activación de emergencia.
+- Mensajes de alerta de emergencia.
+- Compartir ubicación vinculada a eventos durante el flujo de trabajo de emergencia.
+- Estado final del evento de emergencia.
+- Enigm Key estado de revocación, pérdida o reposición.
+
+Los mensajes de alerta de emergencia y los datos de emergencia vinculados a eventos siguen el modelo de ciclo de vida del mensaje, con una retención máxima de 30 días a menos que el usuario los elimine antes o una restricción legal o de seguridad requiera su conservación.
+
+Enigm Key los datos del ciclo de vida del dispositivo se conservan hasta que el usuario elimina o revoca el dispositivo, elimina la cuenta o el estado del ciclo de vida ya no es necesario.
+
+Enigm Key no está documentado como un sistema de seguimiento continuo. El uso compartido de la ubicación de emergencia continúa solo durante el flujo de trabajo de emergencia activo y hasta que el usuario cancela el flujo de trabajo de envío de emergencia. Los datos de ubicación de emergencia deben minimizarse después de que el usuario cancele el flujo de trabajo de envío de emergencia.
+
+## Datos de Enigm eSIM
+
+Enigm eSIM data admite flujos de trabajo del ciclo de vida de conectividad de datos móviles privados.
+
+Los ejemplos conceptuales incluyen:
+
+- Estado de activación.
+- Asociación de cuentas Enigm.
+- Estado del ciclo de vida de la conectividad.
+- Metadatos del plan o estado.
+- Estado de desvinculación.
+- Estado de eliminación.
+- Estado de sustitución o retiro.
+
+Los datos de Enigm eSIM se conservan hasta que el usuario elimine o retire el servicio Enigm eSIM, sujeto únicamente a restricciones legales, de seguridad u operativas.
+
+El flujo de trabajo de gestión del ciclo de vida y compra de eSIM del lado de Enigm no recopila verificación KYC, email, número de teléfono ni documento de identidad. Los datos del ciclo de vida de Enigm eSIM deben permanecer limitados a la operación de conectividad, asociación de cuentas, derechos, soporte y necesidades de seguridad.
+
+Enigm eSIM depende de un proveedor de infraestructura de telecomunicaciones independiente para la conectividad de datos móviles a nivel de operador. Enigm no es un operador de red móvil, un operador de red móvil virtual, un operador de telecomunicaciones, un operador de red de acceso por radio ni un emisor directo de la conectividad del operador subyacente.
+
+Los registros de tráfico de la capa del operador, los registros de asignación de IP del lado del operador, los registros de acceso de radio, los registros de enrutamiento de paquetes, los registros de conexión del operador, los registros de itinerancia del operador y los registros de uso de la red del operador no son categorías de retención mantenidas por Enigm cuando son generados o retenidos por el proveedor de infraestructura de telecomunicaciones independiente.
+
+Enigm no puede retener, eliminar, exportar ni revelar registros de telecomunicaciones de capa de operador que no reciba ni controle. La retención de la eSIM en poder de Enigm se limita al ciclo de vida Enigm eSIM, los derechos, la asociación de cuentas de Enigm, la eliminación, el soporte y los registros de seguridad descritos en este documento.
+
+## Datos operativos
+
+Los servicios operativos pueden requerir una retención limitada por razones de confiabilidad, prevención de abuso y seguridad.
+
+Los datos operativos pueden respaldar:
+
+- Fiabilidad del servicio.
+- Prevención de abusos.
+- Prevención del fraude.
+- Monitorización de seguridad.
+- Respuesta a incidentes.
+- Obligaciones de cumplimiento.
+
+Los datos operativos deben tener como alcance fines de servicio y seguridad definidos.
+
+Los datos operativos deben ser anónimos cuando sea posible y conservarse durante un máximo de 30 días para operaciones normales.
+
+## Datos de pago
+
+Los datos de pago respaldan el derecho al servicio, el estado de la suscripción, la contabilidad, la prevención de abusos y las obligaciones de seguridad.
+
+Los ejemplos conceptuales incluyen:
+
+- Estado de pago.
+- Estado de suscripción o titularidad.
+- Categoría de método de pago.
+- País de compra seleccionado por el usuario.
+- Referencia de la transacción.
+- Code Coin estado de canje.
+- Factura o registros contables cuando así se solicite.
+
+Los datos de pago se conservan mientras dure la relación de servicio al usuario y de acuerdo con las obligaciones legales, contables, fiscales, de prevención de abusos y de seguridad aplicables.
+
+Los datos de pago deben permanecer separados del contenido del mensaje, el contenido de la llamada, los medios, los archivos adjuntos, las conversaciones de los usuarios, el material de clave privada y los secretos Device Trust.
+
+La inscripción de pago estándar no requiere email, número de teléfono ni recopilación de documentos de identidad.
+
+## Soporte y datos legales
+
+Los datos legales y de soporte respaldan el soporte al usuario, la revisión de la seguridad empresarial, las consultas legales y el manejo responsable de la divulgación.
+
+Los ejemplos conceptuales incluyen:
+
+- Solicitudes de soporte.
+- Consultas jurídicas.
+- Informes de divulgación de seguridad.
+- Comunicaciones de divulgación responsable.
+- Consultas de seguridad empresarial.
+
+Los datos legales y de soporte se conservan durante 30 días después de que se cierra el caso, a menos que las obligaciones legales, de seguridad, de cumplimiento o contractuales requieran conservación.
 
 ## Principios de retención
 
-- Retención mínima.
-- Limitacion de propósito.
-- Reduccion de riesgo.
-- Seguridad operaciónal.
-- Control del usuario.
+La retención está guiada por:
 
-## Datos de cuenta
+- Menor retención.
+- Limitación de finalidad.
+- Reducción de riesgos.
+- Requisitos de seguridad.
+- Necesidad operativa.
+- Requisitos legales y contractuales.
 
-Los datos de cuenta se conservan mientras dura el servicio y hasta que el usuario elimina la cuenta. La eliminación solicitada por el usuario se ejecuta de forma inmediata.
+Los períodos de conservación deben definirse según la finalidad de los datos, el perfil de riesgo y las obligaciones aplicables.
 
-## Datos de dispositivo
+## Principios de eliminación
 
-Los datos de dispositivos asociados se conservan mientras el usuario mantiene el dispositivo vinculado o gestionado.
+Los datos deben eliminarse cuando ya no sean necesarios por motivos operativos, de seguridad o legales.
 
-## Sesiones
+Los principios de eliminación incluyen:
 
-Las sesiones de Enigm App tienen una duracion de 6 horas.
+- Eliminar datos una vez que expire su propósito definido.
+- Preservar sólo lo necesario para la seguridad, el cumplimiento o las obligaciones legales.
+- Evite conservar metadatos innecesarios de identidad o dispositivo.
+- Aplicar flujos de trabajo de eliminación de forma consistente.
 
-## Mensajes y adjuntos
+La eliminación puede verse limitada por investigaciones de seguridad, obligaciones legales, prevención de abusos o registros operativos requeridos.
 
-Mensajes, archivos, imágenes, videos y multimedia tienen vida máxima de 30 dias. El usuario o la conversacion puede definir un período menor, y el usuario puede borrar contenido manualmente de forma inmediata.
 
-## Enigm Server
-
-El entorno Enigm Server se conserva mientras el usuario lo mantiene activo. El contenido dentro del servidor sigue el mismo modelo de mensajes: máximo 30 dias o menor segun política.
-
-## Enigm Key
-
-Los eventos de emergencia se tratan como mensajes/eventos protegidos. La ubicación se comparte hasta que el usuario cancela el envío.
-
-## Enigm eSIM
-
-El estado de Enigm eSIM se conserva hasta que el usuario elimina o desvincula la eSIM.
-
-## Datos de seguridad y operación
-
-Los eventos de seguridad y datos operativos se conservan hasta un máximo de 30 dias cuando son necesarios para seguridad, fiabilidad o fraude.
-
-Los casos de seguridad se conservan 30 dias desde el cierre del caso.
-
-## Active Defense
-
-Active Defense no retiene datos de análisis. Puede conservar metadatos de resultado si el usuario decide mantenerla.
-
-Consulta [Privacidad](/es/security/privacy) y [Limitaciones de plataforma](/es/legal/limitations).
+Ver [Limitaciones de la plataforma](/es/legal/limitations).

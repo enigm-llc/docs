@@ -1,53 +1,120 @@
 ---
 title: Modelo de seguridad
 sidebarTitle: Modelo de seguridad
-description: Modelo público de seguridad y defensa en profundidad de Enigm.
-mode: wide
+description: Modelo de seguridad pública para productos y servicios de Enigm.
 ---
 
-Enigm utiliza un modelo de defensa en profundidad para proteger privacidad, comunicaciones, dispositivos, administración, software delivery y operaciones.
+Enigm utiliza un modelo de seguridad de defensa en profundidad en Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, VPN Service, Proxy Network, Tor Gateway, Threat Intelligence Platform y Enyra.
 
-## Resumen
-
-La seguridad existe para sostener privacidad: confidencialidad de contenido, minimización de datos, identidad minimizada, reducción de metadatos y control del usuario.
+La seguridad existe para respaldar la privacidad, la minimización de datos, la protección de la identidad, la reducción de metadatos y la confidencialidad del contenido. Este documento describe la postura de seguridad pública a nivel arquitectónico para auditores de seguridad, clientes empresariales, ingenieros y socios técnicos.
 
 ## Objetivos de seguridad
 
-- Proteger mensajes, llamadas, medios y adjuntos.
-- Separar administración de contenido.
-- Mantener claves privadas ligadas a dispositivos.
-- Reducir exposición de identidad y metadatos.
-- Proteger releases y actualizaciones.
-- Aportar visibilidad de seguridad sin inspeccionar contenido.
+- Establecer una confianza explícita entre usuarios, dispositivos, sesiones Enigm App, estado Enigm OS y flujos de trabajo administrativos.
+- Utilice Trust Security Center como superficie visible para el usuario y revisable por el administrador para conocer la situación del dispositivo y el estado de seguridad.
+- Proteger OTA Architecture con Hardware-Backed Signing, controles de ciclo de vida de release, verificación del cliente y Remote Attestation como señal de elegibilidad OTA.
+- Solicitar Controlled Device Management para inscripción, cesión de póliza, suspensión, revocación y retiro.
+- Enrutar decisiones opcionales de privacidad de red a nivel de aplicación a través de VPN Service y Proxy Network cuando esté habilitado.
+- Gobierna Enigm Server la compra, creación, solicitudes de unión de ID de servidor, membresía, selección de región y ciclo de vida de contenido cifrado con ámbito de servidor a través de Enigm Command.
+- Gobernar el acceso Tor Gateway a las superficies web públicas admitidas a través de Enigm Command.
+- Procesar señales de seguridad a través del Threat Intelligence Platform y Enyra preservando la minimización de datos y la confidencialidad del contenido.
+- Preservar la evidencia de auditoría para decisiones relevantes para la seguridad sin almacenar contenido protegido innecesario.
 
-## Límites de seguridad de producto
+## Términos de seguridad de Enigm
 
-### Enigm
+Los siguientes términos se utilizan de forma coherente en toda la documentación de Enigm:
 
-Producto de mensajería privada con cifrado de extremo a extremo, llamadas seguras, Active Defense, multi-dispositivo y privacidad de red.
+- **Defensa en profundidad**: controles en capas en Enigm App, Enigm OS, política de red, inteligencia, firma, gobernanza de implementación y administración.
+- **Hardware-Backed Signing**: firma protegida para artefactos y materiales de release sensibles a la seguridad.
+- **Privacy-Preserving Device Handles**: identificadores de correlación de dispositivos diseñados para respaldar flujos de trabajo de políticas y auditoría sin exposición pública de identificadores directos de dispositivos.
+- **Controlled Device Management**: inscripción de dispositivo autorizado, asignación de póliza, suspensión, revocación y retiro.
 
-### Enigm Command
+## Modelo de confianza
 
-Panel web de ciclo de vida. Gestióna cuentas, dispositivos, productos, sesiones y operaciones administrativas. No lee contenido protegido.
+Enigm trata la confianza como contextual y limitada. Una sesión de cuenta válida en Enigm App no implica automáticamente Device Trust, autorización administrativa, elegibilidad de política de red o elegibilidad de OTA.
 
-### Enigm Server
+Las decisiones de confianza deben considerar:
 
-Entorno dedicado. El administrador gestiona membresía y disponibilidad de contenido cifrado, no texto claro.
+- Identidad del actor
+- Mango del dispositivo que preserva la privacidad
+- Enigm OS estado de confianza
+- Trust Security Center postura
+- Enigm App estado de sesión
+- Acción solicitada
+- Categoría de recurso
+- Estado de la política
+- Estado de integridad
+- Resultado Remote Attestation para flujos de trabajo que requieren elegibilidad de OTA o evidencia de integridad del dispositivo
+
+Cuando una señal de confianza requerida no está disponible, las operaciones protegidas no deberían cerrarse.
+
+## Capas de aplicación de controles
+
+### Enigm App
+
+Enigm App establece el contexto del usuario autenticado, administra el ciclo de vida de la cuenta, coordina mensajes seguros y llamadas seguras y participa en el estado de múltiples dispositivos. La aplicación debe tratar los errores de autorización como resultados de seguridad esperados y evitar registrar contenido protegido.
+
+Enigm App también integra el uso de VPN Service y Proxy Network cuando esté habilitado. Estos controles respaldan la privacidad de la red, la separación del tráfico y la reducción de metadatos sin reemplazar el cifrado de extremo a extremo o Device Trust.
+
+La creación de cuenta estándar de Enigm utiliza autenticación de nombre de usuario y contraseña, generación y manejo de frases de recuperación, creación de identidad local del dispositivo y asociación explícita de dispositivo confiable sin requerir email, número de teléfono o documento de identidad. Las sesiones de Enigm App están limitadas a 6 horas y no implican automáticamente Device Trust, autorización administrativa ni acceso a contenido protegido.
 
 ### Enigm OS
 
-Capa opcional de endpoint seguro con Trust Security Center, hardening, política de red y OTA Architecture.
+Enigm OS proporciona aplicación de políticas a nivel de dispositivo, estado de Trust Security Center, controles de configuración, política de inicio, política de red, modo de privacidad, administración de dispositivos y verificación OTA. El estado de seguridad del sistema operativo debe representarse a través de categorías de estado claras sin exponer detalles de implementación no públicos.
 
-### Enigm eSIM y Enigm Key
+### Trust Security Center
 
-Enigm eSIM aporta conectividad de datos. Enigm Key aporta emergencia física y ubicación vinculada al evento.
+Trust Security Center es la superficie de postura y estado de seguridad para Enigm OS. Debe resumir el estado de Device Trust, el estado de la política de red, los controles de privacidad y las advertencias de seguridad de manera que los usuarios y administradores puedan revisarlos.
 
-## Separación de confianza
+### Enigm Command
 
-Account Trust, Device Trust, Trust Security Center, Remote Attestation, OTA Eligibility y Administrative Authorization son conceptos separados.
+Enigm Command gobierna los flujos de trabajo de usuarios, organizaciones, empresas y administrativos, como el ciclo de vida de la cuenta, la eliminación de cuentas, la eliminación de datos de la plataforma, el cierre activo de la sesión, la visibilidad del dispositivo conectado, la eliminación no autorizada de dispositivos, la revocación de dispositivos, la gestión de Enigm Server, la gestión del ciclo de vida Enigm eSIM, la visibilidad del ciclo de vida Enigm Key, el modo de dispositivo administrado Enigm OS, la asignación de políticas, Controlled Device Management, visibilidad de la implementación, revisión de auditoría y revisión de la postura de seguridad. Las acciones Enigm Command deben requerir un contexto de identidad sólido, autorización explícita, alcance y registros de auditoría.
 
-## Gobernanza
+### Enigm Server
 
-Enigm mantiene certificación ISO/IEC 27001:2022, revisiónes recurrentes, evaluaciones de vulnerabilidad, pruebas adversariales y mejora continua.
+Enigm Server proporciona entornos de mensajería privados dedicados para usuarios aprobados de Enigm. La administración del servidor rige la compra, la creación, la selección de la región de implementación geográfica, la aprobación de la solicitud de unión de ID del servidor, la membresía y el ciclo de vida del contenido cifrado en el ámbito del servidor sin convertirse en texto claro, archivo adjunto, comunicación de usuario o superficie de acceso a clave privada.
 
-Consulta [Gobernanza de seguridad](/es/security/governance) y [Limitaciones de plataforma](/es/legal/limitations).
+Los administradores de Enigm Server pueden gestionar el ciclo de vida y la disponibilidad del contenido cifrado en el servidor. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. Los controles administrativos no otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
+
+### Controles de red
+
+VPN Service y Proxy Network se tratan como controles de separación de tráfico y privacidad de red regidos por políticas conectados al uso de Enigm App. Su uso debe estar autorizado, auditable cuando sea relevante para la seguridad y separado del registro de contenido protegido.
+
+Tor Gateway se trata como una ruta de acceso orientada a la privacidad para superficies web públicas seleccionadas. Se rige por los límites de la política Enigm Command y debe permanecer separado del acceso administrativo Enigm Command, Enigm Server, las API internas, las herramientas operativas y la gestión de infraestructura sensible.
+
+### Inteligencia sobre amenazas
+
+El Threat Intelligence Platform procesa señales de seguridad para detección, evaluación de riesgos y arquitectura de bloqueo. Enyra está documentado como la IA de seguridad y la capacidad de correlación dentro de ese ecosistema. Los resultados de inteligencia deben utilizar un contexto de riesgo a nivel de categoría y evitar metadatos de identidad innecesarios o contenido protegido.
+
+### OTA e integridad
+
+La arquitectura OTA utiliza controles del ciclo de vida de release, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA y Hardware-Backed Signing para artefactos sensibles a la seguridad. Los artefactos que no superen la verificación deben rechazarse.
+
+## Seguridad administrativa
+
+Las funciones administrativas se tratan como operaciones de avión de control de alto riesgo. Las acciones Enigm Command deben identificar el actor, la categoría de acción, la categoría de recurso objetivo, la marca de tiempo, el resultado y la referencia de cambio cuando exista una referencia de cambio.
+
+Las acciones privilegiadas deben separarse de la actividad rutinaria en tiempo de ejecución. Los modelos de aprobación y revisión deben respaldar privilegios mínimos, separación de funciones y autorización auditable.
+
+## Expectativas de auditoría
+
+Los eventos relevantes para la seguridad deben registrarse con suficiente contexto para respaldar la investigación y la revisión del cumplimiento. Los eventos de auditoría deben minimizar los metadatos y no deben incluir contenido protegido ni material de credenciales.
+
+Las categorías de eventos auditables incluyen:
+
+- Enigm App resultados de autenticación y autorización
+- Eventos de inscripción, suspensión, revocación y retiro de dispositivos
+- Trust Security Center cambios de estado
+- Enigm Command cambios administrativos
+- Resultados de políticas VPN Service y Proxy Network
+- Tor Gateway acceder a resultados para superficies web seleccionadas
+- Enigm Server solicitud de unión, membresía y resultados del ciclo de vida en el ámbito del servidor
+- Lanzamiento de OTA, implementación, Remote Attestation y resultados de verificación del cliente
+- Hardware-Backed Signing y eventos de verificación de artefactos
+- Resultados de detección o bloqueo de Threat Intelligence Platform y Enyra
+
+## Comportamiento fallido
+
+Las operaciones Protected no deben cerrarse cuando no se puede establecer la identidad, la autorización, la política, la integridad o el estado de los metadatos requeridos.
+
+Los errores de cara al usuario deben proporcionar categorías estables sin exponer contenido protegido, metadatos de identidad innecesarios o detalles operativos confidenciales.

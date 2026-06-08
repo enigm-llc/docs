@@ -1,53 +1,70 @@
 ---
-title: Detección y respuesta
+title: Detección y respuesta de inteligencia
 sidebarTitle: Detección y respuesta
-description: Pipeline de detección, riesgo y respuesta defensiva de Enigm Intelligence.
-mode: wide
+description: Modelo de detección, correlación, evaluación de riesgos y respuesta defensiva para Enigm Intelligence.
 ---
 
-Detección y respuesta transforma observaciones de seguridad en contexto util para operadores y sistemas defensivos.
+Enigm Intelligence transforma las observaciones de seguridad en un contexto defensivo para flujos de trabajo de seguridad de nivel superior. Está diseñado para respaldar la visibilidad de amenazas, la priorización de riesgos, la investigación y las decisiones de reducción de riesgos sin convertir las comunicaciones de los usuarios en entradas de seguridad.
 
-## Pipeline de detección
+## Resumen
 
-El pipeline incluye:
+El modelo de detección y respuesta tiene cuatro responsabilidades:
 
-- Signal collection.
-- Signal normalization.
-- Event correlation.
-- Risk evaluation.
-- Generación de contexto de seguridad.
-- Defensive decision support.
+- Convertir señales de seguridad en contexto estructurado.
+- Correlacionar actividades relacionadas entre dominios de seguridad.
+- Clasificar el riesgo para la priorización operativa.
+- Apoyar controles defensivos proporcionados y revisión de seguridad autorizada.
 
 ```mermaid
 flowchart TD
-  Signals["Security Signals"]
-  Normalization["Normalization"]
-  Correlation["Correlation"]
-  Risk["Risk Evaluation"]
-  Context["Security Context"]
-  Operators["Enyra / Operators"]
+  Signals["Señales de seguridad"]
+  Detection["Detección"]
+  Correlation["Correlación"]
+  Risk["Evaluación de riesgos"]
+  Response["Respuesta defensiva"]
+  Visibility["Revisión de seguridad / Enyra"]
 
-  Signals --> Normalization --> Correlation --> Risk --> Context --> Operators
+  Signals --> Detection
+  Detection --> Correlation
+  Correlation --> Risk
+  Risk --> Response
+  Risk --> Visibility
 ```
 
-## Modelo de riesgo
+## Procesamiento de señales
 
-El modelo de riesgo es un marco de soporte de decisiones. Puede considerar severidad, contexto, recurrencia, actividad cross-surface e historial.
+Las señales de seguridad tienen como alcance la protección de la plataforma, la integridad del servicio, Device Trust, la monitorización y las operaciones defensivas. Pueden incluir telemetría de seguridad, señales de integridad, eventos de plataforma, observaciones de monitorización, resultados de control defensivo, cambios en el estado de confianza y actualización o implementación del contexto de seguridad.
 
-Las clasificaciones Low, Medium, High y Critical representan prioridad operativa, no certeza absoluta.
+Las señales se normalizan en una representación consistente para que las observaciones relacionadas se puedan comparar, correlacionar, resumir y revisar. La normalización admite la generación confiable de contextos de seguridad sin exponer reglas internas, umbrales o lógica de detección.
+
+## Detección y correlación
+
+La detección identifica la actividad relevante para la seguridad para su revisión y correlación. Un solo evento puede tener un significado limitado por sí solo, mientras que las observaciones relacionadas a lo largo del tiempo, las superficies de infraestructura, las clases de dispositivos o los dominios de seguridad pueden proporcionar un contexto más sólido.
+
+La correlación está diseñada para mejorar la comprensión de la actividad potencialmente relacionada. Apoya la evaluación e investigación de riesgos, pero no debe tratarse como una verdad de plataforma final sin contexto y revisión autorizada cuando sea necesario.
+
+## Evaluación de riesgos
+
+La evaluación de riesgos convierte el contexto de seguridad en priorización operativa. Las clasificaciones conceptuales incluyen Low, Medium, High y Critical.
+
+La evaluación de riesgos puede considerar la gravedad, el contexto, la recurrencia, la actividad transversal, la confianza, los cambios de integridad, el historial defensivo y las observaciones históricas relevantes. Las clasificaciones representan apoyo a las decisiones más que certeza; no prueban atribución, intención o compromiso por sí solos.
 
 ## Respuesta defensiva
 
-La arquitectura de bloqueo existe para reducir riesgo de actividad hostil o sospechosa.
+El modelo de respuesta defensiva respalda la visibilidad, la investigación, la notificación, las restricciones de acceso, los controles de tráfico, el filtrado protector y las medidas defensivas temporales. No toda observación resulta en una acción de control.
 
-Las respuestas pueden incluir restricciones de acceso, controles de tráfico, filtrado protector y medidas temporales. Las decisiones sensibles requieren supervisión humana.
+Las acciones defensivas están diseñadas para equilibrar la seguridad, la confiabilidad, la privacidad y la estabilidad operativa. Las acciones sensibles deben seguir regidas por requisitos de autorización, políticas y revisión. La automatización respalda los flujos de trabajo de seguridad; no reemplaza la gobernanza de la seguridad.
 
 ## Relación con Enyra
 
-Enyra consume contexto de seguridad. No reemplaza detección, correlación, enforcement defensivo ni autorización humana.
+Enyra consume el contexto de seguridad producido por Enigm Intelligence. Admite correlación de seguridad, resumen de eventos, explicación de riesgos, recuperación de contexto y revisión de actividades defensivas.
+
+Enyra no reemplaza los sistemas de detección, los sistemas de correlación, la evaluación de riesgos ni los mecanismos de aplicación. Opera como una capa de análisis asistida por IA sobre el contexto de seguridad, no como una fuente de verdad sobre la plataforma.
 
 ## Consideraciones de privacidad
 
-El pipeline opera sobre contexto de seguridad y no está destinado a inspeccionar contenido protegido.
+El modelo de detección y respuesta está diseñado en torno a la minimización y agregación cuando sea posible. No está destinado a inspeccionar el contenido de mensajes, llamadas, medios, archivos adjuntos, documentos o conversaciones de usuarios.
 
-Consulta [Limitaciones de plataforma](/es/legal/limitations).
+Los controles de privacidad incluyen recopilación de señales con alcance, metadatos de identidad minimizados, separación entre visibilidad de seguridad y confidencialidad de mensajes, controles de acceso autorizado y preferencia por el contexto de seguridad sobre la inspección de contenido.
+
+Ver [Limitaciones de la plataforma](/es/legal/limitations).

@@ -208,7 +208,7 @@
         "navbar": {
           "links": [
             {
-              "label": "Web",
+              "label": "Sitio web",
               "href": "https://enigm.io"
             }
           ],
@@ -333,7 +333,7 @@
             ]
           },
           {
-            "group": "FAQ y soporte",
+            "group": "Ayuda y soporte",
             "pages": [
               "es/support/get-help",
               "es/support/faq"

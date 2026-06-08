@@ -1,34 +1,225 @@
 ---
 title: Privacidad de pagos
 sidebarTitle: Privacidad de pagos
-description: Modelo de privacidad de pagos y límites comerciales de Enigm.
-mode: wide
+description: Modelo público para Privacidad de pagos, vínculo de identidad reducido y límites comerciales.
 ---
 
-Los pagos de productos Enigm se gestionan desde Enigm Command, tanto durante el alta cómo dentro de la experiencia autenticada.
+Privacidad de pagos describe cómo Enigm aborda la privacidad relacionada con los pagos para los flujos de trabajo comerciales admitidos.
+
+Los sistemas de pago están separados de la criptografía Enigm App, la confidencialidad de mensajes, las llamadas seguras, Enigm Server, Enigm Key, Enigm eSIM y Enigm OS Device Trust. La privacidad de los pagos está diseñada para reducir la vinculación de identidades en contextos admitidos, pero no elimina el riesgo de trazabilidad externa y no reemplaza las obligaciones legales, contables, fiscales o de responsabilidad del usuario.
 
 ## Resumen
 
-Enigm soporta pagos con cripto, tarjeta de credito y Code Coin. Estos métodos pueden utilizarse para productos Enigm, incluidos Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key y Enigm eSIM.
+Enigm está diseñado en torno a la privacidad, la minimización de datos, la protección de la identidad y la reducción de metadatos. Los flujos de trabajo de pago deben seguir los mismos principios en contextos comerciales compatibles.
 
-## Modelo de privacidad
+La privacidad de pago tiene como objetivo:
 
-El modelo está diseñado para reducir vinculacion innecesaria entre pago e identidad Enigm.
+- Reducir los vínculos innecesarios entre la actividad de pago y la actividad de la plataforma.
+- Minimizar la recopilación de información de identidad relacionada con pagos.
+- Separar los registros de pago del contenido de comunicación protegido.
+- Admite la elección del usuario entre los métodos de pago admitidos.
+- Preservar los límites comerciales, contables, legales y de seguridad.
 
-Enigm no solicita email, teléfono ni documento para la cuenta Enigm estándar. Para pagos, el usuario seleccióna país de compra cuando es necesario para fines legales, fiscales o de compliance.
+## Modelo de pago admitido
+
+Enigm admite flujos de trabajo de pago para productos Enigm a través de Enigm Command durante la inscripción inicial y desde la experiencia Enigm Command autenticada.
+
+Los métodos de pago admitidos incluyen:
+
+- Pagos en criptomonedas.
+- Pagos con tarjeta de crédito.
+- Códigos de pago Code Coin emitidos dentro del ecosistema Enigm.
+
+Los métodos de pago admitidos se pueden utilizar para los productos Enigm, incluidos Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key y Enigm eSIM.
+
+A nivel de arquitectura pública, el manejo de pagos debería:
+
+- Recopile únicamente la información de pago requerida para la transacción, soporte, prevención de abuso, contabilidad u obligaciones legales.
+- Evite conectar metadatos de pago con el contenido de mensajes, contenido de llamadas, medios, archivos adjuntos o conversaciones de usuarios.
+- Mantenga el estado de pago separado del acceso criptográfico a las comunicaciones protegidas.
+- Mantener registros del ciclo de vida solo cuando sea necesario para fines operativos, de seguridad, contables, de prevención de abusos o legales.
+
+La documentación pública no describe los procesadores de pagos, las operaciones de tesorería, los flujos de trabajo de liquidación, la infraestructura de billetera, la lógica de detección de abusos, los sistemas de contabilidad internos ni los controles operativos.
+
+## Superficies de compra
+
+Los flujos de trabajo de pago se gestionan a través de Enigm Command.
+
+El modelo de compra incluye:
+
+- Compra durante la inscripción Enigm Command.
+- Compra desde Enigm Command después de la inscripción.
+- Revisión del estado de activación y derechos del producto.
+- Revisión del estado de pago de los productos compatibles.
+- Acciones del ciclo de vida del producto conectadas al contexto Enigm Command del usuario.
+
+Los flujos de trabajo de pago Enigm Command son flujos de trabajo del ciclo de vida comercial. No brindan acceso a comunicaciones protegidas, material de clave privada, material criptográfico almacenado en dispositivos ni texto claro de mensajes.
+
+## Identidad y vinculación de cuentas
+
+Los flujos de trabajo de pago de Enigm están diseñados para reducir los vínculos innecesarios entre la actividad de pago y la identidad de la cuenta de Enigm.
+
+Para flujos de pago estándar documentados aquí:
+
+- Enigm no requiere la recopilación de emails para la inscripción de pago normal.
+- Enigm no requiere la recopilación del número de teléfono para la inscripción de pago normal.
+- Enigm no requiere la recolección de documento de identidad para la inscripción de pago normal.
+- Los registros de pago no están destinados a vincularse a contenido de comunicación protegido.
+- El estado de pago no otorga autoridad criptográfica sobre mensajes, llamadas, archivos adjuntos o conversaciones de usuarios.
+
+El flujo de trabajo de pago recopila un país de compra seleccionado por el usuario. Este valor de país respalda las necesidades comerciales, contables, de disponibilidad de productos y de políticas sin requerir identificadores de identidad públicos en el flujo estándar.
+
+La privacidad de los pagos debe describirse como una minimización de la identidad, no como un reclamo de borrado de la identidad. Las redes de pago externas, el comportamiento del usuario, el estado del dispositivo, los metadatos de blockchain, los metadatos de la red de tarjetas, las instituciones financieras y las solicitudes legales aún pueden crear exposición fuera de la arquitectura del producto de Enigm.
+
+La disponibilidad de pago y la activación del producto pueden estar sujetas a sanciones, prevención de fraude, prevención de abuso, requisitos legales, fiscales, contables y de cumplimiento. Enigm podrá rechazar, limitar, suspender, cancelar o revisar acciones de pago o del ciclo de vida del producto cuando sea necesario para satisfacer estas obligaciones o para proteger la plataforma.
 
 ## Code Coin
 
-Code Coin es un código interno público de Enigm para flujos de pago o activacion. Su uso se gestiona desde Enigm Command.
+Code Coin es un modelo de código de pago de Enigm que se utiliza para activar o pagar productos Enigm compatibles sin requerir un instrumento de pago convencional dentro del mismo flujo de trabajo del usuario.
+
+Los flujos de trabajo Code Coin deben conservar los mismos principios de separación que otros métodos de pago:
+
+- El estado Code Coin es estado comercial.
+- El canje Code Coin no proporciona acceso a texto claro de mensajes.
+- El canje Code Coin no proporciona acceso a clave privada.
+- El canje de Code Coin no elude Device Trust, Account Trust, ni la autorización administrativa.
+- La información del ciclo de vida de Code Coin debe seguir teniendo un propósito limitado.
+
+## Propósitos de privacidad
+
+La Privacidad de pagos está diseñada para admitir:
+
+- Reducción de la vinculación identitaria.
+- Metadatos de pago con finalidad limitada.
+- Separación entre registros comerciales y contenidos protegidos.
+- Retención con finalidad limitada.
+- Control del usuario sobre las opciones de pago admitidas.
+- Adquisiciones orientadas a la privacidad para implementaciones admitidas.
+
+Estos objetivos reducen la exposición pero no eliminan el vínculo de identidad externo o el riesgo de correlación de pagos.
+
+## Pagos en criptomonedas
+
+Los pagos con criptomonedas brindan una opción de pago adicional para los usuarios que prefieren una menor dependencia de los flujos de trabajo de identidad de pago tradicionales.
+
+Los pagos con criptomonedas se tratan con cuidado:
+
+- No eliminan la trazabilidad externa ni el riesgo de vinculación de identidad.
+- La actividad del libro mayor público puede crear metadatos externos.
+- Los usuarios siguen siendo responsables de las propiedades de privacidad del método de pago que elijan.
+- Es posible que aún se apliquen obligaciones legales, fiscales y contables.
+- La confirmación de pago no otorga acceso al texto claro del mensaje protegido ni al material de clave privada.
+
+Enigm debería evitar afirmar que los pagos en criptomonedas borran el riesgo de identidad o eliminan toda correlación de pago externa.
+
+## Pagos con tarjeta de crédito
+
+Los pagos con tarjeta de crédito se admiten como método de pago comercial estándar.
+
+El estado de pago con tarjeta de crédito debe permanecer separado del contenido protegido, Device Trust, el acceso a mensajes, el acceso seguro a llamadas, el contenido cifrado Enigm Server y el material de clave privada.
+
+Los pagos con tarjeta de crédito pueden implicar metadatos de pago externos fuera del control directo de Enigm. Los pagos con tarjeta no se tratan como minimizadores de identidad en la misma medida que los flujos de trabajo con códigos de pago o criptomonedas. El objetivo de privacidad de Enigm es evitar vínculos innecesarios entre el estado de pago y la actividad de comunicación protegida dentro de la arquitectura de Enigm.
 
 ## Facturas
 
-Actualmente las facturas se emiten si el usuario las solicita. Las facturas pueden requerir datos adicionales necesarios para cumplir requisitos legales o fiscales.
+Las facturas están disponibles cuando se solicitan.
 
-## Límites de seguridad
+Los flujos de trabajo de facturas son flujos de trabajo comerciales y contables. Deberán permanecer separados de:
 
-Los pagos son flujos comerciales. No proporcionan acceso a mensajes, llamadas, adjuntos, multimedia, claves privadas ni datos criptográficos.
+- Mensaje en texto claro.
+- Contenido de llamada seguro.
+- Contenido multimedia.
+- Adjuntos.
+- Conversaciones de usuarios.
+- Material de clave privada.
+- Material clave protegido en el dispositivo.
 
-La privacidad de pago reduce exposición, pero no implica anonimato garantizado ni elimina obligaciones legales.
+Los registros de facturas pueden requerir información adicional según la solicitud y los requisitos contables aplicables. La documentación pública no expone los procedimientos de manejo de facturas ni los flujos de trabajo contables internos.
 
-Consulta [Gobernanza legal](/es/legal/legal-governance) y [Limitaciones de plataforma](/es/legal/limitations).
+## Límites comerciales
+
+La privacidad de los pagos debe coexistir con los requisitos comerciales, contables, legales y de seguridad.
+
+Enigm puede retener o procesar información relacionada con pagos cuando sea necesario para:
+
+- Finalización de la transacción.
+- Prevención de abusos.
+- Obligaciones legales.
+- Obligaciones fiscales o contables.
+- Atención al cliente.
+- Contratación empresarial.
+- Investigaciones de seguridad cuando estén autorizadas.
+
+Los requisitos comerciales y contables pueden variar según la jurisdicción, el método de pago y el contexto de implementación.
+
+La disponibilidad del producto, el procesamiento de pagos, el estado de los derechos, la facturación y la activación pueden verse limitados por requisitos legales, sanciones, prevención de fraude, prevención de abuso, contabilidad, impuestos o cumplimiento. La documentación pública no describe los procedimientos de revisión interna, la lógica de control de pagos, los flujos de trabajo de cumplimiento ni los controles operativos.
+
+## Relación con Enigm App
+
+El estado de pago es independiente de la seguridad del contenido Enigm App.
+
+Los flujos de trabajo de pago no deben proporcionar acceso a:
+
+- Mensaje en texto claro.
+- Llamar contenido.
+- Contenido multimedia.
+- Adjuntos.
+- Conversaciones de usuarios.
+- Material de clave privada.
+
+Las operaciones protegidas de Enigm App siguen regidas por el estado de la cuenta, Device Trust, el material de clave protegido y la política.
+
+## Relación con Enigm Server
+
+Los flujos de trabajo de pago admiten el acceso a suscripciones Enigm Server cuando se requiere autorización comercial.
+
+No es lo mismo autorización comercial que autorización fiduciaria. Un entorno pago, una suscripción o un estado de acceso a un servidor privado aún deben respetar la política de la cuenta, Device Trust, y los límites de comunicación protegidos.
+
+Los administradores de Enigm Server no reciben acceso de texto claro a mensajes, archivos adjuntos, comunicaciones de usuarios o claves criptográficas debido al estado de pago, el estado de suscripción o el estado de propiedad comercial.
+
+## Relación con Enigm Command
+
+Enigm Command es la superficie de pago y ciclo de vida del producto para los productos Enigm compatibles.
+
+Enigm Command admite:
+
+- Compra durante la inscripción.
+- Compra desde Enigm Command.
+- Revisión del estado de pago.
+- Estado de activación del producto.
+- compra de Enigm Server y creación.
+- Enigm eSIM gestión de compras y ciclo de vida.
+- Enigm Key ciclo de vida de compra o activación.
+- Code Coin flujos de trabajo de canje.
+- Manejo de solicitudes de facturas.
+
+La visibilidad de los pagos Enigm Command debe permanecer limitada al ciclo de vida comercial y a las necesidades de soporte. No debe convertirse en una superficie de visibilidad de contenido protegido.
+
+## Minimización de datos
+
+Los flujos de trabajo de pago deben minimizar:
+
+- Metadatos de identidad innecesarios.
+- Retención a largo plazo más allá de los fines definidos.
+- Vinculación entre los registros de pago y la actividad de comunicación.
+- Exposición de datos de pago en vistas administrativas.
+- Divulgación del contexto de pago a componentes de la plataforma no relacionados.
+
+Cuando se requiere correlación de pagos, debe limitarse al propósito comercial, de seguridad, legal u operativo respaldado.
+
+La inscripción de pago estándar está diseñada en torno a una recopilación de identidad mínima. El país de compra seleccionado por el usuario es el atributo de contexto de pago estándar documentado aquí. La recopilación de emails, números de teléfono y documentos de identidad no forman parte del modelo de inscripción de pago estándar.
+
+## Consideraciones de seguridad
+
+- Los registros de pago deben protegerse como datos comerciales sensibles.
+- El acceso a los pagos debe estar separado de la confidencialidad de los mensajes y las llamadas.
+- Los flujos de trabajo de pago no deberían debilitar la recuperación de la cuenta o Device Trust.
+- Los controles de fraude y abuso deben evitar inspecciones innecesarias de contenidos.
+- La visibilidad de los pagos administrativos debe permanecer limitada a funciones y ser auditable.
+
+
+Ver [Limitaciones de la plataforma](/es/legal/limitations).
+
+## Referencias de modelos de amenazas
+
+Las áreas relevantes del modelo de amenazas incluyen vinculación de identidad, exposición de metadatos de pago, compromiso de cuentas, privacidad de adquisiciones, metadatos de pagos externos, límites de divulgación legal y control de acceso administrativo.

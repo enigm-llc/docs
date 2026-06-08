@@ -1,41 +1,133 @@
 ---
-title: Modelo de amenazas
-sidebarTitle: Modelo de amenazas
-description: Marco público de amenazas y límites de confianza de Enigm.
-mode: wide
+title: Modelo de amenaza
+sidebarTitle: Modelo de amenaza
+description: Marco público de modelo de amenazas para productos y servicios de Enigm.
 ---
 
-El threat model de Enigm cubre Enigm, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Enigm Intelligence, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing y Controlled Device Management.
+El modelo de amenaza Enigm cubre Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing y Controlled Device Management.
 
-## Dominios de amenaza
+Este documento proporciona un marco público para su revisión. Evita topologías específicas de la implementación, identificadores de componentes no públicos, detalles de red específicos del entorno y detalles operativos que podrían reducir la seguridad del sistema.
 
-Enigm evalúa amenazas en dominios separados:
+## Activos dentro del alcance
 
-- Cuenta e identidad.
-- Dispositivo y endpoint.
-- Mensajería y llamadas.
-- Administración.
-- Enigm Server.
-- Enigm Key.
-- Enigm eSIM.
-- Red y metadatos.
-- OTA y signing.
-- Inteligencia y respuesta defensiva.
+El modelo de amenaza considera las siguientes categorías de activos:
+
+- Enigm App estado de cuenta, estado de sesión, estado de mensajería segura, estado de llamada segura y estado de múltiples dispositivos
+- Registros del ciclo de vida Privacy-Preserving Device Handles y Controlled Device Management
+- Estado de confianza Enigm OS, estado Trust Security Center, política de red, modo de privacidad y estado de administración de dispositivos
+- Artefactos de release OTA, metadatos de release, estado de firma, estado de despliegue, estado de verificación del cliente y resultados de Remote Attestation
+- Enigm Command acciones del ciclo de vida de la cuenta, flujos de trabajo de eliminación, controles de sesión, acciones del ciclo de vida del dispositivo, acciones del ciclo de vida del producto, historial de aprobación y asignaciones de políticas
+- Enigm Server estado de solicitud de unión, estado de membresía, estado del ciclo de vida del servidor y visibilidad de auditoría
+- Estado de activación Enigm eSIM, asociación de cuentas de Enigm, estado del ciclo de vida y resultados de la política de conectividad
+- Estado de pago, estado de derecho del producto, categoría de método de pago, estado de canje Code Coin, país de compra seleccionado por el usuario y registros de factura cuando se solicita
+- Resultados de políticas VPN Service y Proxy Network
+- Tor Gateway acceder a resultados para superficies web seleccionadas
+- Señales Threat Intelligence Platform, salidas Enyra, categorías de riesgo y resultados de bloqueo
+- Registros de auditoría
+
+## Categorías de amenazas
+
+### Compromiso de cuenta y aplicación
+
+Un actor intenta hacer un mal uso del estado de la cuenta Enigm App, del estado de la sesión, de la mensajería segura, de las llamadas seguras o de la inscripción en múltiples dispositivos.
+
+Los controles esperados incluyen aplicación segura de la capa de identidad, autorización de alcance, controles de administración de claves, controles del ciclo de vida de múltiples dispositivos y registros de auditoría.
+
+### Uso indebido de la política de conversación
+
+Un actor intenta hacer un mal uso de la conversación o de la política de grupo para enviar, reenviar, eliminar, retener o exponer mensajes, archivos, imágenes, vídeos u otros contenidos multimedia protegidos fuera de la política autorizada.
+
+Los controles esperados incluyen evaluación de políticas de conversación, aplicación de permisos de grupo, verificaciones Device Trust, material de claves protegidas, visores seguros, auditabilidad del ciclo de vida, política de vencimiento, controles de reenvío, controles de eliminación y separación del acceso administrativo a texto claro.
+
+Los controles de resistencia a la captura se modelan como controles de reducción de la exposición. No están modelados como una protección completa contra puntos finales comprometidos, grabaciones externas, divulgación intencional del usuario o entornos operativos modificados.
+
+### Abuso del ciclo de vida del dispositivo
+
+Un actor intenta inscribir, reactivar, suspender, revocar o retirar un dispositivo fuera de los flujos de trabajo Controlled Device Management autorizados.
+
+Los controles esperados incluyen autorización Privacy-Preserving Device Handles, Enigm Command, eventos de auditoría del ciclo de vida y comportamiento de política de denegación por defecto.
+
+### Enigm OS omisión de política
+
+Un actor intenta eludir la política de red Enigm OS, el modo de privacidad, las restricciones del iniciador, los requisitos de configuración, las comprobaciones de postura Trust Security Center o el estado de administración del dispositivo.
+
+Los controles esperados incluyen aplicación de políticas a nivel de dispositivo, visibilidad de Trust Security Center, comportamiento de cierre de fallas y transiciones de estado auditables.
+
+### Fallo de integridad OTA
+
+Un paquete de actualización, paquete de políticas, paquete de configuración, metadatos de versión o artefacto orientado al dispositivo se modifica, clasifica erróneamente o se acepta sin una verificación válida.
+
+Los controles esperados incluyen controles de release de la arquitectura OTA, Hardware-Backed Signing para materiales de release sensibles a la seguridad, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA, trazabilidad de release y rechazo de verificación fallida.
+
+### Uso indebido de políticas de red
+
+Un actor intenta hacer un mal uso de la política de conectividad VPN Service, Proxy Network, Enigm eSIM o de la política Tor Gateway, la elegibilidad de enrutamiento, la elegibilidad de acceso o el bloqueo de resultados.
+
+Los controles esperados incluyen evaluación de políticas, autorización, registros de auditoría, separación del registro de contenido protegido y revisión controlada de la configuración.
+
+### Enigm Key mal uso
+
+Un actor intenta hacer un mal uso de la asociación Enigm Key, la activación de emergencia, la autenticación de dispositivos, los contactos de emergencia, el uso compartido de ubicaciones vinculado a eventos, la revocación, el reemplazo o la visibilidad del ciclo de vida.
+
+Los controles esperados incluyen enlace inicial Enigm App, configuración de contacto de emergencia controlada por el usuario, material de firma autenticado vinculado al dispositivo, comunicación cifrada, rechazo de tráfico de dispositivos no autenticados, uso compartido de ubicación vinculado a eventos, alcance del ciclo de vida Enigm Command y revocación por dispositivos perdidos, robados, retirados o reemplazados.
+
+Enigm Key los flujos de trabajo de emergencia se modelan como eventos de emergencia acotados. No se modelan como seguimiento de ubicación de rutina, acceso a mensajes protegidos, acceso seguro a llamadas, acceso a archivos adjuntos o acceso a claves privadas.
+
+### Abuso de Enigm Server
+
+Un actor intenta hacer un mal uso de compra de Enigm Server, creación, solicitudes de unión de ID del servidor, control de membresía, controles del ciclo de vida del contenido en el ámbito del servidor, selección de regiones o flujos de trabajo de eliminación.
+
+Los controles esperados incluyen autorización Enigm Command, alcance del propietario del servidor o administrador autorizado, auditabilidad de solicitudes de unión, revisión de membresía del servidor, controles de disponibilidad de contenido cifrado y separación del texto claro de mensajes, texto claro de archivos adjuntos, comunicaciones de usuarios, material de clave privada y autoridad criptográfica.
+
+El ID del servidor se modela como un localizador de solicitudes de unión, no como una credencial de acceso. La posesión o divulgación de una identificación de servidor no debe otorgar membresía, Device Trust, acceso a clave protegida o acceso a contenido cifrado sin la aprobación del administrador y los controles de autorización normales Enigm App.
+
+Los controles de eliminación administrativa se modelan como controles de disponibilidad y ciclo de vida sobre objetos de contenido cifrado. No se modelan como visibilidad de contenido, descifrado de contenido, acceso a texto claro o acceso a claves criptográficas.
+
+### Manipulación de la inteligencia
+
+Una señal, categoría de riesgo, salida Enyra o registro de inteligencia evaluado se altera, inyecta, suprime o clasifica erróneamente de una manera que afecta la detección, la revisión de riesgos o la arquitectura de bloqueo.
+
+Los controles esperados incluyen manejo de clasificados, autorización de fuentes, normalización, registros de auditoría y flujos de trabajo de revisión.
+
+### Abuso de Enigm Command
+
+Un actor intenta hacer un mal uso de los flujos de trabajo privilegiados, eliminar datos de cuentas o plataformas fuera del alcance autorizado, cerrar o preservar sesiones de manera incorrecta, eliminar o conservar dispositivos de manera incorrecta, cambiar políticas, alterar el estado de administración de dispositivos, ver datos de auditoría restringidos o alterar el estado de implementación fuera del alcance aprobado.
+
+Los controles esperados incluyen una identidad administrativa sólida, autorización explícita, separación de roles, flujos de trabajo de aprobación y auditabilidad.
+
+### Pérdida de visibilidad de la auditoría
+
+Los eventos relevantes para la seguridad no están disponibles, están incompletos o son insuficientes para respaldar la investigación y la revisión del cumplimiento.
+
+Los controles esperados incluyen la generación de eventos de auditoría para Enigm App, Enigm OS, Trust Security Center, Enigm Command, OTA Architecture, política de red, Threat Intelligence Platform, Enyra y Controlled Device Management.
 
 ## Límites de confianza
 
-El modelo separa Account Trust, Device Trust, administración, Remote Attestation, OTA Eligibility y contenido protegido.
+El modelado de amenazas debe evaluar las transiciones entre:
 
-## Controles esperados
+- Usuario y Enigm App
+- Estado del dispositivo Enigm App y Enigm OS
+- Representación de postura Enigm OS y Trust Security Center
+- Ciclo de vida del dispositivo y Enigm Command Controlled Device Management
+- Enigm OS y OTA Architecture
+- Decisiones de elegibilidad de Remote Attestation y OTA
+- Hardware-Backed Signing y distribución de artefactos
+- VPN Service, Proxy Network y aplicación de políticas de red
+- Acceso Enigm Command, Tor Gateway y exposición de la superficie web seleccionada
+- Gestión de Enigm Command, Enigm Server, solicitudes de unión, membresía y ciclo de vida del contenido en el ámbito del servidor
+- Threat Intelligence Platform, Enyra y arquitectura de bloqueo
+- Enigm Command y flujos de trabajo administrativos empresariales
 
-Los controles incluyen cifrado de extremo a extremo, claves protegidas, Privacy-Preserving Device Handles, minimización de metadatos, revocación, logging limitado, seguridad de releases, gobernanza y revisión de riesgos.
+Cada límite se revisa según su dominio de confianza documentado. La documentación pública describe el objetivo de seguridad, la restricción de exposición de datos y el modelo de autorización para cada límite sin exponer la topología interna ni los procedimientos operativos.
 
-## Abuso administrativo
+## Mapeo de control
 
-Enigm Command y Enigm Server son superficies administrativas. Deben permitir ciclo de vida, no acceso a texto claro ni claves privadas.
+Las amenazas se evalúan contra controles de defensa en profundidad en identidad, estado de la aplicación, estado del sistema operativo, postura Privacy-Preserving Device Handles, Controlled Device Management, Trust Security Center, política de red, verificación OTA, manejo Remote Attestation, Hardware-Backed Signing, Threat Intelligence Platform, salidas Enyra y autorización Enigm Command.
 
-## Observación de red
+## Riesgo residual
 
-VPN Service, Proxy Network y actividad de red aleatoria reducen exposición y correlación simple, pero no garantizan anonimato absoluto.
+El riesgo residual depende de la configuración de la implementación, la política empresarial, la profundidad de la integración, la madurez operativa y el alcance del producto. El riesgo residual se compara con los controles documentados, la evidencia disponible, las limitaciones de implementación y la separación entre Account Trust, Device Trust, elegibilidad de OTA, Remote Attestation y autorización administrativa.
 
-Consulta [Limitaciones de plataforma](/es/legal/limitations).
+## Cadencia de revisión
+
+Las revisiones de los modelos de amenazas son parte del gobierno de seguridad de Enigm. La evidencia de la revisión se mantiene a un nivel apropiado para la auditoría y el aseguramiento empresarial, evitando al mismo tiempo la divulgación pública de los procedimientos operativos, la topología interna o los controles sensibles a la implementación.
