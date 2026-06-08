@@ -82,6 +82,7 @@
               "app/secure-messaging",
               "app/secure-calls",
               "app/active-defense",
+              "app/runtime-protection",
               "app/multi-device",
               "app/network-privacy"
             ]

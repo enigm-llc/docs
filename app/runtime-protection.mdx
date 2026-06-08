@@ -1,0 +1,157 @@
+---
+title: App Runtime Protection
+sidebarTitle: Runtime Protection
+description: Application shielding, runtime integrity, and tamper-resistance model for Enigm App.
+---
+
+Enigm App includes application runtime protection controls designed to harden the client against reverse engineering, tampering, instrumentation, rooted or jailbroken environments, debugging, and unauthorized runtime modification.
+
+Runtime protection is an Enigm App security layer. It does not replace end-to-end encryption, Device Trust, protected key material, server-side authorization, PIN validation, or user trust decisions.
+
+## Overview
+
+Application runtime protection is designed to increase the difficulty of attacking the Enigm App binary and runtime environment.
+
+The model supports:
+
+- Root and jailbreak risk detection.
+- Runtime integrity verification.
+- Anti-tampering controls.
+- Anti-debugging controls.
+- Hooking and instrumentation detection.
+- Code obfuscation and code protection.
+- Protection against unauthorized binary modification.
+- Security policy response when a high-risk runtime condition is detected.
+
+These controls are applied to the Enigm App runtime and should be evaluated together with Device Trust, PIN-gated access, key management, secure messaging, secure calls, Active Defense, and Enigm Intelligence.
+
+## Security Objectives
+
+Runtime protection is designed to:
+
+- Reduce reverse-engineering risk.
+- Make static and dynamic analysis more difficult.
+- Detect modified or repackaged application binaries.
+- Detect high-risk runtime environments.
+- Reduce the reliability of unauthorized debugging and instrumentation.
+- Protect app integrity signals used by security workflows.
+- Support fail-closed behavior for protected operations when runtime integrity cannot be trusted.
+
+Runtime protection improves client-side hardening. It should be treated as one layer of defense rather than the only protection boundary.
+
+## Root and Jailbreak Detection
+
+Rooted and jailbroken devices can weaken platform security assumptions such as application sandboxing, code-signing enforcement, filesystem isolation, secure storage behavior, runtime integrity, and process isolation.
+
+Enigm App evaluates root or jailbreak risk signals and uses the result as part of app runtime policy.
+
+Possible policy outcomes include:
+
+- Restricting protected operations.
+- Requiring additional user review.
+- Reducing Device Trust.
+- Recording a security finding.
+- Preventing sensitive workflows from continuing when the runtime environment is high risk.
+
+Root and jailbreak detection is a risk signal. It does not prove that a device is safe, and absence of detection must not be treated as proof that the device is uncompromised.
+
+## Code Obfuscation and Code Protection
+
+Enigm App uses code-protection controls intended to reduce reverse-engineering exposure and make unauthorized analysis more difficult.
+
+These controls include:
+
+- Code obfuscation.
+- Static code protection.
+- Protection of sensitive application logic.
+- Binary hardening.
+- Protection against simple repackaging or modification workflows.
+
+Code protection is intended to slow analysis and raise attacker cost. It does not replace cryptographic controls, server-side authorization, secure storage, or protected key material.
+
+## Runtime Integrity and Anti-Tampering
+
+Runtime integrity controls are designed to detect whether the application or execution environment has been modified in a way that could affect trust.
+
+Integrity checks evaluate:
+
+- Application component integrity.
+- Runtime modification attempts.
+- Repackaging or binary modification risk.
+- Unauthorized module or process interaction.
+- Suspicious runtime behavior.
+
+If runtime integrity cannot be established, Enigm App should fail closed for sensitive operations where policy requires a trusted runtime state.
+
+## Anti-Debugging and Instrumentation Detection
+
+Unauthorized debugging, hooking, dynamic instrumentation, runtime injection, method swizzling, or process manipulation can be used to inspect application behavior, alter control flow, bypass policy, or attempt to access protected material.
+
+Enigm App runtime protection evaluates signals associated with:
+
+- Debugger attachment.
+- Hooking frameworks.
+- Runtime instrumentation.
+- Unauthorized external process interaction.
+- Method or function interception.
+- Runtime tampering.
+
+Detection outcomes are handled as security signals. They can affect Device Trust, app eligibility, user risk visibility, or security review workflows, but they do not provide message plaintext access to administrators.
+
+## Relationship With Device Trust
+
+Runtime protection contributes to Device Trust by providing app-level integrity and environment-risk signals.
+
+Device Trust can consider:
+
+- Device association state.
+- App runtime integrity.
+- Root or jailbreak risk.
+- Debugging or instrumentation risk.
+- Enigm OS posture where deployed.
+- Active Defense findings where available.
+- PIN validation and session state.
+
+Runtime protection is separate from Remote Attestation and Trust Security Center. Remote Attestation evaluates device eligibility for selected workflows. Trust Security Center evaluates Enigm OS local device trust state. Runtime protection evaluates the Enigm App runtime and app execution environment.
+
+## Relationship With Active Defense
+
+Runtime protection and Active Defense solve different problems.
+
+Runtime protection hardens the Enigm App against tampering, reverse engineering, debugging, hooking, and high-risk runtime environments.
+
+Active Defense analyzes minimized security-relevant network behavior and device-risk context to help identify suspicious malware or spyware patterns during a bounded assessment window.
+
+Both controls support Device Trust and user security visibility, but neither replaces the other.
+
+## Relationship With Secure Messaging
+
+Secure messaging depends on end-to-end encryption, trusted device association, protected key material, conversation policy, and message lifecycle controls.
+
+Runtime protection supports secure messaging by reducing the risk that the app runtime is modified or instrumented during protected workflows. It does not replace encryption, verification workflows, secure viewers, message expiration, or server-side authorization.
+
+Administrative systems do not gain message plaintext access because runtime protection exists.
+
+## Privacy Considerations
+
+Runtime protection should minimize collection of runtime security signals.
+
+Runtime protection is not intended to inspect:
+
+- Message plaintext.
+- Call content.
+- Media content.
+- Attachments.
+- User conversations.
+- Private key material.
+- Recovery phrases.
+
+Runtime protection findings should be treated as security-sensitive metadata and retained according to the documented retention model.
+
+## Threat Model References
+
+Relevant threat-model areas include account and app compromise, device lifecycle abuse, runtime tampering, modified application binaries, debugging, hooking, instrumentation, root or jailbreak risk, malware-assisted account takeover, and loss of Device Trust reliability.
+
+## Limitations
+
+See [Platform Limitations](/legal/limitations).

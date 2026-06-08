@@ -12,7 +12,7 @@ This document provides a public framework for review. It avoids deployment-speci
 
 The threat model considers the following asset categories:
 
-- Enigm App account state, session state, secure messaging state, secure call state, and multi-device state
+- Enigm App account state, session state, runtime protection state, secure messaging state, secure call state, and multi-device state
 - Privacy-Preserving Device Handles and Controlled Device Management lifecycle records
 - Enigm OS trust state, Trust Security Center state, network policy, privacy mode, and device-management state
 - OTA release artifacts, release metadata, signing state, rollout state, client-verification state, and Remote Attestation outcomes
@@ -32,6 +32,12 @@ The threat model considers the following asset categories:
 An actor attempts to misuse Enigm App account state, session state, secure messaging, secure calls, or multi-device enrollment.
 
 Expected controls include secure identity layer enforcement, scoped authorization, key-management controls, multi-device lifecycle controls, and audit records.
+
+### Application runtime tampering
+
+An actor attempts to reverse engineer, repackage, debug, instrument, hook, tamper with, or modify Enigm App at runtime. An actor may also attempt to run the app in a rooted, jailbroken, emulator-like, or otherwise high-risk environment to weaken app integrity.
+
+Expected controls include app shielding, code protection, runtime integrity verification, anti-tampering controls, anti-debugging controls, hooking or instrumentation detection, root and jailbreak risk detection, fail-closed behavior for sensitive operations, Device Trust impact, and auditability of security-relevant runtime findings.
 
 ### Conversation policy misuse
 
@@ -122,7 +128,7 @@ Each boundary is reviewed according to its documented trust domain. Public docum
 
 ## Control mapping
 
-Threats are evaluated against defense-in-depth controls across identity, app state, OS state, Privacy-Preserving Device Handles, Controlled Device Management, Trust Security Center posture, network policy, OTA verification, Remote Attestation, Hardware-Backed Signing, Threat Intelligence Platform handling, Enyra outputs, and Enigm Command authorization.
+Threats are evaluated against defense-in-depth controls across identity, app state, app runtime protection, OS state, Privacy-Preserving Device Handles, Controlled Device Management, Trust Security Center posture, network policy, OTA verification, Remote Attestation, Hardware-Backed Signing, Threat Intelligence Platform handling, Enyra outputs, and Enigm Command authorization.
 
 ## Residual risk
 

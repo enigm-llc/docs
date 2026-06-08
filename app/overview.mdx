@@ -7,7 +7,7 @@ mode: wide
 
 Enigm is the private messaging product in the Enigm ecosystem. It is delivered through the user-facing app, which is why this section uses the app documentation structure.
 
-Enigm is the main interface through which users access private messaging, secure calls, Active Defense, trusted devices, multi-device workflows, PIN-gated app access, security-level visibility, optional VPN Service usage, integrated Proxy Network usage where enabled, and policy-aware access to supporting Enigm services. Account creation is performed through Enigm Command.
+Enigm is the main interface through which users access private messaging, secure calls, Active Defense, application runtime protection, trusted devices, multi-device workflows, PIN-gated app access, security-level visibility, optional VPN Service usage, integrated Proxy Network usage where enabled, and policy-aware access to supporting Enigm services. Account creation is performed through Enigm Command.
 
 Enigm OS is an optional dedicated secure device layer. When present, it can contribute Trust Security Center posture, device-management state, OTA verification state, and Remote Attestation signals. Enigm remains the central private messaging product; Enigm OS hardens supported deployments rather than replacing the messaging product.
 
@@ -20,6 +20,7 @@ Enigm coordinates six primary security domains:
 - **Identity lifecycle**: Enigm Command account creation, authentication, session state, recovery state, PIN policy, and account-level policy.
 - **Communication security**: secure messaging, secure calls, key-management workflows, message expiration, and protected content handling.
 - **Active Defense**: AI-assisted mobile spyware and network-behavior analysis without inspecting protected communications.
+- **Application runtime protection**: app shielding, root and jailbreak risk detection, anti-tampering, anti-debugging, runtime integrity, and code-protection controls.
 - **Device association**: explicit enrollment, replacement, revocation, and lifecycle evaluation for devices linked to an account.
 - **Multi-device workflows**: controlled account access across multiple authorized devices without automatically trusting newly introduced devices.
 - **Platform integration**: policy and visibility through Enigm Command, optional network privacy through VPN Service, traffic separation through Proxy Network, data-only connectivity through Enigm eSIM in supported coverage areas, and risk signals through Enigm Intelligence.
@@ -85,6 +86,14 @@ Active Defense analyzes minimized network-behavior signals over bounded assessme
 Active Defense is not intended to inspect message plaintext, call content, media, attachments, documents, or user conversations.
 
 The Active Defense model is documented separately in [Active Defense](/app/active-defense).
+
+## Application Runtime Protection
+
+Enigm App includes runtime protection controls designed to harden the app against reverse engineering, tampering, debugging, hooking, instrumentation, and high-risk rooted or jailbroken environments.
+
+Runtime protection contributes app integrity and environment-risk signals to Device Trust. It is separate from Active Defense: runtime protection hardens the app itself, while Active Defense analyzes security-relevant network behavior and malware-risk context.
+
+The runtime protection model is documented separately in [Runtime Protection](/app/runtime-protection).
 
 ## Device Association
 
@@ -160,6 +169,7 @@ When inactive, Enigm Key is intended to remain dormant to reduce unnecessary loc
 - Device association should be explicit and auditable.
 - Secure messaging and secure calls should rely on protected key material and authorized device state.
 - Active Defense should improve device-risk visibility without weakening content confidentiality or user privacy.
+- Runtime protection should harden the Enigm App runtime without replacing end-to-end encryption, protected key material, or server-side authorization.
 - Enigm Command actions should be authenticated, authorized, and auditable.
 - Optional Enigm OS posture can strengthen Device Trust decisions where deployed.
 - VPN Service and Proxy Network should support network privacy and metadata reduction without requiring disclosure of protected content.

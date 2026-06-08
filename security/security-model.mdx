@@ -10,7 +10,7 @@ Security exists to support privacy, data minimization, identity protection, meta
 
 ## Security objectives
 
-- Establish explicit trust between users, devices, Enigm App sessions, Enigm OS state, and administrative workflows.
+- Establish explicit trust between users, devices, Enigm App sessions, Enigm App runtime integrity, Enigm OS state, and administrative workflows.
 - Use Trust Security Center as the user-visible and administrator-reviewable surface for device posture and security state.
 - Protect OTA Architecture with Hardware-Backed Signing, release lifecycle controls, client verification, and Remote Attestation as an OTA Eligibility signal.
 - Apply Controlled Device Management for enrollment, policy assignment, suspension, revocation, and retirement.
@@ -40,6 +40,7 @@ Trust decisions should consider:
 - Enigm OS trust state
 - Trust Security Center posture
 - Enigm App session state
+- Enigm App runtime protection state
 - Requested action
 - Resource category
 - Policy state
@@ -61,6 +62,8 @@ Standard Enigm account creation is performed through Enigm Command using usernam
 Enigm App access is protected by a 6-digit PIN after authentication. PIN validation is performed against the Enigm server-side security layer, not only on the local device. The PIN is also used to authorize critical Enigm Command workflows such as platform data deletion and account deletion.
 
 Reverse PIN workflows and repeated incorrect PIN attempts are treated as security events. A configured reverse PIN triggers protected-content deletion according to the data-deletion and retention model and records a profile risk state. This deletes messages, voice messages, call records, multimedia, attachments, and other protected conversation content available to the account; it does not delete the Enigm account itself. Five incorrect PIN attempts close the Enigm App session and record a profile risk state until the user successfully validates with the correct PIN.
+
+Enigm App includes application runtime protection controls such as app shielding, code protection, runtime integrity checks, anti-tampering, anti-debugging, instrumentation detection, and root or jailbreak risk detection. These controls contribute to Device Trust and protected workflow eligibility, but they do not replace end-to-end encryption, protected key material, PIN validation, or server-side authorization.
 
 ### Enigm OS
 
@@ -109,6 +112,7 @@ Security-relevant events should be recorded with enough context to support inves
 Auditable event categories include:
 
 - Enigm App authentication and authorization outcomes
+- Enigm App runtime integrity and tampering outcomes
 - Device enrollment, suspension, revocation, and retirement events
 - Trust Security Center state changes
 - Enigm Command administrative changes
