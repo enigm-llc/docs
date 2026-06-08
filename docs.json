@@ -90,6 +90,9 @@
             "group": "Enigm Command",
             "pages": [
               "command/overview",
+              "command/product-lifecycle",
+              "command/device-session-management",
+              "command/product-assistant",
               "command/payments",
               "command/tor-gateway"
             ]
@@ -97,7 +100,12 @@
           {
             "group": "Enigm Server",
             "pages": [
-              "server/overview"
+              "server/overview",
+              "server/membership",
+              "server/administration",
+              "server/content-lifecycle",
+              "server/regions",
+              "server/lifecycle"
             ]
           },
           {
@@ -116,13 +124,18 @@
           {
             "group": "Enigm Key",
             "pages": [
-              "key/overview"
+              "key/overview",
+              "key/hardware-model",
+              "key/emergency-workflow",
+              "key/security-model",
+              "key/privacy-lifecycle"
             ]
           },
           {
             "group": "Enigm eSIM",
             "pages": [
               "esim/overview",
+              "esim/lifecycle-compliance",
               "esim/data-rates"
             ]
           }

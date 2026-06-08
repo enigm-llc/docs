@@ -70,20 +70,6 @@ Secure delivery depends on:
 
 The OTA architecture separates release preparation, eligibility evaluation, device verification, and installation.
 
-```mermaid
-flowchart TD
-  Pipeline["Release Pipeline"]
-  Service["OTA Service"]
-  Eligibility["Eligibility Checks"]
-  Verification["Device Verification"]
-  Installation["Update Installation"]
-
-  Pipeline --> Service
-  Service --> Eligibility
-  Eligibility --> Verification
-  Verification --> Installation
-```
-
 These functions are separate security responsibilities rather than a single trust decision.
 
 ## Release Objectives

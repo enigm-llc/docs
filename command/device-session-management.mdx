@@ -1,0 +1,131 @@
+---
+title: Command Device and Session Management
+sidebarTitle: Device and Session Management
+description: Account, device, session, managed-device, and remote-wipe boundaries in Enigm Command.
+mode: wide
+---
+
+Enigm Command provides account, device, session, and managed-device lifecycle visibility. These workflows are administrative controls; they do not provide plaintext access to protected communications.
+
+## Account Management
+
+Account management supports account lifecycle and account security workflows.
+
+Enigm Command account workflows include:
+
+- Account status review.
+- Account lifecycle state review.
+- Account recovery support boundaries.
+- Account policy assignment.
+- Visibility and access configuration.
+- Account deletion workflows.
+- Data deletion workflows.
+- Full account deletion.
+- Platform data deletion where policy and legal boundaries allow.
+- Security event review related to account activity.
+
+Account recovery support must not weaken normal message confidentiality. Recovery support may help restore account access or support device replacement, but it must not provide administrative access to message plaintext.
+
+## Device Management
+
+Device management supports explicit device lifecycle control.
+
+Enigm Command device workflows include:
+
+- Device inventory review.
+- Connected-device visibility.
+- Review of all devices associated with the account.
+- Trusted device visibility.
+- Device enrollment review.
+- Device revocation.
+- Removal of unauthorized devices.
+- Device removal from account trust.
+- Device replacement.
+- Device security reporting.
+- Managed device capability review.
+- Trust status review.
+- Active Defense network-behavior finding review where authorized.
+
+Device management and message access are separate trust domains. Administrative device actions can affect future trust decisions, but they must not decrypt messages or expose private key material.
+
+## Trusted Device Lifecycle
+
+Trusted device lifecycle controls help administrators and authorized users reason about which devices can participate in protected workflows.
+
+Lifecycle states can include:
+
+- Pending enrollment.
+- Trusted.
+- Restricted.
+- Revoked.
+- Replaced.
+- Retired.
+
+Device revocation should immediately affect future trust decisions. A revoked device should not continue receiving newly protected content according to lifecycle policy.
+
+Device replacement should be treated as a new trust event rather than a silent continuation of the replaced device.
+
+## Session Management
+
+Session management supports visibility and control over active or recent account sessions.
+
+Session workflows include:
+
+- Active session review.
+- Active session closure.
+- Session restriction according to account or administrative policy.
+- Session termination.
+- Closing active sessions from devices no longer trusted by the user.
+- Session-related security event visibility.
+- Policy updates that affect session eligibility.
+
+Session management does not provide access to message plaintext or secure call content.
+
+## Managed Devices
+
+Managed device capabilities are optional device-management features enabled for deployments or users that choose managed device operation.
+
+When a user enables Enigm OS managed-device mode, Enigm Command acts as the management surface for that enrolled device.
+
+Managed device capabilities provide:
+
+- Additional device status signals.
+- Managed device policy enforcement.
+- Device security reporting.
+- Device lifecycle operations.
+- Remote device management features for enrolled managed devices.
+- Additional Trust state visibility.
+
+Managed device capabilities should remain separate from message confidentiality controls.
+
+## Remote Wipe
+
+Remote wipe capabilities are available only for enrolled managed devices where managed device operation is enabled.
+
+Remote wipe is a device lifecycle and risk-reduction capability. It is not a mechanism for accessing message plaintext.
+
+Remote wipe workflows should be authorized, auditable, and scoped to managed device policy. The exact effects of remote wipe depend on device state, connectivity, supported platform behavior, and managed device configuration.
+
+## Trust Status Integration
+
+Enigm Command displays Trust status signals from Enigm App, Active Defense network-behavior findings, device lifecycle state, optional managed device capabilities, and optional Enigm OS posture.
+
+Trust status can include:
+
+- Device enrollment state.
+- Device revocation state.
+- Device replacement state.
+- Managed device state.
+- Enigm Server policy state.
+- Enigm Server join request and membership state.
+- Enigm Server content lifecycle state.
+- Enigm eSIM lifecycle state.
+- Enigm Key lifecycle state.
+- Security event visibility.
+- Active Defense network-behavior review context.
+- Optional Trust Security Center posture.
+- Remote Attestation outcome when device-integrity evidence is required.
+
+Trust status is intended to support administrative review and decision-making. It does not provide access to protected message content.
+
+See [Platform Limitations](/legal/limitations).

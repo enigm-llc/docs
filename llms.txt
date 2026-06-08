@@ -31,12 +31,20 @@
 #### Enigm Command
 
 - [Command Overview](https://docs.enigm.io/command/overview): Web control panel for account, device, product, and administrative lifecycle management.
+- [Command Product Lifecycle](https://docs.enigm.io/command/product-lifecycle): Product purchase, activation, entitlement, and lifecycle workflows.
+- [Command Device and Session Management](https://docs.enigm.io/command/device-session-management): Account, device, session, managed-device, and remote-wipe boundaries.
+- [Command Product Assistant](https://docs.enigm.io/command/product-assistant): Product guidance, configuration assistance, and support boundaries for Enyra in Enigm Command.
 - [Command Payment Privacy](https://docs.enigm.io/command/payments): Payment privacy, reduced identity linkage, and commercial boundaries.
 - [Command Tor Gateway](https://docs.enigm.io/command/tor-gateway): Onion access model for selected public web surfaces.
 
 #### Enigm Server
 
 - [Server Overview](https://docs.enigm.io/server/overview): Dedicated private server environment, membership controls, and encrypted content lifecycle boundaries.
+- [Server Membership and Roles](https://docs.enigm.io/server/membership): Server ID join requests, administrator approval, membership, and role boundaries.
+- [Server Administration Boundaries](https://docs.enigm.io/server/administration): Administrative authority, plaintext separation, and cryptographic boundaries.
+- [Server Content Lifecycle](https://docs.enigm.io/server/content-lifecycle): Encrypted content availability, deletion, and retention boundaries.
+- [Server Regions and Deployment](https://docs.enigm.io/server/regions): Region selection, dedicated customer environment deployment, and core platform governance boundaries.
+- [Server Lifecycle](https://docs.enigm.io/server/lifecycle): Purchase, creation, operation, deletion, and retirement lifecycle.
 
 #### Enigm OS
 
@@ -49,10 +57,18 @@
 - [OTA Security](https://docs.enigm.io/os/ota-security): OTA layered security, signing, Remote Attestation, and trust boundaries.
 - [OS Production Gates](https://docs.enigm.io/os/production-gates): Production posture validation categories and evidence model.
 
-#### Enigm Key and Enigm eSIM
+#### Enigm Key
 
 - [Key Overview](https://docs.enigm.io/key/overview): Emergency hardware workflow and event-bound location sharing.
+- [Key Hardware Model](https://docs.enigm.io/key/hardware-model): Public device architecture, embedded connectivity, GNSS, power model, and physical interaction design.
+- [Key Emergency Workflow](https://docs.enigm.io/key/emergency-workflow): Activation, alerting, cancellation, emergency contacts, and event lifecycle.
+- [Key Security Model](https://docs.enigm.io/key/security-model): Authentication, request integrity, encrypted communication, and revocation.
+- [Key Privacy and Data Lifecycle](https://docs.enigm.io/key/privacy-lifecycle): Dormant behavior, location-sharing boundaries, retention, and emergency data minimization.
+
+#### Enigm eSIM
+
 - [eSIM Overview](https://docs.enigm.io/esim/overview): Data-only private connectivity, third-party carrier boundaries, and compliance responsibilities.
+- [eSIM Lifecycle and Compliance](https://docs.enigm.io/esim/lifecycle-compliance): Purchase, activation, carrier boundaries, compliance, and lifecycle model.
 - [eSIM Data Rates](https://docs.enigm.io/esim/data-rates): Country-level data consumption rate reference for Enigm eSIM coverage areas.
 
 ### FAQ and Support

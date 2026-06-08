@@ -1,0 +1,78 @@
+---
+title: Key Security Model
+sidebarTitle: Security Model
+description: Authentication, request integrity, encrypted communication, and revocation for Enigm Key.
+mode: wide
+---
+
+Enigm Key communication is designed to be authenticated, encrypted, request-bound, and revocable. The public security model explains the trust boundaries without exposing secrets, request formats, API routes, firmware internals, or validation logic.
+
+## Overview
+
+The Enigm Key security model supports:
+
+- Account-bound device association.
+- Device authentication.
+- Encrypted communication.
+- Request integrity.
+- Signed emergency requests.
+- Rejection of unauthenticated device traffic.
+- Replay-resistant request validation where required.
+- Device lifecycle revocation when the key is lost, stolen, retired, or replaced.
+
+## Device Authentication
+
+Enigm Key uses device-bound authenticated signing material for platform authentication.
+
+At a public architecture level, this includes a unique per-device HMAC-based credential used to authenticate signed requests so the platform can verify that communication is associated with an authorized Enigm Key.
+
+The platform should reject unauthenticated device traffic and should evaluate request integrity before processing emergency events.
+
+## Request Integrity
+
+Emergency event requests are designed to be protected against unauthorized modification.
+
+Request integrity supports:
+
+- Verification that the request originated from an authorized Enigm Key.
+- Detection of tampered emergency event requests.
+- Account-bound association checks.
+- Replay-resistant validation where required.
+- Lifecycle rejection for revoked or retired devices.
+
+## Encrypted Communication
+
+Enigm Key platform communication is designed to be encrypted in transit.
+
+Encrypted communication protects emergency event transport. It does not replace device authentication, account association, request integrity, revocation, emergency contact configuration, or lawful-use boundaries.
+
+## Account Association
+
+Enigm Key is associated with a user's Enigm account through an explicit synchronization workflow in Enigm App.
+
+Account association is intended to:
+
+- Bind the device to an authorized Enigm account.
+- Allow the user to configure emergency contacts from Enigm App.
+- Support device lifecycle review.
+- Support revocation or replacement if the device is lost or retired.
+
+Account association uses privacy-preserving identifiers for lifecycle and policy correlation. The device should not rely on unnecessary public identifiers for normal platform operation.
+
+## Revocation
+
+Enigm Key revocation is available from Enigm App and Enigm Command.
+
+Revocation is intended for lost, stolen, retired, or replaced devices. Once revoked, the device should no longer be trusted for future emergency workflows or platform communication.
+
+Revocation affects future trust decisions. It does not imply access to previous emergency content, normal messages, secure calls, private key material, or user conversations.
+
+## Threat Model References
+
+Relevant threat-model areas include Enigm Key loss, unauthorized emergency activation attempts, emergency contact misuse, event-bound location exposure, device communication authentication failure, replay attempts, account compromise, Enigm Command lifecycle abuse, and user disclosure by selected emergency contacts.
+
+## Public Documentation Boundary
+
+Public documentation intentionally excludes HMAC secrets, request formats, headers, signature placement, API routes, replay windows, internal validation logic, firmware internals, debug interfaces, and operational procedures.
+
+See [Platform Limitations](/legal/limitations).

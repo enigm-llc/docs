@@ -1,0 +1,76 @@
+---
+title: Command Product Assistant
+sidebarTitle: Product Assistant
+description: Product guidance, configuration assistance, and support boundaries for Enyra in Enigm Command.
+mode: wide
+---
+
+Enyra Product Assistant in Enigm Command supports product and administrative guidance. It uses a conversational interface to help authorized users understand Enigm products, navigate Enigm Command, review configuration context, and locate documentation.
+
+## Overview
+
+Enyra Product Assistant is distinct from Enyra security intelligence workflows documented under Intelligence.
+
+Product Assistant supports:
+
+- Product guidance.
+- User assistance.
+- Documentation guidance.
+- Configuration assistance.
+- Platform navigation.
+- Feature explanation.
+- Device assistance.
+- Account assistance.
+- Managed device capability explanation.
+- Enigm Command workflow orientation.
+
+## Trust Domain
+
+Product assistance operates in the Enigm Command product-assistance trust domain.
+
+It should use:
+
+- Product knowledge.
+- Documentation context.
+- User-facing support context.
+- Authorized Enigm Command configuration context.
+- Account, device, and product lifecycle context visible to the authorized user.
+
+It should not require access to:
+
+- Threat intelligence telemetry.
+- Security detection rules.
+- Security investigation workflows.
+- Message plaintext.
+- Secure call content.
+- Media content.
+- Attachments.
+- Private key material.
+- Internal prompts or system instructions.
+
+## Separation From Security Intelligence
+
+If a request moves into security investigation, threat intelligence access, risk analysis, event summarization, or defensive operations support, it belongs to Enyra security intelligence workflows documented under [Enyra Architecture](/intelligence/enyra).
+
+Enyra Product Assistant does not replace:
+
+- Enigm Intelligence.
+- Detection systems.
+- Correlation systems.
+- Defensive controls.
+- Security operator authorization.
+- Human review for sensitive actions.
+
+## Authorization Boundaries
+
+Product assistance must not expand access beyond the user's authorized Enigm Command role.
+
+Sensitive actions should require explicit authorization according to the applicable Enigm Command workflow. Conversational guidance should not automatically perform destructive, administrative, security-sensitive, or lifecycle-changing actions without the required authorization boundary.
+
+## Privacy Considerations
+
+Product assistance should minimize unnecessary identity metadata and avoid exposing protected content.
+
+Enyra Product Assistant must remain separate from message plaintext, secure call content, media content, attachments, user conversations, and private key material.
+
+See [Platform Limitations](/legal/limitations).

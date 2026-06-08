@@ -1,0 +1,82 @@
+---
+title: Server Regions and Deployment
+sidebarTitle: Regions and Deployment
+description: Region selection and deployment boundaries for Enigm Server.
+mode: wide
+---
+
+Enigm Server supports user-selected geographic deployment region selection for dedicated private messaging environments. Region selection is a product and deployment control; it affects where the dedicated customer server environment is deployed while preserving message confidentiality, Device Trust, and administrator plaintext boundaries.
+
+## Overview
+
+Region selection is intended to support:
+
+- Customer control over server placement.
+- Latency and operational requirements.
+- Regulatory or contractual considerations.
+- Server-scoped policy planning.
+- Enterprise procurement and governance review.
+
+Current public region categories include:
+
+- United States.
+- Europe.
+- Asia.
+
+## Deployment Boundary
+
+Region selection controls the public region category used for the dedicated customer server environment.
+
+At a public architecture level:
+
+- United States deployments are placed in United States regional infrastructure.
+- Europe deployments are placed in European regional infrastructure.
+- Asia deployments are placed in Asian regional infrastructure.
+
+This region selection applies to the customer dedicated server environment. It does not expose deployment topology, exact server locations, routing mechanics, infrastructure relationships, internal endpoints, or operational procedures.
+
+Deployment topology and operational infrastructure remain controlled operational material.
+
+## Legal Governance
+
+Enigm's core platform infrastructure is operated under Enigm's Swiss subsidiary and Swiss legal governance. This core infrastructure includes Enigm-held customer records, account lifecycle services, platform APIs, public web surfaces, and supporting internal platform services.
+
+Enigm Server dedicated customer environments are different from the Enigm core platform. They are deployed in the user-selected public region category and are subject to the operational, legal, contractual, and regulatory considerations applicable to that deployment region.
+
+Region selection for Enigm Server does not change:
+
+- End-to-end encryption boundaries.
+- Device Trust requirements.
+- Protected key material requirements.
+- Administrative boundaries.
+- Enigm Server content confidentiality.
+
+Region selection does not create plaintext access for administrators, operational systems, hosting environments, regional infrastructure, or legal workflows.
+
+## Relationship With Enigm App
+
+Enigm Server remains bound by Enigm App end-to-end encryption, Device Trust, protected key material, and server-scoped encrypted content lifecycle controls.
+
+A server region determines the public geographic deployment category for the dedicated customer environment. It does not determine whether an endpoint device is trusted, whether a user is an approved member, or whether message plaintext is accessible.
+
+## Relationship With Enigm Command
+
+Enigm Command provides the region-selection workflow during server purchase, creation, or lifecycle management where available.
+
+Region selection is commercial and deployment lifecycle state. It is separate from:
+
+- Account Trust.
+- Device Trust.
+- Membership approval.
+- Message access.
+- Secure call access.
+- Protected key material.
+- Cryptographic authority.
+
+## Privacy Considerations
+
+Region selection should be retained only for defined operational, security, legal, compliance, procurement, support, or lifecycle purposes.
+
+Region metadata should not be treated as message content, conversation meaning, or proof of communication activity.
+
+See [Platform Limitations](/legal/limitations).

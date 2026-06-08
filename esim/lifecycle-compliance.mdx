@@ -1,0 +1,113 @@
+---
+title: eSIM Lifecycle and Compliance
+sidebarTitle: Lifecycle and Compliance
+description: Purchase, activation, third-party carrier boundaries, compliance, and lifecycle model for Enigm eSIM.
+mode: wide
+---
+
+Enigm eSIM lifecycle management is provided through Enigm Command. Lifecycle visibility is connectivity and policy state; it is not message visibility, call visibility, private key access, or protected content access.
+
+## Purchase And Activation
+
+Enigm eSIM purchase and activation are performed through Enigm Command.
+
+Purchase and lifecycle-management workflows are designed around an identity-minimizing model:
+
+- Users can purchase Enigm eSIM from Enigm Command.
+- Users can manage Enigm eSIM lifecycle state from Enigm Command.
+- The Enigm-side workflow does not collect KYC verification, email address, phone number, or identity document.
+- The user-selected purchase country is handled as commercial lifecycle metadata.
+- Enigm eSIM lifecycle state is linked to the user's Enigm account for management, deletion, unlinking, and support.
+
+For the current public country-level data consumption rate reference, see [eSIM Data Rates](/esim/data-rates).
+
+Activation state is connectivity lifecycle state. It does not provide access to message plaintext, secure call content, media content, attachment plaintext, user conversations, protected key material, or private key material.
+
+## Third-Party Carrier Disclaimer
+
+Enigm eSIM depends on a trusted third-party carrier and independent telecommunications infrastructure provider for the underlying mobile data service.
+
+Enigm does not operate the carrier network and does not control:
+
+- Radio access infrastructure.
+- Mobile network routing.
+- Carrier roaming behavior.
+- IP address allocation by the carrier network.
+- Carrier-layer packet transport.
+- Carrier network logs.
+- Carrier authentication systems.
+- Telecommunications regulatory registration systems.
+
+Enigm's role is limited to commercial facilitation, Enigm account association, lifecycle visibility, purchase and entitlement state, user-initiated deletion or retirement workflows, and support coordination for eligible Enigm eSIM services.
+
+This separation is important for legal, technical, and audit review. Enigm eSIM should not be interpreted as evidence that Enigm is an MNO, MVNO, telecommunications carrier, carrier network operator, or issuer of the underlying telecommunications profile.
+
+## Carrier-Layer Data Availability
+
+Enigm does not receive carrier-layer traffic records from the independent telecommunications infrastructure provider as part of normal Enigm eSIM operation.
+
+Carrier-layer records include:
+
+- Mobile network traffic logs.
+- Carrier-side IP allocation records.
+- Radio access records.
+- Packet routing records.
+- Carrier connection records.
+- Carrier roaming records.
+- Network usage records maintained by the carrier.
+
+Because Enigm does not operate the carrier network and does not receive those carrier-layer records, Enigm cannot provide carrier network traffic records, carrier IP allocation logs, carrier connection logs, or carrier-side telecommunications records in response to legal, regulatory, support, or enterprise review requests.
+
+Enigm can only review Enigm-held lifecycle data, such as purchase state, entitlement state, Enigm account association, Enigm eSIM activation state, unlinking state, deletion state, and support records retained under the documented retention model.
+
+## Local Telecommunications Compliance
+
+> **Compliance notice:** Enigm eSIM users are responsible for understanding and complying with the telecommunications, identity registration, import, export, sanctions, lawful-use, and network-use requirements that apply in the jurisdictions where they purchase, activate, or use mobile data connectivity. Enigm does not provide legal advice, does not represent that Enigm eSIM use is lawful in every jurisdiction, and does not assume responsibility for user misuse, prohibited use, or failure to comply with local telecommunications requirements.
+
+Local regulatory requirements can vary by country, region, carrier, device class, user status, and use case. Users and organizations should evaluate local obligations before using Enigm eSIM in regulated environments.
+
+Enigm eSIM availability, activation, renewal, support, deletion, replacement, or retirement can be limited by local law, carrier-layer requirements, sanctions, export-control obligations, fraud-prevention requirements, abuse-prevention requirements, technical availability, or independent telecommunications infrastructure constraints.
+
+Enigm's privacy-oriented lifecycle model must not be interpreted as permission to evade local telecommunications law, identity-registration requirements, lawful-use restrictions, sanctions, network-use rules, or public safety obligations.
+
+## Lifecycle Management
+
+Lifecycle workflows include:
+
+- Purchase or activation.
+- Activation state review.
+- Enigm account association review.
+- Device use review where required for support or policy.
+- User-initiated unlinking.
+- User-initiated deletion or retirement.
+- Replacement or retirement.
+- Policy assignment where managed configuration applies.
+- Connectivity status visibility.
+- Support workflows for eligible devices.
+
+Deleting or retiring an Enigm eSIM removes the service from normal Enigm lifecycle operation, subject only to legal, security, or operational constraints.
+
+## Metadata Considerations
+
+Mobile connectivity requires some metadata to function. The Enigm eSIM service should minimize metadata collection and exposure where possible.
+
+Metadata can relate to:
+
+- Connectivity state.
+- Activation or deactivation lifecycle.
+- Enigm account association.
+- Device support or compatibility state where needed.
+- Policy state.
+- Support and audit lifecycle events.
+
+Carrier-layer traffic records, carrier-side IP allocation records, radio access records, packet routing records, carrier connection records, carrier roaming records, and carrier network usage records are not Enigm-held metadata categories when they are generated or retained by the independent telecommunications infrastructure provider.
+
+## Security Layer Separation
+
+Enigm App and Enigm eSIM operate in separate security layers.
+
+Enigm App provides application-layer security controls such as end-to-end encryption, protected key material, secure messaging, secure calls, Device Trust, and verification workflows.
+
+Enigm eSIM provides mobile data connectivity through an independent telecommunications infrastructure provider. The carrier connectivity layer transports network traffic; it does not define Enigm App message encryption, does not receive Enigm App private key material, does not provide plaintext access to Enigm App messages, and does not weaken Enigm App end-to-end encryption.
+
+See [Platform Limitations](/legal/limitations).

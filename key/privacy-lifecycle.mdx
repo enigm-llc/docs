@@ -1,0 +1,81 @@
+---
+title: Key Privacy and Data Lifecycle
+sidebarTitle: Privacy and Data Lifecycle
+description: Dormant operation, location-sharing boundaries, and emergency data minimization for Enigm Key.
+mode: wide
+---
+
+Enigm Key is designed around privacy-preserving standby behavior. It is privacy-oriented emergency hardware, not a continuous tracking device.
+
+## Overview
+
+During normal non-emergency operation, Enigm Key is intended to remain in a low-activity dormant state. This reduces unnecessary network activity, location exposure, and battery usage.
+
+Privacy principles include:
+
+- No routine emergency-location sharing while inactive.
+- Event-bound data transmission.
+- Minimal standby communication.
+- Purpose-limited emergency data.
+- Account association using privacy-preserving identifiers.
+- Separation between emergency alerts and normal message content.
+
+## Location Sharing
+
+Enigm Key is designed to share location during an active emergency workflow.
+
+Location sharing should be:
+
+- Event-bound.
+- Limited to selected contacts or authorized emergency workflows.
+- Protected in transit.
+- Stopped when the user cancels the emergency sending workflow.
+- Retired according to the emergency event lifecycle and retention policy.
+- Separated from routine standby behavior.
+
+When Enigm Key is not activated, it is intended to remain dormant and avoid routine location reporting.
+
+## Emergency Data Categories
+
+Emergency event data can include:
+
+- Emergency alert state.
+- Linked account context required for the alert.
+- Selected emergency contacts.
+- Event-bound location updates.
+- Emergency event status.
+- Device lifecycle state required for association, revocation, replacement, or support.
+
+Emergency event data should remain separate from normal messages, secure calls, media, attachments, documents, private key material, and user conversations.
+
+## Retention Model
+
+Enigm Key emergency data follows the documented Enigm Key data retention model.
+
+Emergency alert messages and event-bound emergency data follow the message lifecycle model, with a maximum retention of 30 days unless the user deletes them earlier or a legal or security constraint requires preservation.
+
+Enigm Key device lifecycle data is retained until the user removes or revokes the device, deletes the account, or the lifecycle state is no longer required.
+
+## Management Surfaces
+
+Enigm App is the primary configuration surface for:
+
+- Initial linking.
+- Account association.
+- Emergency contact configuration.
+- Emergency event visibility.
+- Revocation.
+- Replacement.
+- Device loss handling.
+
+Enigm Command supports associated device visibility, lifecycle visibility, revocation, replacement state, loss handling, and emergency event visibility where authorized.
+
+Enigm Command visibility must remain separate from message plaintext, secure call content, media content, attachments, user conversations, and routine location tracking.
+
+## User Responsibility
+
+Users are responsible for selecting appropriate emergency contacts, keeping contact configuration current, maintaining device readiness, charging the device, and using emergency workflows for lawful and authorized safety purposes.
+
+Emergency alert delivery and location sharing depend on device state, battery state, mobile connectivity, GNSS availability, service availability, account association, selected contacts, and user configuration.
+
+See [Platform Limitations](/legal/limitations).
