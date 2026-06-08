@@ -35,7 +35,7 @@ The architecture is intentionally layered. Account Trust, Device Trust, administ
 - Support mobile connectivity, emergency alerting, and payment privacy through Enigm eSIM, Enigm Key, and Payment Privacy.
 - Process security signals through Threat Intelligence Platform and Enyra.
 - Govern administrative workflows through Enigm Command.
-- Encrypt metadata according to the applicable product, storage, and security domain while preserving only the operational identifiers required for routing, authentication, availability, security, and compliance.
+- Protect metadata according to the applicable product, storage, and security domain. Metadata is partially encrypted where the product domain supports it, while limited operational identifiers remain available in controlled form for routing, authentication, availability, security, and compliance.
 
 ## Core components
 
@@ -119,7 +119,7 @@ The device boundary covers optional Enigm OS policy, Trust Security Center postu
 
 The network boundary covers VPN Service, Proxy Network, Enigm eSIM connectivity, Enigm Key connectivity, network-policy decisions, and related audit outcomes.
 
-The network boundary is designed to reduce direct exposure between user devices and platform services. Limited routing, request-handling, authentication, and security identifiers remain necessary to operate the platform. These identifiers should be minimized, encrypted according to the applicable product and storage domain, and separated from message plaintext, secure call content, media, attachments, user conversations, and private key material.
+The network boundary is designed to reduce direct exposure between user devices and platform services. Limited routing, request-handling, authentication, and security identifiers remain necessary to operate the platform. These identifiers should be minimized, access-controlled, partially encrypted where the applicable product or storage domain supports it, and separated from message plaintext, secure call content, media, attachments, user conversations, and private key material.
 
 ### Intelligence boundary
 
@@ -161,7 +161,7 @@ The release boundary covers OTA Architecture, Hardware-Backed Signing, Remote At
 
 The platform is privacy-oriented by design. It should minimize collection, separate protected content from operational metadata by trust domain, and use Privacy-Preserving Device Handles for device lifecycle and audit correlation.
 
-Network-policy metadata, intelligence signals, device-management records, and audit records should be classified, encrypted, minimized, and retained only for defined product, security, legal, or operational purposes.
+Network-policy metadata, intelligence signals, device-management records, and audit records should be classified, minimized, access-controlled, partially encrypted where the relevant domain supports it, and retained only for defined product, security, legal, or operational purposes.
 
 Metadata reduction is implemented through complementary controls such as Proxy Network traffic separation, optional VPN Service transport protection, Tor Gateway access for selected web surfaces, Privacy-Preserving Device Handles, traffic shaping where used, and retention limits. These controls reduce exposure and lower confidence in simple communication-pattern inference; they are not documented as complete traffic-analysis resistance.
 
