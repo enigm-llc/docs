@@ -1,0 +1,91 @@
+---
+title: Bienvenido a la documentacion de Enigm
+sidebarTitle: Introduccion
+description: Vision tecnica publica de la arquitectura privada de producto y confianza de Enigm.
+mode: wide
+---
+
+Enigm esta construido para usuarios y organizaciones que necesitan comunicaciones privadas, confianza de dispositivo controlada, menor exposicion de identidad y una gobernanza de seguridad capaz de resistir una revision tecnica.
+
+Esta documentacion es el registro tecnico publico de esa arquitectura. Explica como Enigm estructura la seguridad de producto, privacidad, confianza de dispositivo, comunicacion cifrada, entornos privados dedicados, conectividad, flujos de emergencia, inteligencia de seguridad y controles de gobernanza dentro del ecosistema Enigm.
+
+El objetivo es que Enigm sea comprensible para clientes empresariales, auditores, ingenieros, socios y revisores de seguridad sin exponer detalles operativos que puedan reducir la seguridad de la plataforma. El contenido es preciso por diseno: describe que protege Enigm, donde existen los limites de confianza, que pueden y no pueden hacer los administradores, y donde estan las limitaciones documentadas.
+
+<div className="enigm-doc-image-frame enigm-hero-banner">
+  <img className="enigm-doc-image enigm-hero-banner-image" src="/assets/images/banner-enigm.jpg" alt="Banner de comunicaciones privadas de Enigm" />
+</div>
+
+## Productos
+
+El ecosistema Enigm se organiza alrededor de seis productos principales. Cada producto tiene un rol de seguridad definido, un limite de confianza claro y una relacion documentada con el resto de la plataforma:
+
+<div className="enigm-card-grid">
+  <CardGroup cols={2}>
+    <Card title="Enigm" href="/app/overview">
+      Mensajeria privada, llamadas seguras, Active Defense, dispositivos de confianza, flujos multi-dispositivo, uso de VPN Service y separacion de trafico mediante Proxy Network.
+    </Card>
+    <Card title="Enigm Command" href="/command/overview">
+      Panel web para usuarios y organizaciones orientado a cuentas, sesiones, dispositivos, ciclo de vida de producto, Enigm Server y flujos de seguridad gestionados.
+    </Card>
+    <Card title="Enigm Server" href="/server/overview">
+      Entorno dedicado de mensajeria privada para usuarios aprobados, solicitudes de union mediante ID de servidor y gestion del ciclo de vida de contenido cifrado dentro del servidor.
+    </Card>
+    <Card title="Enigm OS" href="/os/overview">
+      Sistema operativo seguro para confianza adicional de dispositivo, endurecimiento de plataforma, experiencia controlada y gobernanza de actualizaciones seguras.
+    </Card>
+    <Card title="Enigm Key" href="/key/overview">
+      Dispositivo fisico de emergencia para alertas SOS controladas por el usuario y comparticion de ubicacion vinculada al evento.
+    </Card>
+    <Card title="Enigm eSIM" href="/esim/overview">
+      Conectividad movil de solo datos con gestion de ciclo de vida orientada a minimizar exposicion de identidad desde Enigm.
+    </Card>
+  </CardGroup>
+</div>
+
+## Arquitectura privacy-first
+
+La privacidad es el punto de partida de la arquitectura de Enigm. Los controles de seguridad existen para sostener ese objetivo de privacidad: confidencialidad de contenido, minimizacion de datos, minimizacion de identidad, reduccion de metadatos, control del usuario y acceso protegido desde dispositivos esperados.
+
+En toda la documentacion, Enigm utiliza lenguaje privacy-oriented e identity-minimizing de forma cuidadosa. La plataforma se describe como disenada para reducir exposicion, bajar la visibilidad de metadatos y minimizar la recoleccion o retencion innecesaria. No se describe con afirmaciones absolutas sobre privacidad o trazabilidad.
+
+Los sistemas administrativos no estan destinados a proporcionar acceso en texto claro a mensajes, llamadas, medios, adjuntos o conversaciones de usuarios.
+
+Para revision empresarial y de auditoria, esta separacion es importante: Enigm no trata la administracion, facturacion, conectividad, monitorizacion o gestion de dispositivos como atajos alrededor del cifrado de extremo a extremo o del material criptografico protegido.
+
+<div className="enigm-card-grid enigm-card-grid--compact">
+  <CardGroup cols={3}>
+    <Card title="Privacidad por diseno" href="/security/privacy">
+      Principios de privacidad para minimizacion de datos, minimizacion de identidad, reduccion de metadatos y control del usuario.
+    </Card>
+    <Card title="Modelo de seguridad" href="/security/security-model">
+      Modelo de defensa en profundidad a traves de Enigm, Enigm OS, Enigm Command, Enigm Server, Enigm Key y Enigm eSIM.
+    </Card>
+    <Card title="Arquitectura de producto" href="/platform/architecture">
+      Arquitectura de alto nivel y limites de confianza del ecosistema Enigm.
+    </Card>
+  </CardGroup>
+</div>
+
+## Limites de documentacion
+
+Esta documentacion esta escrita para revision publica. Proporciona suficiente detalle para evaluar arquitectura, limites de confianza, postura de privacidad, madurez de gobernanza y responsabilidades de producto, excluyendo deliberadamente detalles de despliegue, relaciones privadas de infraestructura, rutas internas, procedimientos operativos, identificadores sensibles, secretos y comportamiento sensible de implementacion.
+
+Ese limite forma parte del modelo de seguridad. Enigm debe ser comprensible desde el exterior sin facilitar el ataque a la plataforma.
+
+## Vocabulario de arquitectura
+
+La documentacion utiliza terminos genericos de arquitectura, entre ellos:
+
+- Edge runtime.
+- Private object storage.
+- Metadata store.
+- Secure identity layer.
+- Threat intelligence pipeline.
+- Hardware-Backed Signing.
+- Controlled rollout system.
+
+## Lenguaje de estado
+
+Cuando un detalle varia por despliegue, la documentacion describe el comportamiento a nivel de arquitectura publica y evita detalles operativos desplegables.
+
+Cuando un control no se presenta como funcionalidad actual, la documentacion lo marca como **Planned hardening layer** solo cuando es necesario.

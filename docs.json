@@ -60,125 +60,150 @@
     }
   },
   "navigation": {
-    "groups": [
+    "languages": [
       {
-        "group": "Getting started",
-        "expanded": true,
-        "pages": [
-          "introduction",
-          "platform/architecture"
-        ]
-      },
-      {
-        "group": "Products",
-        "expanded": true,
-        "pages": [
+        "language": "en",
+        "default": true,
+        "groups": [
           {
-            "group": "Enigm",
+            "group": "Getting started",
+            "expanded": true,
             "pages": [
-              "app/overview",
-              "app/account-model",
-              "app/key-management",
-              "app/secure-messaging",
-              "app/secure-calls",
-              "app/active-defense",
-              "app/multi-device",
-              "app/network-privacy"
+              "introduction",
+              "platform/architecture"
             ]
           },
           {
-            "group": "Enigm Command",
+            "group": "Products",
+            "expanded": true,
             "pages": [
-              "command/overview",
-              "command/payments",
-              "command/tor-gateway"
+              {
+                "group": "Enigm",
+                "pages": [
+                  "app/overview",
+                  "app/account-model",
+                  "app/key-management",
+                  "app/secure-messaging",
+                  "app/secure-calls",
+                  "app/active-defense",
+                  "app/multi-device",
+                  "app/network-privacy"
+                ]
+              },
+              {
+                "group": "Enigm Command",
+                "pages": [
+                  "command/overview",
+                  "command/payments",
+                  "command/tor-gateway"
+                ]
+              },
+              {
+                "group": "Enigm Server",
+                "pages": [
+                  "server/overview"
+                ]
+              },
+              {
+                "group": "Enigm OS",
+                "pages": [
+                  "os/overview",
+                  "os/security-architecture",
+                  "os/trust-security-center",
+                  "os/network-policy",
+                  "os/device-experience-management",
+                  "os/ota-architecture",
+                  "os/ota-security",
+                  "os/production-gates"
+                ]
+              },
+              {
+                "group": "Enigm Key",
+                "pages": [
+                  "key/overview"
+                ]
+              },
+              {
+                "group": "Enigm eSIM",
+                "pages": [
+                  "esim/overview"
+                ]
+              }
             ]
           },
           {
-            "group": "Enigm Server",
+            "group": "Security & Trust",
             "pages": [
-              "server/overview"
+              {
+                "group": "Security",
+                "pages": [
+                  "security/security-model",
+                  "security/threat-model",
+                  "security/cryptography",
+                  "security/governance",
+                  "security/transparency-report"
+                ]
+              },
+              {
+                "group": "Privacy",
+                "pages": [
+                  "security/privacy",
+                  "legal/data-retention",
+                  "legal/limitations"
+                ]
+              },
+              {
+                "group": "Intelligence",
+                "pages": [
+                  "intelligence/overview",
+                  "intelligence/detection-and-response",
+                  "intelligence/enyra"
+                ]
+              },
+              {
+                "group": "Infrastructure",
+                "pages": [
+                  "infrastructure/architecture",
+                  "infrastructure/secure-sdlc",
+                  "infrastructure/operations-resilience"
+                ]
+              },
+              {
+                "group": "Legal",
+                "pages": [
+                  "legal/legal-governance",
+                  "legal/responsible-disclosure",
+                  "legal/security-contact"
+                ]
+              }
             ]
           },
           {
-            "group": "Enigm OS",
+            "group": "FAQ & Support",
             "pages": [
-              "os/overview",
-              "os/security-architecture",
-              "os/trust-security-center",
-              "os/network-policy",
-              "os/device-experience-management",
-              "os/ota-architecture",
-              "os/ota-security",
-              "os/production-gates"
-            ]
-          },
-          {
-            "group": "Enigm Key",
-            "pages": [
-              "key/overview"
-            ]
-          },
-          {
-            "group": "Enigm eSIM",
-            "pages": [
-              "esim/overview"
+              "support/get-help",
+              "support/faq"
             ]
           }
         ]
       },
       {
-        "group": "Security & Trust",
-        "pages": [
+        "language": "es",
+        "groups": [
           {
-            "group": "Security",
+            "group": "Primeros pasos",
+            "expanded": true,
             "pages": [
-              "security/security-model",
-              "security/threat-model",
-              "security/cryptography",
-              "security/governance",
-              "security/transparency-report"
+              "es/introduction"
             ]
           },
           {
-            "group": "Privacy",
+            "group": "Ayuda y soporte",
             "pages": [
-              "security/privacy",
-              "legal/data-retention",
-              "legal/limitations"
-            ]
-          },
-          {
-            "group": "Intelligence",
-            "pages": [
-              "intelligence/overview",
-              "intelligence/detection-and-response",
-              "intelligence/enyra"
-            ]
-          },
-          {
-            "group": "Infrastructure",
-            "pages": [
-              "infrastructure/architecture",
-              "infrastructure/secure-sdlc",
-              "infrastructure/operations-resilience"
-            ]
-          },
-          {
-            "group": "Legal",
-            "pages": [
-              "legal/legal-governance",
-              "legal/responsible-disclosure",
-              "legal/security-contact"
+              "es/support/get-help",
+              "es/support/faq"
             ]
           }
-        ]
-      },
-      {
-        "group": "FAQ & Support",
-        "pages": [
-          "support/get-help",
-          "support/faq"
         ]
       }
     ]

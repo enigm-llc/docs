@@ -59,6 +59,14 @@
 - [Get Help](https://docs.enigm.io/support/get-help): Support entry points and contact options.
 - [FAQ](https://docs.enigm.io/support/faq): Common questions about Enigm products, privacy, security, trust, and support boundaries.
 
+## Spanish Documentation
+
+English remains the primary documentation language. Spanish documentation is available as a translated secondary locale and will expand by product area.
+
+- [Introduccion](https://docs.enigm.io/es/introduction): Introduccion tecnica publica al ecosistema Enigm.
+- [Obtener ayuda](https://docs.enigm.io/es/support/get-help): Puntos de contacto y soporte para Enigm.
+- [FAQ](https://docs.enigm.io/es/support/faq): Preguntas frecuentes en espanol sobre productos, privacidad, seguridad y limites de soporte.
+
 ## Security and Trust
 
 ### Security
