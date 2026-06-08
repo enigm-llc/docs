@@ -65,7 +65,7 @@
         "tab": "Enigm Docs",
         "groups": [
           {
-            "group": "Start",
+            "group": "Getting started",
             "expanded": true,
             "pages": [
               "introduction",
