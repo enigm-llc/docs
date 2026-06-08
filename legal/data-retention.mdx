@@ -62,7 +62,7 @@ Standard registration does not require:
 - Phone number.
 - Identity document.
 
-The account model is pseudonymous and identity-minimizing. Enigm documentation should not describe this as an absolute identity-erasure claim, because account activity, device state, payment records, security events, legal obligations, or user behavior can still create exposure outside the normal registration model.
+The account model is pseudonymous and identity-minimizing, not an absolute identity-erasure claim. Account activity, device state, payment records, security events, legal obligations, or user behavior can still create exposure outside the normal registration model.
 
 ## Retention Matrix
 
@@ -122,7 +122,7 @@ Normal security data retention is limited to a maximum of 30 days unless an acti
 
 Enigm treats metadata as security-sensitive information.
 
-Metadata is encrypted according to the applicable product, storage, and security domain. Metadata should not be documented or handled as plaintext operational data.
+Metadata is encrypted according to the applicable product, storage, and security domain. Metadata is not treated as plaintext operational data.
 
 Some identifiers remain necessary to operate the platform. These include session identifiers, Privacy-Preserving Device Handles, delivery and synchronization state, server membership state, join request state, connectivity lifecycle state, security event correlation state, and short-lived routing or request-handling identifiers.
 
