@@ -4,11 +4,11 @@ sidebarTitle: SDLC seguro
 description: Modelo de ciclo de vida de desarrollo de software seguro público para Enigm.
 ---
 
-Enigm sigue un ciclo de vida de desarrollo de software centrado en la seguridad diseñado para reducir el riesgo de la cadena de suministro de software, mejorar la calidad del código, respaldar procesos de lanzamiento seguros y preservar el diseño de plataforma orientado a la privacidad.
+Enigm sigue un ciclo de vida de desarrollo de software centrado en la seguridad diseñado para reducir el riesgo de la cadena de suministro de software, mejorar la calidad del código, respaldar procesos seguros de publicación y preservar el diseño de plataforma orientado a la privacidad.
 
 ## Resumen
 
-Enigm Secure SDLC define las capacidades y controles de seguridad utilizados para guiar el software desde el desarrollo hasta el lanzamiento de producción.
+Enigm Secure SDLC define las capacidades y controles de seguridad utilizados para guiar el software desde el desarrollo hasta el versión de producción.
 
 El ciclo de vida está diseñado para respaldar:
 
@@ -23,14 +23,14 @@ El ciclo de vida está diseñado para respaldar:
 flowchart TD
   Development["Desarrollo"]
   Security["Validación de seguridad"]
-  Build["Validación de compilación"]
-  Release["Validación de lanzamiento"]
-  Production["Lanzamiento de producción"]
+  Compilación["Validación de compilación"]
+  Versión["Validación de publicación"]
+  Production["Publicación en producción"]
 
   Development --> Security
-  Security --> Build
-  Build --> Release
-  Release --> Production
+  Security --> Compilación
+  Compilación --> Versión
+  Versión --> Production
 ```
 
 El diagrama es conceptual y describe las etapas de validación del ciclo de vida a nivel de arquitectura pública.
@@ -58,7 +58,7 @@ La seguridad del desarrollo de Enigm se guía por:
 - Mínimo privilegio.
 - Valores predeterminados seguros.
 - Separación de funciones.
-- Verificación antes del lanzamiento.
+- Verificación antes del versión.
 - Validación continua.
 - Revisión de cambios.
 - Autorización de liberación controlada.
@@ -76,7 +76,7 @@ Los controles conceptuales incluyen:
 - Revisión de seguridad.
 - Validación de cambios.
 
-Los controles de seguridad del código fuente tienen como objetivo identificar defectos, patrones inseguros y cambios sensibles a la seguridad antes de su lanzamiento.
+Los controles de seguridad del código fuente tienen como objetivo identificar defectos, patrones inseguros y cambios sensibles a la seguridad antes de su publicación.
 
 ## Seguridad de dependencias
 
@@ -94,7 +94,7 @@ La seguridad de la dependencia reduce el riesgo de la cadena de suministro pero 
 
 ## Protección de materiales sensibles
 
-Secure SDLC incluye controles destinados a evitar la exposición accidental de material de credenciales confidencial.
+Secure SDLC incluye controles diseñados para evitar la exposición accidental de material de credenciales confidencial.
 
 La protección de materiales sensibles se centra en:
 
@@ -106,29 +106,29 @@ La protección de materiales sensibles se centra en:
 
 La protección sensible de materiales es un control del ciclo de vida y debe estar respaldada por una disciplina operativa.
 
-## Seguridad de build
+## Seguridad de la compilación
 
 Los procesos de compilación están diseñados para respaldar la integridad, la trazabilidad y los flujos de trabajo de liberación controlada.
 
 La seguridad de la construcción se centra en:
 
 - Validación de entradas de compilación.
-- Integridad de artefactos de build.
-- Trazabilidad entre cambios y artefactos de lanzamiento.
-- Separación entre producción de construcción y autorización de lanzamiento.
-- Promoción controlada hacia la validación del lanzamiento.
+- Integridad de artefactos de compilación.
+- Trazabilidad entre cambios y artefactos de publicación.
+- Separación entre producción de compilación y autorización de publicación.
+- Promoción controlada hacia la validación del versión.
 
 La seguridad de la compilación no reemplaza la firma de la versión ni la validación de la producción.
 
-## Seguridad de release
+## Seguridad de versiones
 
-Los lanzamientos de producción requieren validación y autorización antes de su publicación.
+Los versións de producción requieren validación y autorización antes de su publicación.
 
 La seguridad de la versión incluye:
 
-- Validación de lanzamiento.
+- Validación de publicación.
 - Autorización de liberación.
-- Controles de integridad de release.
+- Controles de integridad de versión.
 - Publicación controlada.
 - Revisión de la preparación para la implementación.
 
@@ -161,12 +161,12 @@ La visibilidad de la seguridad se extiende a lo largo del ciclo de vida del soft
 El monitorización de seguridad puede respaldar:
 
 - Visibilidad de eventos relevantes para la seguridad.
-- Revisión de los resultados de seguridad relacionados con el lanzamiento.
+- Revisión de los resultados de seguridad relacionados con el versión.
 - Identificación de actividad sospechosa.
 - Soporte a la respuesta a la vulnerabilidad.
 - Soporte para visibilidad de incidentes.
 
-El seguimiento es un control de visibilidad defensivo. No reemplaza el desarrollo, la revisión o la validación de lanzamientos seguros.
+El seguimiento es un control de visibilidad defensivo. No reemplaza el desarrollo, la revisión o la validación de versións seguros.
 
 
 Ver [Gobernanza de seguridad](/es/security/governance).
@@ -185,7 +185,7 @@ La respuesta a incidentes admite:
 
 La respuesta a incidentes tiene como objetivo reducir el impacto y mejorar los controles futuros cuando ocurran problemas de seguridad.
 
-## Mejora Continua
+## Mejora continua
 
 Los controles de seguridad se revisan y perfeccionan continuamente.
 
@@ -194,7 +194,7 @@ La mejora continua incluye:
 - Revisar los resultados de seguridad.
 - Actualizar los controles cuando cambian los riesgos.
 - Mejora de la cobertura de validación.
-- Refinar las expectativas de preparación para el lanzamiento.
+- Refinar las expectativas de preparación para el versión.
 - Fortalecimiento de las prácticas de seguridad del desarrollo.
 
 El SDLC seguro debería evolucionar a medida que evolucionan los productos Enigm, los controles de plataforma y las condiciones de amenazas.

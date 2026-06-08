@@ -11,7 +11,7 @@ Enigm Key es un componente de plataforma de soporte. No reemplaza Enigm App, men
 
 ## Resumen
 
-Enigm Key es un dispositivo de emergencia compacto con conectividad de datos móviles integrada. Está destinado a escenarios en los que un usuario puede necesitar notificar a contactos de confianza seleccionados de forma rápida y discreta.
+Enigm Key es un dispositivo de emergencia compacto con conectividad de datos móviles integrada. Está diseñado para escenarios en los que un usuario puede necesitar notificar a contactos de confianza seleccionados de forma rápida y discreta.
 
 Enigm Key se administra como dispositivo desde Enigm Command y Enigm App. La vinculación inicial y la configuración de contactos de emergencia son flujos de trabajo Enigm App.
 
@@ -77,7 +77,7 @@ Enigm Command admite:
 - Estado de sustitución del dispositivo.
 - Visibilidad de eventos de emergencia donde esté autorizado.
 
-Enigm Command no es la superficie de enlace inicial y no es la superficie de configuración del contacto de emergencia. La visibilidad de Enigm Command debe permanecer limitada al ciclo de vida autorizado y al contexto del evento; no debe convertirse en un seguimiento de ubicación rutinario o en una visibilidad de comunicación protegida.
+Enigm Command no es la superficie de enlace inicial y no es la superficie de configuración del contacto de emergencia. La visibilidad de Enigm Command debe permanecer limitada al ciclo de vida autorizado y al contexto del evento; no debe convertirse en un seguimiento de ubicación habitualrio o en una visibilidad de comunicación protegida.
 
 ## Objetivos de diseño
 
@@ -93,7 +93,7 @@ Enigm Key está diseñado para admitir:
 - Configuración de contactos de emergencia controlados por el usuario a través de Enigm App.
 - Administración de dispositivos a través de Enigm App y Enigm Command.
 - Compartir ubicación vinculada a eventos durante emergencias hasta la cancelación del usuario.
-- Exposición mínima de datos de rutina.
+- Exposición mínima de datos de habitual.
 
 El objetivo es proporcionar capacidad de comunicación de emergencia y al mismo tiempo preservar los principios de diseño de Enigm que priorizan la privacidad.
 
@@ -194,8 +194,8 @@ El límite de la autorización de emergencia se limita a:
 
 El límite de autorización de emergencia no proporciona:
 
-- Seguimiento de ubicación de rutina.
-- Acceso al texto claro del mensaje.
+- Seguimiento de ubicación de habitual.
+- Acceso al texto en claro del mensaje.
 - Acceso al contenido seguro de las llamadas.
 - Acceso a contenidos multimedia.
 - Acceso a archivos adjuntos.
@@ -216,9 +216,9 @@ Compartir ubicación debe ser:
 - Protected en tránsito.
 - Detenido cuando el usuario cancela el flujo de trabajo de envío de emergencia.
 - Retirado según el ciclo de vida de eventos de emergencia y la política de retención.
-- Separado del comportamiento de espera de rutina.
+- Separado del comportamiento de espera de habitual.
 
-Cuando Enigm Key no está activado, debe permanecer inactivo y evitar informes de ubicación de rutina. Esto apoya la privacidad y la minimización de datos.
+Cuando Enigm Key no está activado, debe permanecer inactivo y evitar informes de ubicación de habitual. Esto apoya la privacidad y la minimización de datos.
 
 ## Suspensión y privacidad del dispositivo
 
@@ -228,7 +228,7 @@ Durante el funcionamiento normal que no sea de emergencia, el dispositivo debe p
 
 Los principios de privacidad incluyen:
 
-- No se permite compartir la ubicación de emergencia de forma rutinaria mientras está inactivo.
+- No se permite compartir la ubicación de emergencia de forma habitual mientras está inactivo.
 - Transmisión de datos vinculada a eventos.
 - Comunicación en espera mínima.
 - Datos de emergencia con finalidad limitada.
@@ -290,17 +290,17 @@ Los flujos de trabajo Enigm Command incluyen:
 
 Enigm Command no es la superficie de enlace inicial ni la superficie de configuración de contacto de emergencia. La vinculación inicial y la configuración del contacto de emergencia se controlan desde Enigm App.
 
-La visibilidad de Enigm Command debe permanecer separada del texto claro de los mensajes, el contenido de las llamadas seguras, el contenido multimedia, los archivos adjuntos, las conversaciones de los usuarios y el seguimiento de ubicación de rutina.
+La visibilidad de Enigm Command debe permanecer separada del texto en claro de los mensajes, el contenido de las llamadas seguras, el contenido multimedia, los archivos adjuntos, las conversaciones de los usuarios y el seguimiento de ubicación de habitual.
 
 ## Revocación del dispositivo
 
 La revocación de Enigm Key está disponible desde Enigm App y Enigm Command.
 
-La revocación está destinada a dispositivos perdidos, robados, retirados o reemplazados. Una vez revocado, ya no se debe confiar en el dispositivo para futuros flujos de trabajo de emergencia o comunicación de plataforma.
+La revocación está diseñada para dispositivos perdidos, robados, retirados o reemplazados. Una vez revocado, ya no se debe confiar en el dispositivo para futuros flujos de trabajo de emergencia o comunicación de plataforma.
 
 La revocación afecta futuras decisiones fiduciarias. No implica acceso a contenidos de emergencia anteriores, mensajes normales, llamadas seguras, material de clave privada o conversaciones de usuarios.
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen pérdida de Enigm Key, intentos de activación de emergencia no autorizados, uso indebido de contactos de emergencia, exposición de ubicación vinculada a eventos, falla de autenticación de comunicación del dispositivo, intentos de reproducción, compromiso de la cuenta, abuso del ciclo de vida de Enigm Command y divulgación del usuario por parte de contactos de emergencia seleccionados.
 

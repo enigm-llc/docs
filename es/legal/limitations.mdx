@@ -8,7 +8,7 @@ Esta página consolida las limitaciones públicas que se aplican en todo el ecos
 
 ## Resumen
 
-Enigm está diseñado para reducir la exposición, minimizar los metadatos, proteger el contenido de las comunicaciones y separar la autoridad administrativa del acceso al texto claro. Estos controles mejoran la privacidad y la seguridad, pero no eliminan todos los riesgos.
+Enigm está diseñado para reducir la exposición, minimizar los metadatos, proteger el contenido de las comunicaciones y separar la autoridad administrativa del acceso al texto en claro. Estos controles mejoran la privacidad y la seguridad, pero no eliminan todos los riesgos.
 
 Las limitaciones deben interpretarse como límites arquitectónicos, no como exenciones de responsabilidad del producto que debilitan el modelo de seguridad documentado.
 
@@ -16,7 +16,7 @@ Las limitaciones deben interpretarse como límites arquitectónicos, no como exe
 
 En todos los productos Enigm:
 
-- Los dispositivos terminales comprometidos pueden exponer el contenido después del descifrado o procesamiento local autorizado.
+- Los dispositivos endpoints comprometidos pueden exponer el contenido después del descifrado o procesamiento local autorizado.
 - Los usuarios autorizados pueden revelar contenido fuera de los controles de Enigm.
 - Las grabaciones externas, las capturas de pantalla, la observación física, la coerción o la ingeniería social pueden eludir los controles técnicos de confidencialidad.
 - Ningún sistema de privacidad puede garantizar el anonimato, la imposible trazabilidad o la resistencia total al análisis avanzado del tráfico.
@@ -25,21 +25,21 @@ En todos los productos Enigm:
 
 ## Enigm App
 
-El cifrado de extremo a extremo protege mensajes, archivos adjuntos, llamadas y contenido multimedia del acceso a texto claro del lado del servidor. No protege el contenido después de que un participante autorizado lo divulgue intencionalmente, lo capture fuera de los controles de Enigm o acceda a él desde un dispositivo confiable comprometido.
+El cifrado de extremo a extremo protege mensajes, archivos adjuntos, llamadas y contenido multimedia del acceso a texto en claro en servidor. No protege el contenido después de que un participante autorizado lo divulgue intencionalmente, lo capture fuera de los controles de Enigm o acceda a él desde un dispositivo confiable comprometido.
 
 La caducidad y la eliminación de mensajes reducen la disponibilidad del contenido protegido, pero no pueden garantizar la eliminación del contenido ya exportado, copiado, capturado o divulgado fuera de los controles de Enigm.
 
-Los visores seguros, los controles anticaptura y las funciones de privacidad de voz reducen la exposición durante el uso normal, pero no pueden controlar todos los entornos de terminales o métodos de captura externos.
+Los visores seguros, los controles anticaptura y las funciones de privacidad de voz reducen la exposición durante el uso normal, pero no pueden controlar todos los entornos de endpoints o métodos de captura externos.
 
 ## Privacidad de la red
 
-VPN Service, Proxy Network, la separación del tráfico y la configuración del tráfico reducen la exposición de la red y reducen la confianza en técnicas simples de correlación de tráfico. No reemplazan el cifrado de extremo a extremo, Device Trust, la seguridad de los terminales ni las decisiones de confianza del usuario.
+VPN Service, Proxy Network, la separación del tráfico y la configuración del tráfico reducen la exposición de la red y reducen la confianza en técnicas simples de correlación de tráfico. No reemplazan el cifrado de extremo a extremo, Device Trust, la seguridad de los endpoints ni las decisiones de confianza del usuario.
 
 Los observadores de la red aún pueden realizar análisis de tráfico bajo algunas condiciones. Enigm no afirma garantizar el anonimato, la imposibilidad de rastrear ni la resistencia total al análisis de tráfico avanzado.
 
 ## Enigm Command y Enigm Server
 
-Enigm Command proporciona gestión del ciclo de vida de cuenta, dispositivo, producto, sesión, pago, Enigm Server, Enigm eSIM y Enigm Key. La autoridad administrativa no otorga acceso al texto claro de mensajes, texto claro de archivos adjuntos, contenido de llamadas, material de clave privada o comunicaciones descifradas.
+Enigm Command proporciona gestión del ciclo de vida de cuenta, dispositivo, producto, sesión, pago, Enigm Server, Enigm eSIM y Enigm Key. La autoridad administrativa no otorga acceso al texto en claro de mensajes, texto en claro de archivos adjuntos, contenido de llamadas, material de clave privada o comunicaciones descifradas.
 
 Los administradores de Enigm Server pueden gestionar la membresía y la disponibilidad del ciclo de vida del contenido cifrado en el ámbito del servidor. Pueden eliminar cualquier contenido cifrado con ámbito de servidor dentro de su entorno de servidor dedicado, incluido el contenido cifrado generado por usuarios aprobados dentro de ese entorno. Los controles de eliminación operan sobre objetos de contenido cifrados y el estado del ciclo de vida; la eliminación no implica visibilidad del contenido, autoridad de descifrado o acceso criptográfico.
 
@@ -47,7 +47,7 @@ Los administradores de Enigm Server pueden gestionar la membresía y la disponib
 
 Enigm eSIM es un servicio de conectividad de datos únicamente facilitado comercialmente a través de Enigm y operado a través de una infraestructura de telecomunicaciones independiente. Enigm no es un operador de red móvil, OMV, operador de telecomunicaciones ni emisor de infraestructura de operador.
 
-La disponibilidad de las telecomunicaciones, los registros de la red del operador, la cobertura, las obligaciones de registro local y las obligaciones legales en el país de uso permanecen sujetos al proveedor de telecomunicaciones independiente y a la ley aplicable.
+La disponibilidad de las telecomunicaciones, los registros de la red de operador, la cobertura, las obligaciones de registro local y las obligaciones legales en el país de uso permanecen sujetos al proveedor de telecomunicaciones independiente y a la ley aplicable.
 
 ## Enigm Key
 
@@ -57,7 +57,7 @@ El uso compartido de la ubicación depende del estado del dispositivo, la conect
 
 ## Enigm OS
 
-Enigm OS proporciona endurecimiento de plataforma, superficie de ataque reducida, Trust Security Center, controles de política de red, modo de privacidad, gobernanza OTA y Controlled Device Management opcional. No reemplaza el cifrado de extremo a extremo, las decisiones de confianza de los usuarios, la arquitectura de mensajería segura, la concienciación de seguridad o la higiene de los terminales.
+Enigm OS proporciona endurecimiento de plataforma, superficie de ataque reducida, Trust Security Center, controles de política de red, modo de privacidad, gobernanza OTA y Controlled Device Management opcional. No reemplaza el cifrado de extremo a extremo, las decisiones de confianza de los usuarios, la arquitectura de mensajería segura, la concienciación de seguridad o la higiene de los endpoints.
 
 Trust Security Center evalúa las señales de seguridad del dispositivo. No inspecciona el contenido de los mensajes, los medios, las llamadas, los archivos adjuntos, los documentos ni las conversaciones de los usuarios. El estado de confianza mejora la visibilidad pero no garantiza la ausencia de compromiso.
 
@@ -65,7 +65,7 @@ Trust Security Center evalúa las señales de seguridad del dispositivo. No insp
 
 La seguridad de OTA depende de múltiples controles independientes: autenticación de transporte, validación de solicitudes, verificación de manifiesto, verificación de artefactos, controles de elegibilidad, Remote Attestation y Hardware-Backed Signing.
 
-La autoridad de firma del manifiesto OTA de producción actual y la autoridad de firma de la versión de producción de destino son independientes. La firma respaldada por hardware es una raíz de confianza para la autorización de lanzamiento, pero no reemplaza la revisión de fuentes, la gobernanza de compilación segura, la verificación de artefactos, los controles de implementación, Remote Attestation o la verificación del cliente.
+La autoridad actual de firma del manifiesto OTA de producción y la autoridad objetivo de firma de versiones de producción son independientes. La firma respaldada por hardware es una raíz de confianza para la autorización de versiones, pero no reemplaza la revisión de fuentes, la gobernanza segura de compilación, la verificación de artefactos, los controles de despliegue, Remote Attestation o la verificación del cliente.
 
 ## Enigm Intelligence y Enyra
 
@@ -77,13 +77,13 @@ Enyra en el dominio de Inteligencia proporciona correlación de seguridad asisti
 
 El monitorización, la respuesta a incidentes, el respaldo y la recuperación mejoran la resiliencia operativa. No previenen todos los problemas de servicio, ataques, defectos de software, fallas de dependencia o interrupciones operativas.
 
-La copia de seguridad y la recuperación son controles de continuidad para el estado crítico de la plataforma. No son un sistema de archivo de contenido del usuario y no pretenden eludir el cifrado de extremo a extremo ni proporcionar acceso de texto claro a comunicaciones protegidas.
+La copia de seguridad y la recuperación son controles de continuidad para el estado crítico de la plataforma. No son un sistema de archivo de contenido del usuario y no pretenden eludir el cifrado de extremo a extremo ni proporcionar acceso de texto en claro a comunicaciones protegidas.
 
 ## Legal, Cumplimiento y Gobernanza
 
 La certificación ISO/IEC 27001, las evaluaciones independientes, las revisiones recurrentes, las evaluaciones de vulnerabilidad, las pruebas adversas y los procesos de gobernanza mejoran la garantía y la rendición de cuentas. No garantizan la ausencia de vulnerabilidades ni certifican todas las características del producto fuera del alcance aplicable.
 
-Las solicitudes legales se evalúan de acuerdo con la ley aplicable, la jurisdicción, el alcance, la validez y la capacidad técnica de Enigm para responder. Enigm no puede proporcionar datos que no posee y no puede proporcionar texto claro o material de clave privada donde la arquitectura no otorga acceso.
+Las solicitudes legales se evalúan de acuerdo con la ley aplicable, la jurisdicción, el alcance, la validez y la capacidad técnica de Enigm para responder. Enigm no puede proporcionar datos que no posee y no puede proporcionar texto en claro o material de clave privada donde la arquitectura no otorga acceso.
 
 ## Privacidad y retención de datos
 
@@ -95,7 +95,7 @@ La eliminación elimina los datos del funcionamiento normal del servicio de acue
 
 - [Privacidad](/es/security/privacy)
 - [Modelo de seguridad](/es/security/security-model)
-- [Modelo de amenaza](/es/security/threat-model)
+- [Modelo de amenazas](/es/security/threat-model)
 - [Criptografía](/es/security/cryptography)
 - [Gobernanza de seguridad](/es/security/governance)
 - [Gobernanza jurídica](/es/legal/legal-governance)

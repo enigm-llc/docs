@@ -14,19 +14,19 @@ La mensajería segura de Enigm está diseñada para proteger el contenido de men
 El modelo se basa en estos principios:
 
 - Los mensajes están cifrados de extremo a extremo.
-- El texto claro del mensaje no está diseñado para que los componentes del lado del servidor puedan acceder a él.
-- El almacenamiento de mensajes del lado del servidor, cuando es necesario para la entrega, almacena únicamente datos de mensajes cifrados.
+- El texto en claro del mensaje no está diseñado para que los componentes en servidor puedan acceder a él.
+- El almacenamiento de mensajes en servidor, cuando es necesario para la entrega, almacena únicamente datos de mensajes cifrados.
 - El acceso a los mensajes depende de la asociación de dispositivos de confianza y del material de claves protegido.
 - La mensajería multidispositivo requiere el establecimiento de una confianza explícita.
 - Los archivos adjuntos siguen el mismo modelo de confidencialidad que los mensajes.
 - Los grupos admiten controles de permisos avanzados para reenviar, eliminar, enviar y manejar medios cuando lo habilita la política de conversación.
-- El manejo seguro de medios está diseñado para reducir la exposición del texto claro para archivos, imágenes, videos y otros medios multimedia compatibles.
-- Los controles administrativos no deben otorgar acceso al texto claro del mensaje.
+- El manejo seguro de medios está diseñado para reducir la exposición del texto en claro para archivos, imágenes, videos y otros medios multimedia compatibles.
+- Los controles administrativos no deben otorgar acceso al texto en claro del mensaje.
 - Enigm OS puede proporcionar protección adicional, pero la mensajería segura de Enigm sigue siendo un modelo de seguridad de nivel Enigm App.
 
 ## Modelo de cifrado de extremo a extremo
 
-La mensajería Enigm está diseñada para que el contenido del mensaje de texto claro se prepare y se cifre dentro del contexto Enigm App del lado del remitente antes de la entrega.
+La mensajería Enigm está diseñada para que el contenido del mensaje de texto en claro se prepare y se cifre dentro del contexto Enigm App en el remitente antes de la entrega.
 
 Esta página describe el modelo de seguridad de mensajería. La arquitectura criptográfica más amplia de Enigm, que incluye criptografía poscuántica, ciclo de vida de claves, almacenamiento seguro, confianza vinculada a dispositivos y flujos de trabajo de verificación, está documentada en [Criptografía](/es/security/cryptography).
 
@@ -35,16 +35,16 @@ A alto nivel:
 1. Enigm App evalúa el estado de la cuenta del remitente, la asociación del dispositivo del remitente y la política aplicable.
 2. La elegibilidad de la cuenta del destinatario y del dispositivo del destinatario se resuelve a través de metadatos autorizados.
 3. El material de clave Protected se utiliza para establecer un contexto de cifrado autorizado.
-4. El texto claro del mensaje se cifra localmente en Enigm App.
+4. El texto en claro del mensaje se cifra localmente en Enigm App.
 5. Los datos del mensaje cifrado se envían para su entrega.
-6. El Enigm App del lado del destinatario verifica la elegibilidad del dispositivo y el estado de la clave protegida.
+6. Enigm App en el destinatario verifica la elegibilidad del dispositivo y el estado de la clave protegida.
 7. El contenido del mensaje se descifra localmente sólo cuando esté permitido.
 
-Los componentes del lado del servidor no deberían requerir texto claro de mensajes para enrutar, almacenar, sincronizar o caducar mensajes.
+Los componentes en servidor no deberían requerir texto en claro de mensajes para enrutar, almacenar, sincronizar o caducar mensajes.
 
 ## Ciclo de vida del mensaje
 
-El ciclo de vida del mensaje se estructura en torno a la protección del lado del cliente y la autorización basada en el dispositivo.
+El ciclo de vida del mensaje se estructura en torno a la protección en cliente y la autorización basada en el dispositivo.
 
 ```mermaid
 sequenceDiagram
@@ -71,19 +71,19 @@ El ciclo de vida incluye:
 - Evaluación de elegibilidad del dispositivo del destinatario.
 - Cifrado local mediante material de claves protegidas.
 - Entrega cifrada y sincronización.
-- Verificación del lado del destinatario.
+- Verificación en el destinatario.
 - Descifrado local para la acción del usuario autorizado.
 - Caducidad o eliminación según política de usuario o conversación.
 
 El cliente debe recuperar y descifrar sólo el contenido del mensaje requerido para la acción actual del usuario.
 
-## Almacenamiento cifrado del lado del servidor
+## Almacenamiento cifrado en servidor
 
-Es posible que se requiera almacenamiento de mensajes del lado del servidor para la entrega, sincronización, recuperación fuera de línea, coordinación de caducidad o gestión del ciclo de vida resistente al abuso.
+Es posible que se requiera almacenamiento de mensajes en servidor para la entrega, sincronización, recuperación fuera de línea, coordinación de caducidad o gestión del ciclo de vida resistente al abuso.
 
-Cuando se requiere almacenamiento del lado del servidor, este debe almacenar únicamente datos de mensajes cifrados. El texto claro del mensaje no está diseñado para que los componentes del lado del servidor puedan acceder a él.
+Cuando se requiere almacenamiento en servidor, este debe almacenar únicamente datos de mensajes cifrados. El texto en claro del mensaje no está diseñado para que los componentes en servidor puedan acceder a él.
 
-Los sistemas del lado del servidor pueden procesar metadatos limitados necesarios para:
+Los sistemas en servidor pueden procesar metadatos limitados necesarios para:
 
 - Estado de entrega.
 - Estado de sincronización.
@@ -106,7 +106,7 @@ Enigm App está diseñado para que:
 - Se debe utilizar el manejo de solo memoria para etapas de procesamiento seleccionadas.
 - El almacenamiento en caché local, las vistas previas, la búsqueda, las copias de seguridad y los controles de retención empresarial no deben eludir silenciosamente la política de confidencialidad de mensajes.
 
-Los visores seguros deben manejar el contenido de mensajes y archivos adjuntos sin exportar texto claro a aplicaciones externas. Cuando la acción o política del usuario permite compartir o exportar externamente, esa acción está fuera del modelo normal de visualización protegida y debe tratarse como un límite de divulgación.
+Los visores seguros deben manejar el contenido de mensajes y archivos adjuntos sin exportar texto en claro a aplicaciones externas. Cuando la acción o política del usuario permite compartir o exportar externamente, esa acción está fuera del modelo normal de visualización protegida y debe tratarse como un límite de divulgación.
 
 ## Manejo de archivos adjuntos
 
@@ -116,11 +116,11 @@ El manejo de accesorios está diseñado para:
 
 - Admite archivos protegidos, imágenes, videos y otros objetos multimedia compatibles.
 - Cifre el contenido del archivo adjunto antes de transferirlo o almacenarlo.
-- Almacene los datos adjuntos como material cifrado donde se requiere almacenamiento del lado del servidor.
+- Almacene los datos adjuntos como material cifrado donde se requiere almacenamiento en servidor.
 - Recuperar sólo el contenido adjunto necesario para la acción actual del usuario.
 - Descifre el contenido del archivo adjunto localmente solo cuando esté permitido.
 - Utilice visores seguros.
-- Evite la exportación de texto claro a aplicaciones externas durante la visualización protegida normal.
+- Evite la exportación de texto en claro a aplicaciones externas durante la visualización protegida normal.
 - Aplicar política de caducidad y eliminación a la disponibilidad de archivos adjuntos.
 
 Los metadatos de los archivos adjuntos deben minimizarse a lo que se requiere para la entrega, sincronización, vencimiento y revisión autorizada.
@@ -139,11 +139,11 @@ Los controles de permisos incluyen:
 - Permisos de gestión de miembros.
 - Controles de visibilidad de la conversación.
 
-Los permisos de grupo están destinados a admitir espacios de comunicación controlados y al mismo tiempo preservar el modelo de cifrado de un extremo a otro. Los controles administrativos o a nivel de grupo no deben crear acceso a texto claro para sistemas del lado del servidor o flujos de trabajo Enigm Command.
+Los permisos de grupo están diseñados para admitir espacios de comunicación controlados y al mismo tiempo preservar el modelo de cifrado de un extremo a otro. Los controles administrativos o a nivel de grupo no deben crear acceso a texto en claro para sistemas en servidor o flujos de trabajo Enigm Command.
 
 Los controles de permisos se evalúan como política de conversación. El estado de la cuenta de un participante, el estado Device Trust, el estado de membresía y la política de conversación pueden afectar si ese participante puede enviar, reenviar, eliminar o administrar contenido protegido.
 
-Los permisos de grupo deben poder auditarse a nivel de política y ciclo de vida sin exponer el texto claro del mensaje, el texto claro de los archivos adjuntos, el texto claro de los medios, las conversaciones de los usuarios o el material de clave privada.
+Los permisos de grupo deben poder auditarse a nivel de política y ciclo de vida sin exponer el texto en claro del mensaje, el texto en claro de los archivos adjuntos, el texto en claro de los medios, las conversaciones de los usuarios o el material de clave privada.
 
 ## Controles de envío
 
@@ -172,7 +172,7 @@ Las restricciones de reenvío pueden limitar si los usuarios pueden reenviar:
 - Vídeos.
 - Otros multimedia compatibles.
 
-Los controles de reenvío reducen la exposición dentro del flujo de trabajo Enigm App, pero no pueden garantizar el control sobre el contenido después de la representación local autorizada, la divulgación del usuario, la captura externa, los puntos finales comprometidos o las rutas de exportación fuera de los controles de Enigm.
+Los controles de reenvío reducen la exposición dentro del flujo de trabajo Enigm App, pero no pueden garantizar el control sobre el contenido después de la representación local autorizada, la divulgación del usuario, la captura externa, los endpoints comprometidos o las rutas de exportación fuera de los controles de Enigm.
 
 ## Controles de eliminación
 
@@ -187,13 +187,13 @@ Los flujos de trabajo de eliminación pueden aplicarse a:
 - Eliminación de contenido cifrado en el ámbito del servidor donde se aplica la política Enigm Server.
 - Eliminación por vencimiento.
 
-Los controles de eliminación operan sobre objetos de contenido cifrados, estado del ciclo de vida local y disponibilidad de la conversación. La eliminación no implica que los administradores puedan leer el texto claro de los mensajes, el texto claro de los archivos adjuntos, el texto claro de los medios, las conversaciones de los usuarios o el material de clave privada.
+Los controles de eliminación operan sobre objetos de contenido cifrados, estado del ciclo de vida local y disponibilidad de la conversación. La eliminación no implica que los administradores puedan leer el texto en claro de los mensajes, el texto en claro de los archivos adjuntos, el texto en claro de los medios, las conversaciones de los usuarios o el material de clave privada.
 
 La eliminación no puede garantizar la eliminación del contenido ya visto, exportado, capturado, divulgado por un participante autorizado o almacenado fuera de los controles de Enigm.
 
 ## Protección de medios y permisos locales
 
-Enigm App el manejo seguro de medios está diseñado para reducir la exposición innecesaria de texto claro durante el uso normal.
+El manejo de Enigm App seguro de medios está diseñado para reducir la exposición innecesaria de texto en claro durante el uso normal.
 
 La protección de medios incluye:
 
@@ -204,18 +204,18 @@ La protección de medios incluye:
 - Aplicar caducidad de mensajes y archivos adjuntos.
 - Presentar medios protegidos solo dentro de contextos de aplicaciones autorizados.
 
-Las protecciones de captura y grabación de pantalla se aplican según la capacidad del sistema operativo y la política del dispositivo. Estas protecciones están destinadas a reducir la captura accidental o no autorizada durante el uso normal de la aplicación, pero no pueden garantizar la prevención contra todos los métodos de captura, dispositivos comprometidos, cámaras externas o entornos operativos modificados.
+Las protecciones de captura y grabación de pantalla se aplican según la capacidad del sistema operativo y la política del dispositivo. Estas protecciones están diseñadas para reducir la captura accidental o no autorizada durante el uso normal de la aplicación, pero no pueden garantizar la prevención contra todos los métodos de captura, dispositivos comprometidos, cámaras externas o entornos operativos modificados.
 
 ## Resistencia a la captura
 
 La resistencia a la captura es un control local de reducción de la exposición para la visualización de mensajes y medios protegidos.
 
-Según la capacidad y la política del dispositivo, Enigm App aplica controles destinados a reducir:
+Según la capacidad y la política del dispositivo, Enigm App aplica controles diseñados para reducir:
 
 - Captura de pantalla.
 - Grabación de pantalla.
 - Vista previa de fugas.
-- Exportación innecesaria de texto claro a aplicaciones externas.
+- Exportación innecesaria de texto en claro a aplicaciones externas.
 - Exposición accidental durante la visualización normal protegida.
 
 Estos controles no equivalen a una garantía de que el contenido no pueda grabarse. Las cámaras externas, los dispositivos comprometidos, los usuarios autorizados maliciosos, las omisiones del sistema operativo, el abuso de accesibilidad y los entornos modificados permanecen fuera del límite de garantía de la protección de captura normal a nivel de aplicación.
@@ -307,7 +307,7 @@ El sistema debe evitar la recopilación, retención y exposición innecesaria de
 
 Cuando se requieran metadatos, se debe preferir Privacy-Preserving Device Handles y otros identificadores de alcance a los identificadores públicos directos.
 
-Los controles administrativos deben exponer evidencia de políticas y ciclo de vida sin exponer el texto claro de los mensajes.
+Los controles administrativos deben exponer evidencia de políticas y ciclo de vida sin exponer el texto en claro de los mensajes.
 
 ## Resistencia al análisis de tráfico
 
@@ -319,7 +319,7 @@ El objetivo no es pretender garantías de ocultación de identidad o resistencia
 
 La configuración del tráfico es una capa de privacidad adicional. La confidencialidad de las comunicaciones sigue dependiendo del cifrado de extremo a extremo y del material de claves protegido.
 
-La actividad adicional de la red no debe interpretarse como prueba de comunicaciones activas del usuario. Los observadores de la red aún pueden realizar análisis de tráfico en determinadas circunstancias, especialmente cuando pueden combinar tiempos, volumen, comportamiento de los terminales, comportamiento del usuario o señales externas.
+La actividad adicional de la red no debe interpretarse como prueba de comunicaciones activas del usuario. Los observadores de la red aún pueden realizar análisis de tráfico en determinadas circunstancias, especialmente cuando pueden combinar tiempos, volumen, comportamiento de los endpoints, comportamiento del usuario o señales externas.
 
 Este mecanismo tiene como objetivo:
 
@@ -342,6 +342,6 @@ Estos controles no reemplazan el cifrado de extremo a extremo, Device Trust, el 
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, el abuso del ciclo de vida del dispositivo, los intentos de comprometer la mensajería segura, el abuso de Enigm Command, la omisión de políticas Enigm OS cuando se implementan, el uso indebido de políticas de red cuando los componentes de red de soporte están habilitados y la pérdida de visibilidad de la auditoría.

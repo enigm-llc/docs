@@ -11,7 +11,7 @@ Enigm es el producto de mensajería privada en el centro de la experiencia del u
 
 ## Resumen
 
-Enigm proporciona la cuenta principal, la comunicación, la administración de claves y la experiencia multidispositivo. Enigm también integra el uso opcional de VPN Service y la separación de tráfico Proxy Network cuando esté habilitado. La plataforma que la rodea existe para respaldar políticas, visibilidad, redes seguras, ciclo de vida Device Trust, inteligencia sobre amenazas y liberación controlada sin convertir esos sistemas de soporte en rutas de acceso de texto claro.
+Enigm proporciona la cuenta principal, la comunicación, la administración de claves y la experiencia multidispositivo. Enigm también integra el uso opcional de VPN Service y la separación de tráfico Proxy Network cuando esté habilitado. La plataforma que la rodea existe para respaldar políticas, visibilidad, redes seguras, ciclo de vida Device Trust, inteligencia sobre amenazas y liberación controlada sin convertir esos sistemas de soporte en rutas de acceso de texto en claro.
 
 Enigm OS es una capa de dispositivo seguro dedicada opcional. Cuando se implementa, contribuye con la postura Trust Security Center, la aplicación de políticas a nivel de dispositivo, Controlled Device Management, OTA Architecture, Remote Attestation y la verificación de actualizaciones. No es el centro de la plataforma; es una capa de refuerzo opcional para implementaciones que requieren control de dispositivo dedicado.
 
@@ -21,7 +21,7 @@ Los servidores y servicios controlados por Enigm son operados bajo la filial sui
 
 La arquitectura está intencionalmente en capas. Account Trust, Device Trust, autorización administrativa, privacidad de la red, elegibilidad OTA, Remote Attestation y confidencialidad del contenido son conceptos separados. Mantener esos conceptos separados reduce el riesgo de que un flujo de trabajo administrativo, comercial, de red o de gestión de dispositivos se convierta en una autoridad no deseada sobre las comunicaciones privadas.
 
-## Propósitos de arquitectura
+## Objetivos de arquitectura
 
 - Mantener a Enigm como el principal producto de mensajería privada de cara al usuario.
 - Preservar la confidencialidad del contenido como límite principal del producto.
@@ -59,17 +59,17 @@ Enigm Command es el producto de panel de control web para usuarios individuales,
 
 Enigm Server proporciona entornos de mensajería privados dedicados para usuarios individuales, equipos y organizaciones. Admite límites administrativos dedicados, aprobación de solicitudes de unión de ID del servidor, control de membresía del servidor, controles de disponibilidad y ciclo de vida del contenido cifrado con alcance del servidor, región de implementación geográfica seleccionada por el usuario y exposición reducida sin reemplazar el cifrado de extremo a extremo Enigm App o Device Trust.
 
-La administración de Enigm Server y la confidencialidad del contenido son dominios de confianza separados. Los controles administrativos operan sobre objetos de contenido cifrados y el estado del ciclo de vida; no otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
+La administración de Enigm Server y la confidencialidad del contenido son dominios de confianza separados. Los controles administrativos operan sobre objetos de contenido cifrados y el estado del ciclo de vida; no otorgan acceso al texto en claro del mensaje, al texto en claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
 
 El ID del servidor se utiliza para las solicitudes de unión. No es una credencial de acceso y no pasa por alto la aprobación del administrador, Account Trust, Device Trust, el material de clave protegido o la política del servidor.
 
 ### OTA Architecture
 
-OTA Architecture gestiona la seguridad de las actualizaciones desde la preparación hasta el ciclo de vida del lanzamiento, la firma, la despliegue controlado, la verificación del cliente y la revisión posterior al lanzamiento. Remote Attestation evalúa el estado del dispositivo antes de la elegibilidad de OTA u otras acciones sensibles que requieren evidencia de integridad del dispositivo.
+OTA Architecture gestiona la seguridad de las actualizaciones desde la preparación hasta el ciclo de vida del versión, la firma, el despliegue controlado, la verificación del cliente y la revisión posterior al versión. Remote Attestation evalúa el estado del dispositivo antes de la elegibilidad de OTA u otras acciones sensibles que requieren evidencia de integridad del dispositivo.
 
 ### Hardware-Backed Signing
 
-Hardware-Backed Signing protege los artefactos de lanzamiento, los paquetes de políticas, los paquetes de configuración y los materiales sensibles a la seguridad relacionados con los dispositivos. La documentación pública describe la firma en un nivel de límite de confianza y evita detalles de firma implementables.
+Hardware-Backed Signing protege los artefactos de versiones, los paquetes de políticas, los paquetes de configuración y los materiales sensibles a la seguridad relacionados con los dispositivos. La documentación pública describe la firma en un nivel de límite de confianza y evita detalles de firma implementables.
 
 ### VPN Service y Proxy Network
 
@@ -83,21 +83,21 @@ Tor Gateway proporciona una ruta de acceso orientada a la privacidad para superf
 
 Enigm Key es un dispositivo de conectividad de emergencia física orientado a la privacidad. Admite alertas de emergencia asociadas a la cuenta, notificación de contactos seleccionados y uso compartido de ubicaciones vinculadas a eventos mientras permanece inactivo durante el funcionamiento normal que no es de emergencia.
 
-La vinculación inicial y la configuración de contactos de emergencia son flujos de trabajo Enigm App. Enigm Command proporciona administración de dispositivos, visibilidad del ciclo de vida y flujos de trabajo de revocación sin convertirse en una superficie de configuración de contacto de emergencia o seguimiento de ubicación de rutina.
+La vinculación inicial y la configuración de contactos de emergencia son flujos de trabajo Enigm App. Enigm Command proporciona administración de dispositivos, visibilidad del ciclo de vida y flujos de trabajo de revocación sin convertirse en una superficie de configuración de contacto de emergencia o seguimiento de ubicación de habitual.
 
 ### Enigm eSIM
 
 Enigm eSIM proporciona conectividad móvil orientada a la privacidad y solo de datos en las áreas de cobertura admitidas. Se compra a través de Enigm Command, se vincula a la cuenta Enigm del usuario para la gestión del ciclo de vida y el usuario puede desvincularlo, eliminarlo o retirarlo.
 
-El flujo de compra y gestión del ciclo de vida de Enigm eSIM minimiza la identidad y no recopila verificación KYC, email, número de teléfono ni documento de identidad. Enigm no es un operador de red móvil, un operador de red móvil virtual, un operador de telecomunicaciones, un operador de red de acceso por radio ni un emisor directo de la conectividad del operador subyacente. El servicio de datos móviles de capa de operador es operado por un proveedor de infraestructura de telecomunicaciones independiente.
+El flujo de compra y gestión del ciclo de vida de Enigm eSIM minimiza la identidad y no recopila verificación KYC, correo electrónico, número de teléfono ni documento de identidad. Enigm no es un operador de red móvil, un operador de red móvil virtual, un operador de telecomunicaciones, un operador de red de acceso por radio ni un emisor directo de la conectividad del operador subyacente. El servicio de datos móviles de capa de operador es operado por un proveedor de infraestructura de telecomunicaciones independiente.
 
-Enigm eSIM está separado de Enigm App criptografía, mensajería segura, VPN Service, Proxy Network y Device Trust. Se puede combinar con VPN Service y Proxy Network, pero no reemplaza ninguno de los controles.
+Enigm eSIM está separado de la criptografía de Enigm App, mensajería segura, VPN Service, Proxy Network y Device Trust. Se puede combinar con VPN Service y Proxy Network, pero no reemplaza ninguno de los controles.
 
-### privacidad de pagos
+### Privacidad de pagos
 
 La privacidad de pagos describe los flujos de trabajo comerciales compatibles que están diseñados para reducir los vínculos de identidad innecesarios y al mismo tiempo preservar los límites de seguridad, contabilidad, legales y operativos. Los pagos de Enigm se administran a través de Enigm Command durante la inscripción y desde Enigm Command después de la inscripción. Los métodos admitidos incluyen pagos con criptomonedas, pagos con tarjeta de crédito y flujos de trabajo de códigos de pago Code Coin.
 
-Los flujos de trabajo de pago están separados de la criptografía Enigm App, la mensajería segura, las llamadas seguras, la administración Device Trust, Enigm Server y el acceso a contenido protegido. La inscripción de pago estándar no requiere la recopilación de email, número de teléfono ni documento de identidad; El país de compra es seleccionado por el usuario.
+Los flujos de trabajo de pago están separados de la criptografía Enigm App, la mensajería segura, las llamadas seguras, la administración Device Trust, Enigm Server y el acceso a contenido protegido. La inscripción de pago estándar no requiere la recopilación de correo electrónico, número de teléfono ni documento de identidad; El país de compra es seleccionado por el usuario.
 
 ### Threat Intelligence Platform y Enyra
 
@@ -105,7 +105,7 @@ Threat Intelligence Platform procesa señales de seguridad para detección, mode
 
 ## Modelo de límites
 
-La plataforma separa las responsabilidades de aplicación, sistema operativo opcional, red, inteligencia, administración y gobernanza de lanzamientos.
+La plataforma separa las responsabilidades de aplicación, sistema operativo opcional, red, inteligencia, administración y gobernanza de versións.
 
 ### Límite de la aplicación
 
@@ -119,7 +119,7 @@ El límite del dispositivo cubre la política Enigm OS opcional, la postura Trus
 
 El límite de la red cubre la conectividad VPN Service, Proxy Network, Enigm eSIM, la conectividad Enigm Key, las decisiones de política de red y los resultados de auditoría relacionados.
 
-El límite de la red está diseñado para reducir la exposición directa entre los dispositivos de los usuarios y los servicios de la plataforma. Siguen siendo necesarios identificadores de seguridad, manejo de solicitudes, autenticación y enrutamiento limitados para operar la plataforma. Estos identificadores deben minimizarse, controlarse el acceso, cifrarse parcialmente cuando el producto o dominio de almacenamiento aplicable lo admita y separarse del texto claro del mensaje, el contenido de la llamada segura, los medios, los archivos adjuntos, las conversaciones de los usuarios y el material de clave privada.
+El límite de la red está diseñado para reducir la exposición directa entre los dispositivos de los usuarios y los servicios de la plataforma. Siguen siendo necesarios identificadores de seguridad, manejo de solicitudes, autenticación y enrutamiento limitados para operar la plataforma. Estos identificadores deben minimizarse, controlarse el acceso, cifrarse parcialmente cuando el producto o dominio de almacenamiento aplicable lo admita y separarse del texto en claro del mensaje, el contenido de la llamada segura, los medios, los archivos adjuntos, las conversaciones de los usuarios y el material de clave privada.
 
 ### Límite de inteligencia
 
@@ -129,9 +129,9 @@ El límite de inteligencia cubre la ingesta Threat Intelligence Platform, la nor
 
 El límite administrativo cubre la gestión Enigm Command, Enigm Server, el acceso Tor Gateway a superficies web seleccionadas, la asignación de políticas, las acciones del ciclo de vida del dispositivo, la revisión de versiones y la revisión de auditoría.
 
-### Límite de release
+### Límite de versiones
 
-El límite de lanzamiento cubre OTA Architecture, Hardware-Backed Signing, Remote Attestation como señal de elegibilidad de OTA, verificación del cliente, despliegue controlado y planificación de reversión.
+El límite de versiones cubre OTA Architecture, Hardware-Backed Signing, Remote Attestation como señal de elegibilidad de OTA, verificación del cliente, despliegue controlado y planificación de reversión.
 
 ## Flujo de referencia
 
@@ -152,8 +152,8 @@ El límite de lanzamiento cubre OTA Architecture, Hardware-Backed Signing, Remot
 
 - La autenticación de la cuenta Enigm no debe implicar Device Trust ni autorización administrativa.
 - VPN Service y Proxy Network deben hacer cumplir la política de privacidad de la red y separación del tráfico sin convertirse en puntos amplios de recopilación de datos.
-- La administración de Enigm Server debe gestionar la membresía del servidor y el ciclo de vida del contenido cifrado sin convertirse en una superficie de texto claro, archivo adjunto, comunicación de usuario o acceso a clave privada.
-- Enigm Command debe separarse de los flujos de trabajo rutinarios del usuario.
+- La administración de Enigm Server debe gestionar la membresía del servidor y el ciclo de vida del contenido cifrado sin convertirse en una superficie de texto en claro, archivo adjunto, comunicación de usuario o acceso a clave privada.
+- Enigm Command debe separarse de los flujos de trabajo habitualrios del usuario.
 - La postura Enigm OS opcional debería reforzar las implementaciones admitidas sin que la seguridad de la aplicación dependa de suposiciones exclusivas del sistema operativo.
 - OTA Architecture debería rechazar los artefactos que no superen la verificación.
 
@@ -184,7 +184,7 @@ Los principales límites de confianza son:
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, abuso del ciclo de vida del dispositivo, elusión de políticas Enigm OS, uso indebido de políticas de red, manipulación de inteligencia, falla de integridad de OTA, abuso de Enigm Command y pérdida de visibilidad de auditoría.
 

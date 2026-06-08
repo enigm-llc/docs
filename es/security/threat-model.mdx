@@ -1,21 +1,21 @@
 ---
-title: Modelo de amenaza
-sidebarTitle: Modelo de amenaza
+title: Modelo de amenazas
+sidebarTitle: Modelo de amenazas
 description: Marco público de modelo de amenazas para productos y servicios de Enigm.
 ---
 
-El modelo de amenaza Enigm cubre Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing y Controlled Device Management.
+El modelo de amenazas Enigm cubre Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing y Controlled Device Management.
 
 Este documento proporciona un marco público para su revisión. Evita topologías específicas de la implementación, identificadores de componentes no públicos, detalles de red específicos del entorno y detalles operativos que podrían reducir la seguridad del sistema.
 
 ## Activos dentro del alcance
 
-El modelo de amenaza considera las siguientes categorías de activos:
+El modelo de amenazas considera las siguientes categorías de activos:
 
 - Enigm App estado de cuenta, estado de sesión, estado de mensajería segura, estado de llamada segura y estado de múltiples dispositivos
 - Registros del ciclo de vida Privacy-Preserving Device Handles y Controlled Device Management
 - Estado de confianza Enigm OS, estado Trust Security Center, política de red, modo de privacidad y estado de administración de dispositivos
-- Artefactos de release OTA, metadatos de release, estado de firma, estado de despliegue, estado de verificación del cliente y resultados de Remote Attestation
+- Artefactos de versión OTA, metadatos de versión, estado de firma, estado de despliegue, estado de verificación del cliente y resultados de Remote Attestation
 - Enigm Command acciones del ciclo de vida de la cuenta, flujos de trabajo de eliminación, controles de sesión, acciones del ciclo de vida del dispositivo, acciones del ciclo de vida del producto, historial de aprobación y asignaciones de políticas
 - Enigm Server estado de solicitud de unión, estado de membresía, estado del ciclo de vida del servidor y visibilidad de auditoría
 - Estado de activación Enigm eSIM, asociación de cuentas de Enigm, estado del ciclo de vida y resultados de la política de conectividad
@@ -37,9 +37,9 @@ Los controles esperados incluyen aplicación segura de la capa de identidad, aut
 
 Un actor intenta hacer un mal uso de la conversación o de la política de grupo para enviar, reenviar, eliminar, retener o exponer mensajes, archivos, imágenes, vídeos u otros contenidos multimedia protegidos fuera de la política autorizada.
 
-Los controles esperados incluyen evaluación de políticas de conversación, aplicación de permisos de grupo, verificaciones Device Trust, material de claves protegidas, visores seguros, auditabilidad del ciclo de vida, política de vencimiento, controles de reenvío, controles de eliminación y separación del acceso administrativo a texto claro.
+Los controles esperados incluyen evaluación de políticas de conversación, aplicación de permisos de grupo, verificaciones Device Trust, material de claves protegidas, visores seguros, auditabilidad del ciclo de vida, política de vencimiento, controles de reenvío, controles de eliminación y separación del acceso administrativo a texto en claro.
 
-Los controles de resistencia a la captura se modelan como controles de reducción de la exposición. No están modelados como una protección completa contra puntos finales comprometidos, grabaciones externas, divulgación intencional del usuario o entornos operativos modificados.
+Los controles de resistencia a la captura se modelan como controles de reducción de la exposición. No están modelados como una protección completa contra endpoints comprometidos, grabaciones externas, divulgación intencional del usuario o entornos operativos modificados.
 
 ### Abuso del ciclo de vida del dispositivo
 
@@ -57,7 +57,7 @@ Los controles esperados incluyen aplicación de políticas a nivel de dispositiv
 
 Un paquete de actualización, paquete de políticas, paquete de configuración, metadatos de versión o artefacto orientado al dispositivo se modifica, clasifica erróneamente o se acepta sin una verificación válida.
 
-Los controles esperados incluyen controles de release de la arquitectura OTA, Hardware-Backed Signing para materiales de release sensibles a la seguridad, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA, trazabilidad de release y rechazo de verificación fallida.
+Los controles esperados incluyen controles de versión de la arquitectura OTA, Hardware-Backed Signing para materiales de versión sensibles a la seguridad, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA, trazabilidad de versión y rechazo de verificación fallida.
 
 ### Uso indebido de políticas de red
 
@@ -71,17 +71,17 @@ Un actor intenta hacer un mal uso de la asociación Enigm Key, la activación de
 
 Los controles esperados incluyen enlace inicial Enigm App, configuración de contacto de emergencia controlada por el usuario, material de firma autenticado vinculado al dispositivo, comunicación cifrada, rechazo de tráfico de dispositivos no autenticados, uso compartido de ubicación vinculado a eventos, alcance del ciclo de vida Enigm Command y revocación por dispositivos perdidos, robados, retirados o reemplazados.
 
-Enigm Key los flujos de trabajo de emergencia se modelan como eventos de emergencia acotados. No se modelan como seguimiento de ubicación de rutina, acceso a mensajes protegidos, acceso seguro a llamadas, acceso a archivos adjuntos o acceso a claves privadas.
+Enigm Key los flujos de trabajo de emergencia se modelan como eventos de emergencia acotados. No se modelan como seguimiento de ubicación de habitual, acceso a mensajes protegidos, acceso seguro a llamadas, acceso a archivos adjuntos o acceso a claves privadas.
 
 ### Abuso de Enigm Server
 
 Un actor intenta hacer un mal uso de compra de Enigm Server, creación, solicitudes de unión de ID del servidor, control de membresía, controles del ciclo de vida del contenido en el ámbito del servidor, selección de regiones o flujos de trabajo de eliminación.
 
-Los controles esperados incluyen autorización Enigm Command, alcance del propietario del servidor o administrador autorizado, auditabilidad de solicitudes de unión, revisión de membresía del servidor, controles de disponibilidad de contenido cifrado y separación del texto claro de mensajes, texto claro de archivos adjuntos, comunicaciones de usuarios, material de clave privada y autoridad criptográfica.
+Los controles esperados incluyen autorización Enigm Command, alcance del propietario del servidor o administrador autorizado, auditabilidad de solicitudes de unión, revisión de membresía del servidor, controles de disponibilidad de contenido cifrado y separación del texto en claro de mensajes, texto en claro de archivos adjuntos, comunicaciones de usuarios, material de clave privada y autoridad criptográfica.
 
 El ID del servidor se modela como un localizador de solicitudes de unión, no como una credencial de acceso. La posesión o divulgación de una identificación de servidor no debe otorgar membresía, Device Trust, acceso a clave protegida o acceso a contenido cifrado sin la aprobación del administrador y los controles de autorización normales Enigm App.
 
-Los controles de eliminación administrativa se modelan como controles de disponibilidad y ciclo de vida sobre objetos de contenido cifrado. No se modelan como visibilidad de contenido, descifrado de contenido, acceso a texto claro o acceso a claves criptográficas.
+Los controles de eliminación administrativa se modelan como controles de disponibilidad y ciclo de vida sobre objetos de contenido cifrado. No se modelan como visibilidad de contenido, descifrado de contenido, acceso a texto en claro o acceso a claves criptográficas.
 
 ### Manipulación de la inteligencia
 

@@ -12,7 +12,7 @@ La seguridad existe para respaldar la privacidad, la minimización de datos, la 
 
 - Establecer una confianza explícita entre usuarios, dispositivos, sesiones Enigm App, estado Enigm OS y flujos de trabajo administrativos.
 - Utilice Trust Security Center como superficie visible para el usuario y revisable por el administrador para conocer la situación del dispositivo y el estado de seguridad.
-- Proteger OTA Architecture con Hardware-Backed Signing, controles de ciclo de vida de release, verificación del cliente y Remote Attestation como señal de elegibilidad OTA.
+- Proteger OTA Architecture con Hardware-Backed Signing, controles del ciclo de vida de versiones, verificación del cliente y Remote Attestation como señal de elegibilidad OTA.
 - Solicitar Controlled Device Management para inscripción, cesión de póliza, suspensión, revocación y retiro.
 - Enrutar decisiones opcionales de privacidad de red a nivel de aplicación a través de VPN Service y Proxy Network cuando esté habilitado.
 - Gobierna Enigm Server la compra, creación, solicitudes de unión de ID de servidor, membresía, selección de región y ciclo de vida de contenido cifrado con ámbito de servidor a través de Enigm Command.
@@ -25,7 +25,7 @@ La seguridad existe para respaldar la privacidad, la minimización de datos, la 
 Los siguientes términos se utilizan de forma coherente en toda la documentación de Enigm:
 
 - **Defensa en profundidad**: controles en capas en Enigm App, Enigm OS, política de red, inteligencia, firma, gobernanza de implementación y administración.
-- **Hardware-Backed Signing**: firma protegida para artefactos y materiales de release sensibles a la seguridad.
+- **Hardware-Backed Signing**: firma protegida para artefactos y materiales de versión sensibles a la seguridad.
 - **Privacy-Preserving Device Handles**: identificadores de correlación de dispositivos diseñados para respaldar flujos de trabajo de políticas y auditoría sin exposición pública de identificadores directos de dispositivos.
 - **Controlled Device Management**: inscripción de dispositivo autorizado, asignación de póliza, suspensión, revocación y retiro.
 
@@ -56,7 +56,7 @@ Enigm App establece el contexto del usuario autenticado, administra el ciclo de 
 
 Enigm App también integra el uso de VPN Service y Proxy Network cuando esté habilitado. Estos controles respaldan la privacidad de la red, la separación del tráfico y la reducción de metadatos sin reemplazar el cifrado de extremo a extremo o Device Trust.
 
-La creación de cuenta estándar de Enigm utiliza autenticación de nombre de usuario y contraseña, generación y manejo de frases de recuperación, creación de identidad local del dispositivo y asociación explícita de dispositivo confiable sin requerir email, número de teléfono o documento de identidad. Las sesiones de Enigm App están limitadas a 6 horas y no implican automáticamente Device Trust, autorización administrativa ni acceso a contenido protegido.
+La creación de cuenta estándar de Enigm utiliza autenticación de nombre de usuario y contraseña, generación y manejo de frases de recuperación, creación de identidad local del dispositivo y asociación explícita de dispositivo confiable sin requerir correo electrónico, número de teléfono o documento de identidad. Las sesiones de Enigm App están limitadas a 6 horas y no implican automáticamente Device Trust, autorización administrativa ni acceso a contenido protegido.
 
 ### Enigm OS
 
@@ -72,9 +72,9 @@ Enigm Command gobierna los flujos de trabajo de usuarios, organizaciones, empres
 
 ### Enigm Server
 
-Enigm Server proporciona entornos de mensajería privados dedicados para usuarios aprobados de Enigm. La administración del servidor rige la compra, la creación, la selección de la región de implementación geográfica, la aprobación de la solicitud de unión de ID del servidor, la membresía y el ciclo de vida del contenido cifrado en el ámbito del servidor sin convertirse en texto claro, archivo adjunto, comunicación de usuario o superficie de acceso a clave privada.
+Enigm Server proporciona entornos de mensajería privados dedicados para usuarios aprobados de Enigm. La administración del servidor rige la compra, la creación, la selección de la región de implementación geográfica, la aprobación de la solicitud de unión de ID del servidor, la membresía y el ciclo de vida del contenido cifrado en el ámbito del servidor sin convertirse en texto en claro, archivo adjunto, comunicación de usuario o superficie de acceso a clave privada.
 
-Los administradores de Enigm Server pueden gestionar el ciclo de vida y la disponibilidad del contenido cifrado en el servidor. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. Los controles administrativos no otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
+Los administradores de Enigm Server pueden gestionar el ciclo de vida y la disponibilidad del contenido cifrado en el servidor. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. Los controles administrativos no otorgan acceso al texto en claro del mensaje, al texto en claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
 
 ### Controles de red
 
@@ -88,13 +88,13 @@ El Threat Intelligence Platform procesa señales de seguridad para detección, e
 
 ### OTA e integridad
 
-La arquitectura OTA utiliza controles del ciclo de vida de release, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA y Hardware-Backed Signing para artefactos sensibles a la seguridad. Los artefactos que no superen la verificación deben rechazarse.
+La arquitectura OTA utiliza controles del ciclo de vida de versión, verificación del cliente, Remote Attestation como señal de elegibilidad de OTA y Hardware-Backed Signing para artefactos sensibles a la seguridad. Los artefactos que no superen la verificación deben rechazarse.
 
 ## Seguridad administrativa
 
 Las funciones administrativas se tratan como operaciones de avión de control de alto riesgo. Las acciones Enigm Command deben identificar el actor, la categoría de acción, la categoría de recurso objetivo, la marca de tiempo, el resultado y la referencia de cambio cuando exista una referencia de cambio.
 
-Las acciones privilegiadas deben separarse de la actividad rutinaria en tiempo de ejecución. Los modelos de aprobación y revisión deben respaldar privilegios mínimos, separación de funciones y autorización auditable.
+Las acciones privilegiadas deben separarse de la actividad habitualria en tiempo de ejecución. Los modelos de aprobación y revisión deben respaldar privilegios mínimos, separación de funciones y autorización auditable.
 
 ## Expectativas de auditoría
 
@@ -109,7 +109,7 @@ Las categorías de eventos auditables incluyen:
 - Resultados de políticas VPN Service y Proxy Network
 - Tor Gateway acceder a resultados para superficies web seleccionadas
 - Enigm Server solicitud de unión, membresía y resultados del ciclo de vida en el ámbito del servidor
-- Lanzamiento de OTA, implementación, Remote Attestation y resultados de verificación del cliente
+- Publicación OTA, implementación, Remote Attestation y resultados de verificación del cliente
 - Hardware-Backed Signing y eventos de verificación de artefactos
 - Resultados de detección o bloqueo de Threat Intelligence Platform y Enyra
 

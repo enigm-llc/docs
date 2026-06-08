@@ -10,7 +10,7 @@ Esta página consolida el modelo de seguridad OTA, la arquitectura de firma y el
 
 ## Resumen
 
-La seguridad OTA reduce el riesgo de entrega de software al separar la autoridad de lanzamiento, el manejo de solicitudes, la confianza de los metadatos, la integridad de los artefactos, la elegibilidad del dispositivo y la verificación del lado del dispositivo.
+La seguridad OTA reduce el riesgo de entrega de software al separar la autoridad de versiones, el manejo de solicitudes, la confianza de los metadatos, la integridad de los artefactos, la elegibilidad del dispositivo y la verificación en el dispositivo.
 
 ```mermaid
 flowchart TD
@@ -40,7 +40,7 @@ El diagrama describe las responsabilidades de seguridad en lugar de la topologí
 
 La seguridad OTA está diseñada para admitir:
 
-- Autenticidad de release.
+- Autenticidad de versión.
 - Liberación de integridad.
 - Elegibilidad del dispositivo.
 - Solicitar autenticación.
@@ -85,8 +85,8 @@ La confianza del manifiesto protege los metadatos de la versión.
 
 Esta capa respalda:
 
-- Metadatos de lanzamiento firmados.
-- Autenticidad de release.
+- Metadatos de versión firmados.
+- Autenticidad de versión.
 - Autorización de liberación.
 
 La verificación de manifiesto no reemplaza la verificación de artefactos.
@@ -132,13 +132,13 @@ Remote Attestation complementa los controles OTA; no hace que los metadatos sin 
 
 ### Capa 7: Firma de producción
 
-La firma de producción establece un origen de lanzamiento confiable.
+La firma de producción establece un origen de versión de confianza.
 
 Esta capa respalda:
 
 - Autorización de liberación.
 - Hardware-Backed Signing.
-- Origen de lanzamiento confiable.
+- Origen de versión de confianza.
 
 La firma de producción es un control de autenticidad de la versión. La entrega OTA no reemplaza la firma y los dispositivos solo deben tratar las versiones como de confianza cuando la verificación requerida tiene éxito.
 
@@ -154,23 +154,23 @@ Esta autoridad es responsable de:
 
 - Autorización del manifiesto.
 - Autorización de metadatos.
-- Autenticidad de release de los metadatos.
-- Evidencia de aprobación de metadatos de release OTA.
+- Autenticidad de versión de los metadatos.
+- Evidencia de aprobación de metadatos de versión OTA.
 
-Esta autoridad no es la misma que la autoridad de firma de la versión de producción de destino.
+Esta autoridad no es la misma que la autoridad objetivo de firma de versiones de producción.
 
-### Autoridad objetivo: Autoridad de firma de release de producción
+### Autoridad objetivo: Autoridad de firma de versiones de producción
 
-La Autoridad de firma de lanzamientos de producción es la autoridad de destino para la firma de artefactos de lanzamiento y imágenes de producción.
+La Autoridad de firma de versións de producción es la autoridad de destino para la firma de artefactos de versión y imágenes de producción.
 
-Esta autoridad está destinada a ser responsable de:
+Esta autoridad está diseñada para ser responsable de:
 
 - Firma de imagen de producción.
 - Firma de carga útil OTA.
-- Artefactos de lanzamiento críticos para la firma.
+- Artefactos de versión críticos para la firma.
 - Autorización de salida a producción.
 
-Esta autoridad está destinada a operar a través de un HSM físico dedicado y debe permanecer distinta de la Autoridad de firma del manifiesto OTA.
+Esta autoridad está diseñada para operar a través de un HSM físico dedicado y debe permanecer distinta de la Autoridad de firma del manifiesto OTA.
 
 ## Modelo de firma de manifiesto OTA de producción actual
 
@@ -180,21 +180,21 @@ Este modelo proporciona:
 
 - Firma fuera de línea respaldada por hardware.
 - Participación del operador físico.
-- Material clave no exportable.
+- Material de clave no exportable.
 - Autorización de manifiestos y metadatos.
 - Separación de los flujos de trabajo de firma de comunicados.
 
-El modelo actual autoriza manifiestos y metadatos OTA. Proporciona autenticidad de lanzamiento para la capa de manifiesto, no autoridad de firma de imágenes de producción completa.
+El modelo actual autoriza manifiestos y metadatos OTA. Proporciona autenticidad de versión para la capa de manifiesto, no autoridad de firma de imágenes de producción completa.
 
 ### Material de firma protegido
 
-La clave de firma del manifiesto no debe almacenarse en repositorios de Git, variables CI/CD, scripts de compilación, estaciones de trabajo de desarrolladores, almacenamiento de objetos en línea ni artefactos de lanzamiento.
+La clave de firma del manifiesto no debe almacenarse en repositorios de Git, variables CI/CD, scripts de compilación, estaciones de trabajo de desarrolladores, almacenamiento de objetos en línea ni artefactos de versión.
 
 La autoridad de firma sigue estando respaldada por hardware y mediada por el operador. Los sistemas que preparan manifiestos pueden solicitar la firma, pero no deben obtener acceso a material de clave privada.
 
-## Arquitectura objetivo HSM de firma de release
+## Arquitectura HSM objetivo de firma de versiones
 
-La arquitectura de firma de release de producción Enigm OS de destino está diseñada para utilizar un HSM físico dedicado.
+La arquitectura de firma de versión de producción Enigm OS de destino está diseñada para utilizar un HSM físico dedicado.
 
 La arquitectura de destino está diseñada para respaldar:
 
@@ -202,7 +202,7 @@ La arquitectura de destino está diseñada para respaldar:
 - Autorización de liberación.
 - Firma de imagen de producción.
 - Firma de carga útil OTA.
-- Artefactos de lanzamiento críticos para la firma.
+- Artefactos de versión críticos para la firma.
 
 Las capacidades de gobernanza de producción previstas incluyen:
 
@@ -213,7 +213,7 @@ Las capacidades de gobernanza de producción previstas incluyen:
 - Procedimientos de copia de seguridad seguros.
 - Gobernanza de liberación.
 
-La autoridad de firma de release de producción de destino no es la misma autoridad que la autoridad de firma de manifiesto OTA actual. La autoridad de destino está destinada a actuar como raíz de confianza de la autorización de release para los artefactos de producción.
+La autoridad de firma de versiones de producción de destino no es la misma autoridad que la autoridad de firma de manifiesto OTA actual. La autoridad de destino está diseñada para actuar como raíz de confianza de la autorización de versión para los artefactos de producción.
 
 ## Límite de confianza de firma de producción
 
@@ -230,7 +230,7 @@ La firma de producción tiene un límite de confianza claro.
 
 ### Fuera del límite de confianza
 
-- Sistemas de build.
+- Sistemas de compilación.
 - Corredores de CI.
 - Depósitos de artefactos.
 - Servicios OTA.
@@ -245,7 +245,7 @@ Los sistemas fuera del límite de confianza pueden solicitar firmas pero nunca d
 El flujo de firma conceptual es:
 
 1. Se producen artefactos de construcción.
-2. La canalización de lanzamiento prepara las cargas útiles de firma.
+2. El pipeline de versiones prepara las cargas de firma.
 3. Se produce la aprobación del operador.
 4. La autoridad firmante valida la política.
 5. Firmar carteles de autoridad.
@@ -255,22 +255,22 @@ El flujo de firma conceptual es:
 
 ```mermaid
 sequenceDiagram
-  participant Build as Build Artifacts
-  participant Pipeline as Pipeline de release
+  participant Compilación as Compilación Artifacts
+  participant Pipeline as Pipeline de versiones
   participant Operator as Operator Approval
   participant Authority as Autoridad de firma
   participant Verify as Verification
-  participant Gates as Controles de release
+  participant Gates as Controles de versión
   participant Publish as Publication
 
-  Build->>Pipeline: Provide release artifacts
+  Compilación->>Pipeline: Provide versión artifacts
   Pipeline->>Operator: Request approval
   Operator->>Authority: Approve signing request
   Authority->>Authority: Validate signing policy
   Authority->>Pipeline: Return signed payloads
   Pipeline->>Verify: Verify signatures
   Verify->>Gates: Provide verification result
-  Gates->>Publish: Approve release publication
+  Gates->>Publish: Approve versión publication
 ```
 
 ## Remote Attestation
@@ -307,19 +307,19 @@ Remote Attestation es un control de elegibilidad de producción para flujos de t
 
 ## Evidencia de atestación
 
-La evidencia de certificación puede incluir:
+La evidencia de atestación puede incluir:
 
 - Señales de identidad de dispositivos respaldadas por hardware.
 - Señales de integridad del dispositivo.
 - Estado del software verificado.
 - Estado de bloqueo del dispositivo.
-- Identidad de build.
+- Identidad de compilación.
 - Nivel de parche.
 - Modelo de dispositivo.
 - Elegibilidad del dispositivo.
 - Señales de frescura.
 
-La evidencia de certificación se interpreta como evidencia de seguridad para las decisiones de elegibilidad. No sustituye a la verificación de manifiesto, la verificación de artefactos ni la firma de lanzamiento.
+La evidencia de atestación se interpreta como evidencia de integridad para las decisiones de elegibilidad. No sustituye a la verificación de manifiesto, la verificación de artefactos ni la firma de versión.
 
 ## Requisitos de verificación
 
@@ -339,7 +339,7 @@ Las condiciones de rechazo conceptual incluyen cadena de confianza no válida, d
 
 ## Protección de repetición
 
-La evidencia de certificación es sensible a la frescura.
+La evidencia de atestación es sensible a la frescura.
 
 El servidor puede requerir:
 
@@ -375,9 +375,9 @@ La seguridad OTA no pretende recopilar:
 - Conversaciones de usuarios.
 - Material de clave privada.
 
-El almacenamiento a largo plazo debería preferir los resultados de las políticas en lugar de las cargas útiles de certificación sin procesar.
+El almacenamiento a largo plazo debería preferir los resultados de las políticas en lugar de las cargas de firma de certificación sin procesar.
 
-## Modelo de amenaza
+## Modelo de amenazas
 
 Los controles de seguridad y firma OTA tienen como objetivo mitigar:
 
@@ -388,7 +388,7 @@ Los controles de seguridad y firma OTA tienen como objetivo mitigar:
 - Firma no autorizada.
 - Mal uso de la clave de prueba.
 - Reposición de artefactos.
-- Metadatos de lanzamiento modificados.
+- Metadatos de versión modificados.
 - Repetición de pruebas de elegibilidad obsoletas.
 
 Los riesgos residuales incluyen:
@@ -401,7 +401,7 @@ Los riesgos residuales incluyen:
 - Software vulnerable liberado a través de procesos autorizados.
 - Futuras vulnerabilidades desconocidas.
 
-Hardware-Backed Signing reduce la exposición de claves y admite la autorización de release, pero no prueba que el software lanzado esté libre de defectos o lógica maliciosa introducida antes de la firma.
+Hardware-Backed Signing reduce la exposición de claves y admite la autorización de versión, pero no prueba que el software lanzado esté libre de defectos o lógica maliciosa introducida antes de la firma.
 
 ## Relación con Trust Security Center
 

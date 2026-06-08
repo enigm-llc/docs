@@ -5,7 +5,7 @@ description: Modelo de arquitectura pública para entornos de mensajería privad
 mode: wide
 ---
 
-Enigm Server es el producto de entorno de mensajería privada dedicado en el ecosistema Enigm. Permite a un usuario individual, equipo u organización crear un entorno de mensajería privado controlado para usuarios aprobados de Enigm mientras preserva el cifrado de extremo a extremo Enigm App, Device Trust, el material clave protegido y los límites de confidencialidad del contenido.
+Enigm Server es el producto de entorno de mensajería privada dedicado en el ecosistema Enigm. Permite a un usuario individual, equipo u organización crear un entorno de mensajería privado controlado para usuarios aprobados de Enigm mientras preserva el cifrado de extremo a extremo Enigm App, Device Trust, el material de clave protegido y los límites de confidencialidad del contenido.
 
 Enigm Server se compra, crea y administra desde Enigm Command. No es el VPN Service, ni el Proxy Network, ni el Tor Gateway.
 
@@ -68,7 +68,7 @@ El modelo de propiedad respalda:
 - Organizaciones.
 - Clientes empresariales.
 
-El comprador o propietario asignado se vuelve responsable del ciclo de vida del servidor dentro del límite autorizado Enigm Command. La propiedad proporciona autoridad administrativa sobre el ciclo de vida del entorno del servidor dedicado. No proporciona acceso en texto claro a mensajes, archivos adjuntos, multimedia, comunicaciones de usuarios, material de claves protegidas ni autoridad criptográfica.
+El comprador o propietario asignado se vuelve responsable del ciclo de vida del servidor dentro del límite autorizado Enigm Command. La propiedad proporciona autoridad administrativa sobre el ciclo de vida del entorno del servidor dedicado. No proporciona acceso en texto en claro a mensajes, archivos adjuntos, multimedia, comunicaciones de usuarios, material de claves protegidas ni autoridad criptográfica.
 
 El estado de compra Enigm Server es el estado del ciclo de vida comercial. La autorización comercial es independiente de Account Trust, Device Trust, aprobación de membresía, política de conversación y acceso a contenido protegido.
 
@@ -88,7 +88,7 @@ Las propiedades relevantes para la empresa incluyen:
 - Separación entre administración y confidencialidad de mensajes.
 - Auditar la visibilidad del ciclo de vida y los eventos de membresía cuando corresponda.
 
-La adquisición empresarial, la aprobación comercial o el estado de suscripción no deben tratarse como autorización de acceso a mensajes. El estado de la cuenta Enigm App, Device Trust, el material clave protegido, la membresía del servidor y la política de conversación siguen siendo necesarios para los flujos de trabajo protegidos.
+La adquisición empresarial, la aprobación comercial o el estado de suscripción no deben tratarse como autorización de acceso a mensajes. El estado de la cuenta Enigm App, Device Trust, el material de clave protegido, la membresía del servidor y la política de conversación siguen siendo necesarios para los flujos de trabajo protegidos.
 
 ## ¿Qué es Enigm Server?
 
@@ -119,13 +119,13 @@ Enigm Server no es:
 - Una puerta de enlace de red.
 - Un reemplazo para la mensajería segura Enigm App.
 - Evitar el cifrado de extremo a extremo.
-- Un mecanismo para que los administradores lean el texto claro de mensajes privados.
-- Un mecanismo para que los administradores reciban texto claro de archivos adjuntos.
+- Un mecanismo para que los administradores lean el texto en claro de mensajes privados.
+- Un mecanismo para que los administradores reciban texto en claro de archivos adjuntos.
 - Un mecanismo para que los administradores reciban las comunicaciones de los usuarios.
 - Un mecanismo para que los administradores reciban claves criptográficas.
 - Un reemplazo para Device Trust o material de clave protegido.
 
-La administración del servidor debe permanecer separada del material de clave privada y del texto claro de los mensajes.
+La administración del servidor debe permanecer separada del material de clave privada y del texto en claro de los mensajes.
 
 ## Relación con Enigm App
 
@@ -144,7 +144,7 @@ Los controles Enigm App siguen siendo aplicables dentro de los entornos Enigm Se
 - Flujos de trabajo de verificación.
 - Confidencialidad del contenido.
 
-Enigm Server no reemplaza el cifrado de extremo a extremo Enigm App. La membresía del servidor y la política del servidor afectan el acceso al entorno y la disponibilidad del contenido cifrado; no crean acceso a texto claro, acceso a texto claro a archivos adjuntos, acceso a comunicación de usuario ni acceso a clave criptográfica para administradores de servidores.
+Enigm Server no reemplaza el cifrado de extremo a extremo Enigm App. La membresía del servidor y la política del servidor afectan el acceso al entorno y la disponibilidad del contenido cifrado; no crean acceso a texto en claro, acceso a texto en claro a archivos adjuntos, acceso a comunicación de usuario ni acceso a clave criptográfica para administradores de servidores.
 
 ## Relación con Enigm Command
 
@@ -193,7 +193,7 @@ Los registros del ciclo de vida deben minimizarse y conservarse únicamente para
 
 Enigm Server admite la selección de región de implementación geográfica seleccionada por el usuario.
 
-La selección de regiones está destinada a respaldar:
+La selección de regiones está diseñada para respaldar:
 
 - Control del cliente sobre la ubicación del servidor.
 - Latencia y requisitos operativos.
@@ -208,7 +208,7 @@ Las categorías de regiones públicas actuales incluyen:
 
 La selección de región es un control de implementación y producto. No cambia el modelo de gobierno legal de Enigm: los servidores y servicios controlados por Enigm son operados bajo la subsidiaria suiza de Enigm y el gobierno legal suizo.
 
-La selección de región no crea acceso a texto claro para administradores, sistemas operativos, entornos de hospedaje o flujos de trabajo legales. Enigm Server permanece sujeto a Enigm App cifrado de extremo a extremo, Device Trust, material de clave protegido y controles del ciclo de vida del contenido cifrado con alcance del servidor.
+La selección de región no crea acceso a texto en claro para administradores, sistemas operativos, entornos de hospedaje o flujos de trabajo legales. Enigm Server permanece sujeto a Enigm App cifrado de extremo a extremo, Device Trust, material de clave protegido y controles del ciclo de vida del contenido cifrado con alcance del servidor.
 
 La documentación pública no revela la topología de implementación, detalles de la relación con terceros, ubicaciones de servidores, mecanismos de enrutamiento o infraestructura operativa.
 
@@ -240,13 +240,13 @@ El modelo de roles incluye:
 - **Administrador**: el propietario del servidor o administrador autorizado responsable del ciclo de vida del servidor, la revisión de solicitudes de ingreso, el control de membresía y los controles del ciclo de vida del contenido cifrado en el ámbito del servidor.
 - **Usuarios**: usuarios aprobados de Enigm que participan en el entorno del servidor dedicado según la política del servidor.
 
-Enigm Server no define roles públicos adicionales en esta documentación. La autoridad administrativa sigue limitada a los controles de disponibilidad y ciclo de vida. No proporciona acceso a texto claro, acceso a texto claro a archivos adjuntos, acceso a comunicación de usuario, acceso a clave privada ni autoridad criptográfica.
+Enigm Server no define roles públicos adicionales en esta documentación. La autoridad administrativa sigue limitada a los controles de disponibilidad y ciclo de vida. No proporciona acceso a texto en claro, acceso a texto en claro a archivos adjuntos, acceso a comunicación de usuario, acceso a clave privada ni autoridad criptográfica.
 
 ## Ciclo de vida del contenido con ámbito de servidor
 
 Enigm Server admite controles del ciclo de vida del contenido en el ámbito del servidor.
 
-Estos controles están destinados a gestionar la disponibilidad de contenido cifrado dentro del entorno del servidor dedicado. Pueden incluir:
+Estos controles están diseñados para gestionar la disponibilidad de contenido cifrado dentro del entorno del servidor dedicado. Pueden incluir:
 
 - Controles del ciclo de vida del contenido propiedad del servidor.
 - Eliminación de contenido cifrado.
@@ -262,7 +262,7 @@ Estos controles están destinados a gestionar la disponibilidad de contenido cif
 
 Los administradores pueden gestionar el ciclo de vida y la disponibilidad del contenido cifrado en el ámbito del servidor.
 
-Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. La eliminación afecta la disponibilidad y el ciclo de vida del contenido. La eliminación no implica visibilidad del contenido, descifrado del contenido, acceso al texto claro del mensaje, acceso al texto claro del archivo adjunto, acceso a la comunicación del usuario o acceso a la clave criptográfica.
+Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. La eliminación afecta la disponibilidad y el ciclo de vida del contenido. La eliminación no implica visibilidad del contenido, descifrado del contenido, acceso al texto en claro del mensaje, acceso al texto en claro del archivo adjunto, acceso a la comunicación del usuario o acceso a la clave criptográfica.
 
 Los mensajes cifrados en el ámbito del servidor, los archivos adjuntos cifrados, los multimedia cifrados y el contenido cifrado generado por el usuario siguen el mismo modelo de vida útil del contenido que la mensajería segura de Enigm. La duración máxima es de 30 días, a menos que la política de conversación defina una duración más corta o que los usuarios autorizados eliminen el contenido antes.
 
@@ -281,7 +281,7 @@ Los flujos de trabajo de eliminación pueden incluir:
 - Eliminación de objetos cifrados alojados en el servidor.
 - Flujos de trabajo de eliminación remota de contenido propiedad del servidor.
 
-Los controles administrativos no otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario ni al material de clave privada.
+Los controles administrativos no otorgan acceso al texto en claro del mensaje, al texto en claro del archivo adjunto, a las comunicaciones del usuario ni al material de clave privada.
 
 ## Eliminación completa del servidor
 
@@ -298,13 +298,13 @@ La eliminación completa tiene como objetivo respaldar:
 
 La eliminación total del servidor debe preservar los límites legales, de seguridad, de cumplimiento y operativos aplicables.
 
-La eliminación total del servidor afecta el ciclo de vida y la disponibilidad del entorno del servidor dedicado. No proporciona acceso al texto claro de los mensajes, al texto claro de los archivos adjuntos, a las comunicaciones del usuario, a las claves criptográficas ni al material de claves protegidas.
+La eliminación total del servidor afecta el ciclo de vida y la disponibilidad del entorno del servidor dedicado. No proporciona acceso al texto en claro de los mensajes, al texto en claro de los archivos adjuntos, a las comunicaciones del usuario, a las claves criptográficas ni al material de claves protegidas.
 
 ## Límites administrativos
 
 La administración de Enigm Server y la confidencialidad del contenido son dominios de confianza separados.
 
-La autoridad administrativa permite el control del ciclo de vida. No proporciona visibilidad de mensajes, autoridad criptográfica, acceso a texto claro de archivos adjuntos, acceso a comunicación de usuario ni acceso a texto claro de mensajes.
+La autoridad administrativa permite el control del ciclo de vida. No proporciona visibilidad de mensajes, autoridad criptográfica, acceso a texto en claro de archivos adjuntos, acceso a comunicación de usuario ni acceso a texto en claro de mensajes.
 
 Los administradores pueden:
 
@@ -322,13 +322,13 @@ Los administradores pueden:
 
 Los límites administrativos incluyen:
 
-- La administración del servidor es independiente del texto claro del mensaje Enigm App.
+- La administración del servidor es independiente del texto en claro del mensaje Enigm App.
 - El control del ciclo de vida del servidor está separado del material de clave privada.
 - La gestión de membresía del servidor está separada de Device Trust.
-- La propiedad del servidor es independiente del acceso en texto claro al contenido del usuario.
+- La propiedad del servidor es independiente del acceso en texto en claro al contenido del usuario.
 - La autorización Enigm Command es independiente del cifrado de extremo a extremo.
 - Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida.
-- Los controles administrativos no otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario ni al material de clave privada.
+- Los controles administrativos no otorgan acceso al texto en claro del mensaje, al texto en claro del archivo adjunto, a las comunicaciones del usuario ni al material de clave privada.
 
 ```mermaid
 flowchart TD
@@ -338,8 +338,8 @@ flowchart TD
   Objects["Objetos de contenido cifrado"]
 
   Devices["Dispositivos de usuario"]
-  Keys["Protected Material clave"]
-  Plaintext["Mensaje de texto claro"]
+  Keys["Protected Material de clave"]
+  Plaintext["Mensaje de texto en claro"]
 
   Admin --> Membership --> Lifecycle --> Objects
   Devices --> Keys --> Plaintext
@@ -348,7 +348,7 @@ flowchart TD
   Admin -. "no cryptographic authority" .-> Keys
 ```
 
-El diagrama es conceptual. Muestra que la autoridad del administrador y la confidencialidad de los mensajes permanecen separadas. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida, mientras que el texto claro de los mensajes sigue dependiendo de los dispositivos de usuario de confianza y del material de claves protegido.
+El diagrama es conceptual. Muestra que la autoridad del administrador y la confidencialidad de los mensajes permanecen separadas. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida, mientras que el texto en claro de los mensajes sigue dependiendo de los dispositivos de usuario de confianza y del material de claves protegido.
 
 ## Consideraciones de privacidad
 
@@ -365,11 +365,11 @@ Las consideraciones de privacidad incluyen:
 - Conservar los registros del servidor solo para fines operativos, de seguridad, legales o de cumplimiento definidos.
 - Cifre parcialmente los metadatos del servidor de acuerdo con el producto aplicable y el dominio de almacenamiento, conservando solo los identificadores operativos necesarios para enrutar, autenticar, autorizar y mantener el entorno del servidor.
 
-Enigm Server está diseñado para reducir la exposición y proporcionar control a nivel del cliente sin aumentar la recopilación rutinaria de contenido protegido.
+Enigm Server está diseñado para reducir la exposición y proporcionar control a nivel del cliente sin aumentar la recopilación habitualria de contenido protegido.
 
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen abuso de Enigm Server, compromiso de cuenta, falla de Device Trust, uso indebido de solicitudes de unión, abuso de membresía del servidor, exposición de metadatos en el ámbito del servidor, usuarios de confianza maliciosos, compromiso de endpoints, abuso de Enigm Command y pérdida de visibilidad de la auditoría administrativa.

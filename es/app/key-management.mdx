@@ -10,7 +10,7 @@ Este documento explica la arquitectura de administración de claves de Enigm sin
 
 ## Resumen
 
-Las claves Enigm App se generan en el dispositivo. El material de clave privada está destinado a permanecer vinculado al dispositivo y no debe almacenarse en texto claro.
+Las claves Enigm App se generan en el dispositivo. El material de clave privada está diseñado para permanecer vinculado al dispositivo y no debe almacenarse en texto en claro.
 
 Esta página se centra en el ciclo de vida de las claves Enigm App y la confianza vinculada al dispositivo. La arquitectura criptográfica de todo el ecosistema, que incluye cifrado de extremo a extremo, criptografía poscuántica, almacenamiento seguro, flujos de trabajo de verificación y criptografía OTA, está documentada en [Criptografía](/es/security/cryptography).
 
@@ -42,25 +42,25 @@ La generación de claves puede ocurrir durante:
 - Reemplazo de dispositivos.
 - Restablecimiento de la asociación del dispositivo asistido por recuperación.
 
-El material de clave privada generado debe permanecer dentro del contexto Device Trust. No debe exportarse a través de flujos de trabajo de aplicaciones de rutina, flujos de trabajo Enigm Command, registros, registros de auditoría, diagnósticos, resultados de soporte o ejemplos de documentación.
+El material de clave privada generado debe permanecer dentro del contexto Device Trust. No debe exportarse a través de flujos de trabajo de aplicaciones de habitual, flujos de trabajo Enigm Command, registros, registros de auditoría, diagnósticos, resultados de soporte o ejemplos de documentación.
 
 El estado de clave generado debe estar vinculado a la cuenta, el dispositivo y el contexto de política relevantes. Una clave creada para un dispositivo no debería generar confianza automáticamente para otro dispositivo.
 
 ## Protección de clave privada
 
-El material de clave privada no debe almacenarse en texto claro.
+El material de clave privada no debe almacenarse en texto en claro.
 
 Enigm App utiliza almacenamiento protegido en el dispositivo para el material de clave privada controlado por la aplicación y el estado de clave relacionado. El modelo de protección está diseñado para reducir la exposición del material de clave privada durante el almacenamiento, el acceso y los cambios en el ciclo de vida.
 
 La protección de clave privada debe incluir:
 
-- Protected almacenamiento de material de clave privada.
-- Restricción de la exportación rutinaria de claves privadas.
+- Almacenamiento protegido de material de clave privada.
+- Restricción de la exportación habitualria de claves privadas.
 - Separación entre material de clave de identidad o dispositivo de larga duración y material de clave de sesión o mensaje de corta duración.
 - Control de acceso vinculado al estado del dispositivo, el estado de la aplicación y el estado de la política.
 - Manejo del ciclo de vida para rotación, reemplazo y revocación.
 
-El material de clave privada no debe exponerse mediante acciones administrativas. Los flujos de trabajo administrativos pueden afectar el estado del ciclo de vida, pero no deben otorgar acceso de texto claro a mensajes o material de clave privada.
+El material de clave privada no debe exponerse mediante acciones administrativas. Los flujos de trabajo administrativos pueden afectar el estado del ciclo de vida, pero no deben otorgar acceso de texto en claro a mensajes o material de clave privada.
 
 ## Protección respaldada por hardware
 
@@ -164,9 +164,9 @@ La recuperación puede apoyar:
 - Restauración de la elegibilidad de la póliza.
 - Revisión administrativa del estado del ciclo de vida.
 
-La recuperación no debe otorgar automáticamente acceso de texto claro a los mensajes. La recuperación no debe proporcionar a los administradores material de clave privada. Los flujos de trabajo de recuperación deben diseñarse de modo que restaurar el acceso a la cuenta no debilite la confidencialidad normal de los mensajes.
+La recuperación no debe otorgar automáticamente acceso de texto en claro a los mensajes. La recuperación no debe proporcionar a los administradores material de clave privada. Los flujos de trabajo de recuperación deben diseñarse de modo que restaurar el acceso a la cuenta no debilite la confidencialidad normal de los mensajes.
 
-Enigm Command puede admitir acciones del ciclo de vida, pero las acciones administrativas no deben otorgar acceso de texto claro a los mensajes.
+Enigm Command puede admitir acciones del ciclo de vida, pero las acciones administrativas no deben otorgar acceso de texto en claro a los mensajes.
 
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
@@ -176,11 +176,11 @@ Ver [Limitaciones de la plataforma](/es/legal/limitations).
 Los eventos clave del ciclo de vida incluyen:
 
 - **Creación**: las claves se generan en el dispositivo durante la configuración autorizada o eventos del ciclo de vida.
-- **Activación**: el material clave se vuelve elegible para operaciones protegidas después de las verificaciones de confianza requeridas.
+- **Activación**: el material de clave se vuelve elegible para operaciones protegidas después de las verificaciones de confianza requeridas.
 - **Rotación**: el material de claves se actualiza según el ciclo de vida o la política de seguridad.
-- **Reemplazo**: el material clave se reemplaza durante el reemplazo del dispositivo o los cambios en el ciclo de vida de la cuenta.
-- **Revocación**: el material clave está restringido para un uso confiable en el futuro.
-- **Retiro**: el material clave se elimina del uso del ciclo de vida activo de acuerdo con la política.
+- **Reemplazo**: el material de clave se reemplaza durante el reemplazo del dispositivo o los cambios en el ciclo de vida de la cuenta.
+- **Revocación**: el material de clave está restringido para un uso confiable en el futuro.
+- **Retiro**: el material de clave se elimina del uso del ciclo de vida activo de acuerdo con la política.
 
 Las transiciones del ciclo de vida deben ser auditables a nivel de estado y de decisión sin exponer material de clave privada.
 
@@ -189,7 +189,7 @@ Las transiciones del ciclo de vida deben ser auditables a nivel de estado y de d
 Los principales límites de confianza son:
 
 - Enigm App al almacenamiento del dispositivo protegido.
-- Protected almacenamiento del dispositivo a protección respaldada por hardware cuando esté disponible.
+- Almacenamiento protegido del dispositivo a protección respaldada por hardware cuando esté disponible.
 - Protección respaldada por hardware para envolver llaves o material de control de acceso.
 - Autenticación del dispositivo para acceso clave.
 - Estado de desbloqueo local para acceso clave.
@@ -199,6 +199,6 @@ Los principales límites de confianza son:
 - Flujo de trabajo de recuperación para el acceso normal a mensajes.
 - Enigm Command acciones del ciclo de vida al estado clave del ciclo de vida.
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, el abuso del ciclo de vida del dispositivo, los intentos de comprometer la mensajería segura, el abuso de Enigm Command, la omisión de políticas Enigm OS cuando se implementan y la pérdida de visibilidad de la auditoría.

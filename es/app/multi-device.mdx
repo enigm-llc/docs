@@ -17,7 +17,7 @@ La arquitectura multidispositivo debe preservar:
 - Confidencialidad de mensajes.
 - Comportamiento de revocación del dispositivo.
 - Comportamiento de sustitución de dispositivos.
-- Visibilidad administrativa sin acceso de texto claro a los mensajes.
+- Visibilidad administrativa sin acceso de texto en claro a los mensajes.
 
 Enigm OS puede contribuir con señales de integridad adicionales cuando se implemente, pero no es necesario para la arquitectura de múltiples dispositivos.
 
@@ -107,7 +107,7 @@ Los flujos de trabajo de reemplazo deben tener en cuenta:
 - Ciclo de vida de la clave Protected.
 - Revisión Enigm Command donde aplica la administración gestionada.
 
-El reemplazo asistido por recuperación no debe otorgar automáticamente acceso de texto claro a los mensajes históricos.
+El reemplazo asistido por recuperación no debe otorgar automáticamente acceso de texto en claro a los mensajes históricos.
 
 ## Consideraciones de seguridad para múltiples dispositivos
 
@@ -122,7 +122,7 @@ Las consideraciones de seguridad incluyen:
 - Device Trust y Account Trust deben permanecer separados.
 - Los dispositivos revocados no deben recibir contenido recién protegido.
 - Los flujos multi-dispositivo no deben copiar silenciosamente material de clave privada sin un flujo de trabajo de confianza explícito.
-- Las funciones administrativas no deben proporcionar acceso en texto claro a los mensajes.
+- Las funciones administrativas no deben proporcionar acceso en texto en claro a los mensajes.
 - Las capacidades opcionales de dispositivos administrados pueden proporcionar señales de estado de dispositivos adicionales.
 - Las señales de integridad opcionales Enigm OS pueden fortalecer las decisiones de confianza cuando se implementen.
 
@@ -140,7 +140,7 @@ Enigm Command puede admitir:
 - Informes de estado de confianza.
 - Revisión de auditoría.
 
-Enigm Command no debe proporcionar acceso en texto claro a mensajes, material de clave privada, contenido de llamadas seguras o archivos adjuntos protegidos.
+Enigm Command no debe proporcionar acceso en texto en claro a mensajes, material de clave privada, contenido de llamadas seguras o archivos adjuntos protegidos.
 
 ## Diagrama de arquitectura
 
@@ -170,6 +170,6 @@ flowchart TD
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, el abuso del ciclo de vida del dispositivo, los intentos de comprometer los mensajes seguros, los intentos de comprometer las llamadas seguras, el abuso de Enigm Command, la omisión de políticas Enigm OS cuando se implementan y la pérdida de visibilidad de la auditoría.

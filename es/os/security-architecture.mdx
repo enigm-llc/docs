@@ -10,7 +10,7 @@ Enigm OS no es el producto principal de Enigm. Enigm App sigue siendo el princip
 
 ## Resumen
 
-Enigm OS establece Device Trust a través de múltiples capas de seguridad independientes. Estas capas están destinadas a hacer observable el estado del dispositivo, hacer cumplir la política de seguridad, reducir la exposición innecesaria del sistema y admitir operaciones controladas de actualización y ciclo de vida del dispositivo.
+Enigm OS establece Device Trust a través de múltiples capas de seguridad independientes. Estas capas están diseñadas para hacer observable el estado del dispositivo, hacer cumplir la política de seguridad, reducir la exposición innecesaria del sistema y admitir operaciones controladas de actualización y ciclo de vida del dispositivo.
 
 La arquitectura se centra en:
 
@@ -86,7 +86,7 @@ Enigm OS separa los siguientes dominios de confianza:
 
 Estos límites son importantes porque ninguna capa se considera suficiente para lograr una confianza total en la plataforma. Device Trust se construye a partir de múltiples señales y la confidencialidad a nivel de aplicación permanece separada de la administración del dispositivo.
 
-La visibilidad administrativa de la posición del dispositivo no equivale al acceso al texto claro del mensaje Enigm App.
+La visibilidad administrativa de la posición del dispositivo no equivale al acceso al texto en claro del mensaje Enigm App.
 
 ## Modelo de Device Trust
 
@@ -123,7 +123,7 @@ El endurecimiento de la plataforma incluye:
 - Configuración controlada y comportamiento de incorporación.
 - Aplicación del servicio de seguridad.
 
-Estos controles están destinados a reducir el riesgo y limitar el comportamiento inseguro del dispositivo. No eliminan el riesgo de comprometer los endpoints y deben evaluarse junto con el comportamiento del usuario, el estado de la cuenta y los controles a nivel de aplicación.
+Estos controles están diseñados para reducir el riesgo y limitar el comportamiento inseguro del dispositivo. No eliminan el riesgo de comprometer los endpoints y deben evaluarse junto con el comportamiento del usuario, el estado de la cuenta y los controles a nivel de aplicación.
 
 ## Capas de seguridad
 
@@ -133,7 +133,7 @@ Enigm OS utiliza un modelo de seguridad en capas.
 
 La capa de integridad del hardware y del dispositivo proporciona la base para Device Trust. Admite la evaluación de si el dispositivo permanece en un estado de confianza esperado antes de que las decisiones de seguridad de nivel superior dependan de él.
 
-Esta capa es relevante para el material clave protegido, la postura del dispositivo y las decisiones Device Trust administradas.
+Esta capa es relevante para el material de clave protegido, la postura del dispositivo y las decisiones Device Trust administradas.
 
 ### Capa 2: Arranque verificado y confianza del software
 
@@ -177,7 +177,7 @@ Los requisitos de producción conceptuales incluyen:
 - Cadena de actualización Protected.
 - Aplicación de políticas de seguridad.
 - Comportamiento de implementación controlado.
-- Revisión del ciclo de vida del lanzamiento.
+- Revisión del ciclo de vida del versión.
 - Visibilidad Trust Security Center.
 - Controles del ciclo de vida de la administración de dispositivos cuando estén habilitados.
 
@@ -189,7 +189,7 @@ Enigm App sigue siendo el principal producto de cara al usuario.
 
 Enigm OS puede fortalecer el entorno del dispositivo utilizado por Enigm App a través de la postura del dispositivo, la aplicación de políticas, el endurecimiento de la plataforma y el estado del servicio de seguridad. Estas señales pueden respaldar decisiones de dispositivos de confianza, comportamiento de dispositivos administrados, elegibilidad de mensajería segura, elegibilidad de llamadas seguras y revisión empresarial.
 
-Enigm OS no proporciona acceso a texto claro de mensajes. La confidencialidad de los mensajes Enigm App depende del cifrado a nivel de aplicación, el material de clave protegido, la asociación de dispositivos de confianza y los flujos de trabajo de verificación.
+Enigm OS no proporciona acceso a texto en claro de mensajes. La confidencialidad de los mensajes Enigm App depende del cifrado a nivel de aplicación, el material de clave protegido, la asociación de dispositivos de confianza y los flujos de trabajo de verificación.
 
 ## Relación con Trust Security Center
 

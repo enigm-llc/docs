@@ -42,7 +42,7 @@ Privacidad por diseño significa:
 - Los controles de seguridad se evalúan para determinar el impacto en la privacidad.
 - La recopilación de datos se revisa con fines definidos.
 - La exposición de metadatos se trata como una preocupación de seguridad y privacidad.
-- La visibilidad administrativa se mantiene separada del acceso al texto claro.
+- La visibilidad administrativa se mantiene separada del acceso al texto en claro.
 
 ## Minimización de datos
 
@@ -63,7 +63,7 @@ Los datos manejados por Enigm se cifran en reposo de acuerdo con el producto, el
 
 La plataforma está diseñada para reducir la dependencia innecesaria de identificadores públicos siempre que sea posible.
 
-El registro de cuenta estándar de Enigm utiliza un modelo que minimiza la identidad y no requiere una email, un número de teléfono ni un documento de identidad. La creación de cuentas estándar utiliza autenticación de nombre de usuario y contraseña, generación y manejo de frases de recuperación, creación de identidad local del dispositivo y asociación explícita de dispositivos de confianza.
+El registro de cuenta estándar de Enigm utiliza un modelo que minimiza la identidad y no requiere un correo electrónico, un número de teléfono ni un documento de identidad. La creación de cuentas estándar utiliza autenticación de nombre de usuario y contraseña, generación y manejo de frases de recuperación, creación de identidad local del dispositivo y asociación explícita de dispositivos de confianza.
 
 La minimización de identidad admite:
 
@@ -77,7 +77,7 @@ El diseño que minimiza la identidad no elimina todos los requisitos de identida
 
 ## Reducción de metadatos
 
-Enigm incluye múltiples capas destinadas a reducir la exposición de los metadatos y la visibilidad de los patrones de comunicación.
+Enigm incluye múltiples capas diseñadas para reducir la exposición de los metadatos y la visibilidad de los patrones de comunicación.
 
 Los controles que reducen los metadatos incluyen:
 
@@ -97,7 +97,7 @@ Los servidores y servicios controlados por Enigm son operados bajo la filial sui
 
 Esta declaración de gobernanza se aplica a los servicios operados por Enigm y no implica que Enigm opere una infraestructura de operador de terceros utilizada para la conectividad de capa de operador Enigm eSIM.
 
-La selección de la región del servidor es un control de implementación y producto para entornos Enigm Server. No crea un modelo de acceso a texto claro diferente y no debilita el cifrado de extremo a extremo de Enigm, Device Trust, ni la minimización de metadatos.
+La selección de la región del servidor es un control de implementación y producto para entornos Enigm Server. No crea un modelo de acceso a texto en claro diferente y no debilita el cifrado de extremo a extremo de Enigm, Device Trust, ni la minimización de metadatos.
 
 ## Categorías de datos
 
@@ -105,11 +105,11 @@ La selección de la región del servidor es un control de implementación y prod
 
 Los datos de la cuenta Enigm App admiten autenticación, autorización, ciclo de vida de la cuenta, mensajería segura, llamadas seguras y administración de múltiples dispositivos. El contenido Protected permanece separado de los metadatos operativos por diseño.
 
-Las sesiones de Enigm App están limitadas a 6 horas. El estado de la sesión se trata como un estado de acceso a la cuenta y permanece separado de Device Trust, el estado de recuperación, el material de clave protegido y el texto claro del mensaje.
+Las sesiones de Enigm App están limitadas a 6 horas. El estado de la sesión se trata como un estado de acceso a la cuenta y permanece separado de Device Trust, el estado de recuperación, el material de clave protegido y el texto en claro del mensaje.
 
-Enigm App el manejo seguro de medios está diseñado para reducir la exposición innecesaria de texto claro para archivos, imágenes, videos, archivos adjuntos y otros medios multimedia compatibles. Las políticas de conversación y de grupo pueden controlar el envío, el reenvío, la eliminación y el manejo de medios sin dar a los sistemas administrativos acceso en texto claro al contenido protegido.
+El manejo de Enigm App seguro de medios está diseñado para reducir la exposición innecesaria de texto en claro para archivos, imágenes, videos, archivos adjuntos y otros medios multimedia compatibles. Las políticas de conversación y de grupo pueden controlar el envío, el reenvío, la eliminación y el manejo de medios sin dar a los sistemas administrativos acceso en texto en claro al contenido protegido.
 
-Los controles de resistencia a la captura reducen la captura de pantalla, la grabación de pantalla, la vista previa o la exposición a exportaciones externas según la capacidad y la política del dispositivo. Estos controles complementan el cifrado de extremo a extremo y Device Trust; no garantizan la protección contra puntos finales comprometidos, cámaras externas, usuarios autorizados maliciosos o entornos operativos modificados.
+Los controles de resistencia a la captura reducen la captura de pantalla, la grabación de pantalla, la vista previa o la exposición a exportaciones externas según la capacidad y la política del dispositivo. Estos controles complementan el cifrado de extremo a extremo y Device Trust; no garantizan la protección contra endpoints comprometidos, cámaras externas, usuarios autorizados maliciosos o entornos operativos modificados.
 
 ### Privacy-Preserving Device Handles
 
@@ -123,9 +123,9 @@ El estado de seguridad Enigm OS incluye la postura Trust Security Center, el est
 
 ### Enigm Server Datos
 
-Los datos Enigm Server admiten entornos de mensajería privados dedicados, solicitudes de unión de ID del servidor, decisiones de aprobación del administrador, membresía del servidor, controles del ciclo de vida del contenido en el ámbito del servidor, selección de la región de implementación geográfica y visibilidad de la auditoría del servidor cuando corresponda.
+Los datos de Enigm Server admiten entornos de mensajería privados dedicados, solicitudes de unión de ID del servidor, decisiones de aprobación del administrador, membresía del servidor, controles del ciclo de vida del contenido en el ámbito del servidor, selección de la región de implementación geográfica y visibilidad de la auditoría del servidor cuando corresponda.
 
-Los metadatos Enigm Server se minimizan y separan del contenido del mensaje protegido, el texto claro de los archivos adjuntos, las comunicaciones del usuario y el material de clave privada. Los controles del ciclo de vida del servidor afectan la disponibilidad y el ciclo de vida del contenido cifrado sin crear acceso a texto claro ni autoridad criptográfica para los administradores.
+Los metadatos de Enigm Server se minimizan y separan del contenido del mensaje protegido, el texto en claro de los archivos adjuntos, las comunicaciones del usuario y el material de clave privada. Los controles del ciclo de vida del servidor afectan la disponibilidad y el ciclo de vida del contenido cifrado sin crear acceso a texto en claro ni autoridad criptográfica para los administradores.
 
 Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. La eliminación afecta la disponibilidad y el ciclo de vida del contenido; no implica visibilidad de contenido, descifrado de contenido o acceso a comunicaciones protegidas.
 
@@ -137,11 +137,11 @@ Los registros de políticas de red se minimizan, tienen un propósito limitado y
 
 ### Enigm eSIM Datos
 
-Enigm eSIM utiliza un modelo de gestión del ciclo de vida y compras del lado de Enigm que minimiza la identidad para la conectividad móvil solo de datos. El flujo de trabajo del lado de Enigm no recopila verificación KYC, email, número de teléfono ni documento de identidad.
+Enigm eSIM utiliza un modelo de compra y gestión del ciclo de vida por parte de Enigm que minimiza la identidad para la conectividad móvil solo de datos. El flujo de trabajo por parte de Enigm no recopila verificación KYC, correo electrónico, número de teléfono ni documento de identidad.
 
-Los metadatos del ciclo de vida de Enigm eSIM siguen limitados a la operación de conectividad, la asociación de cuentas de Enigm, los derechos, el soporte y las necesidades de seguridad. El estado de conectividad permanece separado del texto claro del mensaje, el contenido de la llamada segura, los medios, los archivos adjuntos, las conversaciones de los usuarios y el material de clave privada.
+Los metadatos del ciclo de vida de Enigm eSIM siguen limitados a la operación de conectividad, la asociación de cuentas de Enigm, los derechos, el soporte y las necesidades de seguridad. El estado de conectividad permanece separado del texto en claro del mensaje, el contenido de la llamada segura, los medios, los archivos adjuntos, las conversaciones de los usuarios y el material de clave privada.
 
-Los registros de tráfico de la capa del operador, los registros de asignación de IP del lado del operador, los registros de acceso de radio, los registros de enrutamiento de paquetes, los registros de conexión del operador, los registros de itinerancia del operador y los registros de uso de la red del operador están fuera de las categorías de metadatos mantenidos por Enigm cuando los genera o retiene un proveedor de infraestructura de telecomunicaciones independiente.
+Los registros de tráfico de la capa del operador, los registros de asignación de IP del operador, los registros de acceso de radio, los registros de enrutamiento de paquetes, los registros de conexión del operador, los registros de itinerancia del operador y los registros de uso de la red de operador están fuera de las categorías de metadatos mantenidos por Enigm cuando los genera o retiene un proveedor de infraestructura de telecomunicaciones independiente.
 
 ### Datos de inteligencia sobre amenazas
 
@@ -151,7 +151,7 @@ Threat Intelligence Platform y Enyra procesan señales de seguridad para detecci
 
 Los registros de auditoría respaldan la revisión del cumplimiento, la investigación, la responsabilidad Controlled Device Management, Enigm Command, la revisión de la versión OTA y la revisión de la política de red. Los registros de auditoría proporcionan evidencia útil sin almacenar contenido protegido innecesario.
 
-Los registros de auditoría y los metadatos de seguridad utilizan protección en capas, incluido el cifrado parcial cuando lo admite el dominio de almacenamiento relevante y Privacy-Preserving Device Handles cuando se requiere correlación de dispositivos. No contienen texto claro de mensajes, texto claro de archivos adjuntos, contenido de llamadas seguras, conversaciones de usuarios ni material de clave privada.
+Los registros de auditoría y los metadatos de seguridad utilizan protección en capas, incluido el cifrado parcial cuando lo admite el dominio de almacenamiento relevante y Privacy-Preserving Device Handles cuando se requiere correlación de dispositivos. No contienen texto en claro de mensajes, texto en claro de archivos adjuntos, contenido de llamadas seguras, conversaciones de usuarios ni material de clave privada.
 
 ## Principios de manejo
 
@@ -188,9 +188,9 @@ Las comunicaciones seguras se basan en:
 - Asociación de dispositivos de confianza.
 - Flujos de trabajo de verificación.
 - Manejo seguro de mensajes y archivos adjuntos.
-- Separación entre sistemas administrativos y acceso a texto claro.
+- Separación entre sistemas administrativos y acceso a texto en claro.
 
-Los sistemas administrativos no están destinados a proporcionar acceso en texto claro a mensajes, llamadas, medios, archivos adjuntos o conversaciones de usuarios.
+Los sistemas administrativos no están diseñados para proporcionar acceso en texto en claro a mensajes, llamadas, medios, archivos adjuntos o conversaciones de usuarios.
 
 ## Seguridad como habilitador de privacidad
 
@@ -215,7 +215,7 @@ Las implementaciones empresariales pueden requerir controles de privacidad adici
 
 Actualmente, Enigm no proporciona flujos de trabajo de exportación de datos de usuarios. La revisión empresarial debe considerar la exportación como no disponible.
 
-## Mejora Continua
+## Mejora continua
 
 La privacidad es un objetivo continuo más que una característica estática.
 

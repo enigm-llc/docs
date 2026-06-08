@@ -23,7 +23,7 @@ Esto significa:
 - Account Trust y Device Trust se evalúan por separado.
 - Las operaciones administrativas del ciclo de vida se manejan a través de Enigm Command, donde se aplican los flujos de trabajo administrados.
 - La administración de dispositivos Enigm OS opcional puede proporcionar señales de estado de confianza adicionales.
-- El texto claro del mensaje permanece fuera del acceso al ciclo de vida administrativo.
+- El texto en claro del mensaje permanece fuera del acceso al ciclo de vida administrativo.
 
 ## Identidad de la cuenta
 
@@ -51,7 +51,7 @@ El modelo de incorporación incluye:
 - Asociación explícita del primer dispositivo de confianza.
 - Separación entre capacidad de recuperación y acceso normal a mensajes.
 
-La creación de una cuenta Enigm estándar no requiere una email, un número de teléfono ni un documento de identidad. Esto apoya la minimización de la identidad y reduce la dependencia de los identificadores públicos.
+La creación de una cuenta Enigm estándar no requiere un correo electrónico, un número de teléfono ni un documento de identidad. Esto apoya la minimización de la identidad y reduce la dependencia de los identificadores públicos.
 
 El modelo de cuenta debe describirse como seudónimo y que minimiza la identidad, en lugar de ser un reclamo absoluto de borrado de identidad. El estado de la cuenta, el estado del dispositivo, los registros de pago, los eventos de seguridad, las obligaciones legales o el comportamiento del usuario aún pueden generar exposición fuera del modelo de registro estándar.
 
@@ -74,7 +74,7 @@ flowchart TD
   App --> Identity["Creación de identidad local del dispositivo"]
   Identity --> Device["Primer dispositivo confiable"]
   App --> Recovery["Frase de recuperación"]
-  Device --> Keys["Protected Material clave"]
+  Device --> Keys["Protected Material de clave"]
   Recovery -. "account continuity, not message plaintext" .-> Boundary["Límite de recuperación"]
 ```
 
@@ -152,7 +152,7 @@ Una sesión no debe considerarse permanentemente válida si Device Trust cambia,
 
 La caducidad o el cierre de la sesión no descifra mensajes, no exporta claves privadas ni elude la política de caducidad de mensajes. Limita el estado de acceso a la cuenta y la elegibilidad del flujo de trabajo protegido.
 
-## Enigm Command Gestión del ciclo de vida
+## Gestión del ciclo de vida en Enigm Command
 
 Enigm Command proporciona administración del ciclo de vida para la seguridad de cuentas y dispositivos en implementaciones administradas.
 
@@ -169,7 +169,7 @@ Enigm Command admite:
 - Revisión de la postura de seguridad.
 - Revisión de auditoría.
 
-Las acciones administrativas no deben otorgar acceso al texto claro del mensaje, al material de clave privada, al contenido seguro de la llamada o al estado del protocolo sensible a la implementación.
+Las acciones administrativas no deben otorgar acceso al texto en claro del mensaje, al material de clave privada, al contenido seguro de la llamada o al estado del protocolo sensible a la implementación.
 
 ## Modo de dispositivo administrado y borrado remoto
 
@@ -179,9 +179,9 @@ Cuando las capacidades de los dispositivos administrados están habilitadas, los
 
 El borrado remoto solo está disponible cuando el usuario habilita las capacidades del dispositivo administrado por Enigm. Debe tratarse como una operación de dispositivo administrado, no como una operación de cuenta general.
 
-El borrado remoto no es un mecanismo para acceder al texto claro de los mensajes. Su propósito es el control del ciclo de vida de los dispositivos y la reducción de riesgos para los dispositivos administrados.
+El borrado remoto no es un mecanismo para acceder al texto en claro de los mensajes. Su propósito es el control del ciclo de vida de los dispositivos y la reducción de riesgos para los dispositivos administrados.
 
-## Opcional Enigm OS Estado de confianza
+## Estado de confianza opcional de Enigm OS
 
 Enigm OS puede proporcionar señales de estado de confianza adicionales cuando se implementa como una capa de dispositivo segura dedicada.
 
@@ -200,7 +200,7 @@ Estas señales pueden fortalecer las decisiones Device Trust. El modelo de cuent
 
 Los flujos de recuperación deben diseñarse de modo que no debiliten la confidencialidad normal de los mensajes.
 
-La recuperación ayuda a restaurar el acceso a la cuenta, reemplazar un dispositivo o restablecer la asociación del dispositivo. La recuperación no debe otorgar automáticamente acceso al texto claro del mensaje o al material de clave privada.
+La recuperación ayuda a restaurar el acceso a la cuenta, reemplazar un dispositivo o restablecer la asociación del dispositivo. La recuperación no debe otorgar automáticamente acceso al texto en claro del mensaje o al material de clave privada.
 
 Este límite separa la continuidad del acceso a la cuenta del acceso al contenido del mensaje protegido.
 
@@ -213,7 +213,7 @@ El modelo de cuenta debe minimizar la dependencia de identificadores públicos s
 Enigm debe evitar exponer metadatos de identidad innecesarios en:
 
 - Documentación pública.
-- Registros de rutina.
+- Registros de habitual.
 - Auditoría de exportaciones.
 - Enigm Command vistas.
 - Registros del ciclo de vida del dispositivo.
@@ -229,7 +229,7 @@ El modelo de cuenta separa:
 - **Dispositivo**: el contexto de ejecución inscrito y su estado de confianza.
 - **Contenido del mensaje**: contenido protegido manejado por flujos de trabajo de mensajería seguros.
 
-Enigm Command puede gestionar la identidad y el estado del ciclo de vida del dispositivo. No debe convertirse en una superficie de acceso a texto claro de mensajes.
+Enigm Command puede gestionar la identidad y el estado del ciclo de vida del dispositivo. No debe convertirse en una superficie de acceso a texto en claro de mensajes.
 
 ## Consideraciones de seguridad
 
@@ -251,7 +251,7 @@ La recuperación debe respaldar la continuidad sin debilitar la confidencialidad
 
 ### Enigm Command límites de seguridad
 
-Enigm Command debe proporcionar control del ciclo de vida y de políticas, no acceso al texto claro del mensaje.
+Enigm Command debe proporcionar control del ciclo de vida y de políticas, no acceso al texto en claro del mensaje.
 
 ### Modo de dispositivo administrado
 
@@ -284,6 +284,6 @@ Los principales límites de confianza son:
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, abuso del ciclo de vida del dispositivo, abuso de Enigm Command, omisión de políticas Enigm OS donde se implementa, manipulación de inteligencia y pérdida de visibilidad de la auditoría.

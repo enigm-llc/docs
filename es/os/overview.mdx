@@ -53,7 +53,7 @@ flowchart TD
   OS --> Services
 ```
 
-## Propósitos de diseño
+## Objetivos de diseño
 
 Enigm OS está diseñado para:
 
@@ -74,7 +74,7 @@ La filosofía de seguridad es:
 
 - Mantenga Enigm App como el producto principal de cara al usuario.
 - Utilice Enigm OS para fortalecer Device Trust donde esté desplegado.
-- Mantenga los controles del dispositivo separados del texto claro de los mensajes.
+- Mantenga los controles del dispositivo separados del texto en claro de los mensajes.
 - Trate la postura del SO como una señal adicional, no como una garantía universal.
 - Preservar la auditabilidad de los dispositivos administrados y los cambios de estado relevantes para la seguridad.
 
@@ -125,7 +125,7 @@ Las capacidades del dispositivo administrado pueden incluir:
 - Soporte de borrado remoto cuando esté habilitado.
 - Visibilidad Enigm Command.
 
-Las capacidades de los dispositivos administrados deben permanecer separadas del acceso a texto claro de mensajes. La administración de dispositivos no es un mecanismo para eludir el cifrado de un extremo a otro.
+Las capacidades de los dispositivos administrados deben permanecer separadas del acceso a texto en claro de mensajes. La administración de dispositivos no es un mecanismo para eludir el cifrado de un extremo a otro.
 
 ## Relación con Enigm App
 
@@ -133,7 +133,7 @@ Enigm App sigue siendo el principal producto de cara al usuario.
 
 Enigm OS puede proporcionar una postura adicional del dispositivo y señales de refuerzo a Enigm App cuando se implemente. Estas señales pueden informar Device Trust, la elegibilidad para mensajes seguros, la elegibilidad para llamadas seguras y la política de dispositivos administrados.
 
-Enigm App la mensajería segura y las llamadas seguras deben seguir siendo modelos de seguridad a nivel de aplicación. Enigm OS puede fortalecer la postura de los terminales, pero no reemplaza el material de claves protegido, el cifrado de extremo a extremo, los flujos de trabajo de verificación ni las decisiones de confianza del usuario.
+Enigm App la mensajería segura y las llamadas seguras deben seguir siendo modelos de seguridad a nivel de aplicación. Enigm OS puede fortalecer la postura de los endpoints, pero no reemplaza el material de claves protegido, el cifrado de extremo a extremo, los flujos de trabajo de verificación ni las decisiones de confianza del usuario.
 
 ## Relación con el ecosistema Enigm
 
@@ -149,7 +149,7 @@ Trust Security Center proporciona una postura de seguridad del dispositivo visib
 
 ### OTA
 
-OTA proporciona ciclo de vida de actualización, firma, verificación, revisión de lanzamiento y comportamiento de implementación controlado para actualizaciones Enigm OS.
+OTA proporciona ciclo de vida de actualización, firma, verificación, revisión de versiones y comportamiento de despliegue controlado para actualizaciones Enigm OS.
 
 ### Gestión de dispositivos
 
@@ -166,6 +166,6 @@ VPN Service, Proxy Network, Enigm eSIM y Tor Gateway son componentes de platafor
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen eludir la política Enigm OS, el abuso del ciclo de vida del dispositivo, la falla de integridad de OTA, el abuso Enigm Command, el compromiso de cuentas y aplicaciones, el uso indebido de las políticas de red y la pérdida de visibilidad de la auditoría.

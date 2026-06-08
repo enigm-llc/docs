@@ -14,7 +14,7 @@ Las controles de producción proporcionan un modelo estructurado para evaluar si
 
 El modelo se centra en:
 
-- Integridad de build.
+- Integridad de compilación.
 - Integridad del arranque.
 - Seguridad en tiempo de ejecución.
 - Configuración de la plataforma.
@@ -29,7 +29,7 @@ El modelo se centra en:
 flowchart TD
   Device["Dispositivo"]
   Validation["Validación de producción"]
-  Build["Integridad de build"]
+  Compilación["Integridad de compilación"]
   Boot["Integridad del arranque"]
   Runtime["Seguridad en tiempo de ejecución"]
   Network["Seguridad de la red"]
@@ -39,7 +39,7 @@ flowchart TD
   Trust["Estado de confianza"]
 
   Device --> Validation
-  Validation --> Build
+  Validation --> Compilación
   Validation --> Boot
   Validation --> Runtime
   Validation --> Network
@@ -69,15 +69,15 @@ Pasar una puerta significa que se cumple el objetivo de seguridad relevante seg�
 
 ## Categorías de controles
 
-### Control 1: Integridad de build
+### Control 1: Integridad de la compilación
 
 Propósitos:
 
 - Construcción de producción.
-- Estado de lanzamiento confiable.
+- Estado de versión confiable.
 - Procedencia de emisión autorizada.
 
-Build Integrity evalúa si el software del dispositivo corresponde a un estado de lanzamiento de producción autorizado.
+La integridad de la compilación evalúa si el software del dispositivo corresponde a un estado de versión de producción autorizado.
 
 ### Control 2: Integridad de arranque
 
@@ -184,7 +184,7 @@ Las categorías de validación deben admitir:
 
 La validación de la producción debe seguir siendo de alto nivel en la documentación pública. La mecánica de validación exacta, los valores de la plataforma y la lógica de puerta interna no se publican.
 
-## Propósitos de seguridad
+## Objetivos de seguridad
 
 El Modelo de controles de producción está diseñado para:
 
@@ -196,7 +196,7 @@ El Modelo de controles de producción está diseñado para:
 - Soporte de actualización y gobierno del ciclo de vida.
 - Mantenga el cumplimiento del dispositivo separado de la confidencialidad de los mensajes.
 
-Las controles de producción no proporciona acceso al texto claro de los mensajes y no reemplazan el cifrado de extremo a extremo Enigm App.
+Las controles de producción no proporciona acceso al texto en claro de los mensajes y no reemplazan el cifrado de extremo a extremo Enigm App.
 
 ## Modelo de evidencia
 
@@ -208,7 +208,7 @@ La validación de la producción debe basarse en:
 - Controles de cumplimiento.
 - Resultados de las políticas.
 
-La evidencia de producción está destinada a respaldar el estado de confianza, la revisión del cumplimiento y la visibilidad de la seguridad. No debe incluir contenido de mensajes, contenido multimedia, contenido de llamadas, archivos adjuntos, documentos o conversaciones de usuarios.
+La evidencia de producción está diseñada para respaldar el estado de confianza, la revisión del cumplimiento y la visibilidad de la seguridad. No debe incluir contenido de mensajes, contenido multimedia, contenido de llamadas, archivos adjuntos, documentos o conversaciones de usuarios.
 
 ## Relación con Trust Security Center
 
@@ -247,7 +247,7 @@ Los flujos de trabajo de dispositivos administrados pueden utilizar una postura 
 - Revisión del dispositivo.
 - Operaciones remotas donde estén habilitadas.
 
-La gestión administrativa de dispositivos debe permanecer separada de la confidencialidad de los mensajes. La visibilidad del cumplimiento de la producción no proporciona acceso a texto claro de mensajes.
+La gestión administrativa de dispositivos debe permanecer separada de la confidencialidad de los mensajes. La visibilidad del cumplimiento de la producción no proporciona acceso a texto en claro de mensajes.
 
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).

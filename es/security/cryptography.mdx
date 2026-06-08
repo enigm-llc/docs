@@ -11,9 +11,9 @@ Este documento define la arquitectura criptográfica pública, los objetivos, lo
 
 ## Resumen
 
-La criptografía se utiliza en Enigm App, Enigm OS, seguridad OTA, Device Trust, comunicaciones seguras y verificación de liberación.
+La criptografía se utiliza en Enigm App, Enigm OS, seguridad OTA, Device Trust, comunicaciones seguras y verificación de versiones.
 
-Soporte de controles criptográficos:
+Los controles criptográficos respaldan:
 
 - Confidencialidad.
 - Integridad.
@@ -21,14 +21,14 @@ Soporte de controles criptográficos:
 - Device Trust.
 - Entrega segura de software.
 - Verificación.
-- Constitución de fideicomisos.
+- Constitución de confianzas.
 - Resiliencia a largo plazo frente al riesgo futuro de transición criptográfica.
 
 ```mermaid
 flowchart TD
   Generation["Generación de claves"]
-  Storage["Protected Almacenamiento"]
-  Trust["Establecimiento de fideicomiso"]
+  Storage["Almacenamiento protegido"]
+  Trust["Establecimiento de confianza"]
   Communication["Comunicación segura"]
   Verification["Verificación"]
 
@@ -40,16 +40,16 @@ flowchart TD
 
 El diagrama es conceptual y describe el ciclo de vida criptográfico a nivel de arquitectura pública.
 
-## Propósitos criptográficos
+## Objetivos criptográficos
 
 La arquitectura criptográfica Enigm está diseñada para respaldar:
 
 - Confidencialidad de las comunicaciones protegidas y datos sensibles.
-- Integridad de mensajes, publicaciones, metadatos y artefactos relevantes para la seguridad.
-- Autenticidad de dispositivos, lanzamientos y partes de confianza.
-- Device Trust a través de material clave protegido y flujos de trabajo de establecimiento de confianza.
+- Integridad de mensajes, versiones, metadatos y artefactos relevantes para la seguridad.
+- Autenticidad de dispositivos, versións y partes de confianza.
+- Device Trust a través de material de clave protegido y flujos de trabajo de establecimiento de confianza.
 - Entrega segura de software mediante firma y verificación de versiones.
-- Verificación de usuarios, dispositivos y estado de lanzamiento.
+- Verificación de usuarios, dispositivos y estado de versión.
 
 La criptografía se trata como parte de un modelo más amplio de defensa en profundidad. Se combina con seguridad del dispositivo, controles de identidad, Trust Security Center, seguridad OTA, política de red y gobernanza.
 
@@ -57,14 +57,14 @@ La criptografía se trata como parte de un modelo más amplio de defensa en prof
 
 El diseño criptográfico de Enigm se guía por:
 
-- Mínima exposición del material clave.
+- Mínima exposición del material de clave.
 - Confianza vinculada al dispositivo.
 - Protección respaldada por hardware cuando esté disponible.
 - Separación de dominios de confianza.
 - Agilidad criptográfica.
 - Defensa en profundidad.
 - Verificación ante acciones sensibles a la confianza.
-- Separación entre administración y acceso a texto claro.
+- Separación entre administración y acceso a texto en claro.
 
 Estos principios tienen como objetivo reducir la exposición de las claves, limitar las suposiciones de confianza y preservar los límites de seguridad independientes en todo el ecosistema.
 
@@ -89,15 +89,15 @@ Este modelo público no divulga conjuntos de parámetros, tamaños de clave más
 
 La mensajería Enigm se basa en protecciones criptográficas de un extremo a otro.
 
-El modelo de mensajería segura está diseñado para que el texto claro de los mensajes esté disponible solo para puntos finales de confianza autorizados. El almacenamiento del lado del servidor, cuando es necesario para la entrega, almacena datos de mensajes cifrados en lugar de contenido de texto claro de mensajes.
+El modelo de mensajería segura está diseñado para que el texto en claro de los mensajes esté disponible solo para endpoints de confianza autorizados. El almacenamiento en servidor, cuando es necesario para la entrega, almacena datos de mensajes cifrados en lugar de contenido de texto en claro de mensajes.
 
-Los sistemas administrativos no proporciona acceso de texto claro a los mensajes.
+Los sistemas administrativos no proporcionan acceso de texto en claro a los mensajes.
 
 El cifrado de extremo a extremo está separado de los controles de privacidad de la red, como VPN, infraestructura de proxy, configuración del tráfico y transporte seguro. Estos controles resuelven diferentes problemas de seguridad y deberían evaluarse juntos en lugar de tratarse como sustitutos.
 
-A nivel de arquitectura pública, la mensajería segura de Enigm combina cifrado de contenido simétrico, objetivos de establecimiento de claves post-cuánticas, objetivos de firma post-cuánticas, material de claves protegido, confianza vinculada al dispositivo y flujos de trabajo de verificación.
+A nivel de arquitectura pública, la mensajería segura de Enigm combina cifrado de contenido simétrico, objetivos de establecimiento de claves poscuánticas, objetivos de firma poscuánticas, material de claves protegido, confianza vinculada al dispositivo y flujos de trabajo de verificación.
 
-La confidencialidad de los mensajes depende de los dispositivos terminales autorizados y del material de claves protegido. Los sistemas del lado del servidor, los flujos de trabajo Enigm Command, los administradores Enigm Server, los sistemas de monitorización y los sistemas operativos no deben convertirse en rutas de acceso de texto claro.
+La confidencialidad de los mensajes depende de los dispositivos endpoints autorizados y del material de claves protegido. Los sistemas en servidor, los flujos de trabajo Enigm Command, los administradores Enigm Server, los sistemas de monitorización y los sistemas operativos no deben convertirse en rutas de acceso de texto en claro.
 
 ## Cifrado de contenido simétrico
 
@@ -121,16 +121,16 @@ Enigm utiliza administración de claves respaldada por HSM para claves criptogr�
 
 A nivel de arquitectura pública, la gestión de claves respaldada por HSM admite:
 
-- Protected almacenamiento de material de claves gestionado.
+- Almacenamiento protegido de material de claves gestionado.
 - Uso controlado de claves mediante operaciones autorizadas.
 - Rotación de claves y gestión del ciclo de vida.
 - Separación de funciones para la administración de claves.
 - Auditabilidad de operaciones clave relevantes para la seguridad.
-- Reducción de la exposición del material clave al tiempo de ejecución de la aplicación y a los flujos de trabajo administrativos.
+- Reducción de la exposición del material de clave al tiempo de ejecución de la aplicación y a los flujos de trabajo administrativos.
 
 La gestión de claves respaldada por HSM está separada del material de claves privadas mantenido en el punto final. También está separado del Modelo de Distribución Secreta.
 
-La administración de claves respaldada por HSM protege las claves de plataforma administradas y las operaciones criptográficas sensibles a la seguridad. No debe describirse como un mecanismo que otorga a los administradores de Enigm acceso al texto claro de mensajes, texto claro de archivos adjuntos, comunicaciones de usuarios o material de clave privada en poder de dispositivos de usuarios de confianza.
+La administración de claves respaldada por HSM protege las claves de plataforma administradas y las operaciones criptográficas sensibles a la seguridad. No debe describirse como un mecanismo que otorga a los administradores de Enigm acceso al texto en claro de mensajes, texto en claro de archivos adjuntos, comunicaciones de usuarios o material de clave privada en poder de dispositivos de usuarios de confianza.
 
 La documentación pública no revela detalles de la relación con terceros HSM, identificadores de claves, jerarquía de claves, programas de rotación, políticas de acceso, procedimientos operativos, ubicaciones de almacenamiento interno o configuraciones de administración de claves sensibles a la implementación.
 
@@ -147,11 +147,11 @@ La arquitectura poscuántica de Enigm utiliza las siguientes familias de algorit
 
 NIST FIPS 203 especifica ML-KEM, que se deriva de CRYSTALS-Kyber. NIST FIPS 204 especifica ML-DSA, que se deriva de CRYSTALS-Dilithium.
 
-La criptografía poscuántica se utiliza como parte de una arquitectura más amplia. No reemplaza Device Trust, el almacenamiento de claves protegido, el cifrado de extremo a extremo, los flujos de trabajo de verificación, la gobernanza de la seguridad ni el refuerzo de terminales.
+La criptografía poscuántica se utiliza como parte de una arquitectura más amplia. No reemplaza Device Trust, el almacenamiento de claves protegido, el cifrado de extremo a extremo, los flujos de trabajo de verificación, la gobernanza de la seguridad ni el refuerzo de endpoints.
 
 Este documento describe la criptografía poscuántica a nivel de arquitectura pública y evita detalles de implementación criptográfica desplegable.
 
-## Establecimiento de clave post-cuántica
+## Establecimiento de claves poscuánticas
 
 El establecimiento de claves poscuánticas se utiliza para respaldar objetivos de confidencialidad a largo plazo para flujos de trabajo de comunicación protegidos.
 
@@ -161,7 +161,7 @@ A nivel de arquitectura pública, el modelo de establecimiento clave está dise�
 - Admite flujos de trabajo de comunicación y mensajes protegidos.
 - Reducir la dependencia únicamente de los supuestos clásicos de clave pública.
 - Respaldar la agilidad criptográfica a medida que evolucionan los estándares y los requisitos de implementación.
-- Preservar la separación entre el material de claves mantenido en el punto final y los sistemas de entrega del lado del servidor.
+- Preservar la separación entre el material de claves mantenido en el punto final y los sistemas de entrega en servidor.
 
 La documentación pública no divulga transcripciones de intercambio, detalles de derivación de claves, conjuntos de parámetros, comportamiento de enrutamiento interno, comportamiento de negociación de dispositivos o secuenciación de protocolos sensibles a la implementación.
 
@@ -179,11 +179,11 @@ A nivel de arquitectura pública, Enigm utiliza objetivos de firma ML-DSA/Dilith
 
 La documentación pública no revela formatos de carga útil de firma, transcripciones de verificación, contextos de firma específicos de implementación, identificadores internos ni material de firma operativo.
 
-## Modelo de distribución secreto
+## Modelo de distribución de secretos
 
 Enigm utiliza un modelo de distribución secreto para reducir la dependencia de una única ubicación de clave recuperable o un único componente administrativo.
 
-El modelo tiene como objetivo garantizar que el material criptográfico protegido o el contexto de autorización no queden expuestos a través de un sistema del lado del servidor, un administrador, una capa de almacenamiento o un flujo de trabajo operativo.
+El modelo tiene como objetivo garantizar que el material criptográfico protegido o el contexto de autorización no queden expuestos a través de un sistema en servidor, un administrador, una capa de almacenamiento o un flujo de trabajo operativo.
 
 A nivel de arquitectura pública, la distribución secreta admite:
 
@@ -191,11 +191,11 @@ A nivel de arquitectura pública, la distribución secreta admite:
 - Exposición reducida de un solo punto.
 - Controles clave del ciclo de vida.
 - Separación de límites de recuperación.
-- Resistencia al acceso administrativo unilateral a texto claro.
+- Resistencia al acceso administrativo unilateral a texto en claro.
 
 La documentación pública no revela umbrales divididos, roles de los participantes, lógica de reconstrucción, ubicaciones de almacenamiento, sistemas internos de manejo de secretos ni procedimientos operativos.
 
-La distribución secreta no otorga a los administradores de Enigm acceso al texto claro de los mensajes. Es un control de defensa en profundidad que complementa el material de claves protegido en el punto final, el cifrado de extremo a extremo y Device Trust.
+La distribución secreta no otorga a los administradores de Enigm acceso al texto en claro de los mensajes. Es un control de defensa en profundidad que complementa el material de claves protegido en el punto final, el cifrado de extremo a extremo y Device Trust.
 
 La administración de claves respaldada por HSM y la distribución de secretos tienen diferentes propósitos. La administración de claves respaldada por HSM protege las claves administradas y las operaciones criptográficas controladas; La distribución secreta reduce la dependencia de una única ubicación secreta recuperable o de una ruta de recuperación administrativa unilateral.
 
@@ -214,7 +214,7 @@ A nivel de arquitectura pública, la protección de datos en reposo incluye:
 
 Cuando se utiliza hash para datos no reversibles, debe combinarse con controles adecuados de protección y salazón. La documentación pública no revela detalles de construcción de hash, mecanismos de generación de sal, esquemas de almacenamiento ni detalles de implementación de administración de claves.
 
-El cifrado en reposo no es lo mismo que el cifrado de extremo a extremo. El cifrado de datos en reposo protege los datos almacenados dentro de los dominios operativos y de almacenamiento, mientras que el cifrado de extremo a extremo protege el contenido del mensaje de modo que el texto claro esté disponible solo para puntos finales de confianza autorizados.
+El cifrado en reposo no es lo mismo que el cifrado de extremo a extremo. El cifrado de datos en reposo protege los datos almacenados dentro de los dominios operativos y de almacenamiento, mientras que el cifrado de extremo a extremo protege el contenido del mensaje de modo que el texto en claro esté disponible solo para endpoints de confianza autorizados.
 
 ## Datos en tránsito
 
@@ -251,7 +251,7 @@ Los controles de transporte web público son independientes del cifrado de extre
 
 La documentación pública no revela nombres de autoridades de certificación, nombres de relaciones de borde público, nombres de host internos, dominios no públicos, topología de enrutamiento privado, elementos internos de automatización de certificados ni detalles de implementación operativa.
 
-## TLS Línea base de Cipher Suite
+## Línea base TLS de suites de cifrado
 
 Para la compatibilidad de TLS 1.2 en rutas web públicas admitidas, Enigm utiliza una línea base de conjunto de cifrado fuerte y restringida.
 
@@ -268,9 +268,9 @@ La línea base de compatibilidad pública TLS 1.2 incluye:
 
 TLS 1.3 sigue siendo la base de transporte preferida para clientes compatibles.
 
-La documentación del conjunto de cifrado se limita a la postura del transporte web público. No debe interpretarse como una divulgación de la topología del servicio interno, los puntos finales privados, los aspectos internos del protocolo de aplicación o los detalles del protocolo de cifrado de mensajes.
+La documentación del conjunto de cifrado se limita a la postura del transporte web público. No debe interpretarse como una divulgación de la topología del servicio interno, los endpoints privados, los aspectos internos del protocolo de aplicación o los detalles del protocolo de cifrado de mensajes.
 
-## Ciclo de vida clave
+## Ciclo de vida de claves
 
 Las claves criptográficas se gestionan mediante eventos del ciclo de vida.
 
@@ -290,7 +290,7 @@ La gestión del ciclo de vida de las claves se evalúa junto con la protección 
 
 ## Confianza vinculada al dispositivo
 
-El material de clave privada está destinado a permanecer asociado con dispositivos de confianza.
+El material de clave privada está diseñado para permanecer asociado con dispositivos de confianza.
 
 La confianza vinculada al dispositivo admite:
 
@@ -309,11 +309,11 @@ Los mecanismos de almacenamiento del dispositivo Protected se utilizan para la p
 
 Cuando esté disponible, se utiliza protección respaldada por hardware. En plataformas móviles compatibles, el almacenamiento seguro puede utilizar almacenamiento protegido proporcionado por la plataforma y capacidades de protección de claves respaldadas por hardware.
 
-Cuando los límites del hardware no puedan almacenar directamente material criptográfico de mayor tamaño, se podrá utilizar un envoltorio protegido o material de control de acceso para proteger el material clave fuera de los límites seguros del hardware.
+Cuando los límites del hardware no puedan almacenar directamente material criptográfico de mayor tamaño, se podrá utilizar un envoltorio protegido o material de control de acceso para proteger el material de clave fuera de los límites seguros del hardware.
 
-El material de clave privada no debe almacenarse en texto claro.
+El material de clave privada no debe almacenarse en texto en claro.
 
-El almacenamiento seguro reduce la exposición de las claves, pero no elimina el riesgo de comprometer los terminales.
+El almacenamiento seguro reduce la exposición de las claves, pero no elimina el riesgo de comprometer los endpoints.
 
 En iOS, Enigm App utiliza protección respaldada por Keychain y Secure Enclave cuando esté disponible y sea apropiado. En Android, Enigm App utiliza protección respaldada por Keystore de Android, incluida la protección respaldada por Keystore o StrongBox respaldada por hardware según la clase de dispositivo y la capacidad de implementación.
 
@@ -326,12 +326,12 @@ Los flujos de trabajo de verificación pueden admitir:
 - Establecimiento Device Trust.
 - Verificación de contacto o dispositivo.
 - Inscripción multidispositivo.
-- Controles de autenticidad de release.
+- Controles de autenticidad de versión.
 - Verificación del manifiesto.
 - Verificación de artefactos.
 - Revisión del estado de confianza.
 
-La verificación tiene como objetivo reducir la dependencia de la confianza implícita. No reemplaza la concienciación del usuario, la seguridad del dispositivo ni el material clave protegido.
+La verificación tiene como objetivo reducir la dependencia de la confianza implícita. No reemplaza la concienciación del usuario, la seguridad del dispositivo ni el material de clave protegido.
 
 ## Criptografía OTA
 
@@ -346,7 +346,7 @@ La criptografía OTA incluye:
 
 La firma de la autorización establece la autenticidad de la autorización. La verificación de manifiesto protege los metadatos de la versión. La verificación de artefactos protege el contenido actualizado. Los controles de elegibilidad ayudan a determinar si un dispositivo debe recibir una autorización.
 
-La criptografía OTA no reemplaza el arranque verificado, Remote Attestation, las controles de producción, la evaluación Device Trust ni la verificación del cliente.
+La criptografía OTA no reemplaza el arranque verificado, Remote Attestation, los controles de producción, la evaluación Device Trust ni la verificación del cliente.
 
 ## Agilidad criptográfica
 
@@ -360,7 +360,7 @@ La arquitectura criptográfica de Enigm debería respaldar la revisión y evoluc
 - Flujos de trabajo de firma y verificación.
 - Capacidades de almacenamiento seguro.
 - Requisitos de protección del transporte.
-- Requisitos de firma de release.
+- Requisitos de firma de versión.
 - Requisitos de gestión de claves respaldados por HSM.
 
 La agilidad criptográfica no significa una sustitución incontrolada de algoritmos. Los cambios en la arquitectura criptográfica deben revisarse mediante desarrollo seguro, gobernanza de seguridad, controles de liberación y procesos de garantía.
@@ -373,9 +373,9 @@ La criptografía no protege contra:
 
 - Ingeniería social.
 - Usuarios maliciosos de confianza.
-- Puntos finales comprometidos.
+- Endpoints comprometidos.
 - Futuras vulnerabilidades desconocidas.
-- Usuarios autorizados que divulgan texto claro.
+- Usuarios autorizados que divulgan texto en claro.
 - Grabación externa o captura fuera de los controles de Enigm.
 - Prácticas operativas débiles fuera de los límites criptográficos.
 - Implementación incorrecta de algoritmos que de otro modo serían apropiados.

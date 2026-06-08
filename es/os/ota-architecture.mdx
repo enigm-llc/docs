@@ -1,10 +1,10 @@
 ---
 title: Arquitectura OTA
 sidebarTitle: Arquitectura OTA
-description: Arquitectura de actualización OTA de Enigm OS, ciclo de vida de release y modelo de verificación del cliente.
+description: Arquitectura de actualización OTA de Enigm OS, ciclo de vida de versión y modelo de verificación del cliente.
 ---
 
-La arquitectura OTA de Enigm OS ofrece de forma segura actualizaciones de software de confianza a dispositivos elegibles a través de control de lanzamiento controlado, verificación de actualizaciones e implementación por etapas.
+La arquitectura OTA de Enigm OS ofrece de forma segura actualizaciones de software de confianza a dispositivos elegibles a través de control de versiones gobernado, verificación de actualizaciones e implementación por etapas.
 
 Esta página consolida la descripción general de OTA, el ciclo de vida de la versión y las responsabilidades de verificación del cliente.
 
@@ -14,16 +14,16 @@ Enigm OS OTA es la arquitectura de actualización controlada para entregar actua
 
 ```mermaid
 flowchart TD
-  Build["Build"]
+  Compilación["Compilación"]
   Prepare["Preparación de artefactos"]
-  Signing["Firma de liberación"]
+  Signing["Firma de versión"]
   Validation["Validación"]
   Rollout["Despliegue controlado"]
-  Stable["Lanzamiento estable"]
+  Stable["Versión estable"]
   Client["Verificación del cliente"]
   Install["Instalación del dispositivo"]
 
-  Build --> Prepare
+  Compilación --> Prepare
   Prepare --> Signing
   Signing --> Validation
   Validation --> Rollout
@@ -38,29 +38,29 @@ La arquitectura OTA está diseñada para admitir:
 
 - Entrega segura de software.
 - Distribución controlada de actualizaciones.
-- Autenticidad de release.
+- Autenticidad de versión.
 - Liberación de integridad.
 - Elegibilidad del dispositivo.
 - Actualizar la confianza.
 - Gobernanza del despliegue.
 - Verificación del cliente independiente antes de la instalación.
 
-La entrega OTA no reemplaza la firma de lanzamiento, la verificación de artefactos, la validación del lado del cliente, Device Trust ni las controles de producción.
+La entrega OTA no reemplaza la firma de versión, la verificación de artefactos, la validación en cliente, Device Trust ni los controles de producción.
 
 ## Propósito de la OTA
 
 OTA existe para entregar de forma segura actualizaciones de software de confianza a dispositivos elegibles.
 
-La arquitectura está diseñada para garantizar que los dispositivos reciban el software publicado a través de flujos de trabajo de lanzamiento autorizados de Enigm y que los dispositivos verifiquen la autenticidad, la integridad y el cumplimiento de las políticas de la versión antes de aceptar una actualización.
+La arquitectura está diseñada para garantizar que los dispositivos reciban el software publicado a través de flujos de trabajo de versión autorizados de Enigm y que los dispositivos verifiquen la autenticidad, la integridad y el cumplimiento de las políticas de la versión antes de aceptar una actualización.
 
 ## Entrega segura de software
 
-La entrega segura de software combina control de lanzamiento, firma, validación, controles de elegibilidad, control de implementación y verificación del lado del dispositivo.
+La entrega segura de software combina control de versión, firma, validación, controles de elegibilidad, control de despliegue y verificación en el dispositivo.
 
 La entrega segura depende de:
 
-- Flujos de trabajo de lanzamiento autorizados.
-- Verificación de metadatos de release.
+- Flujos de trabajo de versión autorizados.
+- Verificación de metadatos de versión.
 - Validación de integridad de artefactos.
 - Elegibilidad del dispositivo.
 - Política de despliegue.
@@ -68,11 +68,11 @@ La entrega segura depende de:
 
 ## Arquitectura OTA
 
-La arquitectura OTA separa la preparación del lanzamiento, la evaluación de elegibilidad, la verificación del dispositivo y la instalación.
+La arquitectura OTA separa la preparación del versión, la evaluación de elegibilidad, la verificación del dispositivo y la instalación.
 
 ```mermaid
 flowchart TD
-  Pipeline["Canal de lanzamiento"]
+  Pipeline["Pipeline de versiones"]
   Service["Servicio OTA"]
   Eligibility["Comprobaciones de elegibilidad"]
   Verification["Verificación del dispositivo"]
@@ -86,11 +86,11 @@ flowchart TD
 
 Estas funciones son responsabilidades de seguridad separadas en lugar de una única decisión de confianza.
 
-## Objetivos de release
+## Objetivos de la versión
 
-Los lanzamientos OTA pasan por un ciclo de vida controlado antes de una amplia disponibilidad. El ciclo de vida de la versión existe para reducir el riesgo de implementación, preservar la integridad del software y mantener la responsabilidad de la versión.
+Los versións OTA pasan por un ciclo de vida controlado antes de una amplia disponibilidad. El ciclo de vida de la versión existe para reducir el riesgo de implementación, preservar la integridad del software y mantener la responsabilidad de la versión.
 
-Los objetivos de lanzamiento incluyen:
+Los objetivos de versión incluyen:
 
 - Autenticidad del software.
 - Liberación de integridad.
@@ -99,7 +99,7 @@ Los objetivos de lanzamiento incluyen:
 - Aplicación de la elegibilidad del dispositivo.
 - Resiliencia de usuarios y plataformas.
 
-## Etapas de lanzamiento
+## Etapas de publicación
 
 El ciclo de vida de la versión se organiza conceptualmente como:
 
@@ -107,7 +107,7 @@ El ciclo de vida de la versión se organiza conceptualmente como:
 2. Preparación de artefactos.
 3. Creación del manifiesto.
 4. Liberación de firma.
-5. Registro de release.
+5. Registro de versión.
 6. Validación.
 7. Despliegue controlado.
 8. Liberación estable.
@@ -127,13 +127,13 @@ La validación incluye:
 
 La validación reduce el riesgo de implementación antes de que una versión esté ampliamente disponible.
 
-## Estrategia de implementación
+## Estrategia de despliegue
 
 OTA admite modelos de implementación por etapas, que incluyen:
 
 - Borrador.
 - Validación.
-- Lanzamiento limitado.
+- Versión limitado.
 - Implementación estable.
 - Despliegue de seguridad.
 
@@ -160,7 +160,7 @@ La elegibilidad del dispositivo es independiente de la verificación de artefact
 
 Dispositivos elegibles:
 
-- Descubre lanzamientos.
+- Descubre versións.
 - Verificar la autenticidad de la liberación.
 - Verificar la integridad de la liberación.
 - Verificar los requisitos de la política.
@@ -176,7 +176,7 @@ El cliente OTA actúa como una capa de verificación independiente antes de la i
 
 El cliente verifica:
 
-- Autenticidad de release.
+- Autenticidad de versión.
 - Liberación de integridad.
 - Elegibilidad del dispositivo.
 - Cumplimiento de políticas.
@@ -219,7 +219,7 @@ El cliente verifica:
 
 - Integridad de los artefactos.
 - Hashes esperados.
-- Consistencia de release.
+- Consistencia de versión.
 
 El cliente rechaza artefactos corruptos, artefactos inesperados y fallas de integridad.
 
@@ -233,7 +233,7 @@ El cliente verifica:
 - Políticas de despliegue.
 - Requisitos de compatibilidad.
 
-La verificación de políticas garantiza que los artefactos técnicamente válidos sigan siendo apropiados para el dispositivo solicitante y el contexto de lanzamiento.
+La verificación de políticas garantiza que los artefactos técnicamente válidos sigan siendo apropiados para el dispositivo solicitante y el contexto de versión.
 
 ## Protección de reversión
 
@@ -241,9 +241,9 @@ El cliente aplica restricciones de reversión cuando corresponde. El cliente no 
 
 La protección de reversión respalda la integridad del software al evitar que los dispositivos acepten versiones que entren en conflicto con la política de actualización o los requisitos de seguridad.
 
-## Gobernanza de versiones
+## Gobernanza de la versión
 
-La publicación del lanzamiento se rige por:
+La publicación de la versión se rige por:
 
 - Requisitos de firma.
 - Requisitos de validación.
@@ -251,13 +251,13 @@ La publicación del lanzamiento se rige por:
 - Controles de despliegue.
 - Controles de verificación.
 
-La firma de lanzamientos autoriza los lanzamientos. El ciclo de vida de la versión rige la implementación. La verificación del cliente valida la aceptación de la versión antes de la instalación. Estas funciones tienen diferentes propósitos.
+La firma de versións autoriza los versións. El ciclo de vida de la versión rige la implementación. La verificación del cliente valida la aceptación de la versión antes de la instalación. Estas funciones tienen diferentes propósitos.
 
 ## Relación con Trust Security Center
 
 Trust Security Center evalúa la integridad del dispositivo local.
 
-OTA evalúa la elegibilidad de lanzamiento y la entrega de software.
+OTA evalúa la elegibilidad de la versión y la entrega de software.
 
 Estos sistemas están relacionados pero tienen propósitos diferentes. Trust Security Center puede reflejar la postura local después de la instalación de la actualización, mientras que OTA gobierna la entrega y verificación de la actualización.
 
@@ -269,9 +269,9 @@ Remote Attestation complementa los controles de seguridad de OTA y puede ayudar 
 
 La verificación del cliente sigue siendo necesaria incluso cuando se utiliza Remote Attestation.
 
-## Relación con la firma de autorización de release
+## Relación con la firma de autorización de versiones
 
-La firma de lanzamientos autoriza los lanzamientos.
+La firma de versións autoriza los versións.
 
 El ciclo de vida de la versión rige la implementación de la versión.
 

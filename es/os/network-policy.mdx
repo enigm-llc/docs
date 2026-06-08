@@ -1,5 +1,5 @@
 ---
-title: Política de red del sistema operativo
+title: Política de red de Enigm OS
 sidebarTitle: Política de red
 description: Marco de políticas de privacidad y seguridad de la red pública para Enigm OS.
 ---
@@ -43,7 +43,7 @@ flowchart TD
 
 El diagrama es conceptual. Muestra funciones de política, no topología de implementación.
 
-## Propósitos de diseño
+## Objetivos de diseño
 
 La política de red Enigm OS está diseñada para:
 
@@ -54,7 +54,7 @@ La política de red Enigm OS está diseñada para:
 - Apoyar los objetivos de reducción de metadatos.
 - Apoyar la separación del tráfico mediante controles de plataforma.
 - Proporcionar una postura de red de dispositivos para Trust Security Center.
-- Mantenga los controles de red separados del texto claro de los mensajes.
+- Mantenga los controles de red separados del texto en claro de los mensajes.
 
 La política de red es una capa de seguridad complementaria. No reemplaza el cifrado de extremo a extremo Enigm App, el material de claves protegido, la asociación de dispositivos de confianza ni los flujos de trabajo de verificación de usuarios.
 
@@ -123,7 +123,7 @@ Estos controles están diseñados para reducir la exposición a observadores de 
 
 La reducción de metadatos es un objetivo central del modelo de política de red.
 
-Enigm OS utiliza controles destinados a reducir la cantidad, precisión o confiabilidad de los metadatos de la red observables. Estos controles afectan la exposición directa, la confianza en el tiempo, la visibilidad de la resolución de nombres y la confiabilidad de la correlación.
+Enigm OS utiliza controles diseñados para reducir la cantidad, precisión o confiabilidad de los metadatos de la red observables. Estos controles afectan la exposición directa, la confianza en el tiempo, la visibilidad de la resolución de nombres y la confiabilidad de la correlación.
 
 ### Consideraciones sobre el análisis de tráfico
 
@@ -146,7 +146,7 @@ Enigm App sigue siendo el principal producto orientado al usuario en el ecosiste
 
 La política de red Enigm OS puede fortalecer el entorno de red alrededor de Enigm App, pero no reemplaza la seguridad a nivel de aplicación. La mensajería y las llamadas seguras dependen del cifrado de extremo a extremo, el material de claves protegido, la asociación de dispositivos y los flujos de trabajo de verificación.
 
-La política de red no proporciona acceso al texto claro de los mensajes y no inspecciona el contenido de los mensajes.
+La política de red no proporciona acceso al texto en claro de los mensajes y no inspecciona el contenido de los mensajes.
 
 ## Relación con VPN
 
@@ -155,7 +155,7 @@ VPN es una capa opcional de protección de transporte y privacidad de la red.
 La VPN y el cifrado de extremo a extremo resuelven diferentes problemas:
 
 - La VPN puede reducir la visibilidad de los observadores de la red local o intermedia.
-- El cifrado de extremo a extremo protege el contenido de los mensajes entre puntos finales de confianza.
+- El cifrado de extremo a extremo protege el contenido de los mensajes entre endpoints de confianza.
 
 VPN y modelado de tráfico son controles complementarios. La VPN puede proteger las rutas de transporte, mientras que la configuración del tráfico puede reducir la confianza en una simple inferencia basada en tiempos. Ninguno de los controles hace que un punto final comprometido sea confiable.
 

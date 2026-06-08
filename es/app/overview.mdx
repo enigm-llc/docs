@@ -32,7 +32,7 @@ La mensajería segura es un flujo de trabajo central Enigm App. El contenido del
 
 La mensajería segura de Enigm admite flujos de trabajo de texto y multimedia, incluidos mensajes, archivos, imágenes, videos y otros medios compatibles. La política de conversación y de grupo puede controlar el envío, el reenvío, la eliminación y el manejo de medios, preservando al mismo tiempo el modelo de cifrado de extremo a extremo.
 
-El manejo seguro de medios está diseñado para reducir la exposición innecesaria del texto claro a través de visualización protegida, persistencia local limitada, caducidad y controles de resistencia a la captura de acuerdo con la capacidad y la política del dispositivo. Estos controles reducen la exposición durante el uso normal; no garantizan protección contra puntos finales comprometidos, grabaciones externas o divulgación intencional por parte de participantes autorizados.
+El manejo seguro de medios está diseñado para reducir la exposición innecesaria del texto en claro a través de visualización protegida, persistencia local limitada, caducidad y controles de resistencia a la captura de acuerdo con la capacidad y la política del dispositivo. Estos controles reducen la exposición durante el uso normal; no garantizan protección contra endpoints comprometidos, grabaciones externas o divulgación intencional por parte de participantes autorizados.
 
 La arquitectura de mensajería está documentada por separado en [Mensajería segura](/es/app/secure-messaging).
 
@@ -48,7 +48,7 @@ El modelo de registro incluye:
 - Asociación inicial de dispositivo confiable.
 - Separación entre recuperación de cuenta y acceso a mensajes protegidos.
 
-La creación de una cuenta Enigm estándar no requiere una email, un número de teléfono ni un documento de identidad. Esto apoya la minimización de la identidad y reduce la exposición innecesaria de la identidad.
+La creación de una cuenta Enigm estándar no requiere un correo electrónico, un número de teléfono ni un documento de identidad. Esto apoya la minimización de la identidad y reduce la exposición innecesaria de la identidad.
 
 Las sesiones de Enigm App están limitadas a 6 horas. El estado de la sesión se evalúa por separado de Device Trust, el material de clave protegido, el estado de recuperación y la autorización administrativa.
 
@@ -64,7 +64,7 @@ Active Defense es una capacidad Enigm App diseñada para ayudar a los usuarios a
 
 Active Defense analiza señales de comportamiento de red minimizadas en ventanas de evaluación limitadas. Su objetivo es respaldar la orientación del usuario, las decisiones Device Trust, la visibilidad del dispositivo administrado cuando esté habilitada y la correlación Enigm Intelligence cuando esté autorizada.
 
-Active Defense no está destinado a inspeccionar el texto claro de los mensajes, el contenido de las llamadas, los medios, los archivos adjuntos, los documentos o las conversaciones de los usuarios.
+Active Defense no está diseñado para inspeccionar el texto en claro de los mensajes, el contenido de las llamadas, los medios, los archivos adjuntos, los documentos o las conversaciones de los usuarios.
 
 El modelo Active Defense está documentado por separado en [Active Defense](/es/app/active-defense).
 
@@ -107,9 +107,9 @@ Las señales Enigm OS son aditivas. La seguridad de Enigm App no debe asumir que
 
 VPN Service y Proxy Network son compatibles con los componentes de privacidad de red y separación de tráfico de Enigm App. VPN Service proporciona privacidad de red opcional y protección de transporte. Proxy Network reduce la exposición directa entre los clientes de la aplicación y los servicios de la plataforma cuando estén habilitados.
 
-VPN Service y Proxy Network están separados de Enigm Server y del cifrado de extremo a extremo Enigm App. No definen el modelo de seguridad de la aplicación, no reemplazan Device Trust ni brindan acceso al texto claro de los mensajes.
+VPN Service y Proxy Network están separados de Enigm Server y del cifrado de extremo a extremo Enigm App. No definen el modelo de seguridad de la aplicación, no reemplazan Device Trust ni brindan acceso al texto en claro de los mensajes.
 
-El uso del servicio de red debe estar autorizado, tener en cuenta las políticas y ser auditable cuando sea relevante para la seguridad. El contenido de la comunicación Protected debe permanecer separado de los registros de políticas de red de rutina.
+El uso del servicio de red debe estar autorizado, tener en cuenta las políticas y ser auditable cuando sea relevante para la seguridad. El contenido de la comunicación Protected debe permanecer separado de los registros de políticas de red de habitual.
 
 ## Integración con Enigm eSIM
 
@@ -123,7 +123,7 @@ Enigm Server proporciona entornos de mensajería privados dedicados para usuario
 
 Los usuarios solicitan acceso a un entorno Enigm Server utilizando la ID del servidor compartida por el administrador. Enigm App accede a los entornos Enigm Server cuando el estado de la cuenta, Device Trust, la aprobación del administrador, la política de membresía y la política del servidor lo permiten. Enigm Server no reemplaza la mensajería segura, las llamadas seguras, el material de claves protegido, el cifrado de extremo a extremo ni el Device Trust.
 
-La administración del servidor controla la membresía, el ciclo de vida y la disponibilidad del contenido cifrado en el ámbito del servidor. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. No otorgan acceso al texto claro del mensaje, al texto claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
+La administración del servidor controla la membresía, el ciclo de vida y la disponibilidad del contenido cifrado en el ámbito del servidor. Los controles de eliminación administrativa operan sobre objetos de contenido cifrados y el estado del ciclo de vida. No otorgan acceso al texto en claro del mensaje, al texto en claro del archivo adjunto, a las comunicaciones del usuario, al material de clave privada o a la autoridad criptográfica.
 
 ## Integración con Enigm Key
 
@@ -143,9 +143,9 @@ Cuando está inactivo, Enigm Key debe permanecer inactivo para reducir la exposi
 - La mensajería y las llamadas seguras deben depender del material de clave protegido y del estado autorizado del dispositivo.
 - Active Defense debería mejorar la visibilidad del riesgo del dispositivo sin debilitar la confidencialidad del contenido o la privacidad del usuario.
 - Las acciones Enigm Command deben estar autenticadas, autorizadas y auditables.
-- La postura opcional Enigm OS puede fortalecer las decisiones Device Trust cuando se implementen.
+- La postura opcional de Enigm OS puede fortalecer las decisiones Device Trust cuando se implementen.
 - VPN Service y Proxy Network deben admitir la privacidad de la red y la reducción de metadatos sin requerir la divulgación de contenido protegido.
-- Enigm Server debe admitir la membresía del servidor y los controles del ciclo de vida del contenido cifrado en el ámbito del servidor sin convertirse en una superficie de texto claro, archivo adjunto, comunicación de usuario o acceso a clave privada.
+- Enigm Server debe admitir la membresía del servidor y los controles del ciclo de vida del contenido cifrado en el ámbito del servidor sin convertirse en una superficie de texto en claro, archivo adjunto, comunicación de usuario o acceso a clave privada.
 - Enigm Key debe utilizar comunicación cifrada y autenticada y manejo de datos de emergencia vinculados a eventos.
 
 ## Consideraciones de privacidad
@@ -197,6 +197,6 @@ flowchart LR
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen el compromiso de cuentas y aplicaciones, el abuso del ciclo de vida del dispositivo, la omisión de la política Enigm OS cuando se implementa, el uso indebido de la política de red, la manipulación de la inteligencia, el abuso Enigm Command y la pérdida de visibilidad de la auditoría.

@@ -19,7 +19,7 @@ Active Defense está diseñado como una capacidad no intrusiva:
 - No requiere acceso root.
 - No requiere acceso amplio al sistema de archivos.
 - No descifra el tráfico de la capa de aplicación.
-- No inspecciona el texto claro de los mensajes, el contenido de las llamadas, los medios, los archivos adjuntos, los documentos o las conversaciones de los usuarios.
+- No inspecciona el texto en claro de los mensajes, el contenido de las llamadas, los medios, los archivos adjuntos, los documentos o las conversaciones de los usuarios.
 - Analiza señales técnicas minimizadas, comportamiento del flujo de red, características del protocolo y hallazgos de seguridad.
 
 Active Defense es parte de Enigm App. Enigm OS puede proporcionar señales adicionales de integridad del dispositivo cuando se implementa, pero Active Defense sigue siendo una capacidad de seguridad a nivel de aplicación.
@@ -61,24 +61,24 @@ Estas categorías están documentadas únicamente a nivel de arquitectura públi
 
 Active Defense no debe inspeccionar:
 
-- Mensaje en texto claro.
+- Mensaje en texto en claro.
 - Llamar contenido.
 - Contenido multimedia.
 - Adjuntos.
 - Conversaciones de usuarios.
 - Claves privadas.
-- Frases de recuperación en texto claro.
+- Frases de recuperación en texto en claro.
 - Material de clave privada mantenido en el dispositivo.
 
 El contenido de Protected permanece fuera del modelo de análisis de Active Defense.
 
-## Procesamiento del lado del dispositivo
+## Procesamiento en el dispositivo
 
 Las evaluaciones Active Defense las inicia el usuario desde Enigm App. El usuario puede ver cuando el análisis está activo.
 
 Active Defense está diseñado para procesar señales relevantes para la seguridad desde el dispositivo con el menor acceso necesario para la evaluación.
 
-El procesamiento del lado del dispositivo debe priorizar:
+El procesamiento en el dispositivo debe priorizar:
 
 - Señales técnicas minimizadas.
 - Contexto de seguridad más que contenido.
@@ -86,13 +86,13 @@ El procesamiento del lado del dispositivo debe priorizar:
 - Visibilidad del usuario cuando la actividad de evaluación está activa.
 - Separación de comunicaciones protegidas y material de clave privada.
 
-El procesamiento del lado del dispositivo no debe debilitar el cifrado de extremo a extremo Enigm App, el almacenamiento seguro, el material de claves protegido o los controles del ciclo de vida de los mensajes.
+El procesamiento en el dispositivo no debe debilitar el cifrado de extremo a extremo Enigm App, el almacenamiento seguro, el material de claves protegido o los controles del ciclo de vida de los mensajes.
 
-## Procesamiento del lado del servidor
+## Procesamiento en servidor
 
 El análisis Active Defense se realiza en un entorno de análisis VPN controlado por Enigm.
 
-Los datos de análisis están protegidos en tránsito y en reposo. El procesamiento del lado del servidor sigue estando limitado a fines de seguridad y utiliza un contexto de seguridad minimizado. No debe requerir texto claro del mensaje, contenido de la llamada, contenido multimedia, archivos adjuntos, conversaciones de usuarios o claves privadas.
+Los datos de análisis están protegidos en tránsito y en reposo. El procesamiento en servidor sigue estando limitado a fines de seguridad y utiliza un contexto de seguridad minimizado. No debe requerir texto en claro del mensaje, contenido de la llamada, contenido multimedia, archivos adjuntos, conversaciones de usuarios o claves privadas.
 
 Cuando los hallazgos de Active Defense se comparten con Enigm Intelligence o Enigm Command, el acceso debe permanecer dentro del alcance de la autorización y estar separado del contenido protegido.
 
@@ -128,7 +128,7 @@ El control de acceso debe:
 - Evite ampliar el acceso a través de flujos de trabajo conversacionales, administrativos o de soporte.
 - Asegúrese de que la visibilidad de Enigm Command no se convierta en visibilidad del contenido del mensaje.
 
-## Propósitos de diseño
+## Objetivos de diseño
 
 Active Defense está diseñado para:
 
@@ -182,7 +182,7 @@ Estas categorías están documentadas únicamente en un nivel alto. La documenta
 
 Active Defense utiliza análisis asistido por IA para evaluar señales de comportamiento de la red y producir un contexto de seguridad.
 
-La capa de IA está destinada a admitir:
+La capa de IA está diseñada para admitir:
 
 - Correlación multiseñal.
 - Reconocimiento de patrones en categorías de comportamiento de red.
@@ -280,9 +280,9 @@ El modelo de privacidad se basa en:
 - Reducción de la exposición de la identidad.
 - Contexto de seguridad en lugar de una amplia colección de contenido de usuario.
 
-Active Defense no está destinado a inspeccionar:
+Active Defense no está diseñado para inspeccionar:
 
-- Mensaje en texto claro.
+- Mensaje en texto en claro.
 - Llamar contenido.
 - Contenido multimedia.
 - Adjuntos.
@@ -380,7 +380,7 @@ Las consideraciones de privacidad incluyen:
 
 ## Límites de confianza
 
-Los límites primarios del fideicomiso incluyen:
+Los límites primarios del confianza incluyen:
 
 - Usuario a Enigm App.
 - Enigm App a Active Defense.
@@ -389,11 +389,11 @@ Los límites primarios del fideicomiso incluyen:
 - Active Defense a Enigm Intelligence cuando esté autorizado.
 - Active Defense hallazgos para Enigm Command revisar los flujos de trabajo.
 
-La visibilidad administrativa de los hallazgos de Active Defense no implica visibilidad del texto claro del mensaje, el contenido de la llamada, los medios, los archivos adjuntos o el material de clave privada.
+La visibilidad administrativa de los hallazgos de Active Defense no implica visibilidad del texto en claro del mensaje, el contenido de la llamada, los medios, los archivos adjuntos o el material de clave privada.
 
 
 Ver [Limitaciones de la plataforma](/es/legal/limitations).
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
-Las áreas relevantes del modelo de amenazas incluyen el compromiso de los terminales, el riesgo de software espía, el abuso del ciclo de vida del dispositivo, la apropiación de cuentas asistida por malware, la observación de la red, la exposición de metadatos, los usuarios maliciosos de confianza, la pérdida de integridad del dispositivo y la confiabilidad reducida de las señales de seguridad originadas en el dispositivo.
+Las áreas relevantes del modelo de amenazas incluyen el compromiso de los endpoints, el riesgo de software espía, el abuso del ciclo de vida del dispositivo, la apropiación de cuentas asistida por malware, la observación de la red, la exposición de metadatos, los usuarios maliciosos de confianza, la pérdida de integridad del dispositivo y la confiabilidad reducida de las señales de seguridad originadas en el dispositivo.

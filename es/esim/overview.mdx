@@ -11,9 +11,9 @@ Enigm eSIM es el producto de conectividad privada en el ecosistema Enigm. Se cen
 
 El servicio Enigm eSIM proporciona conectividad de datos móviles como componente de plataforma de soporte en todas las áreas de cobertura admitidas. Es solo de datos y no proporciona la funcionalidad tradicional de llamadas de voz ni SMS.
 
-Enigm eSIM se compra y gestiona a través de Enigm Command. El ciclo de vida de la eSIM está vinculado a la cuenta Enigm del usuario y el usuario puede eliminarlo o desvincularlo.
+Enigm eSIM se compra y gestiona a través de Enigm Command. El ciclo de vida de la eSIM está vinculado a la cuenta Enigm del usuario y el usuario puede eliminarla o desvincularla.
 
-Enigm proporciona Enigm eSIM como un servicio de gestión del ciclo de vida y facilitación comercial. Enigm no es un operador de red móvil, un operador de red móvil virtual, un operador de telecomunicaciones, un operador de red de acceso por radio ni un emisor directo de la conectividad del operador subyacente. La infraestructura del operador, la operación de la red del operador, el acceso de radio, el transporte de tráfico, la asignación de IP, el comportamiento de roaming y los registros de conectividad de la capa del operador son operados por un proveedor de infraestructura de telecomunicaciones independiente.
+Enigm proporciona Enigm eSIM como un servicio de gestión del ciclo de vida y facilitación comercial. Enigm no es un operador de red móvil, un operador de red móvil virtual, un operador de telecomunicaciones, un operador de red de acceso por radio ni un emisor directo de la conectividad del operador subyacente. La infraestructura del operador, la operación de la red de operador, el acceso de radio, el transporte de tráfico, la asignación de IP, el comportamiento de roaming y los registros de conectividad de la capa del operador son operados por un proveedor de infraestructura de telecomunicaciones independiente.
 
 Enigm eSIM está separado de la criptografía Enigm App, del cifrado de extremo a extremo y de la funcionalidad VPN.
 
@@ -39,16 +39,16 @@ flowchart TD
 
 ## Propósito
 
-El servicio Enigm eSIM está diseñado para reducir la dependencia de los flujos de trabajo de identidad móviles tradicionales dentro del flujo de gestión del ciclo de vida y compras del lado de Enigm, al tiempo que proporciona conectividad de datos móviles.
+El servicio Enigm eSIM está diseñado para reducir la dependencia de los flujos de trabajo de identidad móviles tradicionales dentro del flujo de gestión del ciclo de vida y compras por parte de Enigm, al tiempo que proporciona conectividad de datos móviles.
 
-El flujo de trabajo de gestión del ciclo de vida y compras del lado de Enigm no recopila:
+El flujo de trabajo de gestión del ciclo de vida y compras por parte de Enigm no recopila:
 
 - Verificación KYC.
 - Dirección de email.
 - Número de teléfono.
 - Documento de identidad.
 
-El Enigm eSIM puede ayudar a mitigar:
+Enigm eSIM puede ayudar a mitigar:
 
 - Ciertos escenarios de exposición de la identidad móvil.
 - Dependencia de los flujos de trabajo tradicionales de suscriptores.
@@ -64,13 +64,13 @@ Los flujos de trabajo de compra y gestión del ciclo de vida están diseñados e
 
 - Los usuarios pueden comprar Enigm eSIM desde Enigm Command.
 - Los usuarios pueden administrar el estado del ciclo de vida de Enigm eSIM desde Enigm Command.
-- El flujo de trabajo del lado de Enigm no recopila verificación KYC, email, número de teléfono ni documento de identidad.
+- El flujo de trabajo por parte de Enigm no recopila verificación KYC, correo electrónico, número de teléfono ni documento de identidad.
 - El país de compra seleccionado por el usuario se maneja como metadatos del ciclo de vida comercial.
 - El estado del ciclo de vida Enigm eSIM está vinculado a la cuenta Enigm del usuario para su administración, eliminación, desvinculación y soporte.
 
-El estado de activación es el estado del ciclo de vida de la conectividad. No proporciona acceso al texto claro de mensajes, contenido de llamadas seguras, contenido multimedia, texto claro de archivos adjuntos, conversaciones de usuarios, material de clave protegida o material de clave privada.
+El estado de activación es el estado del ciclo de vida de la conectividad. No proporciona acceso al texto en claro de mensajes, contenido de llamadas seguras, contenido multimedia, texto en claro de archivos adjuntos, conversaciones de usuarios, material de clave protegida o material de clave privada.
 
-Los requisitos de operadores externos, roaming o específicos de jurisdicción pueden variar fuera del flujo de trabajo de gestión del ciclo de vida y compras del lado de Enigm. Los usuarios y las organizaciones siguen siendo responsables de evaluar los requisitos locales de telecomunicaciones y registro de identidad.
+Los requisitos de operadores externos, roaming o específicos de jurisdicción pueden variar fuera del flujo de trabajo de gestión del ciclo de vida y compras por parte de Enigm. Los usuarios y las organizaciones siguen siendo responsables de evaluar los requisitos locales de telecomunicaciones y registro de identidad.
 
 ## Descargo de responsabilidad del operador externo
 
@@ -81,9 +81,9 @@ Enigm no opera la red de operadores y no controla:
 - Infraestructura de acceso radioeléctrico.
 - Enrutamiento de redes móviles.
 - Comportamiento de itinerancia del operador.
-- Asignación de direcciones IP por parte de la red del operador.
-- Transporte de paquetes en la capa portadora.
-- Registros de la red del operador.
+- Asignación de direcciones IP por parte de la red de operador.
+- Transporte de paquetes en la capa de operador.
+- Registros de la red de operador.
 - Sistemas de autenticación de operadores.
 - Sistemas de registro regulatorio de telecomunicaciones.
 
@@ -95,17 +95,17 @@ Esta separación es importante para la revisión legal, técnica y de auditoría
 
 Enigm no recibe registros de tráfico de capa de operador del proveedor independiente de infraestructura de telecomunicaciones como parte de la operación normal de Enigm eSIM.
 
-Los registros de la capa portadora incluyen:
+Los registros de la capa de operador incluyen:
 
 - Registros de tráfico de la red móvil.
-- Registros de asignación de IP del lado del operador.
+- Registros de asignación de IP del operador.
 - Registros de acceso radio.
 - Registros de enrutamiento de paquetes.
 - Registros de conexión del operador.
 - Registros de itinerancia del operador.
 - Registros de uso de la red mantenidos por el operador.
 
-Debido a que Enigm no opera la red del operador y no recibe esos registros de la capa del operador, Enigm no puede proporcionar registros de tráfico de la red del operador, registros de asignación de IP del operador, registros de conexión del operador o registros de telecomunicaciones del lado del operador en respuesta a solicitudes de revisión legal, regulatoria, de soporte o empresarial.
+Debido a que Enigm no opera la red de operador y no recibe esos registros de la capa del operador, Enigm no puede proporcionar registros de tráfico de la red de operador, registros de asignación de IP del operador, registros de conexión del operador o registros de telecomunicaciones del operador en respuesta a solicitudes de revisión legal, regulatoria, de soporte o empresarial.
 
 Enigm solo puede revisar los datos del ciclo de vida retenidos por Enigm, como el estado de compra, el estado de los derechos, la asociación de la cuenta de Enigm, el estado de activación Enigm eSIM, el estado de desvinculación, el estado de eliminación y los registros de soporte retenidos según el modelo de retención documentado.
 
@@ -121,7 +121,7 @@ Enigm App y Enigm eSIM operan en capas de seguridad separadas.
 
 Enigm App proporciona controles de seguridad a nivel de aplicación, como cifrado de extremo a extremo, material de claves protegido, mensajería segura, llamadas seguras, Device Trust y flujos de trabajo de verificación.
 
-Enigm eSIM proporciona conectividad de datos móviles a través de un proveedor de infraestructura de telecomunicaciones independiente. La capa de conectividad del operador transporta el tráfico de la red; no define el cifrado de mensajes Enigm App, no recibe material de clave privada Enigm App, no proporciona acceso de texto claro a los mensajes Enigm App y no debilita el cifrado de extremo a extremo Enigm App.
+Enigm eSIM proporciona conectividad de datos móviles a través de un proveedor de infraestructura de telecomunicaciones independiente. La capa de conectividad del operador transporta el tráfico de la red; no define el cifrado de mensajes Enigm App, no recibe material de clave privada Enigm App, no proporciona acceso de texto en claro a los mensajes Enigm App y no debilita el cifrado de extremo a extremo Enigm App.
 
 Esta separación significa que la confidencialidad de las comunicaciones Enigm App sigue regida por el modelo de seguridad Enigm App, no por el proveedor de conectividad de la capa de operador.
 
@@ -166,7 +166,7 @@ La asociación de cuentas admite:
 - Eliminación o retiro iniciado por el usuario.
 - Soporte y revisión de seguridad cuando sea necesario.
 
-La asociación de cuenta no convierte Enigm eSIM en un producto de verificación de identidad. La identidad de la cuenta de Enigm, Device Trust, el material clave protegido y la confidencialidad de los mensajes siguen siendo dominios de confianza separados.
+La asociación de cuenta no convierte Enigm eSIM en un producto de verificación de identidad. La identidad de la cuenta de Enigm, Device Trust, el material de clave protegido y la confidencialidad de los mensajes siguen siendo dominios de confianza separados.
 
 ## Gestión del ciclo de vida
 
@@ -227,7 +227,7 @@ La gestión administrativa Enigm eSIM debe permanecer separada del contenido de 
 
 El servicio Enigm eSIM respalda los objetivos de privacidad al reducir la dependencia de los flujos de trabajo de identidad móviles tradicionales.
 
-El flujo de trabajo de eSIM del lado de Enigm minimiza la identidad porque no recopila verificación KYC, email, número de teléfono ni documento de identidad.
+El flujo de trabajo de eSIM por parte de Enigm minimiza la identidad porque no recopila verificación KYC, correo electrónico, número de teléfono ni documento de identidad.
 
 Las consideraciones de privacidad incluyen:
 

@@ -22,7 +22,7 @@ La seguridad de las llamadas es independiente de la red de transporte utilizada 
 
 ## Modelo de comunicación segura
 
-Las llamadas seguras son un flujo de trabajo de seguridad de nivel Enigm App. La aplicación evalúa la identidad del participante, la asociación del dispositivo, el estado de Device Trust, el material clave protegido y la política de llamadas antes de permitir el intercambio de medios protegidos.
+Las llamadas seguras son un flujo de trabajo de seguridad de nivel Enigm App. La aplicación evalúa la identidad del participante, la asociación del dispositivo, el estado de Device Trust, el material de clave protegido y la política de llamadas antes de permitir el intercambio de medios protegidos.
 
 Para conocer los principios criptográficos compartidos detrás del material de claves protegido, la protección poscuántica, los flujos de trabajo de verificación y la confianza vinculada al dispositivo, consulte [Criptografía](/es/security/cryptography).
 
@@ -48,12 +48,12 @@ En un nivel seguro de documentación, la configuración de llamadas incluye:
 2. Evaluación de elegibilidad de la cuenta del destinatario y del dispositivo.
 3. Evaluación de políticas de participación en convocatorias.
 4. Preparación del material de clave protegido.
-5. Protección poscuántica para el material clave de unión del canal de llamada.
+5. Protección poscuántica para el material de clave de unión del canal de llamada.
 6. Emisión o validación de tokens efímeros de autorización de canal para unirse al canal de llamada.
 7. Establecimiento seguro de sesión de medios.
 8. Intercambio de medios de voz o video después de que la autorización sea exitosa.
 
-El material de clave de cifrado utilizado para unirse a un canal de llamada está protegido por el modelo de seguridad poscuántica de Enigm. Por otra parte, Enigm utiliza un modelo de token de autorización para unirse al canal de llamada. Estos tokens representan la autorización de acceso al canal; no deben otorgar acceso para acceder al contenido de la llamada en texto claro fuera de la sesión segura autorizada.
+El material de clave de cifrado utilizado para unirse a un canal de llamada está protegido por el modelo de seguridad poscuántica de Enigm. Por otra parte, Enigm utiliza un modelo de token de autorización para unirse al canal de llamada. Estos tokens representan la autorización de acceso al canal; no deben otorgar acceso para acceder al contenido de la llamada en texto en claro fuera de la sesión segura autorizada.
 
 Los valores de los tokens, los formatos de los tokens, los parámetros criptográficos, los detalles de señalización, los detalles de negociación de medios y el comportamiento de transporte no se divulgan en la documentación pública.
 
@@ -68,7 +68,7 @@ Device Trust puede evaluar:
 - Estado de inscripción del dispositivo.
 - Estado de revocación del dispositivo.
 - Estado de sustitución del dispositivo.
-- Disponibilidad de material clave Protected.
+- Disponibilidad de material de clave Protected.
 - Estado de desbloqueo local.
 - Postura de seguridad del sistema operativo.
 - Postura Trust Security Center opcional donde se despliega Enigm OS.
@@ -84,8 +84,8 @@ El manejo de llamadas de voz debe:
 
 - Requerir autenticación de participante y elegibilidad del dispositivo.
 - Utilizar material de claves protegido para flujos de trabajo de seguridad de comunicaciones.
-- Establecer autorización antes de incorporarse al canal de llamada.
-- Evitar retener el contenido de audio de las llamadas en los flujos de trabajo de rutina.
+- Establecer autorización antes de unirse al canal de llamada.
+- Evitar retener el contenido de audio de las llamadas en los flujos de trabajo de habitual.
 - Evitar exponer el contenido de audio a los sistemas administrativos.
 
 La modulación de voz es una característica de privacidad cuando la habilita el usuario o la política. La modulación de voz tiene como objetivo reducir la reconocibilidad directa de la voz durante las llamadas admitidas. No elimina el riesgo de identificación de voz, no reemplaza el establecimiento seguro de sesiones y no protege contra el compromiso del punto final, la grabación externa o el análisis de voz fuera de los controles de Enigm.
@@ -102,9 +102,9 @@ El manejo de videollamadas debe:
 - Aplicar las mismas comprobaciones de participante y Device Trust que en las llamadas de voz.
 - Proteger los medios de vídeo en tránsito.
 - Evitar exponer el contenido de vídeo a los sistemas administrativos.
-- Evite la retención rutinaria de contenido de vídeo protegido.
+- Evite la retención habitualria de contenido de vídeo protegido.
 
-El contenido de la pantalla, el contenido de la cámara y la información ambiental que se muestra durante una videollamada están controlados por los terminales y usuarios participantes.
+El contenido de la pantalla, el contenido de la cámara y la información ambiental que se muestra durante una videollamada están controlados por los endpoints y usuarios participantes.
 
 ## Consideraciones sobre metadatos
 
@@ -148,6 +148,6 @@ Enigm OS puede proporcionar refuerzo adicional para implementaciones que requier
 
 El endurecimiento Enigm OS puede fortalecer las decisiones Device Trust, pero las llamadas seguras de Enigm siguen siendo un modelo de seguridad de nivel Enigm App. El modelo de llamadas seguras debe seguir siendo comprensible y aplicable incluso cuando no se implemente Enigm OS.
 
-## Referencias de modelos de amenazas
+## Referencias al modelo de amenazas
 
 Las áreas relevantes del modelo de amenazas incluyen compromiso de cuentas y aplicaciones, abuso del ciclo de vida del dispositivo, intentos de comprometer llamadas seguras, abuso de Enigm Command, omisión de políticas Enigm OS cuando se implementan, uso indebido de políticas de red cuando los componentes de red de soporte están habilitados y pérdida de visibilidad de auditoría.
