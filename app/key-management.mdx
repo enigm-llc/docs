@@ -12,6 +12,8 @@ This document explains the Enigm key management architecture without disclosing 
 
 Enigm App keys are generated on the device. Private key material is intended to remain device-bound and must not be stored in plaintext.
 
+This page focuses on Enigm App key lifecycle and device-bound trust. The ecosystem-wide cryptographic architecture, including end-to-end encryption, post-quantum cryptography, secure storage, verification workflows, and OTA cryptography, is documented in [Cryptography](/security/cryptography).
+
 The model uses protected device storage for private key protection. Hardware-backed protection is used where available. When larger cryptographic material cannot be directly stored inside a secure hardware boundary, the material may require wrapping or protection outside that boundary. In that case, the secure hardware boundary is used where available to protect wrapping keys, access-control material, or authorization conditions.
 
 Key access is affected by:
