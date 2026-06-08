@@ -365,6 +365,16 @@ html.dark .enigm-card-grid .card:focus-visible {
   border-color: var(--enigm-white) !important;
 }
 
+html.dark .enigm-card-grid a:hover svg,
+html.dark .enigm-card-grid a:focus-visible svg,
+html.dark .enigm-card-grid .card:hover svg,
+html.dark .enigm-card-grid .card:focus-visible svg,
+html.dark .enigm-card-grid [role="link"]:hover svg,
+html.dark .enigm-card-grid [role="link"]:focus-visible svg {
+  color: var(--enigm-white) !important;
+  stroke: var(--enigm-white) !important;
+}
+
 .enigm-card-grid--compact a,
 .enigm-card-grid--compact .card {
   min-height: 128px;
