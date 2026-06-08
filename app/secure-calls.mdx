@@ -33,7 +33,7 @@ The secure communication model is designed to:
 - Use protected key material in call-security workflows.
 - Protect call media in transit.
 - Keep administrative systems from accessing call content.
-- Minimize call metadata where possible.
+- Minimize call metadata to what is required for secure session operation, abuse prevention, and lifecycle control.
 - Keep call security independent from the underlying network path.
 
 Optional Enigm OS hardening may provide additional Trust state signals, but it is not required for the secure calling model.
@@ -55,7 +55,7 @@ At a documentation-safe level, call setup includes:
 
 The encryption key material used to join a call channel is protected by the Enigm post-quantum security model. Separately, Enigm uses an authorization-token model for joining the call channel. These tokens represent channel access authorization; they must not grant access to call plaintext outside the authorized secure session.
 
-Token values, token formats, cryptographic parameters, signaling details, media negotiation details, and transport behavior are not disclosed in public documentation.
+Token values, token formats, cryptographic parameters, signaling details, media negotiation details, and transport behavior remain controlled implementation details.
 
 ## Device Trust Requirements
 
@@ -108,7 +108,7 @@ Screen content, camera content, and environmental information displayed during a
 
 ## Metadata Considerations
 
-Call metadata should be minimized where possible.
+Call metadata is minimized to what is required for secure session operation, abuse prevention, and lifecycle control.
 
 Metadata may be required for:
 

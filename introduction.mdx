@@ -5,11 +5,11 @@ description: Public technical overview of Enigm private product architecture and
 mode: wide
 ---
 
-Enigm is built for users and organizations that need private communications, controlled device trust, reduced identity exposure, and security governance that can withstand technical review.
+Enigm is built for users and organizations that need private communications, controlled Device Trust, reduced identity exposure, and security governance that can withstand technical review.
 
 This documentation is the public technical record of that architecture. It explains how Enigm structures product security, privacy, device trust, encrypted communication, dedicated private environments, connectivity services, emergency workflows, intelligence capabilities, and governance controls across the Enigm ecosystem.
 
-The goal is to make Enigm understandable to enterprise customers, auditors, engineers, partners, and security reviewers without exposing operational details that could reduce platform security. The content is intentionally precise: it describes what Enigm is designed to protect, where trust boundaries exist, what administrators can and cannot do, and where the documented limitations are.
+The goal is to make Enigm understandable to enterprise customers, auditors, engineers, partners, and security reviewers. The content is intentionally precise: it describes what Enigm protects, where trust boundaries exist, what administrators can and cannot do, and where the documented limitations are.
 
 <div className="enigm-doc-image-frame enigm-hero-banner">
   <img className="enigm-doc-image enigm-hero-banner-image" src="/assets/images/banner-enigm.jpg" alt="Enigm private communications banner" />
@@ -25,19 +25,19 @@ The Enigm ecosystem is organized around six primary products. Each product has a
       Private messaging, secure calls, Active Defense, trusted devices, multi-device workflows, VPN Service, and Proxy Network usage.
     </Card>
     <Card title="Enigm Command" href="/command/overview">
-      Web control panel for users and organizations to manage accounts, sessions, devices, product lifecycle, Enigm Server, and managed security workflows.
+      Web control panel for account, session, device, product lifecycle, Enigm Server, and managed security workflows.
     </Card>
     <Card title="Enigm Server" href="/server/overview">
-      Dedicated private messaging environment for approved Enigm users, join request approval, and server-scoped encrypted content lifecycle management.
+      Dedicated private messaging environment with approved users, join requests, and encrypted server content lifecycle control.
     </Card>
     <Card title="Enigm OS" href="/os/overview">
-      Secure operating system for additional Device Trust, platform hardening, controlled device experience, and secure update governance.
+      Secure operating system for Device Trust, platform hardening, controlled device experience, and secure update governance.
     </Card>
     <Card title="Enigm Key" href="/key/overview">
-      Emergency key device for user-controlled SOS alerting and event-bound location sharing.
+      Emergency key device for user-controlled SOS alerting, selected emergency contacts, and event-bound location sharing.
     </Card>
     <Card title="Enigm eSIM" href="/esim/overview">
-      Data-only mobile connectivity across supported coverage areas with identity-minimizing Enigm-side lifecycle management.
+      Data-only mobile connectivity across supported coverage areas with identity-minimizing lifecycle management through Enigm.
     </Card>
   </CardGroup>
 </div>
@@ -58,17 +58,17 @@ For enterprise and auditor review, this distinction matters: Enigm does not trea
       Foundational privacy principles for data minimization, identity minimization, metadata reduction, and user control.
     </Card>
     <Card title="Security model" href="/security/security-model">
-      Defense-in-depth model across Enigm, Enigm OS, Enigm Command, Enigm Server, Enigm Key, and Enigm eSIM.
+      Defense-in-depth model across Enigm products, device trust, administrative control, secure delivery, and network privacy.
     </Card>
     <Card title="Product architecture" href="/platform/architecture">
-      High-level product architecture and trust boundaries for the Enigm ecosystem.
+      High-level product architecture, trust boundaries, supporting components, and privacy-first platform relationships.
     </Card>
   </CardGroup>
 </div>
 
 ## Documentation boundaries
 
-This documentation is written for public review. It provides enough detail to evaluate architecture, trust boundaries, privacy posture, governance maturity, and product responsibilities, while deliberately excluding deployment-specific details, private infrastructure relationships, internal routes, operational procedures, sensitive identifiers, secrets, and implementation-sensitive behavior.
+This documentation is written for public review. It provides enough detail to evaluate architecture, trust boundaries, privacy posture, governance maturity, and product responsibilities while keeping deployment-specific details, private infrastructure relationships, internal routes, operational procedures, sensitive identifiers, secrets, and implementation-sensitive behavior outside the public record.
 
 That boundary is part of the security model. Enigm should be understandable from the outside without making the platform easier to attack.
 

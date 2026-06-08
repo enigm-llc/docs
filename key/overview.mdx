@@ -112,6 +112,8 @@ The intended activation model is:
 
 The activation model is designed to reduce accidental operation while remaining simple enough for high-stress situations.
 
+Enigm Key is a user-controlled alerting workflow, not an emergency service, public safety answering point, medical response service, law-enforcement dispatch service, rescue service, or guaranteed response system.
+
 ## Connectivity Model
 
 Enigm Key includes embedded mobile data connectivity designed to support emergency communication when the user's phone may be unavailable, locked, or unsafe to operate.
@@ -160,6 +162,8 @@ Emergency contact lifecycle management may include:
 - Retiring emergency contact access when no longer required.
 
 Emergency contacts receive only the emergency context required for the active workflow. Emergency contact configuration should not expose normal messages, secure calls, media, attachments, or user conversations.
+
+Users are responsible for selecting appropriate emergency contacts, keeping contact configuration current, and ensuring that event-bound location sharing is used for a lawful and authorized safety purpose.
 
 ## Emergency Event Lifecycle
 
@@ -220,6 +224,8 @@ Location sharing should be:
 
 When Enigm Key is not activated, it is intended to remain dormant and avoid routine location reporting. This supports privacy and data minimization.
 
+Emergency alert delivery and location sharing depend on device state, mobile connectivity, service availability, account association, selected contacts, and user configuration. Enigm Key should be treated as a safety-support workflow, not as a guarantee of emergency response, rescue, delivery, or availability.
+
 ## Device Sleep And Privacy
 
 Enigm Key is designed around dormant standby behavior.
@@ -253,7 +259,7 @@ The security model is intended to support:
 - Replay-resistant request validation where required.
 - Device lifecycle revocation when the key is lost, retired, or replaced.
 
-Public documentation describes this authentication model at a high level suitable for external review. It does not disclose HMAC secrets, request formats, headers, signature placement, API routes, replay windows, internal validation logic, or operational procedures.
+Public documentation describes this authentication model at a high level suitable for external review. HMAC secrets, request formats, headers, signature placement, API routes, replay windows, internal validation logic, and operational procedures remain controlled implementation details.
 
 ## Relationship With Enigm App
 

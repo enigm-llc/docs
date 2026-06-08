@@ -70,7 +70,7 @@ These principles are intended to reduce key exposure, limit trust assumptions, a
 
 ## Public Algorithm Model
 
-Enigm public cryptographic documentation identifies algorithm families and security objectives without exposing protocol messages, implementation-sensitive parameters, key formats, internal storage paths, or operational secrets.
+Enigm public cryptographic documentation identifies algorithm families and security objectives while keeping protocol messages, implementation-sensitive parameters, key formats, internal storage paths, and operational secrets outside the public record.
 
 At a public architecture level, Enigm uses:
 
@@ -83,7 +83,7 @@ At a public architecture level, Enigm uses:
 
 Public documentation may refer to Kyber and Dilithium because those names appear in Enigm product and white-paper materials. The corresponding NIST-standardized names are ML-KEM and ML-DSA.
 
-This public model does not disclose parameter sets, key sizes beyond publicly named algorithm families, message formats, derivation functions, protocol sequencing, or deployable cryptographic implementation detail.
+Parameter sets, key sizes beyond publicly named algorithm families, message formats, derivation functions, protocol sequencing, and deployable cryptographic implementation detail remain controlled cryptographic material.
 
 ## End-to-End Encryption
 
@@ -111,7 +111,7 @@ Symmetric encryption is used to protect:
 - Data requiring encrypted storage or transport protection.
 - Security-sensitive payloads where symmetric encryption is appropriate.
 
-Public documentation does not disclose cipher modes, nonce handling, padding behavior, payload structure, key derivation details, or internal message formats.
+Cipher modes, nonce handling, padding behavior, payload structure, key derivation details, and internal message formats remain controlled cryptographic material.
 
 AES-256 protects content only when combined with correct key management, trusted devices, authenticated workflows, lifecycle controls, and implementation validation.
 
@@ -132,7 +132,7 @@ HSM-backed key management is separate from endpoint-held private key material. I
 
 HSM-backed key management protects managed platform keys and security-sensitive cryptographic operations. It must not be described as a mechanism that grants Enigm administrators access to message plaintext, attachment plaintext, user communications, or private key material held by trusted user devices.
 
-Public documentation does not disclose HSM third-party relationship details, key identifiers, key hierarchy, rotation schedules, access policies, operational procedures, internal storage locations, or implementation-sensitive key-management configuration.
+HSM third-party relationship details, key identifiers, key hierarchy, rotation schedules, access policies, operational procedures, internal storage locations, and implementation-sensitive key-management configuration remain controlled key-management material.
 
 ## Post-Quantum Cryptography
 
@@ -163,7 +163,7 @@ At a public architecture level, the key-establishment model is designed to:
 - Support cryptographic agility as standards and implementation requirements evolve.
 - Preserve separation between endpoint-held key material and server-side delivery systems.
 
-Public documentation does not disclose exchange transcripts, key derivation details, parameter sets, internal routing behavior, device negotiation behavior, or implementation-sensitive protocol sequencing.
+Exchange transcripts, key derivation details, parameter sets, internal routing behavior, device negotiation behavior, and implementation-sensitive protocol sequencing remain controlled cryptographic material.
 
 ## Post-Quantum Signatures
 
@@ -177,7 +177,7 @@ At a public architecture level, Enigm uses ML-DSA / Dilithium signature objectiv
 - Trust establishment between expected participants or devices.
 - Security-sensitive verification workflows where post-quantum signatures are appropriate.
 
-Public documentation does not disclose signature payload formats, verification transcripts, implementation-specific signing contexts, internal identifiers, or operational signing material.
+Signature payload formats, verification transcripts, implementation-specific signing contexts, internal identifiers, and operational signing material remain controlled cryptographic material.
 
 ## Secret Distribution Model
 
@@ -193,7 +193,7 @@ At a public architecture level, secret distribution supports:
 - Recovery boundary separation.
 - Resistance to unilateral administrative plaintext access.
 
-Public documentation does not disclose split thresholds, participant roles, reconstruction logic, storage locations, internal secret-handling systems, or operational procedures.
+Split thresholds, participant roles, reconstruction logic, storage locations, internal secret-handling systems, and operational procedures remain controlled security material.
 
 Secret distribution does not grant Enigm administrators access to message plaintext. It is a defense-in-depth control that complements endpoint-held protected key material, end-to-end encryption, and Device Trust.
 
@@ -212,7 +212,7 @@ At a public architecture level, data-at-rest protection includes:
 - Key rotation and lifecycle controls.
 - HSM-backed key management for managed platform keys where appropriate.
 
-Where hashing is used for non-reversible data, it should be combined with appropriate salting and protection controls. Public documentation does not disclose hash construction details, salt generation mechanics, storage schemas, or key-management implementation details.
+Where hashing is used for non-reversible data, it should be combined with appropriate salting and protection controls. Hash construction details, salt generation mechanics, storage schemas, and key-management implementation details remain controlled security material.
 
 Encryption at rest is not the same as end-to-end encryption. Data-at-rest encryption protects stored data within storage and operational domains, while end-to-end encryption protects message content so that plaintext is intended to be available only to authorized trusted endpoints.
 
@@ -249,7 +249,7 @@ Encrypted Client Hello improves privacy during supported TLS handshakes by encry
 
 Public web transport controls are separate from Enigm App end-to-end encryption. They protect public web access paths and transport metadata for compatible clients, but they do not replace message encryption, Device Trust, protected key material, or verification workflows.
 
-Public documentation does not disclose certificate authority names, public edge relationship names, internal hostnames, non-public domains, private routing topology, certificate automation internals, or operational deployment details.
+Certificate authority names, public edge relationship names, internal hostnames, non-public domains, private routing topology, certificate automation internals, and operational deployment details remain controlled operational material.
 
 ## TLS Cipher Suite Baseline
 

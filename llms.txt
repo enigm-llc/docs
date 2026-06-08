@@ -10,7 +10,7 @@
 
 ## Enigm Docs
 
-### Start
+### Getting started
 
 - [Welcome to Enigm documentation](https://docs.enigm.io/introduction): Executive technical introduction to Enigm product documentation.
 - [Product Architecture](https://docs.enigm.io/platform/architecture): High-level product architecture and shared vocabulary.
