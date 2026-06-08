@@ -56,7 +56,11 @@ Enigm App establishes authenticated user context, manages account lifecycle, coo
 
 Enigm App also integrates VPN Service and Proxy Network usage where enabled. These controls support network privacy, traffic separation, and metadata reduction without replacing end-to-end encryption or Device Trust.
 
-Standard Enigm account creation uses username and password authentication, recovery phrase generation and handling, device-local identity creation, and explicit trusted-device association without requiring email address, phone number, or identity document. Enigm App sessions use a 1-hour validity window and are automatically renewed while eligible; they do not automatically imply Device Trust, administrative authorization, or protected-content access.
+Standard Enigm account creation is performed through Enigm Command using username and password authentication, recovery phrase generation and handling, 6-digit PIN setup, account identity creation, and explicit trusted-device association without requiring email address, phone number, or identity document. Enigm App sessions use a 1-hour validity window and are automatically renewed while eligible; they do not automatically imply Device Trust, administrative authorization, or protected-content access.
+
+Enigm App access is protected by a 6-digit PIN after authentication. PIN validation is performed against the Enigm server-side security layer, not only on the local device. The PIN is also used to authorize critical Enigm Command workflows such as platform data deletion and account deletion.
+
+Reverse PIN workflows and repeated incorrect PIN attempts are treated as security events. A configured reverse PIN triggers protected-content deletion according to the data-deletion and retention model and records a profile risk state. This deletes messages, voice messages, call records, multimedia, attachments, and other protected conversation content available to the account; it does not delete the Enigm account itself. Five incorrect PIN attempts close the Enigm App session and record a profile risk state until the user successfully validates with the correct PIN.
 
 ### Enigm OS
 
@@ -69,6 +73,8 @@ Trust Security Center is the posture and security-state surface for Enigm OS. It
 ### Enigm Command
 
 Enigm Command governs user, organization, enterprise, and administrative workflows such as account lifecycle, account deletion, platform data deletion, active session closure, connected-device visibility, unauthorized device removal, device revocation, Enigm Server administration, Enigm eSIM lifecycle management, Enigm Key lifecycle visibility, Enigm OS managed-device mode, policy assignment, Controlled Device Management, rollout visibility, audit review, and security posture review. Enigm Command actions should require strong identity context, explicit authorization, scoping, and audit records.
+
+Enigm Command also provides account creation and training workflows. Training can include essential or advanced Enigm usage education with a final exam.
 
 ### Enigm Server
 

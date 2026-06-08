@@ -7,7 +7,7 @@ mode: wide
 
 Enigm is the private messaging product in the Enigm ecosystem. It is delivered through the user-facing app, which is why this section uses the app documentation structure.
 
-Enigm is the main interface through which users manage onboarding, registration, identity, secure messaging, secure calls, Active Defense, trusted devices, multi-device workflows, optional VPN Service usage, integrated Proxy Network usage where enabled, and policy-aware access to supporting Enigm services.
+Enigm is the main interface through which users access private messaging, secure calls, Active Defense, trusted devices, multi-device workflows, PIN-gated app access, security-level visibility, optional VPN Service usage, integrated Proxy Network usage where enabled, and policy-aware access to supporting Enigm services. Account creation is performed through Enigm Command.
 
 Enigm OS is an optional dedicated secure device layer. When present, it can contribute Trust Security Center posture, device-management state, OTA verification state, and Remote Attestation signals. Enigm remains the central private messaging product; Enigm OS hardens supported deployments rather than replacing the messaging product.
 
@@ -17,7 +17,7 @@ Supporting products and components include Enigm Command, Enigm Server, VPN Serv
 
 Enigm coordinates six primary security domains:
 
-- **Identity lifecycle**: account creation, authentication, session state, recovery state, and account-level policy.
+- **Identity lifecycle**: Enigm Command account creation, authentication, session state, recovery state, PIN policy, and account-level policy.
 - **Communication security**: secure messaging, secure calls, key-management workflows, message expiration, and protected content handling.
 - **Active Defense**: AI-assisted mobile spyware and network-behavior analysis without inspecting protected communications.
 - **Device association**: explicit enrollment, replacement, revocation, and lifecycle evaluation for devices linked to an account.
@@ -36,21 +36,39 @@ Secure media handling is designed to reduce unnecessary plaintext exposure throu
 
 The messaging architecture is documented separately in [Secure Messaging](/app/secure-messaging).
 
-## Onboarding And Registration
+## Onboarding And Account Creation
 
-Enigm App onboarding is designed to establish identity and Device Trust while minimizing dependency on public identifiers.
+Account creation is performed through Enigm Command. Enigm App uses the resulting account identity to establish app access, Device Trust, secure messaging, secure calls, and protected workflows while minimizing dependency on public identifiers.
 
 The registration model includes:
 
 - Username and password authentication.
 - Recovery phrase generation and handling.
-- Device-local identity creation.
+- 6-digit numeric PIN setup.
 - Initial trusted-device association.
 - Separation between account recovery and access to protected messages.
 
 Standard Enigm account creation does not require an email address, phone number, or identity document. This supports identity minimization and reduces unnecessary identity exposure.
 
 Enigm App sessions use a 1-hour validity window and are automatically renewed while the session remains eligible under account, device, and policy controls. Session state is evaluated separately from Device Trust, protected key material, recovery state, and administrative authorization.
+
+Enigm App access is PIN-gated after authentication. PIN validation is performed against the Enigm server-side security layer, not only on the local device. The user can configure the PIN prompt to appear immediately or after a defined inactivity period.
+
+When the app is closed or the PIN prompt is triggered, Enigm App clears sensitive runtime state from memory and removes decrypted runtime material from the active app context. Sensitive runtime data is protected while resident in memory according to the Enigm App runtime protection model.
+
+If enabled, a reverse PIN can trigger protected-content deletion according to the data-deletion and retention model and mark the user profile as at risk. This workflow deletes messages, voice messages, call records, multimedia, attachments, and other protected conversation content available to the account; it does not delete the Enigm account itself. Entering the PIN incorrectly 5 times closes the app session and records a user-risk state visible to contacts until the user successfully validates with the correct PIN.
+
+## Profile Security Level And Discovery
+
+Enigm App displays a user security level: Low, Medium, High, or Extreme.
+
+The level reflects account configuration such as message lifetime, online visibility, voice modulation, PIN behavior, reverse PIN activation, VPN Service usage, and notification privacy. Contacts can see this level on the user's profile to understand the user's current protection posture.
+
+Users are added through a unique contact identifier. Users cannot be searched by username or display name.
+
+Users can configure whether they are discoverable through the public Enigm discovery surface or available only through Enigm Server private environments. This setting can be managed from Enigm App or Enigm Command.
+
+Online visibility is configurable. Notifications are designed not to reveal message content or sender identity.
 
 ## Secure Calls
 

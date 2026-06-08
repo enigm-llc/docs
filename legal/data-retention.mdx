@@ -6,7 +6,7 @@ description: Public data retention and data minimization model for Enigm.
 
 Enigm is designed around data minimization and purpose-limited retention. The platform should collect and retain only the information required to operate platform services, maintain security functions, support compliance obligations, and protect users.
 
-Enigm uses an identity-minimizing account model for standard registration. Standard Enigm account creation does not require an email address, phone number, or identity document.
+Enigm uses an identity-minimizing account model for standard registration through Enigm Command. Standard Enigm account creation does not require an email address, phone number, or identity document.
 
 Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest does not replace end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
@@ -70,9 +70,11 @@ The following table summarizes the public retention model for major Enigm data c
 | Data Category | Examples | Retention Model |
 | --- | --- | --- |
 | Account identity state | Username, account status, account creation state, recovery boundary state, account deletion state | Retained for the duration of the service relationship. Removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints. |
-| Authentication material | Password verification material and recovery-related state, excluding plaintext passwords or plaintext recovery phrases | Retained while the account exists. Removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints. Plaintext passwords and plaintext recovery phrases must not be retained. |
+| Authentication material | Password verification material, server-side PIN verification state, recovery-related state, excluding plaintext passwords, plaintext PINs, or plaintext recovery phrases | Retained while the account exists. Removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints. Plaintext passwords, plaintext PINs, and plaintext recovery phrases must not be retained. |
 | Device state | Trusted device list, enrollment state, revocation state, replacement state, Privacy-Preserving Device Handles, Device Trust status, optional Enigm OS trust signals | Retained until the user removes the device, deletes the account, or the lifecycle state is no longer required. Device deletion removes the associated device state from normal operation. |
 | Session state | Active sessions, session creation state, last activity state, termination state | Enigm App sessions use a 1-hour validity window and are automatically renewed while eligible. Enigm Command sessions are limited to 6 hours. Session lifecycle records are minimized and retained only as required for security, abuse prevention, or operational review. |
+| PIN and profile risk state | PIN validation outcomes, reverse PIN event state, repeated incorrect PIN risk state, profile risk status | Retained only as required to enforce account security, show current risk state, support auditability, and clear the risk state after successful PIN validation. Plaintext PIN values must not be retained. |
+| Profile security level | Low, Medium, High, or Extreme profile security level and the underlying account configuration signals required to display it | Retained while the account exists or until the user changes the relevant security configuration. |
 | Message content | Encrypted messages, encrypted attachments, encrypted multimedia | User-defined message lifetime up to a maximum of 30 days. Users can manually delete messages immediately. Server-side storage, where required, stores encrypted content only. |
 | Message metadata | Delivery state, synchronization state, expiration state, conversation membership, lifecycle markers | Partially encrypted and otherwise protected according to the applicable product and storage domain. Follows the message lifecycle where possible, with a maximum of 30 days for normal message-related lifecycle state unless security, abuse, or legal constraints require limited preservation. |
 | Enigm Server lifecycle data | Server lifecycle state, server ID join requests, membership, region selection, server audit visibility | Retained while the user or customer maintains the Enigm Server service. Deleted when the user or customer deletes the server environment, subject only to legal, security, or compliance constraints. |
@@ -83,6 +85,7 @@ The following table summarizes the public retention model for major Enigm data c
 | Security data | Authentication events, Device Trust events, Active Defense findings, Enigm Intelligence events, incident records, defensive action records | Retained for a maximum of 30 days for normal security operations unless an active investigation, legal obligation, or security requirement requires preservation. |
 | Operational data | Service health events, error logs, availability logs, abuse prevention records, rate-limit events, security-control events | Anonymized where possible and retained for a maximum of 30 days for normal operations. |
 | Payment data | Payment status, subscription state, entitlement state, payment method category, purchase country selected by the user, transaction reference, Code Coin redemption state, invoice or accounting records when requested | Retained for the duration of the user service relationship and according to applicable legal, accounting, tax, abuse-prevention, and security obligations. Standard payment enrollment does not require email address, phone number, or identity document collection. |
+| Training data | Essential or advanced training state, final-exam completion state, product education progress | Retained while required for account education, product guidance, support, enterprise review, or user-requested deletion, subject to legal, security, compliance, or operational constraints. |
 | Support and legal data | Support requests, legal inquiries, security disclosure reports, responsible disclosure communications, enterprise security inquiries | Retained for 30 days after the case is closed, unless legal, security, compliance, or contractual obligations require preservation. |
 
 ## Account Data
@@ -285,6 +288,10 @@ Deletion principles include:
 - Apply deletion workflows consistently.
 
 Deletion may be constrained by security investigations, legal obligations, abuse prevention, or required operational records.
+
+User-to-user deletion can be scoped to the requesting user or applied for all participants where policy allows. In group conversations, administrators can delete protected content according to group policy, and users can delete their own messages when group permissions allow.
+
+For deletion and retention purposes, message content includes text messages, voice messages, call records, encrypted files, images, videos, multimedia, attachments, and related protected conversation objects unless a product page defines a narrower category.
 
 
 See [Platform Limitations](/legal/limitations).

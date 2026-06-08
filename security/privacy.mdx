@@ -63,7 +63,7 @@ Data handled by Enigm is encrypted at rest according to the applicable product, 
 
 The platform is designed to reduce unnecessary dependence on public identifiers where possible.
 
-Standard Enigm account registration uses an identity-minimizing model and does not require an email address, phone number, or identity document. Standard account creation uses username and password authentication, recovery phrase generation and handling, device-local identity creation, and explicit trusted-device association.
+Standard Enigm account creation uses an identity-minimizing model and does not require an email address, phone number, or identity document. Account creation is performed through Enigm Command and uses username and password authentication, recovery phrase generation and handling, 6-digit PIN setup, account identity creation, and explicit trusted-device association.
 
 Identity minimization supports:
 
@@ -106,6 +106,14 @@ Server region selection is a product and deployment control for dedicated Enigm 
 Enigm App account data supports authentication, authorization, account lifecycle, secure messaging, secure calls, and multi-device management. Protected content remains separated from operational metadata by design.
 
 Enigm App sessions use a 1-hour validity window and are automatically renewed while the session remains eligible under account, device, and policy controls. Session state is treated as account access state and remains separate from Device Trust, recovery state, protected key material, and message plaintext.
+
+Enigm App access is protected by a 6-digit numeric PIN after authentication. PIN validation is performed against the Enigm server-side security layer rather than as a local-only device check. The app can prompt for the PIN immediately or after a user-defined inactivity period.
+
+When the app is closed or PIN-gated, Enigm App clears sensitive runtime state from memory and removes decrypted runtime material from the active app context. Sensitive runtime data is protected while resident in memory according to the Enigm App runtime protection model.
+
+Reverse PIN and repeated incorrect PIN workflows can record a profile risk state that is visible to contacts. This risk state exists to help contacts understand that the user may be compromised or under pressure; it is cleared only after successful PIN validation by the user.
+
+Contact discovery uses unique contact identifiers. Users cannot be searched by username or display name. Users can choose whether they are discoverable through the public Enigm discovery surface or only available through Enigm Server private environments.
 
 Enigm App secure media handling is designed to reduce unnecessary plaintext exposure for files, images, videos, attachments, and other supported multimedia. Conversation and group policy can control sending, forwarding, deletion, and media handling without giving administrative systems plaintext access to protected content.
 

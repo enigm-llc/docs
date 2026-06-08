@@ -11,6 +11,8 @@ Enigm App provides secure text and multimedia messaging as an app-level security
 
 Enigm secure messaging is designed to protect message and attachment content while preserving enough lifecycle metadata for delivery, synchronization, expiration, and authorized audit workflows.
 
+In this documentation, "messages" refers to the protected communication content handled by Enigm messaging workflows. This includes text messages, voice messages, call records, encrypted files, images, videos, multimedia, attachments, and related protected conversation objects unless a section narrows the term.
+
 The model is based on these principles:
 
 - Messages are end-to-end encrypted.
@@ -104,9 +106,13 @@ Enigm App is designed so that:
 - Decrypted message content should not be persistently stored on the device.
 - The system should avoid unnecessary local persistence.
 - Memory-only handling should be used for selected processing stages.
+- Sensitive runtime state is cleared when Enigm App is closed or PIN-gated.
+- Sensitive runtime data is protected while resident in memory according to the Enigm App runtime protection model.
 - Local caching, previews, search, backups, and enterprise retention controls must not silently bypass message confidentiality policy.
 
 Secure viewers should handle message and attachment content without exporting plaintext to external apps. Where external sharing or export is allowed by user action or policy, that action is outside the normal protected-viewing model and should be treated as a disclosure boundary.
+
+PIN-gated app access is separate from message encryption. PIN validation is performed against the Enigm server-side security layer and does not provide administrative access to message plaintext or private key material.
 
 ## Attachment Handling
 
@@ -186,6 +192,10 @@ Deletion workflows can apply to:
 - Group-policy deletion.
 - Server-scoped encrypted content deletion where Enigm Server policy applies.
 - Expiration-driven deletion.
+
+In direct user-to-user conversations, deletion can be scoped to the requesting user only or applied for all participants where policy allows. "Delete for me" removes the content from the requesting user's available conversation state. "Delete for everyone" removes the protected content from the conversation availability state for both participants according to policy.
+
+In group conversations, group administrators can delete protected content according to group policy. Group policy can also allow users to delete their own messages. In this context, messages include text messages, voice messages, call records, encrypted files, images, videos, multimedia, attachments, and related protected conversation objects.
 
 Deletion controls operate on encrypted content objects, local lifecycle state, and conversation availability. Deletion does not imply that administrators can read message plaintext, attachment plaintext, media plaintext, user conversations, or private key material.
 

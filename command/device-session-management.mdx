@@ -13,6 +13,7 @@ Account management supports account lifecycle and account security workflows.
 
 Enigm Command account workflows include:
 
+- Account creation.
 - Account status review.
 - Account lifecycle state review.
 - Account recovery support boundaries.
@@ -21,10 +22,19 @@ Enigm Command account workflows include:
 - Account deletion workflows.
 - Data deletion workflows.
 - Full account deletion.
+- Critical-operation PIN authorization.
 - Platform data deletion where policy and legal boundaries allow.
 - Security event review related to account activity.
 
 Account recovery support must not weaken normal message confidentiality. Recovery support may help restore account access or support device replacement, but it must not provide administrative access to message plaintext.
+
+## Critical Operation PIN
+
+The 6-digit numeric PIN is defined during Enigm Command onboarding.
+
+PIN validation is performed against the Enigm server-side security layer and must not be treated as a local-only device check. Enigm Command uses PIN authorization for critical operations such as platform data deletion, full account deletion, and other high-impact lifecycle workflows.
+
+PIN authorization is separate from message access. A valid PIN authorization can permit an account lifecycle action, but it does not provide message plaintext, attachment plaintext, secure call content, private key material, or decryption authority.
 
 ## Device Management
 

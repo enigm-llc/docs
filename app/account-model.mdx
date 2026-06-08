@@ -14,10 +14,11 @@ An Enigm account represents the user identity and account-level policy context. 
 
 This means:
 
-- User onboarding and registration are handled through Enigm App.
+- User onboarding and account creation are handled through Enigm Command.
 - Account authentication uses username and password credentials.
 - Recovery is supported through a recovery phrase.
-- Identity is created on the device during registration.
+- Identity is created during the Enigm Command onboarding workflow and then associated with trusted devices.
+- A 6-digit numeric PIN is defined during onboarding.
 - An Enigm account is not bound to one physical device.
 - A device can be enrolled, reviewed, revoked, and replaced.
 - Account Trust and Device Trust are evaluated separately.
@@ -39,15 +40,16 @@ Account identity answers questions such as:
 
 Account identity does not automatically establish Device Trust, message access, network eligibility, or administrative authority.
 
-## User Onboarding And Registration
+## User Onboarding And Account Creation
 
-Enigm App registration is designed to establish account identity and initial Device Trust without requiring unnecessary public identifiers.
+Enigm account creation is performed through Enigm Command. The onboarding workflow is designed to establish account identity, recovery boundaries, initial security policy, and the first trusted-device relationship without requiring unnecessary public identifiers.
 
 The onboarding model includes:
 
 - Username and password account credentials.
 - Recovery phrase generation.
-- Device-local identity creation.
+- Account identity creation.
+- 6-digit numeric PIN setup.
 - Explicit association of the first trusted device.
 - Separation between recovery capability and normal message access.
 
@@ -59,24 +61,52 @@ Registration should be treated as a security-sensitive workflow. A newly created
 
 The public registration model is:
 
-1. The user creates an Enigm account in Enigm App.
+1. The user creates an Enigm account in Enigm Command.
 2. The user sets username and password credentials.
-3. Enigm App creates the account identity on the device.
-4. Enigm App establishes the first trusted-device association.
-5. Enigm App generates or presents the recovery phrase workflow.
+3. The user completes the recovery phrase workflow.
+4. The user defines a 6-digit numeric PIN.
+5. The first trusted device is associated through the authorized onboarding flow.
 6. Protected key material remains governed by the device-bound key-management model.
 7. Account recovery is separated from normal message decryption.
 
 ```mermaid
 flowchart TD
-  User["User"] --> App["Enigm App Registration"]
-  App --> Credentials["Username / Password"]
-  App --> Identity["Device-Local Identity Creation"]
+  User["User"] --> Command["Enigm Command Onboarding"]
+  Command --> Credentials["Username / Password"]
+  Command --> Recovery["Recovery Phrase"]
+  Command --> PIN["6-Digit PIN"]
+  Command --> Identity["Account Identity"]
   Identity --> Device["First Trusted Device"]
-  App --> Recovery["Recovery Phrase"]
   Device --> Keys["Protected Key Material"]
   Recovery -. "account continuity, not message plaintext" .-> Boundary["Recovery Boundary"]
 ```
+
+## PIN Security Model
+
+The 6-digit numeric PIN is used as a high-friction access and authorization control after the user has authenticated.
+
+PIN validation is performed against the Enigm server-side security layer. PIN validation is not performed only on the local device and should not be treated as a local-only lock screen mechanism.
+
+The PIN is used for:
+
+- Enigm App access after authentication.
+- Enigm App unlock after the configured PIN timeout.
+- Critical Enigm Command operations such as platform data deletion, account deletion, and other high-impact lifecycle actions.
+- Reverse PIN workflows when enabled by the user.
+
+The user can configure Enigm App PIN prompting to occur immediately or after a user-defined inactivity period. When the app is closed or the PIN prompt is triggered, Enigm App clears sensitive runtime state from memory and removes decrypted runtime material from the active app context. Persistent account and device state remains limited to protected storage where required by the key-management model.
+
+Sensitive runtime data is protected while resident in memory according to the Enigm App runtime protection model. This control complements protected device storage, server-side PIN validation, Device Trust, and session lifecycle policy.
+
+## Reverse PIN And Risk State
+
+When enabled by the user, the reverse PIN provides a distress-oriented account protection workflow.
+
+Entering the reverse PIN triggers protected-content deletion according to the configured data-deletion and retention model. This includes messages, voice messages, call records, multimedia, attachments, and other protected conversation content available to the account. It does not delete the Enigm account itself. It also records a compromised-risk state on the user's profile so trusted contacts can see that the account may be at risk.
+
+If the PIN is entered incorrectly 5 times, Enigm App automatically closes the app session and records a user-risk state on the profile. This risk state is visible to contacts so they can understand that the user may be compromised or under pressure.
+
+The profile risk state is cleared only after the user successfully returns through the correct PIN validation workflow.
 
 ## Device Association
 
@@ -118,6 +148,8 @@ Account Trust evaluates:
 - Account lifecycle state.
 - Recovery state.
 - Account-level policy.
+- PIN validation state.
+- Profile risk state.
 - Administrative policy.
 
 Device Trust evaluates:
@@ -151,6 +183,31 @@ Session evaluation should consider:
 A session should not be treated as permanently valid if Device Trust changes, account recovery begins, or administrative policy restricts the account or device.
 
 Session expiration or closure does not decrypt messages, export private keys, or bypass message expiration policy. It limits account access state and protected workflow eligibility.
+
+## Profile Security Level
+
+Enigm App exposes a user security level that reflects how the account is configured.
+
+Supported public levels are:
+
+- Low.
+- Medium.
+- High.
+- Extreme.
+
+The security level can reflect configuration choices such as message lifetime, online visibility, voice modulation, PIN behavior, reverse PIN activation, VPN Service usage, and notification privacy.
+
+The security level is displayed on the user's profile. Contacts can use this signal to understand the user's current protection posture before deciding whether to communicate.
+
+## Contact Discovery And Availability
+
+Contacts are added through a unique contact identifier. Users cannot be searched by username or display name.
+
+Users can configure whether they are discoverable through the public Enigm discovery surface or available only through Enigm Server private environments. This setting can be managed from Enigm App or Enigm Command.
+
+Online visibility is configurable. Users can decide whether their online state is shown.
+
+Notifications are designed not to reveal message content or sender identity.
 
 ## Enigm Command Lifecycle Management
 
