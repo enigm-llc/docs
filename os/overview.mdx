@@ -9,8 +9,6 @@ Enigm OS is a dedicated secure device platform within the Enigm ecosystem. It is
 
 Enigm OS is not the primary Enigm product. Enigm App remains the primary user-facing product for secure messaging, secure calls, account workflows, device association, and core user interaction.
 
-This document is intended for security auditors, enterprise customers, technical partners, and Android engineers. It describes Enigm OS at a public architecture level suitable for external review.
-
 ## Overview
 
 Enigm OS provides device-level security controls that can strengthen the Enigm ecosystem where a dedicated secure device layer is required.
@@ -167,24 +165,7 @@ VPN Service, Proxy Network, Enigm eSIM, and Tor Gateway are separate platform co
 
 ## Security Limitations
 
-Enigm OS provides platform hardening, Device Trust signals, reduced attack surface, controlled device experience, and additional security controls. It does not replace:
-
-- End-to-end encryption.
-- User trust decisions.
-- Secure messaging architecture.
-- Security awareness.
-- Account security.
-- Protected key material.
-- Verification workflows.
-
-Important limitations:
-
-- A compromised endpoint may still expose data after authorized local access.
-- Device posture is a signal, not an absolute assurance.
-- Managed device controls depend on device state and policy.
-- Remote wipe, where enabled, cannot ensure removal of content already exported or captured outside Enigm controls.
-- Enigm OS hardening does not make insecure user behavior safe.
-- Enigm OS does not make administrative systems a plaintext message access path.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model References
 

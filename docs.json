@@ -115,17 +115,8 @@
                   "os/network-policy",
                   "os/privacy-mode",
                   "os/device-management",
-                  {
-                    "group": "OTA",
-                    "pages": [
-                      "os/ota/overview",
-                      "os/ota/security-model",
-                      "os/ota/remote-attestation",
-                      "os/ota/signing",
-                      "os/ota/release-lifecycle",
-                      "os/ota/client-verification"
-                    ]
-                  },
+                  "os/ota-architecture",
+                  "os/ota-security",
                   "os/production-gates"
                 ]
               },
@@ -160,16 +151,13 @@
             "expanded": true,
             "pages": [
               "security/security-model",
-              "security/privacy-principles",
-              "security/privacy-model",
+              "security/privacy",
               "security/threat-model",
               "security/cryptography",
               "security/cryptography-audit",
               "security/implementation-status",
-              "security/compliance",
-              "security/assurance-evidence",
-              "security/transparency-report",
-              "security/transparency"
+              "security/governance",
+              "security/transparency-report"
             ]
           },
           {
@@ -199,6 +187,7 @@
               "legal/jurisdiction-compliance",
               "legal/legal-process-guidelines",
               "legal/data-retention",
+              "legal/limitations",
               "legal/business-continuity-user-impact",
               "legal/responsible-disclosure",
               "legal/security-contact"
@@ -226,5 +215,51 @@
       "vscode",
       "devin-mcp"
     ]
-  }
+  },
+  "redirects": [
+    {
+      "source": "/security/privacy-principles",
+      "destination": "/security/privacy"
+    },
+    {
+      "source": "/security/privacy-model",
+      "destination": "/security/privacy"
+    },
+    {
+      "source": "/security/compliance",
+      "destination": "/security/governance"
+    },
+    {
+      "source": "/security/assurance-evidence",
+      "destination": "/security/governance"
+    },
+    {
+      "source": "/security/transparency",
+      "destination": "/security/governance"
+    },
+    {
+      "source": "/os/ota/overview",
+      "destination": "/os/ota-architecture"
+    },
+    {
+      "source": "/os/ota/release-lifecycle",
+      "destination": "/os/ota-architecture"
+    },
+    {
+      "source": "/os/ota/client-verification",
+      "destination": "/os/ota-architecture"
+    },
+    {
+      "source": "/os/ota/security-model",
+      "destination": "/os/ota-security"
+    },
+    {
+      "source": "/os/ota/signing",
+      "destination": "/os/ota-security"
+    },
+    {
+      "source": "/os/ota/remote-attestation",
+      "destination": "/os/ota-security"
+    }
+  ]
 }

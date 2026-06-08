@@ -32,7 +32,6 @@ All Enigm products listed in this page are documented as implemented production 
 | Secure calls | Designed | Implemented | In Production | Private assessment available under NDA | Secure session establishment, protected key material, and device trust requirements are documented. |
 | Key management | Designed | Implemented | In Production | Private cryptographic assessment available under NDA | Device-generated keys, protected storage, hardware-backed protection, and recovery boundaries are documented. |
 | Multi-device workflows | Designed | Implemented | In Production | Private assessment available under NDA | Explicit trust establishment, revocation, and replacement workflows are documented. |
-| Active Defense | Designed | Implemented | In Production for selected user pool | Private assessment available under NDA | AI-assisted network-behavior malware-risk assessment is documented without exposing detection logic. |
 | VPN Service | Designed | Implemented | In Production | Private infrastructure assessment available under NDA | Optional transport privacy layer separate from end-to-end encryption. |
 | Proxy Network | Designed | Implemented | In Production | Private infrastructure assessment available under NDA | Traffic separation and metadata-reduction layer documented at a high level. |
 | Enigm Command | Designed | Implemented | In Production | Private assessment available under NDA | Account, device, product lifecycle, Enigm Server, Enigm eSIM, Enigm Key, and administrative workflows are documented. |
@@ -45,7 +44,6 @@ All Enigm products listed in this page are documented as implemented production 
 | Remote Attestation | Designed | Implemented | In Production | Private assessment available under NDA | Documented as an additional eligibility signal and production hardening layer. |
 | Hardware-backed OTA manifest signing | Designed | Implemented | In Production | Private assessment available under NDA | Current production OTA manifest signing authority is documented separately from target release signing. |
 | Target HSM release signing | Designed | Planned | Planned hardening layer | Not publicly assessed | Target production release-signing authority is documented as separate from current manifest signing. |
-| Enigm Intelligence | Designed | Implemented | In Production | Private assessment available under NDA | Detection, correlation, risk, and defensive response models are documented without exposing rules or playbooks. |
 | Enyra | Designed | Implemented | In Production | Private assessment available under NDA | Conversational security analyst layer operates on Enigm Intelligence context. |
 | Secure SDLC | Designed | Implemented | In Production | ISO 27001 governance evidence available | Secure development, vulnerability management, release security, and continuous validation are documented. |
 | ISO 27001 governance | Designed | Implemented | In Production | Independently Assessed | ISO/IEC 27001:2022 certification is published in Security Assurance. |
@@ -62,20 +60,11 @@ Private assessment evidence is not published in public documentation because it 
 
 ## Limitations
 
-This matrix is a public documentation aid.
-
-Limitations include:
-
-- It does not replace release notes.
-- It does not replace contractual commitments.
-- It does not expose internal implementation status.
-- It does not imply that every feature is available to every user account or deployment policy.
-- It does not expand ISO 27001 certification scope beyond the certified scope.
-- It distinguishes public assessment evidence from private assessment evidence available under NDA.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Related Documents
 
-- [Security Assurance](/security/assurance-evidence)
-- [Compliance](/security/compliance)
+- [Security Assurance](/security/governance)
+- [Compliance](/security/governance)
 - [Cryptography Audit](/security/cryptography-audit)
 - [Product Architecture](/platform/architecture)

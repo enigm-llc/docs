@@ -8,8 +8,6 @@ The Enigm OS Setup Wizard is the initial device provisioning and trust-establish
 
 The Setup Wizard focuses on Enigm platform functionality, device security, privacy choices, network readiness, and transition into Enigm App. It is not a general-purpose consumer onboarding flow.
 
-This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
-
 ## Overview
 
 The Setup Wizard guides the user through first-use configuration and prepares the device for secure operation within the Enigm ecosystem.
@@ -118,8 +116,6 @@ The Setup Wizard introduces privacy controls as part of first-use configuration.
 
 Privacy Mode is introduced as a device protection feature. It is intended to help users understand that Enigm OS includes device-level privacy controls that may affect device behavior, exposure, and security posture.
 
-The Setup Wizard should explain Privacy Mode at a user-facing level without exposing enforcement mechanics or policy internals.
-
 Privacy choices should be presented clearly and should avoid implying that any single privacy setting provides complete protection.
 
 ## Network Configuration
@@ -172,17 +168,4 @@ After required setup steps are complete, the user should enter Enigm App rather 
 
 ## Security Limitations
 
-The Setup Wizard establishes an initial security baseline, but it does not eliminate device or user risk.
-
-Limitations include:
-
-- It cannot prevent all unsafe user decisions after setup.
-- It does not replace Enigm App end-to-end encryption.
-- It does not replace Trust Security Center posture evaluation.
-- It does not replace OTA verification or device lifecycle controls.
-- It does not ensure that future device state remains trusted.
-- It does not protect against social engineering.
-- It does not provide assurance for systems outside Enigm control.
-- It does not make weak operational practices safe.
-
-The Setup Wizard should be understood as the first step in Enigm OS trust establishment, followed by ongoing device posture evaluation, policy enforcement, update verification, and Enigm App security workflows.
+Ver [Platform Limitations](/legal/limitations).

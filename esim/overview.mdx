@@ -7,8 +7,6 @@ mode: wide
 
 Enigm eSIM is the private connectivity product in the Enigm ecosystem. It is focused on privacy-oriented mobile data connectivity across supported coverage areas and can be combined with other Enigm privacy and security controls.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Enigm eSIM architecture without exposing third-party relationships, connectivity partner details, infrastructure relationships, commercial arrangements, activation backends, operational procedures, or implementation-sensitive details.
-
 ## Overview
 
 The Enigm eSIM service provides mobile data connectivity as a supporting platform component across supported coverage areas. It is data-only and does not provide traditional voice calling or SMS functionality.
@@ -260,22 +258,7 @@ Carrier-layer network metadata remains outside Enigm's normal operational visibi
 
 ## Security Limitations
 
-The Enigm eSIM service does not mitigate:
-
-- Device compromise.
-- Malware with sufficient privileges.
-- Message disclosure by trusted participants.
-- Social engineering.
-- Endpoint compromise.
-- Weak Device Trust.
-- Incorrect policy configuration.
-- Plaintext exposure after authorized local decryption.
-- Network availability limitations.
-- External traffic correlation outside Enigm controls.
-- Legal or regulatory obligations applicable to connectivity services.
-- Carrier-layer obligations, restrictions, or records controlled by an independent telecommunications infrastructure provider.
-
-The Enigm eSIM service does not replace secure messaging, end-to-end encryption, VPN protection, Proxy Network traffic separation, Device Trust, account security, or verification workflows.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model Considerations
 

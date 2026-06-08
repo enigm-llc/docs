@@ -8,8 +8,6 @@ Trust Security Center is the local Device Trust evaluation system for Enigm OS. 
 
 Trust Security Center is not an antivirus. It is not a numeric security score, a percentage-based rating, or a general-purpose threat scanner. It is a Device Trust surface for Enigm OS.
 
-This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
-
 ## Overview
 
 Trust Security Center evaluates multiple independent device integrity and security signals to determine whether the local device is operating in an expected trust state.
@@ -160,8 +158,6 @@ Finding severity is used to communicate security relevance. It is not a numeric 
 
 ## User Guidance
 
-Trust Security Center should present guidance that is actionable without exposing sensitive evaluation mechanics.
-
 Guidance should:
 
 - Describe the issue in user-understandable terms.
@@ -225,25 +221,10 @@ Privacy principles include:
 - Evaluate device security signals rather than user content.
 - Avoid unnecessary exposure of identity metadata.
 - Keep message, media, call, attachment, document, and conversation content outside the trust evaluation model.
-- Present local trust state without disclosing sensitive evaluation mechanics.
 - Share posture information only where required for supported device or account workflows.
 
 Trust Security Center exposes high-level posture summaries to Enigm ecosystem components such as Enigm Command or managed device workflows. Such summaries should be limited to security state and should not include user content.
 
 ## Security Limitations
 
-Trust Security Center is a Device Trust evaluation system. It does not eliminate risk.
-
-Limitations include:
-
-- It does not ensure that a trusted user will make safe decisions.
-- It does not prevent social engineering.
-- It does not prevent physical coercion.
-- It does not inspect encrypted message content.
-- It does not replace Enigm App end-to-end encryption.
-- It does not replace user verification workflows.
-- It does not replace secure account management.
-- It may be unable to provide reliable trust state if critical trust services are unavailable.
-- It cannot provide assurance for systems outside Enigm control.
-
-Trust Security Center should be interpreted as one part of the Enigm OS security architecture, alongside platform hardening, OTA verification, device management, Enigm App cryptography, and user trust decisions.
+Ver [Platform Limitations](/legal/limitations).

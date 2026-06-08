@@ -1,0 +1,98 @@
+# Enigm Documentation
+
+> Public technical documentation for Enigm privacy-first communications, product architecture, security governance, and legal trust boundaries.
+
+## Site
+
+- Documentation: https://docs.enigm.io
+- Website: https://enigm.io
+- Enigm Command: https://app.enigm.io
+
+## Navigation
+
+### Enigm Docs
+
+- Start
+  - [Welcome to Enigm documentation](https://docs.enigm.io/introduction): Public technical overview of Enigm private product architecture and trust.
+  - [Product Architecture](https://docs.enigm.io/platform/architecture): Public product architecture overview for the Enigm ecosystem.
+- Products
+  - Enigm
+    - [App Overview](https://docs.enigm.io/app/overview): Public overview of Enigm private messaging.
+    - [App Account Model](https://docs.enigm.io/app/account-model): Public identity and account architecture for Enigm.
+    - [App Key Management](https://docs.enigm.io/app/key-management): Public key management model for Enigm.
+    - [App Secure Messaging](https://docs.enigm.io/app/secure-messaging): Public architecture and security model for Enigm secure messaging.
+    - [App Secure Calls](https://docs.enigm.io/app/secure-calls): Public security model for Enigm secure voice and video communications.
+    - [App Active Defense](https://docs.enigm.io/app/active-defense): AI-assisted mobile spyware and network-behavior analysis model for Enigm.
+    - [App Multi-Device](https://docs.enigm.io/app/multi-device): Public multi-Device Trust architecture for Enigm.
+    - [App VPN Service](https://docs.enigm.io/app/vpn): Public architecture model for the optional Enigm VPN Service.
+    - [App Proxy Network](https://docs.enigm.io/app/proxy-network): Public architecture model for the Enigm proxy network.
+  - Enigm Command
+    - [Command Overview](https://docs.enigm.io/command/overview): Public architecture model for Enigm Command.
+    - [Command Payment Privacy](https://docs.enigm.io/command/payments): Public model for payment privacy, reduced identity linkage, and commercial boundaries.
+    - [Command Tor Gateway](https://docs.enigm.io/command/tor-gateway): Public architecture model for the Enigm Tor Gateway.
+  - Enigm Server
+    - [Server Overview](https://docs.enigm.io/server/overview): Public architecture model for Enigm Server dedicated private messaging environments.
+  - Enigm OS
+    - [OS Overview](https://docs.enigm.io/os/overview): Public overview of Enigm OS within the Enigm ecosystem.
+    - [OS Security Architecture](https://docs.enigm.io/os/security-architecture): Authoritative public security architecture model for Enigm OS.
+    - [OS Trust Security Center](https://docs.enigm.io/os/trust-security-center): Authoritative public specification for the Enigm OS Trust Security Center.
+    - [OS Setup Wizard](https://docs.enigm.io/os/setup-wizard): Public architecture specification for the Enigm OS Setup Wizard.
+    - [OS Launcher](https://docs.enigm.io/os/launcher): Public architecture specification for the Enigm OS Launcher.
+    - [OS Network Policy](https://docs.enigm.io/os/network-policy): Public network security and privacy policy framework for Enigm OS.
+    - [OS Privacy Mode](https://docs.enigm.io/os/privacy-mode): Public architecture specification for Enigm OS Privacy Mode.
+    - [OS Device Management](https://docs.enigm.io/os/device-management): Public architecture specification for Enigm OS managed-device capabilities.
+    - [OTA Architecture](https://docs.enigm.io/os/ota-architecture): Enigm OS OTA update architecture, release lifecycle, and client verification model.
+    - [OTA Security](https://docs.enigm.io/os/ota-security): Enigm OS OTA layered security, signing, and Remote Attestation model.
+    - [OS Production Gates](https://docs.enigm.io/os/production-gates): Public production gate model for Enigm OS security posture validation.
+  - Enigm Key
+    - [Key Overview](https://docs.enigm.io/key/overview): Public architecture model for Enigm Key emergency alerting.
+  - Enigm eSIM
+    - [eSIM Overview](https://docs.enigm.io/esim/overview): Public architecture model for Enigm eSIM private connectivity.
+- FAQ & Support
+  - [Get Help](https://docs.enigm.io/support/get-help): Support entry points for Enigm documentation, product questions, and customer assistance.
+  - [FAQ](https://docs.enigm.io/support/faq): Frequently asked questions about Enigm products, privacy, security, device trust, and support boundaries.
+
+### Security & Trust
+
+- Security
+  - [Security Model](https://docs.enigm.io/security/security-model): Public security model for Enigm products and services.
+  - [Privacy](https://docs.enigm.io/security/privacy): Privacy principles and data minimization model for Enigm.
+  - [Threat Model](https://docs.enigm.io/security/threat-model): Public threat-model framework for Enigm products and services.
+  - [Cryptography](https://docs.enigm.io/security/cryptography): Authoritative public cryptographic architecture for the Enigm ecosystem.
+  - [Cryptography Audit](https://docs.enigm.io/security/cryptography-audit): Public cryptographic assessment status and publication model for Enigm.
+  - [Implementation Status](https://docs.enigm.io/security/implementation-status): Public implementation and validation status matrix for Enigm components.
+  - [Security Governance](https://docs.enigm.io/security/governance): Governance, compliance, assurance evidence, transparency, and validation model for Enigm.
+  - [Transparency Report](https://docs.enigm.io/security/transparency-report): Public annual transparency reporting framework for Enigm.
+- Intelligence
+  - [Intelligence Overview](https://docs.enigm.io/intelligence/overview): Public overview of the Enigm Intelligence platform.
+  - [Threat Intelligence](https://docs.enigm.io/intelligence/threat-intelligence): Public technical architecture for Enigm Intelligence.
+  - [Enyra Architecture](https://docs.enigm.io/intelligence/enyra): Public architecture model for Enyra as the conversational security analyst layer of Enigm.
+  - [Intelligence Detection Pipeline](https://docs.enigm.io/intelligence/detection-pipeline): Public detection and correlation pipeline for Enigm Intelligence.
+  - [Intelligence Risk Model](https://docs.enigm.io/intelligence/risk-model): Public risk assessment model for Enigm Intelligence.
+  - [Defensive Blocking Architecture](https://docs.enigm.io/intelligence/blocking-architecture): Public defensive blocking architecture for Enigm Intelligence.
+- Infrastructure
+  - [Infrastructure Architecture](https://docs.enigm.io/infrastructure/architecture): Public architecture model for Enigm supporting systems.
+  - [Secure SDLC](https://docs.enigm.io/infrastructure/secure-sdlc): Public Secure Software Development Lifecycle model for Enigm.
+  - [Infrastructure Monitoring](https://docs.enigm.io/infrastructure/monitoring): Public monitoring and security visibility model for Enigm.
+  - [Incident Response](https://docs.enigm.io/infrastructure/incident-response): Public incident response model for Enigm.
+  - [Backup and Recovery](https://docs.enigm.io/infrastructure/backup-recovery): Public backup and recovery architecture for Enigm business continuity.
+- Legal and Privacy
+  - [Jurisdiction and Legal Compliance](https://docs.enigm.io/legal/jurisdiction-compliance): Public jurisdiction, legal governance, GDPR, and metadata handling model for Enigm.
+  - [Legal Process Guidelines](https://docs.enigm.io/legal/legal-process-guidelines): Public legal request, data availability, and technical boundary guidelines for Enigm.
+  - [Data Retention](https://docs.enigm.io/legal/data-retention): Public data retention and data minimization model for Enigm.
+  - [Platform Limitations](https://docs.enigm.io/legal/limitations): Consolidated public limitations across the Enigm documentation.
+  - [Business Continuity and User Impact](https://docs.enigm.io/legal/business-continuity-user-impact): Public user-impact model for Enigm service interruption, deletion, and continuity scenarios.
+  - [Responsible Disclosure](https://docs.enigm.io/legal/responsible-disclosure): Public responsible disclosure policy for Enigm security reports.
+  - [Security Contact](https://docs.enigm.io/legal/security-contact): Public security communication channels for Enigm.
+
+## Consolidated Pages
+
+- [Privacy](https://docs.enigm.io/security/privacy): Consolidates privacy principles and privacy model.
+- [Security Governance](https://docs.enigm.io/security/governance): Consolidates compliance, assurance evidence, transparency, and ongoing security validation.
+- [OTA Architecture](https://docs.enigm.io/os/ota-architecture): Consolidates OTA overview, release lifecycle, and client verification.
+- [OTA Security](https://docs.enigm.io/os/ota-security): Consolidates OTA security model, signing, and Remote Attestation.
+- [Platform Limitations](https://docs.enigm.io/legal/limitations): Consolidates public limitations across product, security, legal, OS, and infrastructure domains.
+
+## Public Boundaries
+
+The documentation is vendor-neutral and avoids provider names, internal infrastructure names, internal endpoints, secrets, tokens, private routes, operational topology, and attack-surface details.

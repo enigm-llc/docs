@@ -56,8 +56,6 @@ Secure calls are treated as protected real-time communication workflows. Call es
 
 Voice modulation is documented as a privacy feature when enabled by user or policy. It is intended to reduce direct voice recognizability during supported calls, not to claim resistance against all voice-identification methods.
 
-The secure calling model is documented separately in [Secure Calls](/app/secure-calls). Public documentation describes the security architecture and trust assumptions without exposing protocol internals, routing mechanics, media infrastructure, or operational details.
-
 ## Active Defense
 
 Active Defense is an Enigm App capability designed to help users evaluate mobile malware, spyware, and suspicious network-behavior risk.
@@ -71,8 +69,6 @@ The Active Defense model is documented separately in [Active Defense](/app/activ
 ## Device Association
 
 Enigm App does not treat identity and Device Trust as the same concept. A user account may be valid while a specific device is not eligible for a protected operation.
-
-Device association is explicit and lifecycle-bound. Devices can be enrolled, replaced, suspended, revoked, or retired through authorized workflows. Privacy-Preserving Device Handles support account-device correlation for policy, audit, and lifecycle review without exposing direct public device identifiers.
 
 ## Identity Lifecycle
 
@@ -154,8 +150,6 @@ When inactive, Enigm Key is intended to remain dormant to reduce unnecessary loc
 
 Enigm App should minimize collection and separate protected content from operational metadata by trust domain.
 
-Privacy-Preserving Device Handles should be used for account-device correlation. Enigm Command and audit workflows should expose lifecycle and decision evidence without exposing protected content or private key material.
-
 ## Trust Boundaries
 
 The primary trust boundaries are:
@@ -199,7 +193,7 @@ flowchart LR
 
 ## Limitations
 
-Public documentation does not disclose protocol internals, routing mechanics, operational procedures, cryptographic parameters, internal detection logic, or non-public component layout.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model References
 

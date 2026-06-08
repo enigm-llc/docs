@@ -10,8 +10,6 @@ The Tor Gateway exists to provide privacy-preserving access paths for supported 
 
 Tor Gateway is not Enigm Server. Enigm Server provides dedicated private messaging environments; Tor Gateway provides selected web-surface access paths.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Tor Gateway architecture without exposing infrastructure relationships, deployment scale, private topology, non-public service names, sensitive routes, or implementation-sensitive details.
-
 ## Overview
 
 The Tor Gateway supports public web access through onion services for selected public-facing Enigm surfaces.
@@ -123,14 +121,4 @@ Threat modeling should verify that gateway-accessible surfaces are public-safe a
 
 ## Security Limitations
 
-The Tor Gateway does not protect against:
-
-- Compromised endpoint devices.
-- Unsafe browser configuration.
-- User disclosure.
-- Social engineering.
-- Malicious content outside Enigm-controlled public surfaces.
-- Misconfiguration that exposes a non-public workflow.
-- Traffic analysis by sufficiently positioned observers.
-
-The Tor Gateway does not make sensitive services public-safe. It must not be used as a path to administrative interfaces, sensitive non-public services, infrastructure management, development systems, non-public service interfaces, or operational tooling.
+Ver [Platform Limitations](/legal/limitations).

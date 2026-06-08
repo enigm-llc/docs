@@ -8,8 +8,6 @@ Production Gates define the conditions that must be satisfied before a device ca
 
 The Production Gate Model describes security objectives and validation categories. It is not a publication of internal validation logic, executable checks, or low-level platform values.
 
-This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
-
 ## Overview
 
 Production Gates provide a structured model for evaluating whether an Enigm OS device aligns with the intended production security posture.
@@ -210,8 +208,6 @@ Production validation should rely on:
 - Compliance checks.
 - Policy outcomes.
 
-Evidence should support security posture decisions without exposing unnecessary user content or sensitive validation mechanics.
-
 Production evidence is intended to support trust state, compliance review, and security visibility. It should not include message content, media content, call content, attachments, documents, or user conversations.
 
 ## Relationship With Trust Security Center
@@ -255,23 +251,4 @@ Administrative device management must remain separate from message confidentiali
 
 ## Security Limitations
 
-Passing all Production Gates does not ensure the absence of vulnerabilities.
-
-Production Gates reduce risk and improve confidence in device security posture, but they do not eliminate:
-
-- Future unknown vulnerabilities.
-- Malicious authorized users.
-- Vulnerable software released through authorized workflows.
-- Social engineering.
-- Physical coercion.
-- Defects in validation logic.
-- Security decisions made outside Enigm controls.
-
-Additional limitations:
-
-- Production Gates do not replace verified boot.
-- Production Gates do not replace OTA verification.
-- Production Gates do not replace Remote Attestation.
-- Production Gates do not replace Enigm App end-to-end encryption.
-- Production Gates do not provide message plaintext access.
-- Production Gates should be evaluated alongside Trust Security Center, OTA, device management, platform hardening, and user trust decisions.
+Ver [Platform Limitations](/legal/limitations).

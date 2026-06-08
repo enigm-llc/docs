@@ -8,8 +8,6 @@ The Enigm proxy network is a privacy and traffic-separation layer within the Eni
 
 Proxy Network is separate from Enigm Server. Enigm Server provides dedicated private messaging environments; Proxy Network provides traffic separation for Enigm App and platform traffic flows where enabled.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public proxy-network architecture without exposing non-public path structure, deployment scale, infrastructure labels, geographic deployment information, private network design, or operational details.
-
 ## Overview
 
 The proxy network is separate from end-to-end encryption, separate from Enigm Server, and separate from the optional VPN Service.
@@ -111,20 +109,7 @@ Additional network activity should not be interpreted as proof of active user co
 
 ## Security Limitations
 
-The proxy layer does not make compromised devices trustworthy.
-
-The proxy network does not mitigate:
-
-- Compromised endpoints.
-- Malware with sufficient privileges.
-- User disclosure.
-- Social engineering.
-- Plaintext exposure after authorized local decryption.
-- Incorrect policy configuration.
-- Weak Device Trust.
-- Missing or disabled application-layer encryption.
-
-The proxy layer is not intended to replace encryption, Device Trust, account security, secure key management, or verification workflows.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model Considerations
 

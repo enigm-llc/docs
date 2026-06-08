@@ -9,8 +9,6 @@ Enigm is designed as a privacy-first communications ecosystem, not as a single-p
 
 Enigm is the private messaging product at the center of the user experience. Supporting products provide web administration, dedicated private messaging environments, secure operating-system hardening, emergency alerting, private connectivity, payment privacy, and defensive intelligence. Each product is documented as a separate trust domain so that security reviewers can evaluate what the component does, what it does not do, and how it interacts with protected content.
 
-This document is intended for auditors, enterprise customers, engineers, and technical partners. It describes the Enigm ecosystem without disclosing deployment-specific platform details, non-public component identifiers, sensitive values, credential material, environment-specific network details, or operational details that could reduce system security.
-
 ## Overview
 
 Enigm provides the primary account, communication, key-management, and multi-device experience. Enigm App also integrates optional VPN Service usage and Proxy Network traffic separation where enabled. The platform around it exists to support policy, visibility, secure networking, Device Trust lifecycle, threat intelligence, and controlled release without turning those supporting systems into plaintext access paths.
@@ -158,7 +156,6 @@ The release boundary covers OTA Architecture, Hardware-Backed Signing, Remote At
 - Enigm Command should be separated from routine user workflows.
 - Optional Enigm OS posture should harden supported deployments without making app security dependent on OS-only assumptions.
 - OTA Architecture should reject artifacts that fail verification.
-- Threat Intelligence Platform and Enyra outputs should be auditable at the decision-category level without exposing non-public detection methods.
 
 ## Privacy considerations
 
@@ -185,7 +182,7 @@ The primary trust boundaries are:
 
 ## Limitations
 
-The public architecture does not define deployment-specific policy depth, device support, retention periods, network behavior, attestation evidence formats, or rollout mechanics. Those details should be reviewed in the relevant deployment or assurance context.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat model references
 
@@ -195,4 +192,3 @@ Relevant threat-model areas include account and app compromise, device lifecycle
 
 The platform should deny protected operations when required identity, authorization, device posture, privacy-preserving device handle, policy, OTA integrity, Remote Attestation outcome, or intelligence state cannot be established.
 
-Error responses should expose stable categories for authorized debugging without disclosing protected content or increasing metadata exposure.

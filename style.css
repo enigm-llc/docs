@@ -85,10 +85,18 @@ html.dark #navbar-transition {
 }
 
 html.light .nav-tabs-item > .absolute.bottom-0 {
-  background: rgba(0, 0, 0, 0.18) !important;
+  background: transparent !important;
 }
 
 html.dark .nav-tabs-item > .absolute.bottom-0 {
+  background: transparent !important;
+}
+
+html.light .nav-tabs-item:hover > .absolute.bottom-0 {
+  background: rgba(0, 0, 0, 0.18) !important;
+}
+
+html.dark .nav-tabs-item:hover > .absolute.bottom-0 {
   background: rgba(255, 255, 255, 0.22) !important;
 }
 
@@ -360,6 +368,25 @@ html.dark .enigm-card-grid .card:focus-visible {
 .enigm-card-grid--compact a,
 .enigm-card-grid--compact .card {
   min-height: 128px;
+}
+
+.enigm-hero-banner {
+  background: rgba(0, 0, 0, 0.012) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.75rem !important;
+  margin: 1.5rem 0 2rem !important;
+  overflow: hidden !important;
+}
+
+html.dark .enigm-hero-banner {
+  background: rgba(255, 255, 255, 0.018) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.enigm-hero-banner img {
+  display: block !important;
+  height: auto !important;
+  width: 100% !important;
 }
 
 html.dark [aria-label="Table of contents"] a[aria-current="true"],

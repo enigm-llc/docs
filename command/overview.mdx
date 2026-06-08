@@ -9,8 +9,6 @@ Enigm Command is the web control panel product in the Enigm ecosystem. It is the
 
 Enigm Command is not a messaging client. It must not provide access to message plaintext, secure call content, private key material, decrypted attachments, or implementation-sensitive communication state.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Enigm Command architecture without exposing non-public interfaces, deployment data stores, infrastructure names, storage systems, non-public routes, sensitive values, private response methods, or implementation-sensitive details.
-
 ## Overview
 
 Enigm Command provides workflows for individual users, organizations, and enterprise administrators to manage Enigm accounts, trusted devices, active sessions, security configuration, managed device capabilities, supported payment methods, Enigm Server, server ID join requests, server membership, server-scoped content lifecycle, Enigm eSIM purchase and lifecycle management, Enigm Key lifecycle visibility, Tor Gateway access to selected web surfaces, Active Defense review context, and security event visibility.
@@ -359,20 +357,7 @@ Privacy considerations include:
 
 ## Security Limitations
 
-Enigm Command provides administrative control and visibility, but it does not eliminate endpoint or user risk.
-
-Important limitations:
-
-- Administrative visibility does not prove that an endpoint is free of compromise.
-- Active Defense findings improve review context but do not ensure detection of every malware or spyware risk.
-- Remote wipe may depend on device state, connectivity, and managed device support.
-- Device revocation affects future trust decisions but cannot ensure removal of content already accessed by an authorized device.
-- Enigm Server membership removal affects future server access but cannot ensure removal of content already accessed by an authorized participant.
-- Server-scoped content deletion affects encrypted content availability and lifecycle, not historical disclosure outside Enigm controls.
-- Tor Gateway access improves access-path privacy for selected web surfaces but does not replace Enigm App secure messaging, VPN Service, Proxy Network, or Device Trust.
-- Account recovery support must not be treated as protected content access.
-- Incorrect policy configuration can affect account, device, or session behavior.
-- Optional Enigm OS posture can strengthen device review where deployed, but Enigm Command architecture must remain valid without requiring Enigm OS.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model References
 

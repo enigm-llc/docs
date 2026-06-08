@@ -6,8 +6,6 @@ description: Public multi-Device Trust architecture for Enigm.
 
 Multi-device support in Enigm App is a trust and security problem. An Enigm account may be associated with multiple trusted devices, but each device must establish trust before receiving access to protected account resources.
 
-This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public multi-Device Trust architecture without exposing protocol messages, non-public routing identifiers, infrastructure names, storage paths, operational topology, sensitive values, or implementation-sensitive details.
-
 ## Overview
 
 An Enigm account is separate from any single physical device. A device becomes eligible for protected operations only after explicit enrollment and trust establishment.
@@ -60,8 +58,6 @@ Enrollment is security-sensitive because it can affect:
 ## Device Association
 
 Device association links an Enigm account to a specific trusted device context.
-
-Device association should use Privacy-Preserving Device Handles. These identifiers support lifecycle review, policy evaluation, and audit correlation without exposing unnecessary public identity metadata.
 
 Device association must not be treated as a passive metadata update. It is an authorization-sensitive event that changes which devices may participate in protected workflows.
 
@@ -173,16 +169,7 @@ flowchart TD
 
 ## Security Limitations
 
-Multi-Device Trust reduces risk but does not remove every endpoint risk.
-
-Important limitations:
-
-- A compromised trusted device may expose content after authorized local decryption.
-- Revocation affects future trust decisions but cannot ensure removal of content already accessed by the revoked device.
-- User disclosure can move content outside Enigm controls.
-- External recording or capture can occur outside the app security boundary.
-- Incorrect administrative policy can affect device lifecycle behavior.
-- Enigm OS can provide additional integrity signals, but multi-Device Trust must remain valid without requiring Enigm OS.
+Ver [Platform Limitations](/legal/limitations).
 
 ## Threat Model References
 

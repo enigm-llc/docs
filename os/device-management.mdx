@@ -8,8 +8,6 @@ Enigm OS device management is an optional managed-device capability within the E
 
 Device management is not mandatory for normal Enigm OS operation. Managed-device functionality becomes available only after explicit user enrollment.
 
-This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
-
 ## Overview
 
 Device management provides an optional layer for managing enrolled Enigm OS devices through Enigm Command after the user enables managed-device mode.
@@ -176,17 +174,4 @@ Users should be able to understand what managed-device mode enables before enrol
 
 ## Security Limitations
 
-Device management reduces risk for enrolled devices, but it does not eliminate device or account risk.
-
-Limitations include:
-
-- Managed-device mode does not replace Enigm App end-to-end encryption.
-- Administrative device control does not imply message access.
-- Device Trust reporting does not ensure all future device behavior.
-- Remote wipe may not affect content already disclosed or captured outside Enigm controls.
-- Remote operations depend on device availability and state.
-- Device management does not prevent social engineering.
-- Device management does not make compromised trusted users safe.
-- Device management does not provide assurance for systems outside Enigm control.
-
-End-to-end encryption trust boundaries remain unchanged. Device management should be evaluated as an optional operational control layer, separate from message confidentiality and application-level cryptography.
+Ver [Platform Limitations](/legal/limitations).

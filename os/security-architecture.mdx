@@ -8,8 +8,6 @@ Enigm OS is a controlled secure device platform within the Enigm ecosystem. It i
 
 Enigm OS is not the primary Enigm product. Enigm App remains the primary user-facing product for secure messaging, secure calls, account workflows, and user interaction. Enigm OS strengthens the device environment in which Enigm App and managed device workflows may operate.
 
-This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
-
 ## Overview
 
 Enigm OS establishes Device Trust through multiple independent security layers. These layers are intended to make device state observable, enforce security policy, reduce unnecessary system exposure, and support controlled update and device lifecycle operations.
@@ -161,8 +159,6 @@ Network controls do not replace Enigm App end-to-end encryption or protected key
 
 Trust Security Center provides user-visible and administrator-reviewable security posture.
 
-It helps surface Device Trust state, security service state, policy posture, and relevant trust signals without exposing message plaintext or bypassing app-level confidentiality controls.
-
 ### Layer 6: Application-Level Security
 
 Application-level security remains essential.
@@ -213,17 +209,4 @@ OTA does not replace Device Trust evaluation. It contributes to trusted software
 
 ## Security Limitations
 
-Enigm OS reduces risk but does not eliminate risk.
-
-Examples of residual risk include:
-
-- Compromised trusted users.
-- Social engineering.
-- Physical coercion.
-- Vulnerable third-party systems.
-- Future unknown vulnerabilities.
-- Authorized local access followed by manual disclosure.
-- Malicious or compromised external participants.
-- Security decisions made outside Enigm controls.
-
-Enigm OS should be evaluated as a device hardening and trust layer within a broader security architecture. It does not replace user awareness, organizational policy, secure account practices, end-to-end encryption, or application-level security.
+Ver [Platform Limitations](/legal/limitations).

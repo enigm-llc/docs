@@ -1,0 +1,974 @@
+---
+title: Platform Limitations
+sidebarTitle: Platform Limitations
+description: Consolidated public limitations across the Enigm documentation.
+---
+
+Enigm documents security and privacy limitations in one place so enterprise customers, auditors, technical partners, and procurement teams can review constraints without reading repeated sections across every product page.
+
+This page consolidates limitations by domain. Individual product and architecture pages link here when their local limitations section has been removed.
+
+## Overview
+
+Limitations describe the boundary of a control. They do not weaken the architecture; they make trust assumptions explicit. Enigm documentation uses these limitations to distinguish between content confidentiality, Device Trust, administrative authorization, network privacy, OTA Eligibility, Remote Attestation, and governance controls.
+
+Core principles:
+
+- End-to-end encryption protects message and call content, but it does not make endpoints trustworthy.
+- Administrative authority controls lifecycle and availability, not plaintext access.
+- Privacy and metadata-reducing controls lower exposure, but they do not guarantee anonymity.
+- Device Trust improves confidence in expected devices, but it does not eliminate user, endpoint, or physical risks.
+- Compliance, certification, and assessments improve assurance, but security remains an ongoing process.
+
+## Enigm App
+
+### App Account Model
+
+Source: [app/account-model](/app/account-model)
+
+Public documentation does not disclose recovery internals, device identifier format, cryptographic parameters, approval mechanics, or operational procedures.
+
+### App Active Defense
+
+Source: [app/active-defense](/app/active-defense)
+
+Active Defense improves device-risk visibility, but it does not eliminate mobile security risk.
+
+Important limitations:
+
+- It does not ensure detection of every malware or spyware family.
+- Advanced compromise may reduce the reliability of device-originated signals.
+- Dormant implants or low-signal behavior may not produce enough observable network activity during an assessment window.
+- False positives and false negatives are possible.
+- Network-level analysis can identify suspicious behavior but may not prove compromise, attribution, or intent.
+- Encrypted payloads remain opaque by design.
+- Social engineering, physical coercion, and malicious trusted users remain outside the scope of malware-risk assessment.
+- A clean assessment is not an assurance that a device is uncompromised.
+
+Active Defense should be treated as a security and privacy support layer within Enigm App, not as a replacement for device hardening, secure software updates, end-to-end encryption, or user trust decisions.
+
+### App Key Management
+
+Source: [app/key-management](/app/key-management)
+
+The Enigm key management model is designed to reduce key exposure and harden device-bound trust, but it does not eliminate every risk.
+
+Important limitations:
+
+- Hardware-backed protection depends on device capability and deployment requirements.
+- Larger cryptographic material may require protected wrapping outside the secure hardware boundary.
+- A compromised device may expose content after authorized local decryption.
+- Device revocation prevents future trust but cannot ensure removal of content already accessed by the revoked device.
+- Recovery workflows can preserve account continuity, but they must not be treated as message plaintext access workflows.
+- Administrative lifecycle control does not equal access to private key material.
+- OS security posture affects key access and must be considered part of the Device Trust model.
+
+### App Multi-Device
+
+Source: [app/multi-device](/app/multi-device)
+
+Multi-Device Trust reduces risk but does not remove every endpoint risk.
+
+Important limitations:
+
+- A compromised trusted device may expose content after authorized local decryption.
+- Revocation affects future trust decisions but cannot ensure removal of content already accessed by the revoked device.
+- User disclosure can move content outside Enigm controls.
+- External recording or capture can occur outside the app security boundary.
+- Incorrect administrative policy can affect device lifecycle behavior.
+- Enigm OS can provide additional integrity signals, but multi-Device Trust must remain valid without requiring Enigm OS.
+
+### App Overview
+
+Source: [app/overview](/app/overview)
+
+Public documentation does not disclose protocol internals, routing mechanics, operational procedures, cryptographic parameters, internal detection logic, or non-public component layout.
+
+### App Proxy Network
+
+Source: [app/proxy-network](/app/proxy-network)
+
+The proxy layer does not make compromised devices trustworthy.
+
+The proxy network does not mitigate:
+
+- Compromised endpoints.
+- Malware with sufficient privileges.
+- User disclosure.
+- Social engineering.
+- Plaintext exposure after authorized local decryption.
+- Incorrect policy configuration.
+- Weak Device Trust.
+- Missing or disabled application-layer encryption.
+
+The proxy layer is not intended to replace encryption, Device Trust, account security, secure key management, or verification workflows.
+
+### App Secure Calls
+
+Source: [app/secure-calls](/app/secure-calls)
+
+Enigm secure calling is designed to reduce exposure of voice and video communications, but it does not remove every risk in every endpoint or user environment.
+
+The secure calling model does not protect against:
+
+- Compromised endpoint devices.
+- External recording devices.
+- Malware with sufficient privileges on a participant device.
+- Social engineering of authorized users or administrators.
+- User disclosure of call content.
+- Content captured after authorized local rendering or playback.
+- Incorrect policy configuration.
+- Unsupported device classes or unsupported operating conditions.
+
+Remote participants and endpoint environments remain part of the security boundary for real-time communications.
+
+### App Secure Messaging
+
+Source: [app/secure-messaging](/app/secure-messaging)
+
+Enigm secure messaging is designed to reduce exposure of message content, but it does not claim absolute protection against every risk or environment.
+
+Important limitations:
+
+- A compromised authorized device may expose content after local decryption.
+- An authorized recipient can intentionally disclose content outside Enigm controls.
+- Message expiration cannot ensure removal of content already exported or captured outside Enigm controls.
+- Server-side encrypted storage still requires limited metadata for delivery, synchronization, expiration, and authorized lifecycle workflows.
+- Secure viewers reduce plaintext exposure during normal viewing but cannot control all behavior after intentional export.
+- Enigm OS can provide additional hardening, but Enigm secure messaging must remain valid as an App-level security model.
+- Administrative controls must not grant access to message plaintext, private key material, or decrypted attachments.
+
+### App VPN Service
+
+Source: [app/vpn](/app/vpn)
+
+The VPN Service does not mitigate:
+
+- Compromised endpoints.
+- Malware with sufficient privileges.
+- Device compromise.
+- Social engineering.
+- Message disclosure by trusted participants.
+- Incorrect user trust decisions.
+- Weak device security posture.
+- Plaintext exposure after authorized local decryption.
+
+The VPN Service also does not replace:
+
+- End-to-end encryption.
+- Device security.
+- Account security.
+- Secure key management.
+- User or contact verification.
+
+## Enigm Command
+
+### Command Overview
+
+Source: [command/overview](/command/overview)
+
+Enigm Command provides administrative control and visibility, but it does not eliminate endpoint or user risk.
+
+Important limitations:
+
+- Administrative visibility does not prove that an endpoint is free of compromise.
+- Active Defense findings improve review context but do not ensure detection of every malware or spyware risk.
+- Remote wipe may depend on device state, connectivity, and managed device support.
+- Device revocation affects future trust decisions but cannot ensure removal of content already accessed by an authorized device.
+- Enigm Server membership removal affects future server access but cannot ensure removal of content already accessed by an authorized participant.
+- Server-scoped content deletion affects encrypted content availability and lifecycle, not historical disclosure outside Enigm controls.
+- Tor Gateway access improves access-path privacy for selected web surfaces but does not replace Enigm App secure messaging, VPN Service, Proxy Network, or Device Trust.
+- Account recovery support must not be treated as protected content access.
+- Incorrect policy configuration can affect account, device, or session behavior.
+- Optional Enigm OS posture can strengthen device review where deployed, but Enigm Command architecture must remain valid without requiring Enigm OS.
+
+### Command Payment Privacy
+
+Source: [command/payments](/command/payments)
+
+Payment Privacy reduces unnecessary exposure, but it does not eliminate payment-related risk.
+
+Important limitations:
+
+- Payment methods may expose metadata outside Enigm control.
+- Cryptocurrency transactions may be visible on public ledgers.
+- Compliance obligations may require retention or disclosure in specific circumstances.
+- Commercial records may be required for support, accounting, security, or legal purposes.
+- Payment privacy does not protect against endpoint compromise, social engineering, or user disclosure.
+- Payment status does not imply Device Trust or protected-content access.
+
+### Command Tor Gateway
+
+Source: [command/tor-gateway](/command/tor-gateway)
+
+The Tor Gateway does not protect against:
+
+- Compromised endpoint devices.
+- Unsafe browser configuration.
+- User disclosure.
+- Social engineering.
+- Malicious content outside Enigm-controlled public surfaces.
+- Misconfiguration that exposes a non-public workflow.
+- Traffic analysis by sufficiently positioned observers.
+
+The Tor Gateway does not make sensitive services public-safe. It must not be used as a path to administrative interfaces, sensitive non-public services, infrastructure management, development systems, non-public service interfaces, or operational tooling.
+
+## Enigm eSIM
+
+### eSIM Overview
+
+Source: [esim/overview](/esim/overview)
+
+The Enigm eSIM service does not mitigate:
+
+- Device compromise.
+- Malware with sufficient privileges.
+- Message disclosure by trusted participants.
+- Social engineering.
+- Endpoint compromise.
+- Weak Device Trust.
+- Incorrect policy configuration.
+- Plaintext exposure after authorized local decryption.
+- Network availability limitations.
+- External traffic correlation outside Enigm controls.
+- Legal or regulatory obligations applicable to connectivity services.
+- Carrier-layer obligations, restrictions, or records controlled by an independent telecommunications infrastructure provider.
+
+The Enigm eSIM service does not replace secure messaging, end-to-end encryption, VPN protection, Proxy Network traffic separation, Device Trust, account security, or verification workflows.
+
+## Infrastructure
+
+### Backup and Recovery
+
+Source: [infrastructure/backup-recovery](/infrastructure/backup-recovery)
+
+Backups improve resilience but do not eliminate all recovery risk.
+
+Limitations include:
+
+- Recovery may depend on available platform state.
+- Backups may not cover every non-critical system element.
+- Recovery does not replace incident response.
+- Recovery does not replace secure development or release validation.
+- Recovery does not bypass end-to-end encryption.
+- Recovery does not provide plaintext access to protected user communications.
+- External systems may introduce continuity risks outside Enigm control.
+
+Backup and recovery should be evaluated as business continuity capabilities within the broader Enigm security and operational resilience model.
+
+### Incident Response
+
+Source: [infrastructure/incident-response](/infrastructure/incident-response)
+
+Incident response improves resilience but cannot eliminate all security risk.
+
+Limitations include:
+
+- Some incidents may not be detected immediately.
+- Available evidence may be incomplete.
+- Containment may involve operational tradeoffs.
+- Remediation may require multiple validation steps.
+- Recovery may depend on affected system state.
+- Future unknown vulnerabilities may create new incidents.
+- External systems may introduce risk outside Enigm control.
+
+Incident response should be evaluated as a governance and resilience capability within the broader Enigm security architecture.
+
+### Infrastructure Monitoring
+
+Source: [infrastructure/monitoring](/infrastructure/monitoring)
+
+Monitoring improves awareness, but it does not prevent every failure or attack.
+
+Limitations include:
+
+- Some failures may occur before monitoring detects them.
+- Some attacks may produce limited observable signal.
+- Monitoring may require investigation before a finding is understood.
+- Visibility may depend on available evidence.
+- Monitoring does not replace incident response.
+- Monitoring does not replace secure development or release validation.
+- Monitoring does not provide message plaintext access.
+
+Monitoring should be evaluated as a visibility and awareness capability within Enigm’s broader security architecture.
+
+### Secure SDLC
+
+Source: [infrastructure/secure-sdlc](/infrastructure/secure-sdlc)
+
+No software development lifecycle can eliminate all risk.
+
+Limitations include:
+
+- Vulnerabilities may remain undiscovered before release.
+- Reviewed code can still contain defects.
+- Dependencies may introduce future risk.
+- Authorized changes may still have unintended security impact.
+- Monitoring may not detect every issue.
+- Incident response may depend on available evidence.
+
+The goal of the Secure SDLC is risk reduction, release integrity, and continuous improvement.
+
+## Enigm Intelligence
+
+### Defensive Blocking Architecture
+
+Source: [intelligence/blocking-architecture](/intelligence/blocking-architecture)
+
+Defensive controls reduce risk, but they do not ensure attack prevention.
+
+Limitations include:
+
+- False positives may occur.
+- False negatives may occur.
+- Risk context may be incomplete.
+- Automated controls may require later review.
+- Human review may still be necessary for sensitive decisions.
+- New attack methods may evade existing visibility.
+- External systems may introduce risk outside Enigm control.
+
+The blocking architecture should be evaluated as a defensive risk-reduction layer within Enigm Intelligence, not as a complete prevention assurance.
+
+### Intelligence Detection Pipeline
+
+Source: [intelligence/detection-pipeline](/intelligence/detection-pipeline)
+
+Correlation and risk assessment improve visibility but cannot eliminate uncertainty.
+
+Limitations include:
+
+- Some activity may not produce sufficient security signal.
+- Related events may not always be correlated.
+- Historical context may be incomplete.
+- Risk evaluation depends on available evidence.
+- Defensive decisions may require human review.
+- Future unknown attack techniques may reduce detection confidence.
+- External systems may introduce risk outside Enigm control.
+
+The detection pipeline should be evaluated as a security context generation layer within the broader Enigm Intelligence platform.
+
+### Enyra Architecture
+
+Source: [intelligence/enyra](/intelligence/enyra)
+
+Enyra is an analyst layer, not a replacement for the underlying security platform.
+
+Important limitations:
+
+- Enyra does not replace detection systems.
+- Enyra does not replace correlation systems.
+- Enyra does not replace defensive controls.
+- Enyra does not independently determine platform truth.
+- Enyra responses depend on available security context and authorized data access.
+- Enyra must not expose private model guidance, non-public workflows, security policy internals, or private response methods.
+- Sensitive actions may require additional authorization before execution.
+
+### Intelligence Overview
+
+Source: [intelligence/overview](/intelligence/overview)
+
+Enigm Intelligence is designed to improve detection, correlation, and defensive response, but it does not remove all security risk.
+
+Important limitations:
+
+- Detection is not equivalent to prevention.
+- Risk scoring can reduce uncertainty but cannot eliminate it.
+- Defensive automation depends on policy quality and telemetry availability.
+- Endpoint compromise may reduce the reliability of device-originated signals.
+- Missing or delayed telemetry can affect incident visibility.
+- Public documentation cannot expose private detection methods, source details, or response procedures.
+
+### Intelligence Risk Model
+
+Source: [intelligence/risk-model](/intelligence/risk-model)
+
+Risk assessment supports decisions, but it does not eliminate uncertainty.
+
+Limitations include:
+
+- It does not ensure attribution.
+- It does not ensure intent determination.
+- It does not ensure attack prevention.
+- It may depend on incomplete observations.
+- It may require human interpretation.
+- It may miss low-signal or novel activity.
+- It may classify activity differently as context changes.
+
+The risk model should be evaluated as a decision-support framework within Enigm Intelligence, not as an assurance of complete security understanding.
+
+### Threat Intelligence
+
+Source: [intelligence/threat-intelligence](/intelligence/threat-intelligence)
+
+Threat intelligence improves visibility but does not ensure prevention of every attack.
+
+Limitations include:
+
+- Detection may miss unknown or low-signal activity.
+- Correlation may not identify every relationship between events.
+- Risk assessment depends on available context.
+- Defensive response may require human authorization.
+- Malicious authorized users may still create risk.
+- Vulnerabilities may exist before they are detected.
+- External systems may introduce risk outside Enigm control.
+
+Enigm Intelligence should be evaluated as a defensive visibility and response-support layer within the broader Enigm security architecture.
+
+## Enigm Key
+
+### Key Overview
+
+Source: [key/overview](/key/overview)
+
+Enigm Key reduces emergency communication friction, but it does not eliminate all personal safety, connectivity, or device security risk.
+
+Limitations include:
+
+- Emergency delivery may depend on available mobile connectivity.
+- Location availability may depend on device state and environmental conditions.
+- Location sharing depends on the user-controlled emergency lifecycle and user cancellation of the emergency sending workflow.
+- Physical possession of the device remains security-relevant.
+- Device loss should be handled through revocation or replacement workflows.
+- Enigm Key does not replace emergency services.
+- Enigm Key does not replace Enigm App end-to-end encryption.
+- Enigm Key does not make compromised endpoints trustworthy.
+- User-selected contacts may disclose information they receive.
+
+Enigm Key should be evaluated as a privacy-oriented emergency alerting device within the broader Enigm ecosystem.
+
+## Legal And Privacy
+
+### Business Continuity and User Impact
+
+Source: [legal/business-continuity-user-impact](/legal/business-continuity-user-impact)
+
+Continuity planning improves resilience, but it does not eliminate all risk.
+
+Limitations include:
+
+- Encrypted backups do not provide plaintext access.
+- Private keys cannot be recovered if unrecoverable by design.
+- Deleted or expired data can be unavailable.
+- External network conditions can affect Enigm eSIM and Enigm Key behavior.
+- Platform-dependent Enigm OS features can require active Enigm services.
+- User disclosure or external capture remains outside Enigm controls.
+
+### Data Retention
+
+Source: [legal/data-retention](/legal/data-retention)
+
+Retention reduction improves privacy but does not eliminate all operational data requirements.
+
+Limitations include:
+
+- Some account state is required to operate the platform.
+- Security monitoring may require limited event retention.
+- Device Trust workflows may require device-related state.
+- Legal or contractual obligations may require defined retention.
+- Deletion may not affect information already disclosed by authorized users or captured outside Enigm controls.
+- Retention minimization does not replace encryption, Device Trust, access control, or user security awareness.
+
+### Jurisdiction and Legal Compliance
+
+Source: [legal/jurisdiction-compliance](/legal/jurisdiction-compliance)
+
+Jurisdiction, GDPR/RGPD alignment, encryption, and metadata reduction improve privacy posture, but they do not eliminate all legal, operational, or network metadata risk.
+
+Important limitations include:
+
+- Some operational identifiers are required to operate the platform.
+- Network services require limited connection metadata.
+- Legal obligations can require evaluation of lawful requests.
+- User behavior can create exposure outside Enigm controls.
+- External networks can observe traffic characteristics outside Enigm-controlled layers.
+- Metadata reduction lowers exposure but does not eliminate all traffic-analysis risk.
+
+### Legal Process Guidelines
+
+Source: [legal/legal-process-guidelines](/legal/legal-process-guidelines)
+
+Legal process transparency improves accountability, but it does not eliminate all legal or operational risk.
+
+Limitations include:
+
+- Some requests can be legally restricted from disclosure.
+- Some data can be unavailable due to minimization or deletion.
+- Some metadata is necessary to operate the platform.
+- Legal outcomes can vary by jurisdiction and request type.
+- Public documentation cannot describe internal legal procedures.
+
+### Responsible Disclosure
+
+Source: [legal/responsible-disclosure](/legal/responsible-disclosure)
+
+Not every report will necessarily result in a vulnerability finding.
+
+Security assessments may require validation and reproduction before remediation decisions are made. Some reports may describe expected behavior, previously known issues, unsupported configurations, or risks outside Enigm control.
+
+Responsible disclosure improves security collaboration, but it does not eliminate security risk or ensure that every vulnerability will be identified before exploitation.
+
+## Enigm OS
+
+### OS Device Management
+
+Source: [os/device-management](/os/device-management)
+
+Device management reduces risk for enrolled devices, but it does not eliminate device or account risk.
+
+Limitations include:
+
+- Managed-device mode does not replace Enigm App end-to-end encryption.
+- Administrative device control does not imply message access.
+- Device Trust reporting does not ensure all future device behavior.
+- Remote wipe may not affect content already disclosed or captured outside Enigm controls.
+- Remote operations depend on device availability and state.
+- Device management does not prevent social engineering.
+- Device management does not make compromised trusted users safe.
+- Device management does not provide assurance for systems outside Enigm control.
+
+End-to-end encryption trust boundaries remain unchanged. Device management should be evaluated as an optional operational control layer, separate from message confidentiality and application-level cryptography.
+
+### OS Launcher
+
+Source: [os/launcher](/os/launcher)
+
+The Launcher is a security-oriented home experience, not a complete security control by itself.
+
+Limitations include:
+
+- It does not calculate trust state.
+- It does not replace Trust Security Center.
+- It does not replace Enigm App end-to-end encryption.
+- It does not prevent unsafe user decisions.
+- It does not ensure that all external systems are trustworthy.
+- It does not remove risk from endpoint compromise.
+- It does not provide message plaintext access.
+- It does not make administrative state equivalent to message visibility.
+
+The Launcher should be evaluated as a presentation and navigation layer within the Enigm OS security architecture. Device Trust remains dependent on Trust Security Center, Enigm OS security services, verified software state, policy compliance, and application-level controls.
+
+### OS Network Policy
+
+Source: [os/network-policy](/os/network-policy)
+
+Enigm OS network policy reduces risk but does not eliminate network risk.
+
+Limitations include:
+
+- Network observers may still perform traffic analysis under some conditions.
+- Traffic shaping lowers confidence in simple correlation, but advanced analysis may remain possible.
+- Optional VPN use does not replace device security.
+- Proxy infrastructure does not replace end-to-end encryption.
+- Secure name resolution does not hide all network behavior.
+- Network policy does not make compromised devices trustworthy.
+- Network policy does not protect against social engineering.
+- Network policy does not control disclosure by trusted participants.
+
+Network policy should be evaluated alongside Enigm App cryptography, Enigm OS Device Trust, Trust Security Center posture, VPN usage, proxy infrastructure, and user verification workflows.
+
+### OS Overview
+
+Source: [os/overview](/os/overview)
+
+Enigm OS provides platform hardening, Device Trust signals, reduced attack surface, controlled device experience, and additional security controls. It does not replace:
+
+- End-to-end encryption.
+- User trust decisions.
+- Secure messaging architecture.
+- Security awareness.
+- Account security.
+- Protected key material.
+- Verification workflows.
+
+Important limitations:
+
+- A compromised endpoint may still expose data after authorized local access.
+- Device posture is a signal, not an absolute assurance.
+- Managed device controls depend on device state and policy.
+- Remote wipe, where enabled, cannot ensure removal of content already exported or captured outside Enigm controls.
+- Enigm OS hardening does not make insecure user behavior safe.
+- Enigm OS does not make administrative systems a plaintext message access path.
+
+### OS Privacy Mode
+
+Source: [os/privacy-mode](/os/privacy-mode)
+
+Privacy Mode reduces exposure from selected sensors, but it does not eliminate all privacy or security risk.
+
+Limitations include:
+
+- It does not replace Device Trust evaluation.
+- It does not replace Trust Security Center.
+- It does not replace Enigm App end-to-end encryption.
+- It does not protect against social engineering.
+- It does not prevent disclosure by trusted participants.
+- It does not provide assurance for systems outside Enigm control.
+- It does not disable all device functionality.
+- It does not address every possible source of device data exposure.
+
+Privacy Mode should be interpreted as a fast-access control for sensitive sensor exposure, used alongside Enigm OS hardening, Trust Security Center posture, network policy, and Enigm App security controls.
+
+### OS Production Gates
+
+Source: [os/production-gates](/os/production-gates)
+
+Passing all Production Gates does not ensure the absence of vulnerabilities.
+
+Production Gates reduce risk and improve confidence in device security posture, but they do not eliminate:
+
+- Future unknown vulnerabilities.
+- Malicious authorized users.
+- Vulnerable software released through authorized workflows.
+- Social engineering.
+- Physical coercion.
+- Defects in validation logic.
+- Security decisions made outside Enigm controls.
+
+Additional limitations:
+
+- Production Gates do not replace verified boot.
+- Production Gates do not replace OTA verification.
+- Production Gates do not replace Remote Attestation.
+- Production Gates do not replace Enigm App end-to-end encryption.
+- Production Gates do not provide message plaintext access.
+- Production Gates should be evaluated alongside Trust Security Center, OTA, device management, platform hardening, and user trust decisions.
+
+### OS Security Architecture
+
+Source: [os/security-architecture](/os/security-architecture)
+
+Enigm OS reduces risk but does not eliminate risk.
+
+Examples of residual risk include:
+
+- Compromised trusted users.
+- Social engineering.
+- Physical coercion.
+- Vulnerable third-party systems.
+- Future unknown vulnerabilities.
+- Authorized local access followed by manual disclosure.
+- Malicious or compromised external participants.
+- Security decisions made outside Enigm controls.
+
+Enigm OS should be evaluated as a device hardening and trust layer within a broader security architecture. It does not replace user awareness, organizational policy, secure account practices, end-to-end encryption, or application-level security.
+
+### OS Setup Wizard
+
+Source: [os/setup-wizard](/os/setup-wizard)
+
+The Setup Wizard establishes an initial security baseline, but it does not eliminate device or user risk.
+
+Limitations include:
+
+- It cannot prevent all unsafe user decisions after setup.
+- It does not replace Enigm App end-to-end encryption.
+- It does not replace Trust Security Center posture evaluation.
+- It does not replace OTA verification or device lifecycle controls.
+- It does not ensure that future device state remains trusted.
+- It does not protect against social engineering.
+- It does not provide assurance for systems outside Enigm control.
+- It does not make weak operational practices safe.
+
+The Setup Wizard should be understood as the first step in Enigm OS trust establishment, followed by ongoing device posture evaluation, policy enforcement, update verification, and Enigm App security workflows.
+
+### OS Trust Security Center
+
+Source: [os/trust-security-center](/os/trust-security-center)
+
+Trust Security Center is a Device Trust evaluation system. It does not eliminate risk.
+
+Limitations include:
+
+- It does not ensure that a trusted user will make safe decisions.
+- It does not prevent social engineering.
+- It does not prevent physical coercion.
+- It does not inspect encrypted message content.
+- It does not replace Enigm App end-to-end encryption.
+- It does not replace user verification workflows.
+- It does not replace secure account management.
+- It may be unable to provide reliable trust state if critical trust services are unavailable.
+- It cannot provide assurance for systems outside Enigm control.
+
+Trust Security Center should be interpreted as one part of the Enigm OS security architecture, alongside platform hardening, OTA verification, device management, Enigm App cryptography, and user trust decisions.
+
+## Enigm OS OTA
+
+### OTA Client Verification
+
+Source: [os/ota-architecture](/os/ota-architecture)
+
+Client verification reduces update installation risk, but it does not eliminate all software supply-chain or device risk.
+
+Client verification does not eliminate:
+
+- Authorized but vulnerable releases.
+- Future unknown vulnerabilities.
+- Compromised trusted software supply chains.
+- Malicious source changes approved before signing.
+- Verification defects.
+- Unsafe user decisions after installation.
+
+Additional limitations:
+
+- Client verification depends on correct verifier behavior.
+- Server-side eligibility does not replace client-side checks.
+- Manifest verification does not replace artifact verification.
+- Artifact integrity does not prove that released software is defect-free.
+- Rollback policy does not protect against all post-installation risk.
+- Client verification does not provide message plaintext access.
+
+Client verification should be evaluated as part of the Enigm OS OTA defense-in-depth model, alongside transport authentication, request validation, manifest trust, artifact integrity, device eligibility, Remote Attestation, release signing, and verified boot.
+
+### OTA Overview
+
+Source: [os/ota-architecture](/os/ota-architecture)
+
+OTA reduces software delivery risk, but it does not eliminate all update or device risk.
+
+Limitations include:
+
+- Eligible devices must still verify releases before installation.
+- Controlled rollouts do not replace release authenticity.
+- Release authenticity does not replace Device Trust evaluation.
+- Remote Attestation is a signal, not a complete assurance of device safety.
+- Update installation does not ensure that all future device behavior remains trusted.
+- OTA does not protect against unsafe user decisions.
+- OTA does not provide message plaintext access.
+- OTA does not replace Enigm App end-to-end encryption.
+
+OTA should be evaluated as one part of the Enigm OS security architecture, alongside production signing, Remote Attestation, Trust Security Center, platform hardening, and Enigm App security controls.
+
+### OTA Release Lifecycle
+
+Source: [os/ota-architecture](/os/ota-architecture)
+
+The release lifecycle reduces deployment risk, but it does not eliminate all release or update risk.
+
+Limitations include:
+
+- Validation may not detect every defect.
+- Release signing does not prove that source code is free of vulnerabilities.
+- Controlled rollout does not replace device-side verification.
+- Device eligibility does not replace artifact integrity checks.
+- Remote Attestation is an additional signal, not complete assurance.
+- Stable release status does not remove the need for installation verification.
+- Authorized releases may still contain unknown vulnerabilities.
+- Release lifecycle controls do not provide message plaintext access.
+
+The release lifecycle should be evaluated alongside OTA security controls, Remote Attestation, production signing, Trust Security Center, and Enigm OS platform hardening.
+
+### OTA Remote Attestation
+
+Source: [os/ota-security](/os/ota-security)
+
+Remote Attestation is a security hardening layer, not a complete security solution.
+
+Limitations include:
+
+- It may not be required on every production request.
+- It does not replace transport authentication.
+- It does not replace request authentication.
+- It does not replace manifest verification.
+- It does not replace artifact verification.
+- It does not replace Hardware-Backed Signing.
+- It does not replace rollout policy.
+- It does not replace device enrollment controls.
+- It does not prove that released software is free of vulnerabilities.
+- It does not prevent malicious authorized users from misusing access.
+- It does not provide message plaintext access.
+
+Remote Attestation should be evaluated as a production hardening layer within the broader Enigm OS OTA security model.
+
+### OTA Security Model
+
+Source: [os/ota-security](/os/ota-security)
+
+OTA security reduces risk across software delivery, but it does not eliminate all security risk.
+
+OTA security does not eliminate:
+
+- Device compromise.
+- Malicious authorized users.
+- Vulnerable software released through authorized processes.
+- Future unknown vulnerabilities.
+- Unsafe user decisions after update installation.
+- Exposure from systems outside Enigm control.
+
+Additional limitations:
+
+- Transport security alone is insufficient for update trust.
+- Eligibility does not replace artifact verification.
+- Remote Attestation provides an additional signal, not complete assurance.
+- Production signing establishes trusted release origin, but it does not prove that released software is free of defects.
+- OTA security does not provide access to message plaintext.
+- OTA security does not replace Enigm App end-to-end encryption.
+
+OTA security should be evaluated as a layered architecture combining transport authentication, request verification, manifest trust, artifact verification, eligibility checks, Remote Attestation, production signing, and device-side validation.
+
+### OTA Signing
+
+Source: [os/ota-security](/os/ota-security)
+
+Hardware-Backed Signing acts as a release authorization root of trust. It does not replace:
+
+- Verified boot.
+- Artifact verification.
+- Remote Attestation.
+- Device eligibility.
+- Rollout controls.
+- OTA verification.
+- Request authentication.
+- Transport authentication.
+
+Additional limitations:
+
+- Manifest signing authority and release-signing authority must remain distinct.
+- Signed metadata does not prove artifact integrity unless the artifact verification gates succeed.
+- Signed artifacts do not prove that source code is free of vulnerabilities.
+- Operator-mediated workflows still require governance and audit review.
+- Hardware-Backed Signing does not prevent misuse by authorized operators.
+
+Enigm OS production signing treats the private release key as hardware-resident authority. Production artifacts are trusted only when they are signed through the approved Hardware-Backed Signing workflow and pass the corresponding verification gates.
+
+## Platform Architecture
+
+### Product Architecture
+
+Source: [platform/architecture](/platform/architecture)
+
+The public architecture does not define deployment-specific policy depth, device support, retention periods, network behavior, attestation evidence formats, or rollout mechanics. Those details should be reviewed in the relevant deployment or assurance context.
+
+## Security And Trust
+
+### Security Assurance
+
+Source: [security/governance](/security/governance)
+
+Assurance evidence improves confidence, but it does not eliminate risk.
+
+Important limitations:
+
+- Certification does not ensure the absence of vulnerabilities.
+- Assessment activities may not identify every weakness.
+- Risk posture changes over time.
+- Product security depends on implementation, configuration, operational controls, and user behavior.
+- External systems may introduce risk outside Enigm control.
+- Public documentation cannot include all evidence needed for a full private audit.
+
+Security assurance should be treated as an ongoing process rather than a static certification state.
+
+### Compliance
+
+Source: [security/governance](/security/governance)
+
+Compliance, certification, and assessments improve confidence but do not eliminate security risk.
+
+Limitations include:
+
+- Certification does not ensure the absence of vulnerabilities.
+- Assessments may not identify every weakness.
+- Security controls require ongoing validation.
+- Risk posture may change over time.
+- External systems may introduce risk outside Enigm control.
+- Governance cannot replace secure engineering, monitoring, incident response, or user security awareness.
+
+Security remains an ongoing process rather than a static state.
+
+### Cryptography Audit
+
+Source: [security/cryptography-audit](/security/cryptography-audit)
+
+Private assessment availability does not mean:
+
+- Every cryptographic component has been independently assessed.
+- Every deployment is in assessment scope.
+- Public documentation will publish all technical details.
+- Assessment replaces secure engineering, monitoring, incident response, or continuous review.
+
+### Cryptography
+
+Source: [security/cryptography](/security/cryptography)
+
+Cryptography protects data and trust relationships, but it does not eliminate all security risk.
+
+Cryptography does not protect against:
+
+- Social engineering.
+- Malicious trusted users.
+- Compromised endpoints.
+- Future unknown vulnerabilities.
+- Authorized users disclosing plaintext.
+- External recording or capture outside Enigm controls.
+- Weak operational practices outside cryptographic boundaries.
+- Incorrect implementation of otherwise appropriate algorithms.
+- Misconfigured policy or lifecycle controls.
+
+Cryptography should be evaluated as part of the broader Enigm security architecture, including Device Trust, secure identity, Trust Security Center, OTA security, network policy, incident response, and security governance.
+
+### Implementation Status
+
+Source: [security/implementation-status](/security/implementation-status)
+
+This matrix is a public documentation aid.
+
+Limitations include:
+
+- It does not replace release notes.
+- It does not replace contractual commitments.
+- It does not expose internal implementation status.
+- It does not imply that every feature is available to every user account or deployment policy.
+- It does not expand ISO 27001 certification scope beyond the certified scope.
+- It distinguishes public assessment evidence from private assessment evidence available under NDA.
+
+### Transparency Report
+
+Source: [security/transparency-report](/security/transparency-report)
+
+Transparency reporting has limits:
+
+- Some requests can be subject to legal restrictions.
+- Some categories may be unavailable in early reporting periods.
+- Aggregated reporting cannot describe every individual case.
+- Publication timing can depend on legal review.
+- Statistics do not replace the technical limitations described in the Legal Process Guidelines.
+
+### Transparency
+
+Source: [security/governance](/security/governance)
+
+Transparency improves understanding but cannot eliminate risk.
+
+Limitations include:
+
+- Public documentation cannot disclose every security detail.
+- Some details must remain restricted to protect users and platform integrity.
+- Vulnerability information may be limited while remediation is in progress.
+- Security advisories may summarize impact without publishing exploit details.
+- Governance transparency does not ensure the absence of vulnerabilities.
+- Release transparency does not replace secure development, signing, or verification.
+
+Transparency should be evaluated as part of Enigm’s broader security model, alongside secure development, incident response, responsible disclosure, release security, and continuous security validation.
+
+## Enigm Server
+
+### Server Overview
+
+Source: [server/overview](/server/overview)
+
+Enigm Server reduces exposure and provides customer-level administrative control, but it does not eliminate all risk.
+
+Important limitations:
+
+- Authorized members may disclose information they receive.
+- Compromised endpoints may expose content after authorized local access.
+- Misconfigured server policy can affect access behavior.
+- Server membership may still require limited metadata.
+- Administrative removal affects future access but cannot ensure removal of content already accessed by an authorized participant.
+- Server-scoped content deletion affects availability and lifecycle, not historical external disclosure.
+- Enigm Server does not replace end-to-end encryption, Device Trust, secure onboarding, or user security awareness.
+
+## Review Model
+
+Platform limitations should be reviewed together with the related architecture pages, threat model references, privacy model, data-retention model, and legal governance documents.
+
+Limitations are updated as product behavior, assurance evidence, or deployment boundaries change.
