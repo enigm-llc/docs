@@ -1,20 +1,20 @@
 ---
 title: Enyra Architecture
 sidebarTitle: Enyra
-description: Public architecture model for Enyra as the conversational security analyst layer of Enigm.
+description: Public architecture model for Enyra as the conversational assistance layer of Enigm.
 ---
 
-Enyra is the conversational security analyst layer of the Enigm ecosystem. It operates on top of Enigm Intelligence and helps authorized operators investigate security events, review threat intelligence, retrieve security context, summarize findings, analyze risk, and support defensive operations.
+Enyra is the conversational assistance layer of the Enigm ecosystem. It helps authorized Enigm users understand product behavior, navigate configuration, review documentation guidance, and interact with authorized security context using natural language.
 
 Enyra is not a standalone threat intelligence platform. It consumes authorized security context from Enigm Intelligence. It does not replace detection systems, correlation systems, defensive controls, or human authorization.
 
 ## Overview
 
-Enyra provides natural language interaction for security operations assistance.
+Enyra provides natural language interaction for authorized end users.
 
 ```mermaid
 flowchart TD
-  User["Authorized Operator"]
+  User["Authorized User"]
   Enyra["Enyra"]
   Intelligence["Enigm Intelligence"]
   Context["Security Context"]
@@ -30,13 +30,25 @@ flowchart TD
   Context --> Ops
 ```
 
-Enyra is an interaction layer. It does not independently determine platform truth. Authoritative security context remains grounded in Enigm Intelligence, approved telemetry, audit records, risk assessment outputs, and authorized platform state.
+Enyra is an interaction layer. It does not independently determine platform truth. Authoritative product state remains grounded in Enigm Command and product systems. Authoritative security context remains grounded in Enigm Intelligence, approved telemetry, audit records, risk assessment outputs, and authorized platform state.
 
-## Security Analyst Model
+## User Assistance Model
 
-Enyra acts as a conversational security analyst for authorized operators.
+Enyra acts as a conversational assistant for authorized Enigm users.
 
-The analyst model supports:
+The user assistance model supports:
+
+- Product guidance.
+- Documentation guidance.
+- Configuration assistance.
+- Platform navigation.
+- Feature explanation.
+- Device assistance.
+- Account assistance.
+
+## Security Assistance Model
+
+Where authorized security context is available to the user, Enyra can also support:
 
 - Security investigations.
 - Threat intelligence access.
@@ -47,7 +59,7 @@ The analyst model supports:
 - Optional voice interaction where enabled.
 - Mobile access where authorized.
 
-Enyra can help operators ask questions about security events, obtain summaries, compare related findings, and understand risk categories. It should not be treated as an autonomous source of final security truth.
+Enyra can help authorized users ask questions about security events, obtain summaries, compare related findings, and understand risk categories. It should not be treated as an autonomous source of final security truth.
 
 ## Security Context
 
@@ -64,7 +76,7 @@ Security context may include:
 - Enigm Command lifecycle evidence.
 - Device and account security state.
 
-Enyra should present context in a form that is understandable to authorized operators while preserving access controls and data minimization.
+Enyra should present context in a form that is understandable to authorized users while preserving access controls and data minimization.
 
 ## Mobile Access
 
@@ -85,7 +97,7 @@ Mobile access must not weaken access control for security context or sensitive a
 
 Conversational security operations allow authorized users to interact with security data using natural language.
 
-Supported operation categories may include:
+Supported operation categories include:
 
 - Event summarization.
 - Risk explanation.
@@ -109,7 +121,7 @@ Examples include:
 - Account lifecycle actions.
 - Policy changes.
 
-Enyra may assist with context, explanation, and workflow preparation, but authorization-sensitive actions should remain policy-governed, auditable, and attributable.
+Enyra may assist with context, explanation, and workflow preparation, but authorization-sensitive actions remain policy-governed, auditable, and attributable.
 
 ## Privacy Considerations
 

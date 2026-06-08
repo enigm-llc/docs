@@ -39,13 +39,13 @@ Communication confidentiality continues to depend on application-layer encryptio
 
 ## Traffic Analysis Considerations
 
-The platform can use traffic separation, background network activity, randomized network activity, and traffic-shaping techniques designed to reduce confidence in simple timing-correlation and communication-pattern analysis.
+Enigm App uses traffic separation, background network activity, randomized network activity, and traffic-shaping techniques designed to reduce confidence in simple timing-correlation and communication-pattern analysis.
 
 These controls can make simple inference less reliable, but they do not guarantee anonymity or eliminate advanced traffic analysis.
 
 ## Randomized Network Activity
 
-Enigm App network privacy controls can generate additional network activity that is not directly tied to active user conversations. This traffic is designed to make simple observation of two devices less useful when an observer attempts to infer whether two users are communicating.
+Enigm App network privacy controls generate additional network activity that is not directly tied to active user conversations. This traffic is designed to make simple observation of two devices less useful when an observer attempts to infer whether two users are communicating.
 
 The objective is to reduce confidence in analysis based on:
 
@@ -56,7 +56,7 @@ The objective is to reduce confidence in analysis based on:
 - Similarity between two device traffic patterns.
 - Conversation start and stop timing.
 
-When this control is active, network activity from one device should not be interpreted as proof that a specific conversation is taking place. Likewise, matching or non-matching traffic patterns between two devices should not be treated as reliable evidence of a communication relationship.
+Because this control is part of the Enigm App network privacy model, network activity from one device should not be interpreted as proof that a specific conversation is taking place. Likewise, matching or non-matching traffic patterns between two devices should not be treated as reliable evidence of a communication relationship.
 
 This is a privacy layer, not a confidentiality layer. Communication confidentiality continues to rely on end-to-end encryption, protected key material, trusted device association, and verification workflows.
 

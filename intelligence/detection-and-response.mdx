@@ -4,7 +4,7 @@ sidebarTitle: Detection and Response
 description: Detection, correlation, risk assessment, and defensive response model for Enigm Intelligence.
 ---
 
-Enigm Intelligence transforms security observations into defensive context for authorized operators and higher-level security workflows. It is designed to support threat visibility, risk prioritization, investigation, and risk-reduction decisions without turning user communications into security inputs.
+Enigm Intelligence transforms security observations into defensive context for authorized users and higher-level security workflows. It is designed to support threat visibility, risk prioritization, investigation, and risk-reduction decisions without turning user communications into security inputs.
 
 ## Overview
 
@@ -13,7 +13,7 @@ The detection and response model has four responsibilities:
 - Convert security signals into structured context.
 - Correlate related activity across security domains.
 - Classify risk for operational prioritization.
-- Support proportionate defensive controls and operator review.
+- Support proportionate defensive controls and authorized user review.
 
 ```mermaid
 flowchart TD
@@ -22,7 +22,7 @@ flowchart TD
   Correlation["Correlation"]
   Risk["Risk Assessment"]
   Response["Defensive Response"]
-  Visibility["Operator / Enyra Visibility"]
+  Visibility["User / Enyra Visibility"]
 
   Signals --> Detection
   Detection --> Correlation
@@ -53,7 +53,7 @@ Risk evaluation can consider severity, context, recurrence, cross-surface activi
 
 The defensive response model supports visibility, investigation, notification, access restrictions, traffic controls, protective filtering, and temporary defensive measures. Not every observation results in a control action.
 
-Defensive actions are designed to balance security, reliability, privacy, and operational stability. Sensitive actions should remain governed by authorization, policy, and review requirements. Automation supports operators; it does not replace security governance.
+Defensive actions are designed to balance security, reliability, privacy, and operational stability. Sensitive actions should remain governed by authorization, policy, and review requirements. Automation supports authorized user workflows; it does not replace security governance.
 
 ## Relationship With Enyra
 
