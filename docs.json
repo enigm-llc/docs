@@ -60,98 +60,92 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Enigm Docs",
-        "groups": [
+        "group": "Getting started",
+        "expanded": true,
+        "pages": [
+          "introduction",
+          "platform/architecture"
+        ]
+      },
+      {
+        "group": "Products",
+        "expanded": true,
+        "pages": [
           {
-            "group": "Getting started",
-            "expanded": true,
+            "group": "Enigm",
             "pages": [
-              "introduction",
-              "platform/architecture"
+              "app/overview",
+              "app/account-model",
+              "app/key-management",
+              "app/secure-messaging",
+              "app/secure-calls",
+              "app/active-defense",
+              "app/multi-device",
+              "app/network-privacy"
             ]
           },
           {
-            "group": "Products",
-            "expanded": true,
+            "group": "Enigm Command",
             "pages": [
-              {
-                "group": "Enigm",
-                "pages": [
-                  "app/overview",
-                  "app/account-model",
-                  "app/key-management",
-                  "app/secure-messaging",
-                  "app/secure-calls",
-                  "app/active-defense",
-                  "app/multi-device",
-                  "app/network-privacy"
-                ]
-              },
-              {
-                "group": "Enigm Command",
-                "pages": [
-                  "command/overview",
-                  "command/payments",
-                  "command/tor-gateway"
-                ]
-              },
-              {
-                "group": "Enigm Server",
-                "pages": [
-                  "server/overview"
-                ]
-              },
-              {
-                "group": "Enigm OS",
-                "pages": [
-                  "os/overview",
-                  "os/security-architecture",
-                  "os/trust-security-center",
-                  "os/network-policy",
-                  "os/device-experience-management",
-                  "os/ota-architecture",
-                  "os/ota-security",
-                  "os/production-gates"
-                ]
-              },
-              {
-                "group": "Enigm Key",
-                "pages": [
-                  "key/overview"
-                ]
-              },
-              {
-                "group": "Enigm eSIM",
-                "pages": [
-                  "esim/overview"
-                ]
-              }
+              "command/overview",
+              "command/payments",
+              "command/tor-gateway"
             ]
           },
           {
-            "group": "FAQ & Support",
+            "group": "Enigm Server",
             "pages": [
-              "support/get-help",
-              "support/faq"
+              "server/overview"
+            ]
+          },
+          {
+            "group": "Enigm OS",
+            "pages": [
+              "os/overview",
+              "os/security-architecture",
+              "os/trust-security-center",
+              "os/network-policy",
+              "os/device-experience-management",
+              "os/ota-architecture",
+              "os/ota-security",
+              "os/production-gates"
+            ]
+          },
+          {
+            "group": "Enigm Key",
+            "pages": [
+              "key/overview"
+            ]
+          },
+          {
+            "group": "Enigm eSIM",
+            "pages": [
+              "esim/overview"
             ]
           }
         ]
       },
       {
-        "tab": "Security & Trust",
-        "groups": [
+        "group": "Security & Trust",
+        "pages": [
           {
             "group": "Security",
-            "expanded": true,
             "pages": [
               "security/security-model",
-              "security/privacy",
               "security/threat-model",
               "security/cryptography",
               "security/governance",
               "security/transparency-report"
+            ]
+          },
+          {
+            "group": "Privacy",
+            "pages": [
+              "security/privacy",
+              "legal/data-retention",
+              "legal/limitations"
             ]
           },
           {
@@ -171,15 +165,20 @@
             ]
           },
           {
-            "group": "Legal and Privacy",
+            "group": "Legal",
             "pages": [
               "legal/legal-governance",
-              "legal/data-retention",
-              "legal/limitations",
               "legal/responsible-disclosure",
               "legal/security-contact"
             ]
           }
+        ]
+      },
+      {
+        "group": "FAQ & Support",
+        "pages": [
+          "support/get-help",
+          "support/faq"
         ]
       }
     ]
