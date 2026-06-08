@@ -1,65 +1,56 @@
 ---
 title: Enyra Architecture
 sidebarTitle: Enyra
-description: Public architecture model for Enyra as the conversational assistance layer of Enigm.
+description: Public architecture model for Enyra as the security AI and correlation layer of Enigm Intelligence.
 ---
 
-Enyra is the conversational assistance layer of the Enigm ecosystem. It helps authorized Enigm users understand product behavior, navigate configuration, review documentation guidance, and interact with authorized security context using natural language.
+Enyra is the security AI and correlation layer of the Enigm Intelligence domain. It operates over security context to support threat correlation, risk explanation, investigation workflows, event summarization, and defensive decision support.
 
-Enyra is not a standalone threat intelligence platform. It consumes authorized security context from Enigm Intelligence. It does not replace detection systems, correlation systems, defensive controls, or human authorization.
+Enyra in the Intelligence section is not the Enigm Command Product Assistant. Product guidance, documentation guidance, configuration assistance, platform navigation, device assistance, and account assistance are documented under [Enigm Command](/command/overview).
+
+Enyra does not replace the Threat Intelligence Platform, detection systems, correlation systems, defensive controls, or human authorization. It operates as an AI layer over authorized security context.
 
 ## Overview
 
-Enyra provides natural language interaction for authorized end users.
+Enyra supports security analysis over Enigm Intelligence outputs.
 
 ```mermaid
 flowchart TD
-  User["Authorized User"]
-  Enyra["Enyra"]
+  Signals["Security Signals"]
   Intelligence["Enigm Intelligence"]
-  Context["Security Context"]
-  TI["Threat Intelligence"]
-  Risk["Risk Analysis"]
-  Ops["Security Operations"]
+  Enyra["Enyra Security AI"]
+  Correlation["Security Correlation"]
+  Risk["Risk Explanation"]
+  Investigation["Investigation Context"]
+  Response["Defensive Decision Support"]
 
-  User --> Enyra
-  Enyra --> Intelligence
-  Intelligence --> Context
-  Context --> TI
-  Context --> Risk
-  Context --> Ops
+  Signals --> Intelligence
+  Intelligence --> Enyra
+  Enyra --> Correlation
+  Enyra --> Risk
+  Enyra --> Investigation
+  Enyra --> Response
 ```
 
-Enyra is an interaction layer. It does not independently determine platform truth. Authoritative product state remains grounded in Enigm Command and product systems. Authoritative security context remains grounded in Enigm Intelligence, approved telemetry, audit records, risk assessment outputs, and authorized platform state.
+Enyra does not independently determine platform truth. Authoritative security context remains grounded in Enigm Intelligence, approved telemetry, audit records, risk assessment outputs, defensive control state, and authorized platform state.
 
-## User Assistance Model
+## Security AI Model
 
-Enyra acts as a conversational assistant for authorized Enigm users.
+Enyra applies AI-assisted analysis to security context produced by Enigm Intelligence.
 
-The user assistance model supports:
-
-- Product guidance.
-- Documentation guidance.
-- Configuration assistance.
-- Platform navigation.
-- Feature explanation.
-- Device assistance.
-- Account assistance.
-
-## Security Assistance Model
-
-Where authorized security context is available to the user, Enyra can also support:
+The security AI model supports:
 
 - Security investigations.
 - Threat intelligence access.
 - Risk analysis.
 - Event summarization.
 - Security context retrieval.
+- Cross-signal correlation.
+- Security narrative generation.
+- Defensive response review.
 - Human-assisted defensive decision making.
-- Optional voice interaction where enabled.
-- Mobile access where authorized.
 
-Enyra can help authorized users ask questions about security events, obtain summaries, compare related findings, and understand risk categories. It should not be treated as an autonomous source of final security truth.
+Enyra should be treated as an analytical layer over security context, not as an autonomous source of final truth.
 
 ## Security Context
 
@@ -76,26 +67,28 @@ Security context may include:
 - Enigm Command lifecycle evidence.
 - Device and account security state.
 
-Enyra should present context in a form that is understandable to authorized users while preserving access controls and data minimization.
+Enyra should transform security context into summaries, correlations, risk explanations, and investigation support while preserving access controls and data minimization.
 
-## Mobile Access
+## Correlation Model
 
-Enyra may support mobile access for authorized users.
+Enyra contributes to correlation by helping relate security observations across time, device classes, product surfaces, lifecycle events, and defensive outcomes.
 
-Mobile access should follow Enigm security expectations:
+Correlation inputs may include:
 
-- Authenticated account context.
-- Device association.
-- Device Trust evaluation.
-- Session lifecycle controls.
-- Optional Enigm OS Trust state where deployed.
-- Audit visibility for sensitive operations.
+- Detection signals.
+- Active Defense findings where authorized.
+- Device Trust changes.
+- Enigm Command lifecycle events.
+- Enigm Server lifecycle events.
+- Network-policy outcomes.
+- Defensive control outcomes.
+- Audit records.
 
-Mobile access must not weaken access control for security context or sensitive actions.
+Correlation improves security understanding, but it does not guarantee attribution, intent determination, or attack prevention.
 
 ## Conversational Security Operations
 
-Conversational security operations allow authorized users to interact with security data using natural language.
+Where a natural language interface is exposed to authorized security workflows, Enyra can support conversational security operations over authorized security context.
 
 Supported operation categories include:
 
@@ -106,7 +99,7 @@ Supported operation categories include:
 - Investigation support.
 - Defensive decision support.
 
-Enyra should preserve a separation between explanation, recommendation, and execution.
+This is different from Enyra Product Assistant in Enigm Command. Product assistance is limited to product guidance and command workflows; Enyra in Intelligence is focused on security analysis, correlation, and defensive support.
 
 ## Human Authorization
 
@@ -121,19 +114,19 @@ Examples include:
 - Account lifecycle actions.
 - Policy changes.
 
-Enyra may assist with context, explanation, and workflow preparation, but authorization-sensitive actions remain policy-governed, auditable, and attributable.
+Enyra may assist with context, explanation, and workflow preparation, but authorization-sensitive actions remain policy-governed, auditable, attributable, and subject to human authorization where required.
 
 ## Privacy Considerations
 
-Enyra should minimize exposure of security data according to the user role, request context, and authorization state.
+Enyra should minimize exposure of security data according to role, request context, authorization state, and security purpose.
 
 Privacy considerations include:
 
 - Limit access to security context according to role and policy.
 - Avoid exposing protected message content, secure call content, private key material, or unnecessary identity metadata.
-- Natural language interaction should not expand access beyond what the user is authorized to review.
+- AI-assisted analysis should not expand access beyond authorized security context.
 - Sensitive queries and actions should remain auditable where policy requires it.
-- Conversational artifacts should not retain unnecessary sensitive context.
+- Analytical artifacts should not retain unnecessary sensitive context.
 
 
 See [Platform Limitations](/legal/limitations).

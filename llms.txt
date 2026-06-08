@@ -74,7 +74,7 @@
 
 - [Intelligence Overview](https://docs.enigm.io/intelligence/overview): Enigm Intelligence platform overview.
 - [Detection and Response](https://docs.enigm.io/intelligence/detection-and-response): Detection, correlation, risk assessment, defensive response, and Enyra relationship.
-- [Enyra Architecture](https://docs.enigm.io/intelligence/enyra): User-facing product assistance and authorized security-context conversational modes.
+- [Enyra Architecture](https://docs.enigm.io/intelligence/enyra): Security AI, correlation, event summarization, risk explanation, and defensive decision support.
 
 ### Infrastructure
 
