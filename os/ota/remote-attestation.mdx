@@ -4,17 +4,17 @@ sidebarTitle: Remote Attestation
 description: Public Remote Attestation model for Enigm OS OTA Eligibility.
 ---
 
-The Enigm OS OTA architecture is designed to support Remote Attestation as an additional production hardening layer. Remote Attestation can be used to help determine whether a device is eligible for enrollment, registration, protected update metadata, private update artifacts, or sensitive rollout channels.
+The Enigm OS OTA architecture supports Remote Attestation as an additional production hardening layer. Remote Attestation helps determine whether a device is eligible for enrollment, registration, protected update metadata, private update artifacts, or sensitive rollout channels.
 
-Remote Attestation is an intended production hardening layer once enabled in the client integration. This document does not claim that every production device is necessarily attested on every request.
+Remote Attestation is a production eligibility control for selected protected workflows. This document does not claim that every production device is necessarily attested on every request.
 
 This document is intended for Android engineers, security auditors, enterprise customers, and technical partners.
 
 ## Overview
 
-Remote Attestation is designed to support eligibility decisions based on device-produced security evidence.
+Remote Attestation supports eligibility decisions based on device-produced security evidence.
 
-Within the Enigm OS OTA model, Remote Attestation is intended to help determine whether a device is eligible to:
+Within the Enigm OS OTA model, Remote Attestation helps determine whether a device is eligible to:
 
 - Enroll.
 - Register.
@@ -44,7 +44,7 @@ The diagram is conceptual and describes eligibility flow at a public architectur
 
 ## Security Purpose
 
-Remote Attestation may be used to evaluate:
+Remote Attestation evaluates selected security and eligibility signals, including:
 
 - Device integrity.
 - Verified software state.
@@ -54,7 +54,7 @@ Remote Attestation may be used to evaluate:
 - Channel eligibility.
 - Update authorization.
 
-The backend may require Remote Attestation for selected protected workflows once the client integration supports it. Attestation can be used to determine eligibility, but it should be evaluated alongside other OTA security controls.
+The backend requires Remote Attestation for selected protected workflows according to eligibility policy. Attestation helps determine eligibility, but it is evaluated alongside other OTA security controls.
 
 ## Relationship With OTA Security
 
@@ -208,4 +208,4 @@ Limitations include:
 - It does not prevent malicious authorized users from misusing access.
 - It does not provide message plaintext access.
 
-Remote Attestation should be evaluated as an intended production hardening layer within the broader Enigm OS OTA security model.
+Remote Attestation should be evaluated as a production hardening layer within the broader Enigm OS OTA security model.

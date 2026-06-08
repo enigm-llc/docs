@@ -4,9 +4,9 @@ sidebarTitle: Tor Gateway
 description: Public architecture model for the Enigm Tor Gateway.
 ---
 
-The Enigm Tor Gateway is a privacy-oriented access layer for selected public and administrative web surfaces. It is not the primary Enigm platform and is not intended to replace the main infrastructure.
+The Enigm Tor Gateway is a privacy-oriented access layer for selected public web surfaces. It is not the primary Enigm platform and is not intended to replace the main infrastructure.
 
-The Tor Gateway exists to provide privacy-preserving access paths for supported public-facing services and selected Enigm Command access paths when enabled, while preserving separation from sensitive platform services.
+The Tor Gateway exists to provide privacy-preserving access paths for supported public-facing services while preserving separation from sensitive platform services.
 
 Tor Gateway is not Enigm Server. Enigm Server provides dedicated private messaging environments; Tor Gateway provides selected web-surface access paths.
 
@@ -14,7 +14,7 @@ This document is intended for security auditors, enterprise customers, technical
 
 ## Overview
 
-The Tor Gateway supports public web access through onion services for selected public-facing Enigm surfaces and selected Enigm Command access paths when enabled.
+The Tor Gateway supports public web access through onion services for selected public-facing Enigm surfaces.
 
 It is designed to reduce exposure of selected web access paths and to support users who choose Tor Browser. It does not define the core Enigm App security model, secure messaging model, secure call model, Enigm Command authorization model, or device-management model.
 
@@ -32,7 +32,7 @@ flowchart TD
 
 The Tor Gateway is intended to:
 
-- Support privacy-preserving access paths for selected public-facing services and selected Enigm Command access paths when enabled.
+- Support privacy-preserving access paths for selected public-facing services.
 - Reduce dependency on clearnet access paths for supported public web surfaces.
 - Apply the principle of minimum exposure.
 - Keep public web access separate from sensitive platform services.
@@ -48,26 +48,25 @@ At a high level:
 
 1. A user chooses Tor Browser.
 2. The user accesses a supported onion service.
-3. The Onion Gateway exposes a selected public or administrative web surface.
+3. The Onion Gateway exposes a selected public web surface.
 4. Sensitive platform services remain outside the Tor Gateway access model.
 
 Public documentation must not expose onion service configuration, private service layout, routing behavior, operational procedures, or deployment topology.
 
 ## Supported Service Categories
 
-Supported service categories are limited to selected public-facing web surfaces and selected Enigm Command access paths when enabled.
+Supported service categories are limited to selected public-facing web surfaces.
 
 Examples of supported categories may include:
 
 - Public documentation.
 - Public security information.
 - Public contact or disclosure information.
-- Enigm Command access paths when enabled.
 - Other public read-oriented resources approved for onion access.
 
 The Tor Gateway is not intended for:
 
-- Sensitive administrative interfaces outside the supported Enigm Command access model.
+- Administrative interfaces.
 - Sensitive internal services.
 - Infrastructure management.
 - Development systems.
@@ -81,10 +80,10 @@ The Tor Gateway is a public access boundary, not a trust boundary for protected 
 Security boundaries include:
 
 - Public web surfaces are separated from sensitive platform services.
-- Administrative workflows are limited to selected Enigm Command access paths when enabled.
+- Administrative workflows are excluded from the Tor Gateway access model.
 - Platform management workflows are excluded.
 - Internal operational workflows are excluded.
-- Sensitive account, device, messaging, and call workflows remain outside Tor Gateway unless explicitly documented as public-safe and authorized through Enigm Command.
+- Sensitive account, device, messaging, and call workflows remain outside Tor Gateway.
 
 The principle of minimum exposure applies: only public surfaces that need onion access should be exposed through the gateway.
 
@@ -107,7 +106,7 @@ The Tor Gateway is one supporting component in the broader Enigm ecosystem.
 Its relationship with other components:
 
 - **Enigm App**: separate from app-level secure messaging, secure calls, and key management.
-- **Enigm Command**: supports selected web access paths when enabled; authorization remains governed by Enigm Command.
+- **Enigm Command**: may govern Tor Gateway lifecycle or policy configuration, but the Tor Gateway is not an administrative access surface for Enigm Command.
 - **Enigm Server**: separate dedicated private messaging environment product.
 - **VPN Service**: separate transport privacy layer with different purpose.
 - **Proxy Network**: separate traffic-separation layer for platform mediation.
@@ -134,4 +133,4 @@ The Tor Gateway does not protect against:
 - Misconfiguration that exposes a non-public workflow.
 - Traffic analysis by sufficiently positioned observers.
 
-The Tor Gateway does not make sensitive services public-safe. It must not be used as a path to sensitive administrative interfaces outside the supported Enigm Command access model, sensitive non-public services, infrastructure management, development systems, non-public service interfaces, or operational tooling.
+The Tor Gateway does not make sensitive services public-safe. It must not be used as a path to administrative interfaces, sensitive non-public services, infrastructure management, development systems, non-public service interfaces, or operational tooling.

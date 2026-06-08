@@ -16,7 +16,7 @@ Security exists to support privacy, data minimization, identity protection, meta
 - Apply Controlled Device Management for enrollment, policy assignment, suspension, revocation, and retirement.
 - Route optional app-level network privacy decisions through VPN Service and Proxy Network where enabled.
 - Govern Enigm Server purchase, creation, server ID join requests, membership, region selection, and server-scoped encrypted content lifecycle through Enigm Command.
-- Govern Tor Gateway access to selected public or administrative web surfaces through Enigm Command when enabled.
+- Govern Tor Gateway access to selected public web surfaces through Enigm Command when enabled.
 - Process security signals through the Threat Intelligence Platform and Enyra while preserving data minimization and content confidentiality.
 - Preserve audit evidence for security-relevant decisions without storing unnecessary protected content.
 
@@ -80,7 +80,7 @@ Enigm Server administrators can manage the lifecycle and availability of server-
 
 VPN Service and Proxy Network are treated as policy-governed network privacy and traffic-separation controls connected to Enigm App usage. Their use should be authorized, auditable where security-relevant, and separated from protected content logging.
 
-Tor Gateway is treated as a privacy-oriented access path for selected public or administrative web surfaces. It is governed through Enigm Command access boundaries and must remain separate from Enigm Server, internal APIs, operational tooling, and sensitive infrastructure management.
+Tor Gateway is treated as a privacy-oriented access path for selected public web surfaces. It is governed through Enigm Command policy boundaries and must remain separate from Enigm Command administrative access, Enigm Server, internal APIs, operational tooling, and sensitive infrastructure management.
 
 ### Threat intelligence
 
