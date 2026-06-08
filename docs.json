@@ -86,8 +86,7 @@
                   "app/secure-calls",
                   "app/active-defense",
                   "app/multi-device",
-                  "app/vpn",
-                  "app/proxy-network"
+                  "app/network-privacy"
                 ]
               },
               {
@@ -110,11 +109,8 @@
                   "os/overview",
                   "os/security-architecture",
                   "os/trust-security-center",
-                  "os/setup-wizard",
-                  "os/launcher",
                   "os/network-policy",
-                  "os/privacy-mode",
-                  "os/device-management",
+                  "os/device-experience-management",
                   "os/ota-architecture",
                   "os/ota-security",
                   "os/production-gates"
@@ -154,8 +150,6 @@
               "security/privacy",
               "security/threat-model",
               "security/cryptography",
-              "security/cryptography-audit",
-              "security/implementation-status",
               "security/governance",
               "security/transparency-report"
             ]
@@ -164,11 +158,8 @@
             "group": "Intelligence",
             "pages": [
               "intelligence/overview",
-              "intelligence/threat-intelligence",
-              "intelligence/enyra",
-              "intelligence/detection-pipeline",
-              "intelligence/risk-model",
-              "intelligence/blocking-architecture"
+              "intelligence/detection-and-response",
+              "intelligence/enyra"
             ]
           },
           {
@@ -176,19 +167,15 @@
             "pages": [
               "infrastructure/architecture",
               "infrastructure/secure-sdlc",
-              "infrastructure/monitoring",
-              "infrastructure/incident-response",
-              "infrastructure/backup-recovery"
+              "infrastructure/operations-resilience"
             ]
           },
           {
             "group": "Legal and Privacy",
             "pages": [
-              "legal/jurisdiction-compliance",
-              "legal/legal-process-guidelines",
+              "legal/legal-governance",
               "legal/data-retention",
               "legal/limitations",
-              "legal/business-continuity-user-impact",
               "legal/responsible-disclosure",
               "legal/security-contact"
             ]
@@ -260,6 +247,78 @@
     {
       "source": "/os/ota/remote-attestation",
       "destination": "/os/ota-security"
+    },
+    {
+      "source": "/intelligence/threat-intelligence",
+      "destination": "/intelligence/detection-and-response"
+    },
+    {
+      "source": "/intelligence/detection-pipeline",
+      "destination": "/intelligence/detection-and-response"
+    },
+    {
+      "source": "/intelligence/risk-model",
+      "destination": "/intelligence/detection-and-response"
+    },
+    {
+      "source": "/intelligence/blocking-architecture",
+      "destination": "/intelligence/detection-and-response"
+    },
+    {
+      "source": "/infrastructure/monitoring",
+      "destination": "/infrastructure/operations-resilience"
+    },
+    {
+      "source": "/infrastructure/incident-response",
+      "destination": "/infrastructure/operations-resilience"
+    },
+    {
+      "source": "/infrastructure/backup-recovery",
+      "destination": "/infrastructure/operations-resilience"
+    },
+    {
+      "source": "/legal/jurisdiction-compliance",
+      "destination": "/legal/legal-governance"
+    },
+    {
+      "source": "/legal/legal-process-guidelines",
+      "destination": "/legal/legal-governance"
+    },
+    {
+      "source": "/legal/business-continuity-user-impact",
+      "destination": "/legal/legal-governance"
+    },
+    {
+      "source": "/os/setup-wizard",
+      "destination": "/os/device-experience-management"
+    },
+    {
+      "source": "/os/launcher",
+      "destination": "/os/device-experience-management"
+    },
+    {
+      "source": "/os/privacy-mode",
+      "destination": "/os/device-experience-management"
+    },
+    {
+      "source": "/os/device-management",
+      "destination": "/os/device-experience-management"
+    },
+    {
+      "source": "/app/vpn",
+      "destination": "/app/network-privacy"
+    },
+    {
+      "source": "/app/proxy-network",
+      "destination": "/app/network-privacy"
+    },
+    {
+      "source": "/security/cryptography-audit",
+      "destination": "/security/cryptography"
+    },
+    {
+      "source": "/security/implementation-status",
+      "destination": "/security/governance"
     }
   ]
 }

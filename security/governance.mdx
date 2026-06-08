@@ -380,14 +380,29 @@ Security governance includes:
 
 Continuous improvement ensures that governance, security controls, and assurance activities evolve as the Enigm ecosystem, threat environment, and customer requirements evolve.
 
+## Implementation and Validation Status
+
+Public Enigm documentation describes implemented production products and production capabilities unless a section explicitly identifies a target hardening layer or scoped deployment model.
+
+| Area | Public Status | Validation Model |
+| --- | --- | --- |
+| Enigm App secure messaging, secure calls, key management, and multi-device workflows | Implemented and in production | Private security and cryptographic assessment evidence available under NDA. |
+| VPN Service and Proxy Network | Implemented and in production | Private infrastructure assessment evidence available under NDA. |
+| Enigm Command, Enigm Server, Enigm eSIM, and Enigm Key | Implemented and in production | Private product, infrastructure, and security review evidence available under NDA. |
+| Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, and Hardware-Backed Signing | Implemented and in production | Private mobile, device, OTA, and infrastructure assessment evidence available under NDA. |
+| Target Production Release-Signing Authority | Target hardening architecture | Documented separately from the current production OTA manifest signing authority. |
+| Enyra and Enigm Intelligence | Implemented and in production | Private security review evidence available under NDA. |
+| Secure SDLC and governance program | Implemented and in production | ISO/IEC 27001:2022 certificate and governance evidence available. |
+
+Private assessment evidence can include cryptographic assessment, penetration testing, mobile application assessment, infrastructure assessment, and broader security review material. It is not published publicly when it could reveal sensitive findings, scope details, remediation history, or implementation information.
+
 ## Related Documents
 
 - [Security Model](/security/security-model)
 - [Privacy](/security/privacy)
 - [Threat Model](/security/threat-model)
 - [Cryptography](/security/cryptography)
-- [Cryptography Audit](/security/cryptography-audit)
 - [Transparency Report](/security/transparency-report)
 - [Secure SDLC](/infrastructure/secure-sdlc)
-- [Incident Response](/infrastructure/incident-response)
+- [Operations and Resilience](/infrastructure/operations-resilience)
 - [Platform Limitations](/legal/limitations)
