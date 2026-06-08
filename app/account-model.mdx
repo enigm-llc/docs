@@ -137,7 +137,7 @@ Protected operations may require both a trusted account state and a trusted devi
 
 Session lifecycle controls determine whether an authenticated app session may continue to perform protected operations.
 
-Enigm App sessions are limited to 6 hours. Session lifecycle state is evaluated separately from Device Trust, protected key material, recovery state, and administrative authorization.
+Enigm App sessions use a 1-hour validity window and are automatically renewed while the session remains eligible under account, device, and policy controls. Session lifecycle state is evaluated separately from Device Trust, protected key material, recovery state, and administrative authorization.
 
 Session evaluation should consider:
 

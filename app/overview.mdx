@@ -50,7 +50,7 @@ The registration model includes:
 
 Standard Enigm account creation does not require an email address, phone number, or identity document. This supports identity minimization and reduces unnecessary identity exposure.
 
-Enigm App sessions are limited to 6 hours. Session state is evaluated separately from Device Trust, protected key material, recovery state, and administrative authorization.
+Enigm App sessions use a 1-hour validity window and are automatically renewed while the session remains eligible under account, device, and policy controls. Session state is evaluated separately from Device Trust, protected key material, recovery state, and administrative authorization.
 
 ## Secure Calls
 

@@ -105,7 +105,7 @@ Server region selection is a product and deployment control for dedicated Enigm 
 
 Enigm App account data supports authentication, authorization, account lifecycle, secure messaging, secure calls, and multi-device management. Protected content remains separated from operational metadata by design.
 
-Enigm App sessions are limited to 6 hours. Session state is treated as account access state and remains separate from Device Trust, recovery state, protected key material, and message plaintext.
+Enigm App sessions use a 1-hour validity window and are automatically renewed while the session remains eligible under account, device, and policy controls. Session state is treated as account access state and remains separate from Device Trust, recovery state, protected key material, and message plaintext.
 
 Enigm App secure media handling is designed to reduce unnecessary plaintext exposure for files, images, videos, attachments, and other supported multimedia. Conversation and group policy can control sending, forwarding, deletion, and media handling without giving administrative systems plaintext access to protected content.
 
