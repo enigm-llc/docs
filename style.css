@@ -383,7 +383,8 @@ html.dark .enigm-hero-banner {
   border-color: rgba(255, 255, 255, 0.14) !important;
 }
 
-.enigm-hero-banner img {
+.enigm-hero-banner img,
+.enigm-hero-banner-image {
   display: block !important;
   height: auto !important;
   width: 100% !important;
