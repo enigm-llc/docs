@@ -109,14 +109,29 @@ html.dark [data-component-part="localization-select-trigger"][aria-expanded="tru
   color: var(--enigm-nav-muted-dark-hover) !important;
 }
 
+html[lang="en"] #search-bar-entry div.truncate.min-w-0,
 html[lang="es"] #search-bar-entry div.truncate.min-w-0 {
+  align-items: center !important;
+  display: flex !important;
   font-size: 0 !important;
+  height: 1.5rem !important;
+  line-height: 1.5rem !important;
+}
+
+html[lang="en"] #search-bar-entry div.truncate.min-w-0::after,
+html[lang="es"] #search-bar-entry div.truncate.min-w-0::after {
+  display: block !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5rem !important;
+  white-space: nowrap !important;
+}
+
+html[lang="en"] #search-bar-entry div.truncate.min-w-0::after {
+  content: "Search Enigm documentation...";
 }
 
 html[lang="es"] #search-bar-entry div.truncate.min-w-0::after {
   content: "Buscar en la documentacion de Enigm...";
-  font-size: 0.875rem !important;
-  line-height: 1.5rem !important;
 }
 
 #topbar-right-container a[href="https://app.enigm.io"],
