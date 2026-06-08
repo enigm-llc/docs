@@ -12,7 +12,7 @@ Standard Enigm account registration uses an identity-minimizing model and does n
 
 Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest complements, but does not replace, end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
-Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles.
+Enigm-controlled servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles.
 
 ## Objectives
 
@@ -26,7 +26,7 @@ Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss
 
 ## Jurisdiction And GDPR/RGPD Alignment
 
-Enigm's privacy model is implemented within the legal governance framework of Enigm's Swiss subsidiary for Enigm servers and services.
+Enigm's privacy model is implemented within the legal governance framework of Enigm's Swiss subsidiary for Enigm servers and services. This governance statement applies to Enigm-operated services and does not imply that Enigm operates third-party carrier infrastructure used for Enigm eSIM carrier-layer connectivity.
 
 For EU-related processing, Enigm's privacy model is designed to support GDPR/RGPD principles including purpose limitation, data minimization, storage limitation, confidentiality, integrity, and accountability.
 
@@ -74,9 +74,11 @@ Network and routing metadata is encrypted according to the applicable product an
 
 ### Enigm eSIM data
 
-Enigm eSIM uses an identity-minimizing activation model for global data-only mobile connectivity. Standard activation does not require KYC verification, email address, phone number, or identity document.
+Enigm eSIM uses an identity-minimizing Enigm-side purchase and lifecycle-management model for data-only mobile connectivity. The Enigm-side workflow does not collect KYC verification, email address, phone number, or identity document.
 
 Enigm eSIM lifecycle metadata should remain limited to connectivity operation, Enigm account association, entitlement, support, and security needs. Connectivity state must remain separate from message plaintext, secure call content, media, attachments, user conversations, and private key material.
+
+Carrier-layer traffic records, carrier-side IP allocation records, radio access records, packet routing records, carrier connection records, carrier roaming records, and carrier network usage records are outside Enigm-held metadata categories when generated or retained by an independent telecommunications infrastructure provider.
 
 ### Threat intelligence data
 

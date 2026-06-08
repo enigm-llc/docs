@@ -17,7 +17,7 @@ Enigm OS is an optional dedicated secure device layer. When deployed, it contrib
 
 The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key, and Enigm eSIM. Supporting components such as VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, and Enyra extend those product surfaces without changing the product taxonomy.
 
-Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. Region selection for Enigm Server controls product deployment region categories, but it does not change the Enigm legal governance model or the separation between administration and protected content confidentiality.
+Enigm-controlled servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. Region selection for Enigm Server controls product deployment region categories, but it does not change the Enigm legal governance model or the separation between administration and protected content confidentiality. This governance statement does not imply that Enigm operates third-party carrier infrastructure used for Enigm eSIM carrier-layer connectivity.
 
 ## Architecture objectives
 
@@ -84,9 +84,11 @@ Initial linking and emergency contact configuration are Enigm App workflows. Eni
 
 ### Enigm eSIM
 
-Enigm eSIM provides global, data-only, privacy-oriented mobile connectivity. It is purchased through Enigm Command, linked to the user's Enigm account for lifecycle management, and can be unlinked, deleted, or retired by the user.
+Enigm eSIM provides data-only, privacy-oriented mobile connectivity across supported coverage areas. It is purchased through Enigm Command, linked to the user's Enigm account for lifecycle management, and can be unlinked, deleted, or retired by the user.
 
-Standard Enigm eSIM activation is identity-minimizing and does not require KYC verification, email address, phone number, or identity document. Enigm eSIM is separate from Enigm App cryptography, secure messaging, VPN Service, Proxy Network, and Device Trust. It can be combined with VPN Service and Proxy Network, but it does not replace either control.
+The Enigm-side eSIM purchase and lifecycle-management workflow is identity-minimizing and does not collect KYC verification, email address, phone number, or identity document. Enigm is not a mobile network operator, mobile virtual network operator, telecommunications carrier, radio access network operator, or direct issuer of the underlying carrier connectivity. Carrier-layer mobile data service is operated by an independent telecommunications infrastructure provider.
+
+Enigm eSIM is separate from Enigm App cryptography, secure messaging, VPN Service, Proxy Network, and Device Trust. It can be combined with VPN Service and Proxy Network, but it does not replace either control.
 
 ### Payment Privacy
 

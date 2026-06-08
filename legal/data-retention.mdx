@@ -10,7 +10,7 @@ Enigm uses an identity-minimizing account model for standard registration. Stand
 
 Data handled by Enigm is encrypted at rest according to the applicable product, storage, and security domain. Encryption at rest does not replace end-to-end encryption, Device Trust, access control, retention limits, or deletion workflows.
 
-Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles including data minimization, purpose limitation, storage limitation, integrity, confidentiality, and accountability.
+Enigm-controlled servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance. For processing activities involving users in the European Union, Enigm is designed to align with GDPR/RGPD principles including data minimization, purpose limitation, storage limitation, integrity, confidentiality, and accountability.
 
 This document is intended for enterprise customers, security auditors, privacy reviewers, and technical partners.
 
@@ -44,7 +44,7 @@ Data minimization means:
 
 ## Jurisdiction And Legal Governance
 
-Enigm servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance.
+Enigm-controlled servers and services are operated under Enigm's Swiss subsidiary and Swiss legal governance.
 
 Server region selection for Enigm Server is a product and deployment control. It does not change the legal governance statement for Enigm servers and services.
 
@@ -70,8 +70,8 @@ The following table summarizes the public retention model for major Enigm data c
 
 | Data Category | Examples | Retention Model |
 | --- | --- | --- |
-| Account identity state | Username, account status, account creation state, recovery boundary state, account deletion state | Retained for the duration of the service relationship. Deleted immediately when the user deletes the account, subject only to legal or security constraints that require preservation. |
-| Authentication material | Password verification material and recovery-related state, excluding plaintext passwords or plaintext recovery phrases | Retained while the account exists. Deleted immediately when the user deletes the account. Plaintext passwords and plaintext recovery phrases must not be retained. |
+| Account identity state | Username, account status, account creation state, recovery boundary state, account deletion state | Retained for the duration of the service relationship. Removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints. |
+| Authentication material | Password verification material and recovery-related state, excluding plaintext passwords or plaintext recovery phrases | Retained while the account exists. Removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints. Plaintext passwords and plaintext recovery phrases must not be retained. |
 | Device state | Trusted device list, enrollment state, revocation state, replacement state, Privacy-Preserving Device Handles, Device Trust status, optional Enigm OS trust signals | Retained until the user removes the device, deletes the account, or the lifecycle state is no longer required. Device deletion removes the associated device state from normal operation. |
 | Session state | Active sessions, session creation state, last activity state, termination state | Enigm sessions are limited to 6 hours. Session lifecycle records are minimized and retained only as required for security, abuse prevention, or operational review. |
 | Message content | Encrypted messages, encrypted attachments, encrypted multimedia | User-defined message lifetime up to a maximum of 30 days. Users can manually delete messages immediately. Server-side storage, where required, stores encrypted content only. |
@@ -99,7 +99,7 @@ Conceptual examples include:
 
 Account data supports identity lifecycle, device association, access control, account recovery boundaries, and security review.
 
-Account data is retained for the duration of the service relationship and deleted immediately when the user deletes the account, subject only to legal or security constraints that require preservation.
+Account data is retained for the duration of the service relationship and removed from normal service operation when the user deletes the account, subject only to legal, security, compliance, accounting, or valid preservation constraints.
 
 ## Security Data
 
@@ -202,7 +202,13 @@ Conceptual examples include:
 
 Enigm eSIM data is retained until the user deletes or retires the Enigm eSIM service, subject only to legal, security, or operational constraints.
 
-Standard Enigm eSIM activation does not require KYC verification, email address, phone number, or identity document. Enigm eSIM lifecycle data should remain limited to connectivity operation, account association, entitlement, support, and security needs.
+The Enigm-side eSIM purchase and lifecycle-management workflow does not collect KYC verification, email address, phone number, or identity document. Enigm eSIM lifecycle data should remain limited to connectivity operation, account association, entitlement, support, and security needs.
+
+Enigm eSIM relies on an independent telecommunications infrastructure provider for carrier-layer mobile data connectivity. Enigm is not a mobile network operator, mobile virtual network operator, telecommunications carrier, radio access network operator, or direct issuer of the underlying carrier connectivity.
+
+Carrier-layer traffic records, carrier-side IP allocation records, radio access records, packet routing records, carrier connection records, carrier roaming records, and carrier network usage records are not Enigm-held retention categories when they are generated or retained by the independent telecommunications infrastructure provider.
+
+Enigm cannot retain, delete, export, or disclose carrier-layer telecommunications records that it does not receive or control. Enigm-held eSIM retention is limited to Enigm eSIM lifecycle, entitlement, Enigm account association, deletion, support, and security records described in this document.
 
 ## Operational Data
 

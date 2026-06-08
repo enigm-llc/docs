@@ -5,15 +5,17 @@ description: Public architecture model for Enigm eSIM private connectivity.
 mode: wide
 ---
 
-Enigm eSIM is the private connectivity product in the Enigm ecosystem. It is focused on global, privacy-oriented mobile data connectivity and can be combined with other Enigm privacy and security controls.
+Enigm eSIM is the private connectivity product in the Enigm ecosystem. It is focused on privacy-oriented mobile data connectivity across supported coverage areas and can be combined with other Enigm privacy and security controls.
 
 This document is intended for security auditors, enterprise customers, technical partners, and security engineers. It describes the public Enigm eSIM architecture without exposing third-party relationships, connectivity partner details, infrastructure relationships, commercial arrangements, activation backends, operational procedures, or implementation-sensitive details.
 
 ## Overview
 
-The Enigm eSIM service provides global mobile data connectivity as a supporting platform component. It is data-only and does not provide traditional voice calling or SMS functionality.
+The Enigm eSIM service provides mobile data connectivity as a supporting platform component across supported coverage areas. It is data-only and does not provide traditional voice calling or SMS functionality.
 
 Enigm eSIM is purchased and managed through Enigm Command. The eSIM lifecycle is linked to the user's Enigm account and can be deleted or unlinked by the user.
+
+Enigm provides Enigm eSIM as a commercial facilitation and lifecycle-management service. Enigm is not a mobile network operator, mobile virtual network operator, telecommunications carrier, radio access network operator, or direct issuer of the underlying carrier connectivity. Carrier infrastructure, carrier network operation, radio access, traffic transport, IP allocation, roaming behavior, and carrier-layer connectivity records are operated by an independent telecommunications infrastructure provider.
 
 Enigm eSIM is separate from Enigm App cryptography, separate from end-to-end encryption, and separate from VPN functionality.
 
@@ -39,9 +41,9 @@ flowchart TD
 
 ## Purpose
 
-The Enigm eSIM service is designed to reduce dependence on traditional mobile identity workflows while providing mobile data connectivity.
+The Enigm eSIM service is designed to reduce dependence on traditional mobile identity workflows within the Enigm-side purchase and lifecycle-management flow while providing mobile data connectivity.
 
-Standard Enigm eSIM activation does not require:
+The Enigm-side purchase and lifecycle-management workflow does not collect:
 
 - KYC verification.
 - Email address.
@@ -60,19 +62,74 @@ The Enigm eSIM service does not replace secure messaging, end-to-end encryption,
 
 Enigm eSIM purchase and activation are performed through Enigm Command.
 
-Purchase and activation workflows are designed around an identity-minimizing model:
+Purchase and lifecycle-management workflows are designed around an identity-minimizing model:
 
 - Users can purchase Enigm eSIM from Enigm Command.
 - Users can manage Enigm eSIM lifecycle state from Enigm Command.
-- Standard activation does not require KYC verification, email address, phone number, or identity document.
+- The Enigm-side workflow does not collect KYC verification, email address, phone number, or identity document.
 - The user-selected purchase country is handled as commercial lifecycle metadata.
 - Enigm eSIM lifecycle state is linked to the user's Enigm account for management, deletion, unlinking, and support.
 
 Activation state is connectivity lifecycle state. It does not provide access to message plaintext, secure call content, media content, attachment plaintext, user conversations, protected key material, or private key material.
 
+External carrier, roaming, or jurisdiction-specific requirements can vary outside the Enigm-side purchase and lifecycle-management workflow. Users and organizations remain responsible for evaluating local telecommunications and identity-registration requirements.
+
+## Third-Party Carrier Disclaimer
+
+Enigm eSIM depends on a trusted third-party carrier and independent telecommunications infrastructure provider for the underlying mobile data service.
+
+Enigm does not operate the carrier network and does not control:
+
+- Radio access infrastructure.
+- Mobile network routing.
+- Carrier roaming behavior.
+- IP address allocation by the carrier network.
+- Carrier-layer packet transport.
+- Carrier network logs.
+- Carrier authentication systems.
+- Telecommunications regulatory registration systems.
+
+Enigm's role is limited to commercial facilitation, Enigm account association, lifecycle visibility, purchase and entitlement state, user-initiated deletion or retirement workflows, and support coordination for eligible Enigm eSIM services.
+
+This separation is important for legal, technical, and audit review. Enigm eSIM should not be interpreted as evidence that Enigm is an MNO, MVNO, telecommunications carrier, carrier network operator, or issuer of the underlying telecommunications profile.
+
+## Carrier-Layer Data Availability
+
+Enigm does not receive carrier-layer traffic records from the independent telecommunications infrastructure provider as part of normal Enigm eSIM operation.
+
+Carrier-layer records include:
+
+- Mobile network traffic logs.
+- Carrier-side IP allocation records.
+- Radio access records.
+- Packet routing records.
+- Carrier connection records.
+- Carrier roaming records.
+- Network usage records maintained by the carrier.
+
+Because Enigm does not operate the carrier network and does not receive those carrier-layer records, Enigm cannot provide carrier network traffic records, carrier IP allocation logs, carrier connection logs, or carrier-side telecommunications records in response to legal, regulatory, support, or enterprise review requests.
+
+Enigm can only review Enigm-held lifecycle data, such as purchase state, entitlement state, Enigm account association, Enigm eSIM activation state, unlinking state, deletion state, and support records retained under the documented retention model.
+
+## Local Telecommunications Compliance
+
+> **Compliance notice:** Enigm eSIM users are responsible for understanding and complying with the telecommunications, identity registration, import, export, sanctions, lawful-use, and network-use requirements that apply in the jurisdictions where they purchase, activate, or use mobile data connectivity. Enigm does not provide legal advice, does not represent that Enigm eSIM use is lawful in every jurisdiction, and does not assume responsibility for user misuse, prohibited use, or failure to comply with local telecommunications requirements.
+
+Local regulatory requirements can vary by country, region, carrier, device class, user status, and use case. Users and organizations should evaluate local obligations before using Enigm eSIM in regulated environments.
+
+## Security Layer Separation
+
+Enigm App and Enigm eSIM operate in separate security layers.
+
+Enigm App provides application-layer security controls such as end-to-end encryption, protected key material, secure messaging, secure calls, Device Trust, and verification workflows.
+
+Enigm eSIM provides mobile data connectivity through an independent telecommunications infrastructure provider. The carrier connectivity layer transports network traffic; it does not define Enigm App message encryption, does not receive Enigm App private key material, does not provide plaintext access to Enigm App messages, and does not weaken Enigm App end-to-end encryption.
+
+This separation means that the confidentiality of Enigm App communications remains governed by the Enigm App security model, not by the carrier-layer connectivity provider.
+
 ## Mobile Data Connectivity
 
-The Enigm eSIM service provides global mobile data connectivity for supported eSIM-capable devices.
+The Enigm eSIM service provides mobile data connectivity for supported eSIM-capable devices in supported coverage areas.
 
 Mobile data connectivity supports:
 
@@ -140,6 +197,8 @@ Enigm App remains responsible for app-level security functions such as secure me
 
 The Enigm eSIM service is linked to the user's Enigm account for lifecycle management. It does not replace protected key material, secure device storage, end-to-end encryption, or Device Trust decisions.
 
+The independent telecommunications infrastructure provider that enables carrier-layer data connectivity does not participate in Enigm App key management, message encryption, secure call encryption, Device Trust, account recovery, or protected content lifecycle decisions.
+
 Enigm App should remain secure according to its app-level model whether Enigm eSIM connectivity is used or not.
 
 ## Relationship With VPN
@@ -170,7 +229,7 @@ Administrative Enigm eSIM management must remain separate from protected communi
 
 The Enigm eSIM service supports privacy objectives by reducing dependence on traditional mobile identity workflows.
 
-Standard Enigm eSIM activation is identity-minimizing because it does not require KYC verification, email address, phone number, or identity document.
+The Enigm-side eSIM workflow is identity-minimizing because it does not collect KYC verification, email address, phone number, or identity document.
 
 Privacy considerations include:
 
@@ -197,6 +256,8 @@ Metadata may relate to:
 
 Metadata related to connectivity should remain separate from secure messaging content, secure call content, private key material, and protected attachments.
 
+Carrier-layer network metadata remains outside Enigm's normal operational visibility when it is generated and retained by the independent telecommunications infrastructure provider. Enigm-held metadata is limited to Enigm eSIM lifecycle, entitlement, account association, deletion, support, and security records described in this documentation.
+
 ## Security Limitations
 
 The Enigm eSIM service does not mitigate:
@@ -212,6 +273,7 @@ The Enigm eSIM service does not mitigate:
 - Network availability limitations.
 - External traffic correlation outside Enigm controls.
 - Legal or regulatory obligations applicable to connectivity services.
+- Carrier-layer obligations, restrictions, or records controlled by an independent telecommunications infrastructure provider.
 
 The Enigm eSIM service does not replace secure messaging, end-to-end encryption, VPN protection, Proxy Network traffic separation, Device Trust, account security, or verification workflows.
 
