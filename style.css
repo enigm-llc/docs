@@ -370,6 +370,7 @@ html.dark .enigm-card-grid .card:focus-visible {
   min-height: 128px;
 }
 
+.enigm-doc-image-frame,
 .enigm-hero-banner {
   background: rgba(0, 0, 0, 0.012) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
@@ -378,11 +379,14 @@ html.dark .enigm-card-grid .card:focus-visible {
   overflow: hidden !important;
 }
 
+html.dark .enigm-doc-image-frame,
 html.dark .enigm-hero-banner {
   background: rgba(255, 255, 255, 0.018) !important;
   border-color: rgba(255, 255, 255, 0.14) !important;
 }
 
+.enigm-doc-image-frame img,
+.enigm-doc-image,
 .enigm-hero-banner img,
 .enigm-hero-banner-image {
   display: block !important;
