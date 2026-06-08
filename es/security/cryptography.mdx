@@ -1,50 +1,50 @@
 ---
-title: Cryptography
-sidebarTitle: Cryptography
+title: Criptografía
+sidebarTitle: Criptografía
 description: Arquitectura criptográfica de Enigm.
 mode: wide
 ---
 
 La criptografía de Enigm proporciona confidencialidad, integridad, autenticidad, establecimiento de confianza y entrega segura de software.
 
-## Cryptographic Objectives
+## Objetivos criptográficos
 
 - Confidencialidad de contenido.
-- Integridad de mensajes y artifacts.
-- Autenticidad de dispositivos, releases y metadata.
+- Integridad de mensajes y artefactos.
+- Autenticidad de dispositivos, releases y metadatos.
 - Confianza ligada a dispositivo.
 - Verificacion de contactos, dispositivos y software.
 - Agilidad criptográfica.
 
-## Principles
+## Principios
 
-Enigm aplica minima exposición de claves, Device-Bound Trust, protección hardware-backed donde está disponible, separación de dominios de confianza y defensa en profundidad.
+Enigm aplica mínima exposición de claves, Device-Bound Trust, protección hardware-backed donde está disponible, separación de dominios de confianza y defensa en profundidad.
 
-## End-to-End Encryption
+## Cifrado de extremo a extremo
 
-La mensajería de Enigm usa protecciónes de extremo a extremo. Los sistemas administrativos no proporcionan acceso a texto claro.
+La mensajería de Enigm usa protecciones de extremo a extremo. Los sistemas administrativos no proporcionan acceso a texto claro.
 
-## Post-Quantum Cryptography
+## Criptografía post-cuántica
 
 Enigm incorpora algoritmos criptográficos post-cuánticos estandarizados por NIST como parte de su arquitectura criptográfica.
 
-Esto no significa que Enigm este certificado, aprobado o auditado por NIST.
+Esto no significa que Enigm esté certificado, aprobado o auditado por NIST.
 
-## Key Lifecycle
+## Ciclo de vida de claves
 
-El ciclo de vida incluye generacion, protección, rotacion, reemplazo y revocacion.
+El ciclo de vida incluye generacion, protección, rotacion, reemplazo y revocación.
 
 Las claves se generan en el dispositivo y el material privado está destinado a permanecer asociado a dispositivos de confianza.
 
-## Secure Storage
+## Almacenamiento seguro
 
 En iOS se utilizan Keychain y Secure Enclave dónde están disponibles. En Android se utiliza platform keystore y protección hardware-backed donde está disponible.
 
-## Verification Workflows
+## Flujos de verificación
 
-La verificacion puede establecer confianza entre usuarios, dispositivos, contactos y releases.
+La verificación puede establecer confianza entre usuarios, dispositivos, contactos y releases.
 
-## OTA Cryptography
+## Criptografía OTA
 
 OTA utiliza release signing, manifest verification, artifact verification y eligibility controls.
 
@@ -59,4 +59,4 @@ flowchart TD
   Gen --> Store --> Trust --> Comm --> Verify
 ```
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).

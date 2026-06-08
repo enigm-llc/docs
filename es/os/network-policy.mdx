@@ -1,17 +1,17 @@
 ---
-title: OS Network Policy
-sidebarTitle: Network Policy
+title: Política de red de Enigm OS
+sidebarTitle: Política de red
 description: Política de red segura y privacidad de red en Enigm OS.
 mode: wide
 ---
 
 Enigm OS no asume que las redes sean confiables. La arquitectura parte de que redes locales, públicas u operadores pueden observar patrones de tráfico.
 
-## Overview
+## Resumen
 
 La política de red de Enigm OS cubre confianza de red, DNS seguro, protección de transporte, reducción de metadatos y controles de conectividad.
 
-## Network Trust Model
+## Modelo de confianza de red
 
 El dispositivo debe operar bajo la suposicion de que:
 
@@ -19,17 +19,17 @@ El dispositivo debe operar bajo la suposicion de que:
 - Las redes públicas pueden ser hostiles.
 - Los operadores pueden observar patrones.
 
-## Secure Name Resolution
+## Resolución segura de nombres
 
 Enigm OS utiliza un modelo de resolución de nombres controlado y cifrado donde aplica. Esto reduce exposición frente a observacion DNS simple.
 
 No se documentan proveedores, valores o configuraciónes internas.
 
-## Transport Protection
+## Protección de transporte
 
-La protección de transporte complementa el cifrado de aplicación. No sustituye end-to-end encryption ni Device Trust.
+La protección de transporte complementa el cifrado de aplicación. No sustituye cifrado de extremo a extremo ni Device Trust.
 
-## Traffic Analysis Considerations
+## Consideraciones de análisis de tráfico
 
 La plataforma puede utilizar traffic shaping y actividad adicional de red para reducir fiabilidad de correlaciones simples.
 
@@ -53,8 +53,8 @@ flowchart TD
   Policy --> Network
 ```
 
-## Relationship With Trust Security Center
+## Relación con Trust Security Center
 
 Trust Security Center puede evaluar cumplimiento de política de red. No inspecciona contenido de mensajes.
 
-Consulta [Network Privacy](/es/app/network-privacy) y [Platform Limitations](/es/legal/limitations).
+Consulta [Privacidad de red](/es/app/network-privacy) y [Limitaciones de plataforma](/es/legal/limitations).

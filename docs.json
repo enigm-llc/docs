@@ -203,7 +203,7 @@
       {
         "language": "es",
         "search": {
-          "prompt": "Buscar en la documentacion de Enigm..."
+          "prompt": "Buscar en la documentación de Enigm..."
         },
         "navbar": {
           "links": [
@@ -307,7 +307,7 @@
                 ]
               },
               {
-                "group": "Intelligence",
+                "group": "Inteligencia",
                 "pages": [
                   "es/intelligence/overview",
                   "es/intelligence/detection-and-response",

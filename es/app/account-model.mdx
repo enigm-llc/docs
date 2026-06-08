@@ -1,34 +1,34 @@
 ---
-title: Account Model
-sidebarTitle: Account Model
-description: Modelo de identidad, cuenta, recuperacion y dispositivos de Enigm.
+title: Modelo de cuenta
+sidebarTitle: Modelo de cuenta
+description: Modelo de identidad, cuenta, recuperación y dispositivos de Enigm.
 mode: wide
 ---
 
-El modelo de cuenta de Enigm separa identidad, dispositivo y contenido. Una cuenta no equivale a un unico dispositivo físico.
+El modelo de cuenta de Enigm separa identidad, dispositivo y contenido. Una cuenta no equivale a un único dispositivo físico.
 
-Enigm App es el producto principal orientado al usuario. Enigm Command proporciona operaciónes de ciclo de vida cuando el usuario, una organizacion o una política gestionada lo requiere.
+Enigm App es el producto principal orientado al usuario. Enigm Command proporciona operaciones de ciclo de vida cuando el usuario, una organizacion o una política gestionada lo requiere.
 
-## Overview
+## Resumen
 
-Una cuenta Enigm puede asociarse a varios dispositivos de confianza. La asociacion de dispositivo es explicita y sensible desde el punto de vista de seguridad.
+Una cuenta Enigm puede asociarse a varios dispositivos de confianza. La asociación de dispositivo es explicita y sensible desde el punto de vista de seguridad.
 
 El modelo distingue:
 
-- **Account Trust**: estado de la cuenta, autenticación, sesiones y recuperacion.
+- **Account Trust**: estado de la cuenta, autenticación, sesiones y recuperación.
 - **Device Trust**: confianza del dispositivo asociado.
 - **Administrative Authorization**: capacidad de gestionar ciclo de vida, no de leer contenido.
 - **Message Confidentiality**: acceso dependiente de claves protegidas en dispositivos confiables.
 
-## Account Creation
+## Creación de cuenta
 
-El registro estándar utiliza username y password, frase de recuperacion e identidad creada en el dispositivo.
+El registro estándar utiliza username y password, frase de recuperación e identidad creada en el dispositivo.
 
-Enigm no requiere email, telefono ni documento de identidad para el registro normal de cuenta. Esta decision reduce exposición de identidad y dependencia de identificadores públicos.
+Enigm no requiere email, teléfono ni documento de identidad para el registro normal de cuenta. Esta decision reduce exposición de identidad y dependencia de identificadores públicos.
 
-## Device Association
+## Asociación de dispositivos
 
-Los dispositivos deben asociarse de forma explicita antes de acceder a recursos de cuenta. La asociacion no debe copiar claves privadas de forma silenciosa.
+Los dispositivos deben asociarse de forma explicita antes de acceder a recursos de cuenta. La asociación no debe copiar claves privadas de forma silenciosa.
 
 Los dispositivos pueden:
 
@@ -37,25 +37,25 @@ Los dispositivos pueden:
 - Revocarse.
 - Reemplazarse.
 
-## Device Revocation
+## Revocación de dispositivos
 
-La revocacion afecta decisiones futuras de confianza. Un dispositivo revocado no debe seguir recibiendo contenido nuevo protegido.
+La revocación afecta decisiones futuras de confianza. Un dispositivo revocado no debe seguir recibiendo contenido nuevo protegido.
 
-La revocacion no convierte automaticamente contenido historico ya entregado en inaccesible si el endpoint estaba autorizado previamente.
+La revocación no convierte automáticamente contenido historico ya entregado en inaccesible si el endpoint estaba autorizado previamente.
 
-## Session Lifecycle
+## Ciclo de vida de sesión
 
-Las sesiones de Enigm App duran 6 horas. La sesión es distinta de Device Trust, Account Trust, recuperacion y autorización administrativa.
+Las sesiones de Enigm App duran 6 horas. La sesión es distinta de Device Trust, Account Trust, recuperación y autorización administrativa.
 
-Cerrar una sesión reduce acceso de cuenta, pero no equivale a revocacion criptográfica completa del dispositivo.
+Cerrar una sesión reduce acceso de cuenta, pero no equivale a revocación criptográfica completa del dispositivo.
 
-## Recovery Boundaries
+## Límites de recuperación
 
-La recuperacion está separada del acceso normal a mensajes. Un flujo de recuperacion no debe debilitar la confidencialidad de mensajes ni convertir sistemas administrativos en superficies de lectura.
+La recuperación está separada del acceso normal a mensajes. Un flujo de recuperación no debe debilitar la confidencialidad de mensajes ni convertir sistemas administrativos en superficies de lectura.
 
-La recuperacion puede restaurar acceso de cuenta; no debe proporcionar texto claro de mensajes, adjuntos, llamadas ni claves privadas.
+La recuperación puede restaurar acceso de cuenta; no debe proporcionar texto claro de mensajes, adjuntos, llamadas ni claves privadas.
 
-## Enigm Command Lifecycle
+## Ciclo de vida en Enigm Command
 
 Enigm Command proporciona visibilidad y gestión de:
 
@@ -69,10 +69,10 @@ Enigm Command proporciona visibilidad y gestión de:
 
 Las acciones administrativas no otorgan acceso al texto claro de mensajes.
 
-## Privacy Model
+## Modelo de privacidad
 
 El modelo minimiza datos de identidad y utiliza identificadores privacy-preserving cuando se necesita correlación técnica.
 
 La eliminación de cuenta solicitada por el usuario se ejecuta de forma inmediata dentro de los límites operativos documentados.
 
-Consulta [Data Retention](/es/legal/data-retention) y [Platform Limitations](/es/legal/limitations).
+Consulta [Retención de datos](/es/legal/data-retention) y [Limitaciones de plataforma](/es/legal/limitations).

@@ -1,37 +1,37 @@
 ---
-title: OTA Security
-sidebarTitle: OTA Security
-description: Modelo de seguridad OTA, signing y Remote Attestation de Enigm OS.
+title: Seguridad OTA
+sidebarTitle: Seguridad OTA
+description: Modelo de seguridad OTA, firma y Remote Attestation de Enigm OS.
 mode: wide
 ---
 
-OTA Security es una arquitectura de defensa en profundidad. No depende de un unico mecanismo.
+Seguridad OTA es una arquitectura de defensa en profundidad. No depende de un único mecanismo.
 
-## Overview
+## Resumen
 
-El modelo combina transporte autenticado, verificacion de requests, manifests firmados, integridad de artifacts, elegibilidad de dispositivo, Remote Attestation y Hardware-Backed Signing.
+El modelo combina transporte autenticado, verificación de solicitudes, manifiestos firmados, integridad de artefactos, elegibilidad de dispositivo, Remote Attestation y Hardware-Backed Signing.
 
-## Security Layers
+## Capas de seguridad
 
-1. **Transport authentication**: canales protegidos y request authentication.
-2. **Request verification**: validacion, freshness, integridad y resistencia a replay.
-3. **Manifest trust**: metadata de release firmada y autorizada.
-4. **Artifact verification**: hashes, integridad y detección de corrupcion.
-5. **Device eligibility**: enrolamiento, canal, Device Trust y rollout policy.
+1. **Autenticación de transporte**: canales protegidos y autenticación de solicitudes.
+2. **Verificación de solicitud**: validación, frescura, integridad y resistencia a repetición.
+3. **Confianza del manifiesto**: metadatos de release firmados y autorizados.
+4. **Verificación de artefactos**: hashes, integridad y detección de corrupción.
+5. **Elegibilidad del dispositivo**: enrolamiento, canal, Device Trust y política de despliegue.
 6. **Remote Attestation**: señal adicional de elegibilidad e integridad.
-7. **Production signing**: origen autorizado de release.
+7. **Firma de producción**: origen autorizado de release.
 
 ```mermaid
 flowchart TD
-  Authority["Release Authority"]
-  Controls["OTA Security Controls"]
-  Transport["Transport Authentication"]
-  Request["Request Validation"]
-  Manifest["Manifest Verification"]
-  Artifact["Artifact Verification"]
-  Eligibility["Eligibility Checks"]
+  Authority["Autoridad de release"]
+  Controls["Controles de seguridad OTA"]
+  Transport["Autenticación de transporte"]
+  Request["Validación de solicitud"]
+  Manifest["Verificación de manifiesto"]
+  Artifact["Verificación de artefacto"]
+  Eligibility["Comprobaciones de elegibilidad"]
   Attestation["Remote Attestation"]
-  Device["Device"]
+  Device["Dispositivo"]
 
   Authority --> Controls
   Controls --> Transport
@@ -43,31 +43,31 @@ flowchart TD
   Controls --> Device
 ```
 
-## Signing Authorities
+## Autoridades de firma
 
 La arquitectura separa dos autoridades:
 
-- **Current Production OTA Manifest Signing Authority**: autorización de manifests y metadata OTA.
-- **Target Production Release-Signing Authority**: autoridad objetivo para signing de imagenes, payloads y artifacts críticos de release.
+- **Current Production OTA Manifest Signing Authority**: autorización de manifiestos y metadatos OTA.
+- **Target Production Release-Signing Authority**: autoridad objetivo para firma de imágenes, payloads y artefactos críticos de release.
 
 No deben confundirse ni presentarse como la misma autoridad.
 
-## Current OTA Manifest Signing Model
+## Modelo actual de firma de manifiestos OTA
 
-El modelo actúal utiliza signing offline hardware-backed para manifests. El material privado no debe residir en repositorios, CI/CD varíables, scripts de build, workstations, storage cloud ni artifacts.
+El modelo actual utiliza firma offline respaldada por hardware para manifiestos. El material privado no debe residir en repositorios, CI/CD variables, scripts de build, estaciones de trabajo, almacenamiento en cloud ni artefactos.
 
-## Target Production HSM Release-Signing Architecture
+## Arquitectura objetivo de firma de versiones con HSM
 
-La arquitectura objetivo usa una autoridad física dedicada con claves no exportables, aprobaciones, auditoría, ceremonias de claves, backup seguro y gobernanza de release.
+La arquitectura objetivo usa una autoridad física dedicada con claves no exportables, aprobaciones, auditoría, ceremonias de claves, copia de seguridad segura y gobernanza de release.
 
 ## Remote Attestation
 
-Remote Attestation está diseñado cómo hardening layer de produccion. Puede utilizarse para determinar elegibilidad de enrolamiento, registro, acceso a metadata protegida, artifacts privados o canales sensibles.
+Remote Attestation está diseñado como capa de hardening de producción. Puede utilizarse para determinar elegibilidad de enrolamiento, registro, acceso a metadatos protegidos, artefactos privados o canales sensibles.
 
-Remote Attestation complementa, pero no reemplaza, transporte autenticado, manifests firmados, verificacion de artifacts, signing hardware-backed, rollout policy o controles de enrolamiento.
+Remote Attestation complementa, pero no reemplaza, transporte autenticado, manifiestos firmados, verificación de artefactos, firma hardware-backed, política de despliegue o controles de enrolamiento.
 
-## Privacy Model
+## Modelo de privacidad
 
-OTA usa Privacy-Preserving Device Handles y telemetria minima. Las decisiones de elegibilidad deben evitar recolección innecesaria de identidad.
+OTA usa Privacy-Preserving Device Handles y telemetría mínima. Las decisiones de elegibilidad deben evitar recolección innecesaria de identidad.
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).

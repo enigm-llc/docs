@@ -1,6 +1,6 @@
 ---
-title: Product Architecture
-sidebarTitle: Product Architecture
+title: Arquitectura de producto
+sidebarTitle: Arquitectura de producto
 description: Arquitectura de producto y vocabulario compartido de Enigm.
 mode: wide
 ---
@@ -18,9 +18,9 @@ Los productos principales son:
 - Enigm Key.
 - Enigm eSIM.
 
-Componentes de soporte cómo VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform y Enyra amplian capacidades sin cambiar la taxonomia de producto.
+Componentes de soporte como VPN Service, Proxy Network, Tor Gateway, privacidad de pagos, Threat Intelligence Platform y Enyra amplían capacidades sin cambiar la taxonomía de producto.
 
-## Architecture Model
+## Modelo de arquitectura
 
 ```mermaid
 flowchart TD
@@ -43,7 +43,7 @@ flowchart TD
   Command --> Esim
 ```
 
-## Trust Boundaries
+## Límites de confianza
 
 La arquitectura separa:
 
@@ -55,16 +55,16 @@ La arquitectura separa:
 - Remote Attestation.
 - Inteligencia de seguridad.
 
-## Privacy Architecture
+## Arquitectura de privacidad
 
 Enigm aplica minimización de datos, minimización de identidad, reducción de metadatos, identificadores privacy-preserving y retención limitada.
 
 Los metadatos se minimizan, se limitan por propósito, se protegen por control de acceso y se cifran parcialmente donde el dominio lo soporta.
 
-## Administrative Boundary
+## Límite administrativo
 
 Enigm Command y Enigm Server gestionan ciclo de vida, dispositivos, sesiones, productos y disponibilidad de contenido cifrado. No proporcionan acceso a texto claro ni claves privadas.
 
-## Security References
+## Referencias de seguridad
 
-Consulta [Security Model](/es/security/security-model), [Privacy](/es/security/privacy), [Cryptography](/es/security/cryptography) y [Platform Limitations](/es/legal/limitations).
+Consulta [Modelo de seguridad](/es/security/security-model), [Privacidad](/es/security/privacy), [Criptografía](/es/security/cryptography) y [Limitaciones de plataforma](/es/legal/limitations).

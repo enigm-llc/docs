@@ -1,25 +1,25 @@
 ---
-title: Secure Messaging
-sidebarTitle: Secure Messaging
+title: Mensajería segura
+sidebarTitle: Mensajería segura
 description: Arquitectura de mensajería cifrada de extremo a extremo en Enigm.
 mode: wide
 ---
 
 Enigm proporciona mensajería privada de texto y multimedia. El modelo está diseñado para que el contenido de mensajes no sea accesible en texto claro para servidores ni sistemas administrativos.
 
-## Overview
+## Resumen
 
 La mensajería segura combina cifrado de extremo a extremo, confianza de dispositivo, material criptográfico protegido, expiracion de mensajes, manejo local reducido y minimización de metadatos.
 
-El modelo aplica a mensajes, archivos, imagenes, videos y adjuntos soportados.
+El modelo aplica a mensajes, archivos, imágenes, videos y adjuntos soportados.
 
-## End-to-End Encryption Model
+## Modelo de cifrado de extremo a extremo
 
 Los mensajes se cifran antes de salir del dispositivo. El almacenamiento del lado servidor, cuando se requiere para entrega, conserva objetos cifrados.
 
 Los sistemas administrativos, Enigm Command, Enigm Server, monitorización y soporte no deben convertirse en superficies de acceso a texto claro.
 
-## Message Lifecycle
+## Ciclo de vida del mensaje
 
 El ciclo de vida de un mensaje incluye:
 
@@ -27,26 +27,26 @@ El ciclo de vida de un mensaje incluye:
 - Protección criptográfica.
 - Entrega mediante rutas autorizadas.
 - Recuperacion por dispositivo confiable.
-- Descifrado local solo para la accion requerida.
+- Descifrado local solo para la acción requerida.
 - Expiracion o borrado segun política.
 
 Los mensajes pueden tener vida máxima de 30 dias, definida por el usuario o la conversacion. El usuario puede borrarlos manualmente de forma inmediata.
 
-## Local Message Handling
+## Tratamiento local de mensajes
 
-El cliente debe recuperar y descifrar solo el contenido requerido para la accion actúal. El contenido descifrado no debe persistirse innecesariamente en el dispositivo.
+El cliente debe recuperar y descifrar solo el contenido requerido para la acción actual. El contenido descifrado no debe persistirse innecesariamente en el dispositivo.
 
 Los visores seguros deben manejar mensajes y adjuntos sin exportar texto claro a apps externas cuando la política lo restringe.
 
-## Attachment Handling
+## Tratamiento de adjuntos
 
 Los adjuntos siguen el mismo modelo de confidencialidad que los mensajes. Deben almacenarse y entregarse cómo contenido cifrado, con expiracion y borrado coherentes.
 
-## Group Permissions
+## Permisos de grupo
 
 Los grupos pueden aplicar permisos avanzados sobre envío, reenvío, borrado y multimedia. Estos controles gestionan el comportamiento de usuarios autorizados; no crean acceso de servidor a texto claro.
 
-## Traffic Analysis Resistance
+## Resistencia al análisis de tráfico
 
 Enigm App genera actividad de red adicional de forma continua para reducir la fiabilidad de correlaciones simples de tráfico.
 
@@ -54,24 +54,24 @@ Este mecanismo está diseñado para bajar la confianza de técnicas que intentan
 
 No afirma anonimato ni resistencia completa frente a análisis avanzado. La confidencialidad sigue dependiendo del cifrado de extremo a extremo y del material de claves protegido.
 
-### Relationship With Metadata Protection
+### Relación con la protección de metadatos
 
-La actividad de red aleatoria, minimización de metadatos, Proxy Network y protecciónes de transporte son controles complementarios. La actividad adicional no debe interpretarse cómo prueba de comunicación activa.
+La actividad de red aleatoria, minimización de metadatos, Proxy Network y protecciones de transporte son controles complementarios. La actividad adicional no debe interpretarse cómo prueba de comunicación activa.
 
-## Device Trust Requirements
+## Requisitos de confianza del dispositivo
 
-El acceso a mensajes depende de asociacion de dispositivo confiable y material criptográfico protegido. Un dispositivo comprometido o no confiable queda fuera de las garantias del modelo.
+El acceso a mensajes depende de asociación de dispositivo confiable y material criptográfico protegido. Un dispositivo comprometido o no confiable queda fuera de las garantias del modelo.
 
-## Multi-Device Messaging
+## Mensajería multi-dispositivo
 
 El soporte multi-dispositivo requiere establecimiento explicito de confianza. Los dispositivos revocados no deben recibir contenido nuevo protegido.
 
-## Verification Workflows
+## Flujos de verificación
 
-Los flujos de verificacion permiten confirmar confianza de dispositivo o contacto cuando están disponibles. La verificacion reduce riesgo de sustitucion o incorporacion no autorizada.
+Los flujos de verificación permiten confirmar confianza de dispositivo o contacto cuando están disponibles. La verificación reduce riesgo de sustitución o incorporación no autorizada.
 
-## Metadata Minimization
+## Minimización de metadatos
 
 Enigm minimiza metadatos y utiliza identificadores privacy-preserving cuando se requiere correlación técnica. Los metadatos operativos son minimizados, limitados por propósito, controlados por acceso y parcialmente cifrados donde el dominio lo soporta.
 
-Consulta [Cryptography](/es/security/cryptography), [Network Privacy](/es/app/network-privacy) y [Platform Limitations](/es/legal/limitations).
+Consulta [Criptografía](/es/security/cryptography), [Privacidad de red](/es/app/network-privacy) y [Limitaciones de plataforma](/es/legal/limitations).

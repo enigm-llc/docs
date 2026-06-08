@@ -1,25 +1,25 @@
 ---
-title: Key Overview
-sidebarTitle: Overview
+title: Resumen de Enigm Key
+sidebarTitle: Resumen
 description: Modelo de Enigm Key cómo llavero físico de emergencia.
 mode: wide
 ---
 
 Enigm Key es un producto físico de emergencia. Contiene conectividad de datos mediante una tarjeta eSIM industrial integrada y se sincroniza con la cuenta Enigm del usuario.
 
-## Overview
+## Resumen
 
 Enigm Key permite activar un flujo SOS pulsando tres veces el boton físico. Cuando se activa, notifica a contactos configurados y comparte ubicación en tiempo real hasta que el usuario cancela el envío.
 
-Durante funciónamiento normal, Enigm Key permanece dormido para apoyar la privacidad del usuario.
+Durante funcionamiento normal, Enigm Key permanece dormido para apoyar la privacidad del usuario.
 
-## Configuration
+## Configuración
 
 La vinculacion inicial se realiza desde Enigm App. Los contactos de emergencia tambien se configuran desde Enigm App.
 
-Enigm Command administra Enigm Key cómo dispositivo asociado: visibilidad, estado de ciclo de vida y revocacion.
+Enigm Command administra Enigm Key cómo dispositivo asociado: visibilidad, estado de ciclo de vida y revocación.
 
-## Emergency Workflow
+## Flujo de emergencia
 
 El flujo SOS incluye:
 
@@ -30,20 +30,20 @@ El flujo SOS incluye:
 - Comparticion de ubicación vinculada al evento.
 - Cancelacion por el usuario.
 
-## Authentication Model
+## Modelo de autenticación
 
-Cada Enigm Key se autentica con material unico por dispositivo. Las comunicaciones deben estar firmadas, protegidas y cifradas para que la API acepte mensajes del dispositivo.
+Cada Enigm Key se autentica con material único por dispositivo. Las comunicaciones deben estar firmadas, protegidas y cifradas para que la API acepte mensajes del dispositivo.
 
 El modelo está orientado a rechazar tráfico no autenticado, replay attempts y dispositivos no vinculados.
 
-## Privacy Model
+## Modelo de privacidad
 
 Enigm Key no funcióna cómo rastreador rutinario. La ubicación se comparte solo durante el evento de emergencia y hasta que el usuario cancela el envío.
 
 La visibilidad administrativa no debe convertirse en seguimiento permanente ni en acceso a comunicaciones protegidas.
 
-## Revocation And Loss
+## Revocación y pérdida
 
-Enigm Key puede revocarse desde Enigm App y Enigm Command. La revocacion es importante ante perdida, robo, sustitucion o retirada del dispositivo.
+Enigm Key puede revocarse desde Enigm App y Enigm Command. La revocación es importante ante pérdida, robo, sustitución o retirada del dispositivo.
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).

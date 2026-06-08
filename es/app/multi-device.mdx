@@ -1,29 +1,29 @@
 ---
-title: Multi-Device
-sidebarTitle: Multi-Device
+title: Multi-dispositivo
+sidebarTitle: Multi-dispositivo
 description: Arquitectura de confianza multi-dispositivo de Enigm.
 mode: wide
 ---
 
 El soporte multi-dispositivo es un problema de confianza, no solo de conveniencia. Una cuenta Enigm puede asociarse a multiples dispositivos confiables.
 
-## Overview
+## Resumen
 
 Los dispositivos nuevos deben establecer confianza antes de recibir acceso a recursos de cuenta o contenido protegido.
 
-Account Trust y Device Trust son conceptos separados. Una cuenta autenticada no convierte automaticamente un dispositivo en confiable.
+Account Trust y Device Trust son conceptos separados. Una cuenta autenticada no convierte automáticamente un dispositivo en confiable.
 
-## Device Enrollment
+## Alta de dispositivos
 
 El enrolamiento es explicito. Un dispositivo nuevo debe pasar por un flujo de autorización antes de incorporarse al contexto de cuenta.
 
-Los dispositivos confiables existentes pueden participar en la incorporacion cuando el flujo lo permite.
+Los dispositivos confiables existentes pueden participar en la incorporación cuando el flujo lo permite.
 
-## Device Association
+## Asociación de dispositivos
 
-La asociacion de dispositivo es una operación sensible. Debe preservar confidencialidad de mensajes y no copiar claves privadas de forma silenciosa.
+La asociación de dispositivo es una operación sensible. Debe preservar confidencialidad de mensajes y no copiar claves privadas de forma silenciosa.
 
-## Trusted Device Lifecycle
+## Ciclo de vida de dispositivos de confianza
 
 El ciclo de vida incluye:
 
@@ -35,17 +35,17 @@ El ciclo de vida incluye:
 
 Los eventos deben ser visibles en Enigm Command cuando corresponda.
 
-## Device Revocation
+## Revocación de dispositivos
 
-La revocacion debe afectar decisiones futuras de confianza de forma inmediata. Un dispositivo revocado no debe recibir nuevo contenido protegido.
+La revocación debe afectar decisiones futuras de confianza de forma inmediata. Un dispositivo revocado no debe recibir nuevo contenido protegido.
 
-## Device Replacement
+## Sustitución de dispositivos
 
-El reemplazo debe permitir continuidad de cuenta sin debilitar el modelo de confianza ni convertir recuperacion en acceso a texto claro.
+El reemplazo debe permitir continuidad de cuenta sin debilitar el modelo de confianza ni convertir recuperación en acceso a texto claro.
 
-## Enigm Command Integration
+## Integración con Enigm Command
 
-Enigm Command proporciona visibilidad de dispositivos, sesiones, estado de confianza, revocacion y acciones de ciclo de vida.
+Enigm Command proporciona visibilidad de dispositivos, sesiones, estado de confianza, revocación y acciones de ciclo de vida.
 
 La administración no proporciona acceso a mensajes, claves privadas, llamadas ni adjuntos.
 
@@ -65,4 +65,4 @@ flowchart TD
   Revoke -. afecta confianza futura .-> Account
 ```
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).

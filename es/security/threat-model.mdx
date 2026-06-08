@@ -1,15 +1,15 @@
 ---
-title: Threat Model
-sidebarTitle: Threat Model
+title: Modelo de amenazas
+sidebarTitle: Modelo de amenazas
 description: Marco público de amenazas y límites de confianza de Enigm.
 mode: wide
 ---
 
 El threat model de Enigm cubre Enigm, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Enigm Intelligence, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing y Controlled Device Management.
 
-## Threat Domains
+## Dominios de amenaza
 
-Enigm evalua amenazas en dominios separados:
+Enigm evalúa amenazas en dominios separados:
 
 - Cuenta e identidad.
 - Dispositivo y endpoint.
@@ -22,20 +22,20 @@ Enigm evalua amenazas en dominios separados:
 - OTA y signing.
 - Inteligencia y respuesta defensiva.
 
-## Trust Boundaries
+## Límites de confianza
 
 El modelo separa Account Trust, Device Trust, administración, Remote Attestation, OTA Eligibility y contenido protegido.
 
-## Expected Controls
+## Controles esperados
 
-Los controles incluyen cifrado de extremo a extremo, claves protegidas, Privacy-Preserving Device Handles, minimización de metadatos, revocacion, logging limitado, seguridad de releases, governance y revisión de riesgos.
+Los controles incluyen cifrado de extremo a extremo, claves protegidas, Privacy-Preserving Device Handles, minimización de metadatos, revocación, logging limitado, seguridad de releases, gobernanza y revisión de riesgos.
 
-## Administrative Abuse
+## Abuso administrativo
 
 Enigm Command y Enigm Server son superficies administrativas. Deben permitir ciclo de vida, no acceso a texto claro ni claves privadas.
 
-## Network Observation
+## Observación de red
 
 VPN Service, Proxy Network y actividad de red aleatoria reducen exposición y correlación simple, pero no garantizan anonimato absoluto.
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).

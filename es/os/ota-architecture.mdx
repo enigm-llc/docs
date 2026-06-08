@@ -1,66 +1,66 @@
 ---
-title: OTA Architecture
-sidebarTitle: OTA Architecture
-description: Arquitectura de actúalizaciones OTA, ciclo de release y verificacion cliente.
+title: Arquitectura OTA
+sidebarTitle: Arquitectura OTA
+description: Arquitectura de actualizaciones OTA, ciclo de release y verificación del cliente.
 mode: wide
 ---
 
-OTA Architecture define cómo Enigm OS entrega software confiable a dispositivos elegibles mediante releases controladas.
+Arquitectura OTA define cómo Enigm OS entrega software confiable a dispositivos elegibles mediante releases controladas.
 
-## Overview
+## Resumen
 
-OTA existe para entregar actúalizaciones autenticas e integras a dispositivos autorizados. No todos los dispositivos deben recibir cada release automaticamente.
+OTA existe para entregar actualizaciones auténticas e íntegras a dispositivos autorizados. No todos los dispositivos deben recibir cada release automáticamente.
 
-## Design Objectives
+## Objetivos de diseño
 
 - Entrega segura de software.
 - Autenticidad de release.
-- Integridad de artifacts.
+- Integridad de artefactos.
 - Elegibilidad de dispositivo.
-- Rollouts controlados.
-- Verificacion cliente antes de instalar.
+- Despliegues controlados.
+- Verificación del cliente antes de instalar.
 
-## Release Lifecycle
+## Ciclo de vida de la versión
 
 Etapas conceptuales:
 
-1. Build creation.
-2. Artifact preparation.
-3. Manifest creation.
-4. Release signing.
-5. Release registration.
-6. Validation.
-7. Controlled rollout.
-8. Stable release.
-9. Device installation.
+1. Creación de build.
+2. Preparación de artefactos.
+3. Creación de manifiesto.
+4. Firma de release.
+5. Registro de release.
+6. Validación.
+7. Despliegue controlado.
+8. Release estable.
+9. Instalación en dispositivo.
 
 ```mermaid
 flowchart TD
   Build["Build"]
-  Prep["Artifact Preparation"]
-  Signing["Release Signing"]
-  Validation["Validation"]
-  Rollout["Controlled Rollout"]
-  Stable["Stable Release"]
-  Install["Device Installation"]
+  Prep["Preparación de artefactos"]
+  Signing["Firma de release"]
+  Validation["Validación"]
+  Rollout["Despliegue controlado"]
+  Stable["Release estable"]
+  Install["Instalación en dispositivo"]
 
   Build --> Prep --> Signing --> Validation --> Rollout --> Stable --> Install
 ```
 
-## Device Eligibility
+## Elegibilidad del dispositivo
 
 La elegibilidad puede depender de identidad de dispositivo, integridad, enrolamiento, canal de release, política de rollout y Remote Attestation.
 
-## Client Verification
+## Verificación del cliente
 
-El cliente OTA no debe confiar ciegamente en disponibilidad de update. Debe verificar autenticidad, integridad, compatibilidad, política y rollback constraints antes de instalar.
+El cliente OTA no debe confiar ciegamente en disponibilidad de actualización. Debe verificar autenticidad, integridad, compatibilidad, política y restricciones de rollback antes de instalar.
 
-## Controlled Rollouts
+## Despliegues controlados
 
-La plataforma soporta modelos cómo draft, validation, límited rollout, stable rollout y security rollout.
+La plataforma soporta modelos como borrador, validación, despliegue limitado, despliegue estable y despliegue de seguridad.
 
-## Relationship With Trust
+## Relación con la confianza
 
-Trust Security Center evalua integridad local. OTA evalua elegibilidad y entrega de software. Son sistemas relaciónados pero distintos.
+Trust Security Center evalúa integridad local. OTA evalúa elegibilidad y entrega de software. Son sistemas relacionados pero distintos.
 
-Consulta [OTA Security](/es/os/ota-security) y [Platform Limitations](/es/legal/limitations).
+Consulta [Seguridad OTA](/es/os/ota-security) y [Limitaciones de plataforma](/es/legal/limitations).

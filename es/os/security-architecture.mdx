@@ -1,26 +1,26 @@
 ---
-title: OS Security Architecture
-sidebarTitle: Security Architecture
+title: Arquitectura de seguridad de Enigm OS
+sidebarTitle: Arquitectura de seguridad
 description: Arquitectura pública de seguridad de Enigm OS.
 mode: wide
 ---
 
 Enigm OS establece confianza de dispositivo mediante capas independientes de integridad, software verificado, endurecimiento y servicios de seguridad.
 
-## Overview
+## Resumen
 
 Enigm OS es una plataforma de dispositivo seguro controlado dentro del ecosistema Enigm. No se documenta como una distribución genérica.
 
-## Security Objectives
+## Objetivos de seguridad
 
 - Establecer Device Trust.
 - Reducir superficie de ataque.
 - Reforzar integridad de software.
 - Aplicar configuraciónes seguras.
 - Proporcionar visibilidad mediante Trust Security Center.
-- Mantener actúalizaciones protegidas.
+- Mantener actualizaciones protegidas.
 
-## Security Layers
+## Capas de seguridad
 
 Las capas de alto nivel son:
 
@@ -43,18 +43,18 @@ flowchart TD
   Hardware --> Verified --> Services --> Trust --> App --> User
 ```
 
-## Device Trust Model
+## Modelo de confianza del dispositivo
 
-Device Trust combina señales cómo integridad de dispositivo, estado de software verificado, material de claves protegido, cumplimiento de política y servicios de seguridad.
+Device Trust combina señales como integridad de dispositivo, estado de software verificado, material de claves protegido, cumplimiento de política y servicios de seguridad.
 
 Device Trust no equivale a Account Trust, Remote Attestation, OTA Eligibility ni autorización administrativa.
 
-## Platform Hardening
+## Endurecimiento de plataforma
 
 El endurecimiento reduce capacidades innecesarias, exposición de aplicaciónes y superficie de sistema. Los valores por defecto se orientan a seguridad.
 
-## Production Security Requirements
+## Requisitos de seguridad de producción
 
-La postura de produccion requiere estado bloqueado, software verificado, signing de produccion, cadena de actúalizacion protegida y cumplimiento de políticas.
+La postura de producción requiere estado bloqueado, software verificado, signing de producción, cadena de actúalizacion protegida y cumplimiento de políticas.
 
-Consulta [Production Gates](/es/os/production-gates) y [Platform Limitations](/es/legal/limitations).
+Consulta [Controles de producción](/es/os/production-gates) y [Limitaciones de plataforma](/es/legal/limitations).

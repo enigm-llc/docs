@@ -1,59 +1,59 @@
 ---
-title: OS Production Gates
-sidebarTitle: Production Gates
-description: Modelo de validacion de postura de produccion en Enigm OS.
+title: Controles de producción de Enigm OS
+sidebarTitle: Controles de producción
+description: Modelo de validación de postura de producción en Enigm OS.
 mode: wide
 ---
 
-Production Gates definen categorias de validacion que deben satisfacerse para considerar un dispositivo alíneado con la postura de seguridad de produccion de Enigm OS.
+Los controles de producción definen categorías de validación que deben satisfacerse para considerar un dispositivo alíneado con la postura de seguridad de producción de Enigm OS.
 
 No exponen scripts, propiedades exactas, umbrales ni detalles internos.
 
-## Gate Categories
+## Categorías de controles
 
-### Gate 1: Build Integrity
+### Control 1: Integridad de build
 
-Objetivos: build de produccion, release confiable y procedencia autorizada.
+Objetivos: build de producción, release confiable y procedencia autorizada.
 
-### Gate 2: Boot Integrity
+### Control 2: Integridad de arranque
 
 Objetivos: software verificado, cadena de arranque confiable e integridad de dispositivo.
 
-### Gate 3: Runtime Security
+### Control 3: Seguridad en ejecución
 
 Objetivos: servicios de seguridad operativos, cumplimiento de política y confianza runtime.
 
-### Gate 4: Platform Configuration
+### Control 4: Configuración de plataforma
 
 Objetivos: configuración segura, exposición restringida y estado controlado.
 
-### Gate 5: Network Security
+### Control 5: Seguridad de red
 
 Objetivos: configuración de red confiable, DNS seguro y cumplimiento de política de red.
 
-### Gate 6: Application Exposure
+### Control 6: Exposición de aplicaciones
 
 Objetivos: superficie de aplicaciónes controlada, funciónalidad privilegiada restringida y reducción de superficie de ataque.
 
-### Gate 7: Privacy Controls
+### Control 7: Controles de privacidad
 
-Objetivos: sensores protegidos, disponibilidad de funciónes de privacidad y visibilidad de seguridad.
+Objetivos: sensores protegidos, disponibilidad de funciones de privacidad y visibilidad de seguridad.
 
-### Gate 8: Device Management
+### Control 8: Gestión de dispositivos
 
 Objetivos: cumplimiento gestionado donde aplique, visibilidad de ciclo de vida y reporte de seguridad.
 
-### Gate 9: Update Integrity
+### Control 9: Integridad de actualización
 
 Objetivos: elegibilidad OTA, autenticidad e integridad de update.
 
-### Gate 10: Security Monitoring
+### Control 10: Monitorización de seguridad
 
 Objetivos: evaluación de confianza, findings y visibilidad de integridad.
 
 ```mermaid
 flowchart TD
-  Device["Device"]
+  Device["Dispositivo"]
   Validation["Production Validation"]
   Build["Build Integrity"]
   Boot["Boot Integrity"]
@@ -75,10 +75,10 @@ flowchart TD
   Validation --> Trust
 ```
 
-## Evidence Model
+## Modelo de evidencias
 
-La validacion usa señales de seguridad, estado del dispositivo, evaluaciónes de confianza, checks de cumplimiento y resultados de política.
+La validación usa señales de seguridad, estado del dispositivo, evaluaciones de confianza, controles de cumplimiento y resultados de política.
 
 Pasar Production Gates mejora confianza, pero no garantiza ausencia de vulnerabilidades.
 
-Consulta [Platform Limitations](/es/legal/limitations).
+Consulta [Limitaciones de plataforma](/es/legal/limitations).
