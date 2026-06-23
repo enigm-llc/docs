@@ -1,0 +1,214 @@
+---
+title: Enigm Link Quickstart
+sidebarTitle: Enigm Link
+description: User guide for opening Enigm Link from the official USB.
+icon: rocket
+mode: wide
+---
+
+Enigm Link is delivered as an official sealed USB product governed through Enigm Command. This quickstart explains the user-facing flow for opening the protected environment, using the secure browser, updating the USB, and starting the isolated Boot OS mode where supported.
+
+Enigm Link is a closed product. Users do not install Enigm Link, rebuild the USB, provision boot media, or replace internal files. The user workflow is limited to opening the official USB, selecting the supported mode, and following the product prompts.
+
+## What You Need
+
+Before starting, confirm that you have:
+
+- The official Enigm Link USB.
+- A supported computer with a direct USB port.
+- Network connectivity.
+- An Enigm Link entitlement managed through Enigm Command.
+
+Do not copy the app to another USB, reformat the device, rename product folders, or modify internal files. Official USB validation is part of the Enigm Link trust model.
+
+## USB Layout
+
+When the USB is opened from the host computer, Enigm Link exposes a simple visible layout:
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-usb-structure.png" alt="Enigm Link official USB visible folders" />
+</div>
+
+<CardGroup cols={4}>
+  <Card title="macOS">
+    Desktop app for macOS hosts.
+  </Card>
+  <Card title="Windows">
+    Desktop app for Windows hosts.
+  </Card>
+  <Card title="Linux">
+    Desktop app for Linux hosts.
+  </Card>
+  <Card title="README">
+    Basic product guidance.
+  </Card>
+</CardGroup>
+
+Select the folder that matches the current host computer. The product remains an official USB device; the visible folders are an entry point, not a manual installation package.
+
+## Open The Secure Browser
+
+Open Enigm Link from the official USB. The desktop app prepares the protected environment and presents two primary modes:
+
+- **Secure browser**: opens Enigm Command in an isolated temporary browser window.
+- **Secure boot**: guides compatible computers into the Enigm Link Boot OS environment.
+
+Use **Secure browser** when you want to access Enigm Command from the protected desktop environment without rebooting the computer.
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-secure-browser-prepared.png" alt="Enigm Link secure browser temporary session prepared" />
+</div>
+
+## Confirm Protected State
+
+The secure browser flow should show that the temporary session is prepared and that the environment is protected.
+
+The protected state indicates that Enigm Link has prepared the controlled environment and validated the required product state. A normal network connection alone is not enough; protected state depends on Enigm Link environment preparation and product validation.
+
+After protection is ready, select **Open Enigm Command**. Enigm Link opens `https://app.enigm.io` in an isolated window with a temporary browser profile controlled by Enigm Link.
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-protected-browser-docs.png" alt="Enigm Link protected browser with Enigm documentation open" />
+</div>
+
+## Update Enigm Link
+
+If an update is available, Enigm Link presents an **Update Enigm Link** action inside the product interface.
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-update-available.png" alt="Enigm Link update available action" />
+</div>
+
+Use the in-product update action only. Do not replace files manually.
+
+During update:
+
+- Keep the USB connected.
+- Keep the app open.
+- Wait until the update state completes.
+- Do not rename folders or move files while the update is running.
+
+The update flow is designed to preserve official USB identity and apply authorized product updates through the Enigm Link lifecycle model.
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-updating-usb.png" alt="Enigm Link updating USB state" />
+</div>
+
+## Verify Product Version
+
+The Enigm Link app includes an About dialog with the current product version.
+
+<div className="enigm-doc-image-frame">
+  <img className="enigm-doc-image" src="/assets/images/link/enigm-link-about-version.png" alt="Enigm Link about dialog showing version information" />
+</div>
+
+The current public desktop app version shown in the product is `1.0.6`, released on June 10, 2026.
+
+Version information is useful for support and entitlement review through Enigm Command. It does not expose private user communications or Enigm account content.
+
+## Start Boot OS Mode
+
+Use **Secure boot** when you want to start Enigm Link Boot OS from the official USB on a compatible computer.
+
+Current Boot OS support:
+
+<CardGroup cols={3}>
+  <Card title="PC UEFI">
+    Supported.
+  </Card>
+  <Card title="Mac Intel">
+    Supported.
+  </Card>
+  <Card title="Apple Silicon">
+    Not supported for Boot OS USB in the current build.
+  </Card>
+</CardGroup>
+
+Apple Silicon users should use the normal macOS Enigm Link app.
+
+## Secure Boot Flow
+
+The secure boot flow is intentionally guided. Follow the product prompts in order.
+
+<Steps>
+  <Step title="Shut down completely">
+    Save your work and shut down the computer. Do not use sleep or hibernation. Enigm Link Boot OS should start from a clean boot.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-1-shut-down.png" alt="Enigm Link secure boot step one shut down" />
+    </div>
+  </Step>
+  <Step title="Connect the USB">
+    Insert the official Enigm Link USB directly into the computer. A direct USB port is preferred for the most stable startup.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-2-connect-usb.png" alt="Enigm Link secure boot step two connect USB" />
+    </div>
+  </Step>
+  <Step title="Open the boot menu">
+    Power on the computer and open the boot menu immediately. Common keys include `F12`, `F11`, `F10`, `Esc`, or `Option` on Mac.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-3-open-boot-menu.png" alt="Enigm Link secure boot step three open boot menu" />
+    </div>
+  </Step>
+  <Step title="Choose the Enigm USB">
+    Select the Enigm Link USB entry. If the same USB appears twice, select the `UEFI` option.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-4-choose-usb.png" alt="Enigm Link secure boot step four choose the Enigm USB" />
+    </div>
+  </Step>
+  <Step title="Wait for the protected environment">
+    Let the USB load until the protected browser opens. Enigm Link runs isolated from the installed computer session.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-5-wait-environment.png" alt="Enigm Link secure boot step five wait for protected environment" />
+    </div>
+  </Step>
+  <Step title="Finish safely">
+    Sign out of Enigm, shut down from the protected environment, and remove the USB only after the machine is completely powered off.
+
+    <div className="enigm-doc-image-frame">
+      <img className="enigm-doc-image" src="/assets/images/link/enigm-link-boot-step-6-finish-safely.png" alt="Enigm Link secure boot step six finish safely" />
+    </div>
+  </Step>
+</Steps>
+
+Boot OS guidance in this quickstart covers only the user-facing startup flow. Detailed Boot OS screens will be documented separately when the Boot OS capture set is finalized.
+
+## Finish Safely
+
+When the session is complete:
+
+1. Sign out of Enigm Command.
+2. Close the secure browser or shut down from the protected Boot OS environment.
+3. Wait until the computer is fully powered off before removing the USB.
+
+Removing the USB during an active update or boot session can interrupt the protected environment.
+
+## Troubleshooting
+
+Common user-facing cases:
+
+- **The environment is not protected**: wait for Enigm Link to finish preparing the environment, then retry from the official USB.
+- **The update button appears**: run the update from inside Enigm Link and keep the USB connected until completion.
+- **The USB appears twice in the boot menu**: select the `UEFI` entry.
+- **The boot menu does not appear**: restart and try the boot-menu keys shown by the product flow.
+- **Apple Silicon does not show USB boot**: use the normal macOS Enigm Link app. Boot OS USB is not supported on Apple Silicon in the current build.
+
+For more detail, see [Link Troubleshooting](/link/troubleshooting).
+
+## Security Boundaries
+
+Enigm Link provides a controlled Enigm access environment, not a guarantee that every host computer, website, or user action is safe.
+
+Enigm Link does not replace:
+
+- Enigm App end-to-end encryption.
+- Enigm Command account controls.
+- User verification decisions.
+- Host-device security awareness.
+- Safe handling of downloaded files or credentials.
+
+See [Platform Limitations](/legal/limitations).

@@ -46,6 +46,7 @@ intelligence/        Enigm Intelligence and Enyra security AI
 infrastructure/      SDLC, operations, resilience
 legal/               Legal governance, retention, limitations, disclosure
 support/             FAQ and support entry points
+quickstarts/         User-facing quickstart guides
 assets/              Public documentation assets
 docs.json            Documentation navigation and site configuration
 llms.txt             Public machine-readable documentation index

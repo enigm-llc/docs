@@ -14,6 +14,7 @@
 
 - [Welcome to Enigm documentation](https://docs.enigm.io/introduction): Executive technical introduction to Enigm product documentation.
 - [Product Architecture](https://docs.enigm.io/platform/architecture): High-level product architecture and shared vocabulary.
+- [Enigm Link Quickstart](https://docs.enigm.io/quickstarts/enigm-link): User guide for starting Enigm Link from the official USB and confirming protected state.
 
 ### Products
 
@@ -43,7 +44,7 @@
 - [Link Overview](https://docs.enigm.io/link/overview): Command-governed secure USB environment for desktop apps, Boot OS, VPN validation, and controlled updates.
 - [Link USB Architecture](https://docs.enigm.io/link/usb-architecture): Official sealed USB model, visible content model, and device boundaries.
 - [Link Desktop Apps](https://docs.enigm.io/link/desktop-apps): macOS, Windows, and Linux app behavior for Enigm Link.
-- [Link Boot OS](https://docs.enigm.io/link/boot-os): Enigm Link Boot OS support model, UI behavior, network behavior, logs, and limitations.
+- [Link Boot OS](https://docs.enigm.io/link/boot-os): Enigm Link Boot OS support model, UI behavior, network behavior, protected state, and limitations.
 - [Link Secure Browser](https://docs.enigm.io/link/secure-browser): Protected browser environment and VPN validation model.
 - [Link Updates and Security](https://docs.enigm.io/link/updates-security): Controlled app and Boot OS update model for Enigm Link.
 - [Link Troubleshooting](https://docs.enigm.io/link/troubleshooting): Public troubleshooting guidance for Enigm Link.
