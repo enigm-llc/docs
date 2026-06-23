@@ -255,23 +255,49 @@ html.dark #sidebar-content a {
 
 #sidebar-content a svg[style*="mask-image"],
 #sidebar-content button svg[style*="mask-image"] {
+  background: currentColor !important;
   background-color: currentColor !important;
   color: inherit !important;
   fill: none !important;
   stroke: currentColor !important;
 }
 
-html.light #sidebar-content a[aria-current="page"] svg,
-html.light #sidebar-content a[aria-current="true"] svg,
-html.light #sidebar-content a[class*="bg-primary"] svg {
+html.light body #sidebar-content a[aria-current="page"] svg,
+html.light body #sidebar-content a[aria-current="true"] svg,
+html.light body #sidebar-content a[class*="bg-primary"] svg {
   color: var(--enigm-black) !important;
 }
 
-html.dark #sidebar-content a[aria-current="page"] svg,
-html.dark #sidebar-content a[aria-current="true"] svg,
-html.dark #sidebar-content a[class*="bg-primary"] svg,
-html.dark #sidebar-content a[class*="text-white"] svg {
+html.light body #sidebar-content a[aria-current="page"] svg[style*="mask-image"],
+html.light body #sidebar-content a[aria-current="true"] svg[style*="mask-image"],
+html.light body #sidebar-content a[class*="bg-primary"] svg[style*="mask-image"] {
+  background: var(--enigm-black) !important;
+  background-color: var(--enigm-black) !important;
+  color: var(--enigm-black) !important;
+}
+
+html.dark body #sidebar-content a[aria-current="page"] svg,
+html.dark body #sidebar-content a[aria-current="true"] svg,
+html.dark body #sidebar-content a[class*="bg-primary"] svg,
+html.dark body #sidebar-content a[class*="text-white"] svg {
   color: var(--enigm-white) !important;
+}
+
+html.dark body #sidebar-content a[aria-current="page"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[aria-current="true"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[class*="bg-primary"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[class*="text-white"] svg[style*="mask-image"] {
+  background: var(--enigm-white) !important;
+  background-color: var(--enigm-white) !important;
+  color: var(--enigm-white) !important;
+}
+
+html.light body #sidebar-content a:not([aria-current="page"]):not([aria-current="true"]) svg[style*="mask-image"],
+html.light body #sidebar-content button svg[style*="mask-image"],
+html.dark body #sidebar-content a:not([aria-current="page"]):not([aria-current="true"]) svg[style*="mask-image"],
+html.dark body #sidebar-content button svg[style*="mask-image"] {
+  background: currentColor !important;
+  background-color: currentColor !important;
 }
 
 html.dark #sidebar-content a:hover {
@@ -302,6 +328,14 @@ html.dark #sidebar-content a[class*="text-white"] svg * {
   color: var(--enigm-white) !important;
   fill: none !important;
   stroke: var(--enigm-white) !important;
+}
+
+html.dark body #sidebar-content a[aria-current="page"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[aria-current="true"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[class*="bg-primary"] svg[style*="mask-image"],
+html.dark body #sidebar-content a[class*="text-white"] svg[style*="mask-image"] {
+  background: var(--enigm-white) !important;
+  background-color: var(--enigm-white) !important;
 }
 
 html.light #sidebar-content a:hover {
