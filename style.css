@@ -249,7 +249,16 @@ html.dark #sidebar-content a:hover {
 html.dark #sidebar-content a[aria-current="page"],
 html.dark #sidebar-content a[class*="bg-primary"] {
   background: rgba(255, 255, 255, 0.075) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: var(--enigm-white) !important;
+}
+
+html.dark #sidebar-content a[aria-current="page"] *,
+html.dark #sidebar-content a[class*="bg-primary"] *,
+html.dark #sidebar-content a[aria-current="page"] svg,
+html.dark #sidebar-content a[class*="bg-primary"] svg {
+  color: var(--enigm-white) !important;
+  fill: none !important;
+  stroke: var(--enigm-white) !important;
 }
 
 html.light #sidebar-content a:hover {
@@ -614,8 +623,10 @@ html.dark .enigm-intro-panel__side span {
   background: rgba(0, 0, 0, 0.012) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 0.75rem !important;
+  box-sizing: border-box !important;
   margin: 1.5rem 0 2rem !important;
   overflow: hidden !important;
+  padding: 0.5rem !important;
 }
 
 html.dark .enigm-doc-image-frame,
@@ -628,6 +639,7 @@ html.dark .enigm-hero-banner {
 .enigm-doc-image,
 .enigm-hero-banner img,
 .enigm-hero-banner-image {
+  border-radius: 0.5rem !important;
   display: block !important;
   height: auto !important;
   width: 100% !important;

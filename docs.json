@@ -63,7 +63,6 @@
     "groups": [
       {
         "group": "Getting started",
-        "icon": "book-open",
         "expanded": true,
         "pages": [
           "introduction",
