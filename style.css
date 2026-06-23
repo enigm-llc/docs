@@ -241,6 +241,14 @@ html.dark #sidebar-content a {
   color: rgba(255, 255, 255, 0.66) !important;
 }
 
+#sidebar-content a svg,
+#sidebar-content a svg *,
+#sidebar-content button svg,
+#sidebar-content button svg * {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
 html.dark #sidebar-content a:hover {
   color: var(--enigm-white) !important;
   background: rgba(255, 255, 255, 0.045) !important;
