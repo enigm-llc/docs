@@ -65,11 +65,38 @@ The secure browser flow should show that the temporary session is prepared and t
 
 The protected state indicates that Enigm Link has prepared the controlled environment and validated the required product state. A normal network connection alone is not enough; protected state depends on Enigm Link environment preparation and product validation.
 
+The lower-left status pill indicates the current environment state:
+
+<CardGroup cols={3}>
+  <Card title="Environment protected">
+    The protected environment is ready and the secure browser can be opened.
+  </Card>
+  <Card title="Protecting environment">
+    Enigm Link is still preparing the environment. Wait until protection completes.
+  </Card>
+  <Card title="Environment not protected">
+    The environment is not protected. The secure browser remains unavailable until protection is restored.
+  </Card>
+</CardGroup>
+
 After protection is ready, select **Open Enigm Command**. Enigm Link opens `https://app.enigm.io` in an isolated window with a temporary browser profile controlled by Enigm Link.
 
 <div className="enigm-doc-image-frame">
   <img className="enigm-doc-image" src="/assets/images/link/enigm-link-protected-browser-docs.png" alt="Enigm Link protected browser with Enigm documentation open" />
 </div>
+
+## Browser Navigation
+
+Inside the Enigm Link protected browser, the top-right **VPN** indicator shows the current VPN protection state.
+
+The Enigm logo button next to the VPN indicator opens product shortcuts for:
+
+- Enigm Command.
+- Enigm Documentation.
+- Enigm Status.
+- Enigm Website.
+
+Use these shortcuts to move between official Enigm surfaces without leaving the protected browser context.
 
 ## Update Enigm Link
 
