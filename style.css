@@ -247,15 +247,37 @@ html.dark #sidebar-content a:hover {
 }
 
 html.dark #sidebar-content a[aria-current="page"],
-html.dark #sidebar-content a[class*="bg-primary"] {
+html.dark #sidebar-content a[aria-current="true"],
+html.dark #sidebar-content a[class*="bg-primary"],
+html.dark #sidebar-content a[class*="bg-gray"],
+html.dark #sidebar-content a[class*="bg-zinc"],
+html.dark #sidebar-content a[class*="bg-neutral"],
+html.dark #sidebar-content a[class*="bg-slate"] {
   background: rgba(255, 255, 255, 0.075) !important;
   color: var(--enigm-white) !important;
 }
 
 html.dark #sidebar-content a[aria-current="page"] *,
+html.dark #sidebar-content a[aria-current="true"] *,
 html.dark #sidebar-content a[class*="bg-primary"] *,
+html.dark #sidebar-content a[class*="bg-gray"] *,
+html.dark #sidebar-content a[class*="bg-zinc"] *,
+html.dark #sidebar-content a[class*="bg-neutral"] *,
+html.dark #sidebar-content a[class*="bg-slate"] *,
 html.dark #sidebar-content a[aria-current="page"] svg,
-html.dark #sidebar-content a[class*="bg-primary"] svg {
+html.dark #sidebar-content a[aria-current="true"] svg,
+html.dark #sidebar-content a[class*="bg-primary"] svg,
+html.dark #sidebar-content a[class*="bg-gray"] svg,
+html.dark #sidebar-content a[class*="bg-zinc"] svg,
+html.dark #sidebar-content a[class*="bg-neutral"] svg,
+html.dark #sidebar-content a[class*="bg-slate"] svg,
+html.dark #sidebar-content a[aria-current="page"] svg *,
+html.dark #sidebar-content a[aria-current="true"] svg *,
+html.dark #sidebar-content a[class*="bg-primary"] svg *,
+html.dark #sidebar-content a[class*="bg-gray"] svg *,
+html.dark #sidebar-content a[class*="bg-zinc"] svg *,
+html.dark #sidebar-content a[class*="bg-neutral"] svg *,
+html.dark #sidebar-content a[class*="bg-slate"] svg * {
   color: var(--enigm-white) !important;
   fill: none !important;
   stroke: var(--enigm-white) !important;
