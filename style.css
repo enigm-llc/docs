@@ -251,7 +251,7 @@ html.dark #sidebar-content a {
 
 html.light #sidebar-content a svg,
 html.light #sidebar-content button svg {
-  color: rgba(0, 0, 0, 0.58) !important;
+  color: rgba(0, 0, 0, 0.48) !important;
   stroke: currentColor !important;
 }
 
@@ -267,10 +267,27 @@ html.light #sidebar-content button:hover svg {
 
 html.light #sidebar-content a[aria-current="page"] svg,
 html.light #sidebar-content a[aria-current="true"] svg,
+html.light #sidebar-content a:has([class*="text-black"]) svg,
+html.light #sidebar-content a:has([class*="text-gray-900"]) svg,
+html.light #sidebar-content a:has([class*="text-slate-900"]) svg,
+html.light #sidebar-content a:has([class*="text-neutral-900"]) svg,
 html.light #sidebar-content a[class*="bg-primary"] svg,
 html.light #sidebar-content a[class*="text-black"] svg,
 html.light #sidebar-content a[class*="text-gray-900"] svg {
-  color: rgba(0, 0, 0, 0.88) !important;
+  color: var(--enigm-black) !important;
+}
+
+html.light #sidebar-content a[aria-current="page"] svg *,
+html.light #sidebar-content a[aria-current="true"] svg *,
+html.light #sidebar-content a:has([class*="text-black"]) svg *,
+html.light #sidebar-content a:has([class*="text-gray-900"]) svg *,
+html.light #sidebar-content a:has([class*="text-slate-900"]) svg *,
+html.light #sidebar-content a:has([class*="text-neutral-900"]) svg *,
+html.light #sidebar-content a[class*="bg-primary"] svg *,
+html.light #sidebar-content a[class*="text-black"] svg *,
+html.light #sidebar-content a[class*="text-gray-900"] svg * {
+  color: var(--enigm-black) !important;
+  stroke: var(--enigm-black) !important;
 }
 
 html.dark #sidebar-content a svg,
@@ -291,9 +308,33 @@ html.dark #sidebar-content button:hover svg {
 
 html.dark #sidebar-content a[aria-current="page"] svg,
 html.dark #sidebar-content a[aria-current="true"] svg,
+html.dark #sidebar-content a:has([class*="text-white"]) svg,
 html.dark #sidebar-content a[class*="bg-primary"] svg,
 html.dark #sidebar-content a[class*="text-white"] svg {
   color: var(--enigm-white) !important;
+}
+
+html.dark #sidebar-content a[aria-current="page"] svg *,
+html.dark #sidebar-content a[aria-current="true"] svg *,
+html.dark #sidebar-content a:has([class*="text-white"]) svg *,
+html.dark #sidebar-content a[class*="bg-primary"] svg *,
+html.dark #sidebar-content a[class*="text-white"] svg * {
+  color: var(--enigm-white) !important;
+  stroke: var(--enigm-white) !important;
+}
+
+html.light #sidebar-content a:has([class*="text-gray-500"]) svg,
+html.light #sidebar-content a:has([class*="text-gray-600"]) svg,
+html.light #sidebar-content a:has([class*="text-slate-500"]) svg,
+html.light #sidebar-content a:has([class*="text-neutral-500"]) svg {
+  color: rgba(0, 0, 0, 0.48) !important;
+}
+
+html.dark #sidebar-content a:has([class*="text-gray-400"]) svg,
+html.dark #sidebar-content a:has([class*="text-gray-500"]) svg,
+html.dark #sidebar-content a:has([class*="text-slate-400"]) svg,
+html.dark #sidebar-content a:has([class*="text-neutral-400"]) svg {
+  color: rgba(255, 255, 255, 0.66) !important;
 }
 
 html.dark #sidebar-content a:hover {
