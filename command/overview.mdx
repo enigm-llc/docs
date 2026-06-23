@@ -11,7 +11,7 @@ Enigm Command is not a messaging client. It must not provide access to message p
 
 ## Overview
 
-Enigm Command provides authorized workflows for account creation, account lifecycle, connected-device visibility, active session control, critical-operation PIN authorization, product lifecycle management, payment workflows, Enigm Server administration, Enigm eSIM management, Enigm Key lifecycle visibility, Tor Gateway access for selected public web surfaces, Enyra Product Assistant, training, Active Defense review context, and managed-device operations.
+Enigm Command provides authorized workflows for account creation, account lifecycle, connected-device visibility, active session control, critical-operation PIN authorization, product lifecycle management, payment workflows, Enigm Link lifecycle governance, Enigm Server administration, Enigm eSIM management, Enigm Key lifecycle visibility, Tor Gateway access for selected public web surfaces, Enyra Product Assistant, training, Active Defense review context, and managed-device operations.
 
 Enigm Command supports administrative visibility into security state, but security state visibility is not equivalent to message visibility.
 
@@ -23,6 +23,7 @@ flowchart TD
   Command --> PIN["Critical Operation PIN"]
   Command --> Devices["Device Management"]
   Command --> Products["Product Lifecycle"]
+  Command --> Link["Enigm Link"]
   Command --> Server["Enigm Server"]
   Command --> ESIM["Enigm eSIM"]
   Command --> Key["Enigm Key"]
@@ -46,6 +47,7 @@ Enigm Command is responsible for:
 - Device revocation and replacement workflows.
 - Enigm OS managed-device lifecycle when the user enables managed-device mode.
 - Supported product purchase, entitlement, and lifecycle workflows.
+- Enigm Link purchase, official USB registration, update eligibility, device lifecycle state, and support workflows.
 - Enigm Server purchase, creation, region selection, join request review, membership, content lifecycle, and deletion.
 - Enigm eSIM purchase, activation lifecycle, account association, unlinking, deletion, and retirement.
 - Enigm Key associated-device visibility, loss handling, revocation, and replacement.
@@ -83,6 +85,7 @@ Training records are product education and account lifecycle records. They do no
 - [Enyra Product Assistant](/command/product-assistant) explains product guidance and the boundary between product assistance and security intelligence.
 - [Payment Privacy](/command/payments) explains payment methods, reduced identity linkage, Code Coin, invoices, and commercial boundaries.
 - [Tor Gateway](/command/tor-gateway) explains selected onion access for public web surfaces.
+- [Enigm Link](/link/overview) explains the secure USB environment governed through Enigm Command.
 
 ## Security Boundaries
 
@@ -92,6 +95,7 @@ Enigm Command has explicit security boundaries:
 - Administrative capabilities do not bypass end-to-end encryption.
 - Device management and message access are separate trust domains.
 - Enigm Server management and message plaintext access are separate trust domains.
+- Enigm Link lifecycle governance does not provide access to protected communications, private key material, or local browser session content.
 - Server-scoped lifecycle controls affect encrypted content availability and lifecycle, not content visibility or decryption.
 - Tor Gateway access is limited to selected public web surfaces and does not expose internal infrastructure.
 - Security state visibility is not equivalent to message visibility.

@@ -24,6 +24,7 @@ The documentation is organized around Enigm products and supporting trust domain
 
 - **Enigm**: private messaging, secure calls, account model, key management, Active Defense, multi-device trust, and network privacy.
 - **Enigm Command**: web control panel for account, device, session, product lifecycle, payments, Enyra Product Assistant, and administrative workflows.
+- **Enigm Link**: Command-governed official USB secure environment with desktop apps, Boot OS, VPN validation, protected browser environment, and controlled updates.
 - **Enigm Server**: dedicated private messaging environments, membership, administration boundaries, encrypted content lifecycle, regions, and server lifecycle.
 - **Enigm OS**: secure operating system, Device Trust, Trust Security Center, network policy, OTA Architecture, OTA Security, and production gates.
 - **Enigm Key**: physical emergency key device, hardware model, emergency workflow, security model, and privacy/data lifecycle.
@@ -35,6 +36,7 @@ The documentation is organized around Enigm products and supporting trust domain
 ```text
 app/                 Enigm private messaging documentation
 command/             Enigm Command documentation
+link/                Enigm Link documentation
 server/              Enigm Server documentation
 os/                  Enigm OS documentation
 key/                 Enigm Key documentation

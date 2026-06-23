@@ -4,7 +4,7 @@ sidebarTitle: Security Model
 description: Public security model for Enigm products and services.
 ---
 
-Enigm uses a defense-in-depth security model across Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, VPN Service, Proxy Network, Tor Gateway, Threat Intelligence Platform, and Enyra.
+Enigm uses a defense-in-depth security model across Enigm App, Enigm Command, Enigm Link, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, VPN Service, Proxy Network, Tor Gateway, Threat Intelligence Platform, and Enyra.
 
 Security exists to support privacy, data minimization, identity protection, metadata reduction, and content confidentiality. This document describes the public security posture at an architectural level for security auditors, enterprise customers, engineers, and technical partners.
 
@@ -16,6 +16,7 @@ Security exists to support privacy, data minimization, identity protection, meta
 - Apply Controlled Device Management for enrollment, policy assignment, suspension, revocation, and retirement.
 - Route optional app-level network privacy decisions through VPN Service and Proxy Network where enabled.
 - Govern Enigm Server purchase, creation, server ID join requests, membership, region selection, and server-scoped encrypted content lifecycle through Enigm Command.
+- Govern Enigm Link purchase, official USB validation, update eligibility, and protected-state lifecycle through Enigm Command.
 - Govern Tor Gateway access to supported public web surfaces through Enigm Command.
 - Process security signals through the Threat Intelligence Platform and Enyra while preserving data minimization and content confidentiality.
 - Preserve audit evidence for security-relevant decisions without storing unnecessary protected content.
@@ -79,6 +80,12 @@ Enigm Command governs user, organization, enterprise, and administrative workflo
 
 Enigm Command also provides account creation and training workflows. Training can include essential or advanced Enigm usage education with a final exam.
 
+### Enigm Link
+
+Enigm Link is a secure portable environment governed through Enigm Command. It uses official USB identity, VPN-required protected state, controlled update eligibility, manifest and payload validation, and platform-specific app behavior for macOS, Windows, Linux, and supported Boot OS targets.
+
+Enigm Link protected state should fail closed when official-device validation, VPN validation, update-security requirements, or required policy state cannot be established.
+
 ### Enigm Server
 
 Enigm Server provides dedicated private messaging environments for approved Enigm users. Server administration governs purchase, creation, geographic deployment region selection, server ID join request approval, membership, and server-scoped encrypted content lifecycle without becoming a plaintext, attachment, user communication, or private key access surface.
@@ -116,6 +123,7 @@ Auditable event categories include:
 - Device enrollment, suspension, revocation, and retirement events
 - Trust Security Center state changes
 - Enigm Command administrative changes
+- Enigm Link official-device validation, update eligibility, and protected-state outcomes
 - VPN Service and Proxy Network policy outcomes
 - Tor Gateway access outcomes for selected web surfaces
 - Enigm Server join request, membership, and server-scoped lifecycle outcomes

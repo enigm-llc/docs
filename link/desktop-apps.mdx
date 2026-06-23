@@ -1,0 +1,82 @@
+---
+title: Link Desktop Apps
+sidebarTitle: Desktop Apps
+description: macOS, Windows, and Linux app behavior for Enigm Link.
+mode: wide
+---
+
+Enigm Link includes desktop apps for macOS, Windows, and Linux on the official sealed USB. These apps provide the primary desktop entry point into the Enigm Link secure environment.
+
+## Overview
+
+The desktop apps are designed to:
+
+- Run from the official Enigm Link USB.
+- Validate the official USB device.
+- Start the Enigm Link secure environment.
+- Evaluate VPN and protected-state requirements.
+- Participate in controlled update workflows.
+- Preserve official USB identity and metadata.
+- Avoid requiring manual installation or user-managed provisioning.
+
+The current production desktop/USB app version is `1.0.6`.
+
+## macOS
+
+The macOS app is signed and notarized with Developer ID.
+
+macOS behavior:
+
+- The app runs from the official USB.
+- The app can request access to the USB or disk so it can validate the official device, update files, and maintain official metadata.
+- macOS can request system permissions depending on OS version and user security settings.
+- Apple Silicon is supported for the macOS app.
+- Enigm Link Boot OS USB is not supported on Apple Silicon in the current amd64 Boot OS build.
+
+macOS can also request command-line tools if the system attempts to use file-hiding features such as `SetFile`. This is a possible platform prompt, not a primary product requirement. If the user cancels that prompt, the core Enigm Link app should continue operating.
+
+## Windows
+
+The Windows app is included on the official USB.
+
+Windows behavior:
+
+- The app runs from the `Windows` folder.
+- The USB drive letter can vary, such as `D:`, `E:`, or another assigned letter.
+- The app must not depend on a fixed drive letter.
+- USB identity evaluation should account for platform differences such as USB port, controller, or device presentation.
+- Windows can show a SmartScreen warning because the Windows app is currently not code-signed.
+
+The lack of Windows code signing is a current launch decision and should not be described as a security control. Users should obtain Enigm Link only through official Enigm distribution channels.
+
+## Linux
+
+The Linux app is included on the official USB.
+
+Linux behavior:
+
+- The app runs from the `Linux` folder.
+- Some environments can require executable permissions before launch.
+- The Linux app participates in the same official-device and update lifecycle model as macOS and Windows.
+
+Linux desktop behavior can vary by distribution, desktop environment, mount policy, and removable-media configuration.
+
+Users should not copy platform apps to a non-official USB and treat that copy as an Enigm Link device. Official USB validation remains part of the product trust model.
+
+## Platform Folder Hygiene
+
+Each platform folder should remain clean:
+
+- `macOS`: macOS app only.
+- `Windows`: Windows executable only.
+- `Linux`: Linux executable only.
+
+Update workflows should hide or clean staging files, temporary backups, auxiliary files, and internal metadata where supported by the host platform.
+
+## Relationship With Enigm Command
+
+Desktop app eligibility and lifecycle are governed by Enigm Command and the Enigm Link update-security model.
+
+Enigm Command can provide product entitlement, official-device lifecycle state, update eligibility, support context, and product lifecycle visibility. The desktop app does not become an administrative bypass for Enigm Command.
+
+See [Platform Limitations](/legal/limitations).

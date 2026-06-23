@@ -1,0 +1,67 @@
+---
+title: Link Secure Browser
+sidebarTitle: Secure Browser
+description: Protected browser environment and VPN validation model for Enigm Link.
+mode: wide
+---
+
+Enigm Link includes a secure browser environment in both desktop app mode and Boot OS mode.
+
+The secure browser environment is controlled by Enigm Link and should only be treated as protected when official-device validation, environment preparation, and VPN validation are satisfied.
+
+## Overview
+
+The Enigm Link secure browser is designed to:
+
+- Open a controlled browsing session.
+- Run within the Enigm Link protected environment.
+- Require official-device validation.
+- Require VPN validation before protected state is displayed.
+- Keep protected-state indicators visible to the user.
+- Support update and device lifecycle policy.
+
+The secure browser environment does not claim absolute anonymity or universal protection against compromised endpoints.
+
+## Protected State Model
+
+Enigm Link should show a protected state only when:
+
+- The official USB is validated.
+- The environment is prepared.
+- VPN validation succeeds.
+- Required update and device policy checks are satisfied.
+
+If VPN validation is missing or invalid, the environment should show protection required or not protected state.
+
+## VPN Requirement
+
+VPN validation is a security requirement for Enigm Link protected state.
+
+The update path and secure environment are designed around VPN-gated access:
+
+- Update traffic should use the authorized VPN path.
+- Protected state depends on VPN validation.
+- The user should not be led to believe that the environment is protected before validation succeeds.
+- If required security configuration is unavailable, protected workflows should fail closed.
+
+## Browser Session Boundary
+
+The browser session is an Enigm Link environment boundary, not a guarantee that every website, external service, or endpoint condition is trustworthy.
+
+Security assumptions remain affected by:
+
+- Host device state.
+- User behavior.
+- Network availability.
+- Website behavior.
+- Credential disclosure.
+- External downloads.
+- Platform permissions.
+
+## Relationship With Enigm Command
+
+Enigm Command governs Enigm Link lifecycle, entitlement, official-device state, and support workflows. The secure browser environment operates within that lifecycle model.
+
+The secure browser does not grant Enigm Command administrative access to protected communications, private key material, or user content.
+
+See [Platform Limitations](/legal/limitations).

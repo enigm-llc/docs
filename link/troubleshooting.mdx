@@ -1,0 +1,81 @@
+---
+title: Link Troubleshooting
+sidebarTitle: Troubleshooting
+description: Public troubleshooting guidance for Enigm Link.
+mode: wide
+---
+
+This page covers public troubleshooting scenarios for Enigm Link. It avoids internal operational procedures and focuses on user-safe guidance.
+
+## Update Does Not Appear
+
+If an update does not appear:
+
+- Verify network connectivity.
+- Verify that the environment is protected.
+- Verify that Enigm Link is running from the official USB.
+- Restart the Enigm Link app.
+- Try again after the environment finishes protection checks.
+
+Protected update routes are not public download surfaces. Updates are served only when required security conditions are satisfied.
+
+## Update Button Is Disabled
+
+If the update button is disabled:
+
+- Wait for environment preparation to complete.
+- Verify VPN/protected-state status.
+- Close and reopen the app only if the state remains blocked for an extended period.
+- Retry from the platform currently running the app.
+
+The update button should not become available before required validation steps are complete.
+
+## macOS Requests USB Or Disk Access
+
+macOS can request access to the USB or disk because Enigm Link needs to validate the official USB, update files, and maintain official metadata.
+
+This prompt is expected in some macOS configurations.
+
+## macOS Requests Command-Line Tools
+
+macOS can request command-line tools when file-hiding behavior uses platform utilities such as `SetFile`.
+
+This prompt can appear during auxiliary file hygiene. Canceling it should not prevent core Enigm Link usage.
+
+## Windows Shows A SmartScreen Warning
+
+Windows can show a SmartScreen warning because the current Windows app is included without code signing.
+
+Users should run Enigm Link only from the official Enigm Link USB and official Enigm distribution channels.
+
+Copying the Windows app to a different USB or local folder does not create an official Enigm Link device.
+
+## Boot OS Does Not Connect To Wi-Fi
+
+If Boot OS does not connect to Wi-Fi:
+
+- Verify that the Wi-Fi network is available.
+- Avoid switching networks while a connection attempt is in progress.
+- Retry from the Boot OS network UI.
+- Disconnect only when intentionally changing network or ending the connection.
+
+Wi-Fi scanning should not disconnect an already active network.
+
+## Apple Silicon Does Not Show USB Boot
+
+Enigm Link Boot OS USB is not supported on Apple Silicon in the current amd64 Boot OS release.
+
+Apple Silicon users should use the normal macOS Enigm Link app.
+
+## Environment Is Not Protected
+
+If the environment shows protection required or not protected:
+
+- Verify network connectivity.
+- Verify VPN/protected-state status.
+- Verify that Enigm Link is running from the official USB.
+- Restart the app or Boot OS environment if status does not recover.
+
+The environment should only be considered protected after required validation completes.
+
+See [Platform Limitations](/legal/limitations).

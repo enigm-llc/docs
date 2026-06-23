@@ -4,7 +4,7 @@
   "description": "Technical documentation for Enigm privacy messaging, secure devices, private connectivity, command workflows, security, trust, and compliance.",
   "theme": "mint",
   "modeToggle": {
-    "default": "dark"
+    "default": "light"
   },
   "colors": {
     "primary": "#000000",
@@ -96,6 +96,18 @@
               "command/product-assistant",
               "command/payments",
               "command/tor-gateway"
+            ]
+          },
+          {
+            "group": "Enigm Link",
+            "pages": [
+              "link/overview",
+              "link/usb-architecture",
+              "link/desktop-apps",
+              "link/boot-os",
+              "link/secure-browser",
+              "link/updates-security",
+              "link/troubleshooting"
             ]
           },
           {

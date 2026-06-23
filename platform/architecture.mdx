@@ -7,7 +7,7 @@ mode: wide
 
 Enigm is designed as a privacy-first communications ecosystem, not as a single-purpose messaging application surrounded by unrelated services. The architecture is built around a simple principle: protected communications should remain confidential while supporting device trust, administrative governance, dedicated private environments, privacy-oriented connectivity, emergency workflows, and security visibility.
 
-Enigm is the private messaging product at the center of the user experience. Supporting products provide web administration, dedicated private messaging environments, secure operating-system hardening, emergency alerting, private connectivity, payment privacy, and defensive intelligence. Each product is documented as a separate trust domain so that security reviewers can evaluate what the component does, what it does not do, and how it interacts with protected content.
+Enigm is the private messaging product at the center of the user experience. Supporting products provide web administration, secure portable access environments, dedicated private messaging environments, secure operating-system hardening, emergency alerting, private connectivity, payment privacy, and defensive intelligence. Each product is documented as a separate trust domain so that security reviewers can evaluate what the component does, what it does not do, and how it interacts with protected content.
 
 ## Overview
 
@@ -15,7 +15,7 @@ Enigm provides the primary account, communication, key-management, and multi-dev
 
 Enigm OS is an optional dedicated secure device layer. When deployed, it contributes Trust Security Center posture, device-level policy enforcement, Controlled Device Management, OTA Architecture, Remote Attestation, and update verification. It is not the center of the platform; it is an optional hardening layer for deployments that require dedicated device control.
 
-The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key, and Enigm eSIM. Supporting components such as VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, and Enyra extend those product surfaces without changing the product taxonomy.
+The primary products are Enigm, Enigm Command, Enigm Server, Enigm OS, Enigm Key, and Enigm eSIM. Enigm Link is documented as an Enigm Command-governed sub-product for official USB secure environments. Supporting components such as VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, and Enyra extend those product surfaces without changing the product taxonomy.
 
 Enigm's core platform infrastructure is operated under Enigm's Swiss subsidiary and Swiss legal governance. This includes Enigm-held customer records, account lifecycle services, platform APIs, public web surfaces, and supporting internal platform services. Enigm Server dedicated customer environments are deployed in the user-selected public region category, currently United States, Europe, or Asia, and are distinct from the Enigm core platform.
 
@@ -29,6 +29,7 @@ The architecture is intentionally layered. Account Trust, Device Trust, administ
 - Preserve content confidentiality as the core product boundary.
 - Provide policy-aware supporting services without making them implicit trust roots.
 - Support optional Enigm OS posture for dedicated secure-device deployments.
+- Support secure portable access environments through Enigm Link under Enigm Command lifecycle governance.
 - Use Privacy-Preserving Device Handles for secure device management and audit correlation.
 - Protect OTA Architecture with release lifecycle controls, Remote Attestation as an OTA Eligibility signal, client verification, controlled rollout infrastructure, and Hardware-Backed Signing.
 - Support optional network privacy and traffic separation through VPN Service and Proxy Network within Enigm App usage.
@@ -55,7 +56,13 @@ Trust Security Center is the device posture interface. It represents security st
 
 ### Enigm Command
 
-Enigm Command is the web control panel product for individual users, organizations, and enterprise administrators. It supports policy assignment, account lifecycle, full account deletion, platform data deletion, session review and closure, connected-device visibility, unauthorized device removal, device revocation, Enigm OS managed-device mode when enabled by the user, Enigm Server purchase and creation, server ID join request management, Enigm eSIM purchase and lifecycle review, Enigm Key lifecycle visibility, Enyra Product Assistant, Tor Gateway access to selected web surfaces, rollout review, audit review, and security posture workflows. Enigm Command actions should be authenticated, authorized, scoped, and auditable.
+Enigm Command is the web control panel product for individual users, organizations, and enterprise administrators. It supports policy assignment, account lifecycle, full account deletion, platform data deletion, session review and closure, connected-device visibility, unauthorized device removal, device revocation, Enigm OS managed-device mode when enabled by the user, Enigm Link purchase and official USB lifecycle governance, Enigm Server purchase and creation, server ID join request management, Enigm eSIM purchase and lifecycle review, Enigm Key lifecycle visibility, Enyra Product Assistant, Tor Gateway access to selected web surfaces, rollout review, audit review, and security posture workflows. Enigm Command actions should be authenticated, authorized, scoped, and auditable.
+
+### Enigm Link
+
+Enigm Link is a Command-governed secure portable environment distributed on an official Enigm USB. It contains desktop apps for macOS, Windows, and Linux, and Enigm Link Boot OS for compatible computers. It provides official-device validation, VPN-required protected state, controlled browser environment behavior, and protected update workflows.
+
+Enigm Link is not Enigm Server, not Enigm OS, and not a messaging product. It is a secure access environment governed by Enigm Command lifecycle, entitlement, official USB registration, update eligibility, and support workflows.
 
 ### Enigm Server
 
@@ -143,7 +150,7 @@ The release boundary covers OTA Architecture, Hardware-Backed Signing, Remote At
 4. A Privacy-Preserving Device Handle supports device lifecycle and audit correlation.
 5. Enigm Command applies authorized policy for user, organization, enterprise, and administrative workflows.
 6. VPN Service and Proxy Network apply optional app-level network privacy and traffic-separation controls where enabled.
-7. Enigm Command manages Enigm Server lifecycle, server ID join requests, server membership, Tor Gateway access to selected web surfaces, and administrative policy.
+7. Enigm Command manages Enigm Link lifecycle, Enigm Server lifecycle, server ID join requests, server membership, Tor Gateway access to selected web surfaces, and administrative policy.
 8. Enigm Server provides a dedicated private messaging environment for approved Enigm users.
 9. Enigm eSIM, Enigm Key, and Payment Privacy apply connectivity, emergency alerting, or commercial policy where enabled.
 10. Threat Intelligence Platform and Enyra process security signals for risk or blocking outcomes.

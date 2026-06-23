@@ -1,0 +1,88 @@
+---
+title: Link Boot OS
+sidebarTitle: Boot OS
+description: Public architecture model for Enigm Link Boot OS.
+mode: wide
+---
+
+Enigm Link Boot OS is the bootable secure environment included on the official sealed Enigm Link USB for compatible computers.
+
+The current public Boot OS release is `enigm-link-boot-os-2026.06.22`.
+
+## Overview
+
+Enigm Link Boot OS is designed to start an isolated Enigm Link environment from the official USB. It provides a system-style UI, network connection workflow, VPN-required protected state, and controlled browser environment.
+
+Enigm Link Boot OS should be described as Enigm Link Boot OS. It should not be presented publicly as a release of its underlying technical base.
+
+## Supported Boot Targets
+
+<CardGroup cols={3}>
+  <Card title="PC UEFI">
+    Supported for Enigm Link Boot OS.
+  </Card>
+  <Card title="Mac Intel">
+    Supported for Enigm Link Boot OS.
+  </Card>
+  <Card title="Apple Silicon">
+    Not supported for Boot OS USB in the current amd64 build.
+  </Card>
+</CardGroup>
+
+Apple Silicon users should use the normal macOS Enigm Link app. Boot OS support on Apple Silicon would require a separate ARM64 boot chain and compatible hardware support. It is not available in the current production Boot OS release.
+
+## User Experience Model
+
+Enigm Link Boot OS provides a system-like interface.
+
+Expected behavior includes:
+
+- A local card-based start surface.
+- A secure browser environment.
+- Network status and protection status visibility.
+- Top and bottom system bars.
+- A shutdown and restart popup above all content.
+- A logo action that returns to the local card surface even without connectivity.
+
+The UI should avoid opening web content behind the system bars. Content should keep safe margins and scroll behavior so controls are not hidden by the bottom bar.
+
+## Network Behavior
+
+Enigm Link Boot OS uses a network connection workflow based on system network management.
+
+Expected behavior:
+
+- Wi-Fi scan and listing should not disconnect an active network.
+- The user should disconnect only when changing network or selecting disconnect.
+- Network connection state should remain separate from protected-state validation.
+- The environment should not be presented as protected until VPN validation is complete.
+
+## Protection States
+
+Relevant user-visible states include:
+
+- No connection.
+- Protecting environment.
+- Environment protected.
+- Protection required.
+- Environment not protected when VPN validation is missing or invalid.
+
+Protected state requires both environment preparation and VPN validation. A network connection alone is not enough.
+
+## Update Boundaries
+
+Boot OS updates must preserve the visible app boundary on an official Enigm Link USB.
+
+Boot OS update workflows should:
+
+- Validate release metadata.
+- Preserve official app partition content.
+- Preserve official USB identity.
+- Update EFI and rootfs payloads where required.
+- Verify checksums and final payload integrity.
+- Maintain PC UEFI and Mac Intel compatibility.
+- Return cleanly when no update is available.
+
+Boot OS updates are managed by the Enigm Link product flow. Users should not manually replace boot files, repartition the USB, or rebuild Boot OS media from public documentation.
+
+See [Platform Limitations](/legal/limitations).

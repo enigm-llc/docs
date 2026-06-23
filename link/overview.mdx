@@ -1,0 +1,93 @@
+---
+title: Link Overview
+sidebarTitle: Overview
+description: Public product overview for Enigm Link secure USB environments.
+mode: wide
+---
+
+Enigm Link is the portable secure-environment product managed through Enigm Command. It is delivered as an official sealed Enigm USB device containing desktop apps for macOS, Windows, and Linux, plus Enigm Link Boot OS for compatible computers.
+
+Enigm Link is designed to open a controlled browser environment protected by official-device validation, VPN enforcement, and controlled updates. It is not a replacement for Enigm, Enigm Server, Enigm OS, Enigm eSIM, or Enigm Key. It is a sub-product of the Enigm Command lifecycle model: purchase, entitlement, device registration, update eligibility, and operational status are governed through Enigm Command.
+
+## Overview
+
+Enigm Link provides two operating modes from the official USB:
+
+- **Desktop app mode**: macOS, Windows, and Linux apps run from the official USB and open the Enigm Link secure environment.
+- **Boot OS mode**: compatible computers can boot Enigm Link Boot OS from the official USB to run an isolated Enigm Link environment.
+
+Current production releases:
+
+<CardGroup cols={3}>
+  <Card title="Desktop app">
+    Current production version: `1.0.6`.
+  </Card>
+  <Card title="Boot OS">
+    Current production release: `enigm-link-boot-os-2026.06.22`.
+  </Card>
+  <Card title="Updates">
+    Public update domain: `updates.link.enigm.io`.
+  </Card>
+</CardGroup>
+
+## Product Responsibilities
+
+Enigm Link is responsible for:
+
+- Validating that the environment is running from an official Enigm Link USB.
+- Starting a controlled browser environment.
+- Requiring VPN validation before the environment is presented as protected.
+- Supporting controlled updates for desktop apps and Boot OS.
+- Preserving official USB identity and metadata during updates.
+- Keeping visible platform folders clean for macOS, Windows, and Linux users.
+- Providing a reproducible portable environment for supported devices.
+- Preventing users from needing to install, provision, or rebuild the product manually.
+
+## Relationship With Enigm Command
+
+Enigm Command is the lifecycle and control surface for Enigm Link.
+
+Enigm Command can govern:
+
+- Product purchase and entitlement.
+- Official USB registration.
+- Device lifecycle state.
+- Update eligibility.
+- Operational status visibility.
+- Security policy and support workflows.
+
+Enigm Link does not provide message plaintext access, private key access, Enigm Server administration, Enigm eSIM carrier control, or Enigm OS managed-device authority. It is a secure access environment governed by Enigm Command, not a separate administrative authority.
+
+## Documentation Map
+
+- [Official USB](/link/usb-architecture) explains the sealed USB model, visible content model, and device boundaries.
+- [Desktop Apps](/link/desktop-apps) explains macOS, Windows, and Linux app behavior.
+- [Boot OS](/link/boot-os) explains Enigm Link Boot OS, supported boot targets, and current limitations.
+- [Secure Browser Environment](/link/secure-browser) explains protected-state requirements and VPN validation.
+- [Updates and Security](/link/updates-security) explains update protection, app updates, Boot OS updates, and fail-closed behavior.
+- [Troubleshooting](/link/troubleshooting) explains public support scenarios and expected platform warnings.
+
+## Security Considerations
+
+Enigm Link security is based on layered controls:
+
+- Official USB identity.
+- Device validation.
+- VPN-required protected state.
+- Controlled update eligibility.
+- Manifest and payload validation.
+- Build allowlisting.
+- Integrity checks.
+- macOS signing and notarization.
+- Separation between the visible app boundary and Boot OS boundaries.
+- Fail-closed behavior when critical security configuration is unavailable.
+
+Enigm Link does not claim absolute anonymity, device compromise immunity, or universal protection on untrusted computers. It provides a controlled Enigm Link environment when official-device validation, VPN validation, and update-security requirements are satisfied.
+
+## Privacy Considerations
+
+Enigm Link should minimize operational metadata and keep product lifecycle state separate from protected communications.
+
+The secure environment is designed to reduce exposure during supported workflows, but it does not replace Enigm App end-to-end encryption, Device Trust, secure messaging, secure calls, or user security decisions.
+
+See [Platform Limitations](/legal/limitations).

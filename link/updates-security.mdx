@@ -1,0 +1,115 @@
+---
+title: Link Updates and Security
+sidebarTitle: Updates and Security
+description: Controlled update model, update protection, and security boundaries for Enigm Link.
+mode: wide
+---
+
+Enigm Link has controlled update workflows for desktop apps and Enigm Link Boot OS. Updates are delivered through the official Enigm Link product flow and are not public manual installation packages.
+
+The public update domain is:
+
+```text
+updates.link.enigm.io
+```
+
+The public health endpoint is:
+
+```text
+/health
+```
+
+Release, app, and Boot OS update routes are protected and must not be treated as public download surfaces.
+
+## Overview
+
+Enigm Link updates are designed to be served only under authorized conditions.
+
+The update model uses:
+
+- Official USB validation.
+- VPN-gated update access.
+- Request authentication.
+- Manifest validation.
+- Build allowlisting.
+- Hash and payload integrity checks.
+- Critical configuration checks.
+- Fail-closed behavior when required security conditions are missing.
+
+## App Update Flow
+
+The app update flow is conceptually:
+
+1. The app detects the installed version.
+2. The app queries the protected update endpoint.
+3. The update path validates VPN state, request authentication, and allowed build state.
+4. The app downloads the authorized package.
+5. The app prepares staging.
+6. The app replaces visible USB app files.
+7. The app preserves official metadata and USB identity.
+8. The app cleans staging and backup files.
+9. The app relaunches when the update is ready.
+
+Official Enigm Link devices can move from an older authorized app build to a later production build through the controlled updater when eligibility checks pass.
+
+## App Update Requirements
+
+App updates should:
+
+- Avoid leaving incomplete platform folders if an update fails.
+- Preserve `.enigm/official-device.json`.
+- Preserve official USB identity.
+- Hide or clean auxiliary files where supported.
+- Keep each platform folder limited to the visible app or executable.
+- Minimize the time between app shutdown and relaunch.
+- Avoid depending on a fixed Windows drive letter.
+- Avoid requiring the user to manually replace product files.
+
+## Boot OS Update Flow
+
+Boot OS updates should:
+
+- Validate release metadata.
+- Preserve the visible `s2` partition.
+- Update EFI and rootfs payloads where required.
+- Verify checksums and final payload integrity.
+- Preserve official USB identity.
+- Maintain PC UEFI and Mac Intel compatibility.
+- Return cleanly when no Boot OS update is available.
+
+Boot OS updates must not be documented as supporting Apple Silicon Boot OS in the current amd64 release.
+
+Boot OS updates are product-managed updates. Users should not manually replace EFI, root filesystem, or official-device metadata.
+
+## Update Service Security
+
+The update service is designed to:
+
+- Serve `/health` publicly.
+- Protect release, app, and Boot OS routes.
+- Require traffic through the authorized VPN path for protected update routes.
+- Validate request authentication.
+- Validate allowed source and build state.
+- Validate release manifests.
+- Fail closed if critical security configuration is missing.
+
+Public documentation must not include secrets, request signing material, tokens, sensitive IPs, real device identifiers, real fingerprints, internal allowlist hashes, private routes, or bypass instructions.
+
+Public documentation also does not provide USB provisioning, device manufacturing, repartitioning, or manual Boot OS installation procedures.
+
+## Relationship With Enigm Command
+
+Enigm Command provides the lifecycle and policy context for Enigm Link updates.
+
+Command-side context can include:
+
+- Product entitlement.
+- Official USB registration.
+- Device lifecycle state.
+- Support review.
+- Update eligibility.
+- Security status visibility.
+
+Update eligibility does not provide access to protected user communications.
+
+See [Platform Limitations](/legal/limitations).
