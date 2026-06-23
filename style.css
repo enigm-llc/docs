@@ -556,6 +556,44 @@ html.dark .card:focus-visible svg {
   min-height: 128px;
 }
 
+.enigm-static-card-group a,
+.enigm-static-card-group [role="link"],
+.enigm-static-card-group .card,
+.enigm-static-card-group a:hover,
+.enigm-static-card-group [role="link"]:hover,
+.enigm-static-card-group .card:hover,
+.enigm-static-card-group a:focus-visible,
+.enigm-static-card-group [role="link"]:focus-visible,
+.enigm-static-card-group .card:focus-visible {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+
+html.dark .enigm-static-card-group a,
+html.dark .enigm-static-card-group [role="link"],
+html.dark .enigm-static-card-group .card,
+html.dark .enigm-static-card-group a:hover,
+html.dark .enigm-static-card-group [role="link"]:hover,
+html.dark .enigm-static-card-group .card:hover,
+html.dark .enigm-static-card-group a:focus-visible,
+html.dark .enigm-static-card-group [role="link"]:focus-visible,
+html.dark .enigm-static-card-group .card:focus-visible {
+  border-color: var(--enigm-line-dark) !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+
+.enigm-static-card-group a:hover svg,
+.enigm-static-card-group [role="link"]:hover svg,
+.enigm-static-card-group .card:hover svg,
+html.dark .enigm-static-card-group a:hover svg,
+html.dark .enigm-static-card-group [role="link"]:hover svg,
+html.dark .enigm-static-card-group .card:hover svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
 .enigm-intro-panel {
   background: rgba(0, 0, 0, 0.018);
   border: 1px solid rgba(0, 0, 0, 0.12);

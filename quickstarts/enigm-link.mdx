@@ -29,20 +29,22 @@ When the USB is opened from the host computer, Enigm Link exposes a simple visib
   <img className="enigm-doc-image" src="/assets/images/link/enigm-link-usb-structure.png" alt="Enigm Link official USB visible folders" />
 </div>
 
-<CardGroup cols={4}>
-  <Card title="macOS">
-    Desktop app for macOS hosts.
-  </Card>
-  <Card title="Windows">
-    Desktop app for Windows hosts.
-  </Card>
-  <Card title="Linux">
-    Desktop app for Linux hosts.
-  </Card>
-  <Card title="README">
-    Basic product guidance.
-  </Card>
-</CardGroup>
+<div className="enigm-static-card-group">
+  <CardGroup cols={4}>
+    <Card title="macOS">
+      Desktop app for macOS hosts.
+    </Card>
+    <Card title="Windows">
+      Desktop app for Windows hosts.
+    </Card>
+    <Card title="Linux">
+      Desktop app for Linux hosts.
+    </Card>
+    <Card title="README">
+      Basic product guidance.
+    </Card>
+  </CardGroup>
+</div>
 
 Select the folder that matches the current host computer. The product remains an official USB device; the visible folders are an entry point, not a manual installation package.
 
@@ -67,17 +69,19 @@ The protected state indicates that Enigm Link has prepared the controlled enviro
 
 The lower-left status pill indicates the current environment state:
 
-<CardGroup cols={3}>
-  <Card title="Environment protected">
-    The protected environment is ready and the secure browser can be opened.
-  </Card>
-  <Card title="Protecting environment">
-    Enigm Link is still preparing the environment. Wait until protection completes.
-  </Card>
-  <Card title="Environment not protected">
-    The environment is not protected. The secure browser remains unavailable until protection is restored.
-  </Card>
-</CardGroup>
+<div className="enigm-static-card-group">
+  <CardGroup cols={3}>
+    <Card title="Environment protected">
+      The protected environment is ready and the secure browser can be opened.
+    </Card>
+    <Card title="Protecting environment">
+      Enigm Link is still preparing the environment. Wait until protection completes.
+    </Card>
+    <Card title="Environment not protected">
+      The environment is not protected. The secure browser remains unavailable until protection is restored.
+    </Card>
+  </CardGroup>
+</div>
 
 After protection is ready, select **Open Enigm Command**. Enigm Link opens `https://app.enigm.io` in an isolated window with a temporary browser profile controlled by Enigm Link.
 
@@ -143,17 +147,19 @@ Use **Secure boot** when you want to start Enigm Link Boot OS from the official 
 
 Current Boot OS support:
 
-<CardGroup cols={3}>
-  <Card title="PC UEFI">
-    Supported.
-  </Card>
-  <Card title="Mac Intel">
-    Supported.
-  </Card>
-  <Card title="Apple Silicon">
-    Not supported for Boot OS USB in the current build.
-  </Card>
-</CardGroup>
+<div className="enigm-static-card-group">
+  <CardGroup cols={3}>
+    <Card title="PC UEFI">
+      Supported.
+    </Card>
+    <Card title="Mac Intel">
+      Supported.
+    </Card>
+    <Card title="Apple Silicon">
+      Not supported for Boot OS USB in the current build.
+    </Card>
+  </CardGroup>
+</div>
 
 Apple Silicon users should use the normal macOS Enigm Link app.
 
