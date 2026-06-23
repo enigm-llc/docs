@@ -249,10 +249,7 @@ html.dark #sidebar-content a:hover {
 html.dark #sidebar-content a[aria-current="page"],
 html.dark #sidebar-content a[aria-current="true"],
 html.dark #sidebar-content a[class*="bg-primary"],
-html.dark #sidebar-content a[class*="bg-gray"],
-html.dark #sidebar-content a[class*="bg-zinc"],
-html.dark #sidebar-content a[class*="bg-neutral"],
-html.dark #sidebar-content a[class*="bg-slate"] {
+html.dark #sidebar-content a[class*="text-white"] {
   background: rgba(255, 255, 255, 0.075) !important;
   color: var(--enigm-white) !important;
 }
@@ -260,24 +257,15 @@ html.dark #sidebar-content a[class*="bg-slate"] {
 html.dark #sidebar-content a[aria-current="page"] *,
 html.dark #sidebar-content a[aria-current="true"] *,
 html.dark #sidebar-content a[class*="bg-primary"] *,
-html.dark #sidebar-content a[class*="bg-gray"] *,
-html.dark #sidebar-content a[class*="bg-zinc"] *,
-html.dark #sidebar-content a[class*="bg-neutral"] *,
-html.dark #sidebar-content a[class*="bg-slate"] *,
+html.dark #sidebar-content a[class*="text-white"] *,
 html.dark #sidebar-content a[aria-current="page"] svg,
 html.dark #sidebar-content a[aria-current="true"] svg,
 html.dark #sidebar-content a[class*="bg-primary"] svg,
-html.dark #sidebar-content a[class*="bg-gray"] svg,
-html.dark #sidebar-content a[class*="bg-zinc"] svg,
-html.dark #sidebar-content a[class*="bg-neutral"] svg,
-html.dark #sidebar-content a[class*="bg-slate"] svg,
+html.dark #sidebar-content a[class*="text-white"] svg,
 html.dark #sidebar-content a[aria-current="page"] svg *,
 html.dark #sidebar-content a[aria-current="true"] svg *,
 html.dark #sidebar-content a[class*="bg-primary"] svg *,
-html.dark #sidebar-content a[class*="bg-gray"] svg *,
-html.dark #sidebar-content a[class*="bg-zinc"] svg *,
-html.dark #sidebar-content a[class*="bg-neutral"] svg *,
-html.dark #sidebar-content a[class*="bg-slate"] svg * {
+html.dark #sidebar-content a[class*="text-white"] svg * {
   color: var(--enigm-white) !important;
   fill: none !important;
   stroke: var(--enigm-white) !important;
@@ -594,105 +582,13 @@ html.dark .enigm-static-card-group .card:hover svg {
   stroke: currentColor !important;
 }
 
-.enigm-intro-panel {
-  background: rgba(0, 0, 0, 0.018);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 0.875rem;
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 0.8fr);
-  margin: 1.5rem 0 1.5rem;
-  padding: 1.25rem;
-}
-
-html.dark .enigm-intro-panel {
-  background: rgba(255, 255, 255, 0.022);
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.enigm-intro-panel__main h2 {
-  font-size: clamp(1.45rem, 2.4vw, 2.15rem);
-  line-height: 1.12;
-  margin: 0.25rem 0 0.75rem;
-}
-
-.enigm-intro-panel__main p {
-  color: rgba(0, 0, 0, 0.68);
-  margin: 0;
-}
-
-html.dark .enigm-intro-panel__main p {
-  color: rgba(255, 255, 255, 0.68);
-}
-
-.enigm-intro-eyebrow {
-  color: rgba(0, 0, 0, 0.54) !important;
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-html.dark .enigm-intro-eyebrow {
-  color: rgba(255, 255, 255, 0.56) !important;
-}
-
-.enigm-intro-panel__side {
-  display: grid;
-  gap: 0.625rem;
-}
-
-.enigm-intro-panel__side > div {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.625rem;
-  padding: 0.75rem;
-}
-
-html.dark .enigm-intro-panel__side > div {
-  background: rgba(0, 0, 0, 0.38);
-  border-color: rgba(255, 255, 255, 0.13);
-}
-
-.enigm-intro-panel__side span {
-  color: rgba(0, 0, 0, 0.54);
-  display: block;
-  font-size: 0.78rem;
-  line-height: 1.35;
-}
-
-html.dark .enigm-intro-panel__side span {
-  color: rgba(255, 255, 255, 0.56);
-}
-
-.enigm-intro-panel__side strong {
-  display: block;
-  font-size: 0.96rem;
-  line-height: 1.35;
-  margin-top: 0.125rem;
-}
-
-@media (max-width: 860px) {
-  .enigm-intro-panel {
-    grid-template-columns: 1fr;
-  }
-}
-
 .enigm-doc-image-frame,
 .enigm-hero-banner {
-  background: rgba(0, 0, 0, 0.012) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 0.75rem !important;
   box-sizing: border-box !important;
   margin: 1.5rem 0 2rem !important;
   overflow: hidden !important;
-  padding: 0.5rem !important;
-}
-
-html.dark .enigm-doc-image-frame,
-html.dark .enigm-hero-banner {
-  background: rgba(255, 255, 255, 0.018) !important;
-  border-color: rgba(255, 255, 255, 0.14) !important;
+  padding: 0 !important;
 }
 
 .enigm-doc-image-frame img,

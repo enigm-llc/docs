@@ -69,7 +69,6 @@
           {
             "group": "Quickstarts",
             "icon": "rocket",
-            "expanded": true,
             "pages": [
               "quickstarts/enigm-link"
             ]
