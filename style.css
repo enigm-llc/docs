@@ -249,6 +249,53 @@ html.dark #sidebar-content a {
   stroke: currentColor !important;
 }
 
+html.light #sidebar-content a svg,
+html.light #sidebar-content button svg {
+  color: rgba(0, 0, 0, 0.58) !important;
+  stroke: currentColor !important;
+}
+
+html.light #sidebar-content a svg *,
+html.light #sidebar-content button svg * {
+  stroke: currentColor !important;
+}
+
+html.light #sidebar-content a:hover svg,
+html.light #sidebar-content button:hover svg {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+html.light #sidebar-content a[aria-current="page"] svg,
+html.light #sidebar-content a[aria-current="true"] svg,
+html.light #sidebar-content a[class*="bg-primary"] svg,
+html.light #sidebar-content a[class*="text-black"] svg,
+html.light #sidebar-content a[class*="text-gray-900"] svg {
+  color: rgba(0, 0, 0, 0.88) !important;
+}
+
+html.dark #sidebar-content a svg,
+html.dark #sidebar-content button svg {
+  color: rgba(255, 255, 255, 0.66) !important;
+  stroke: currentColor !important;
+}
+
+html.dark #sidebar-content a svg *,
+html.dark #sidebar-content button svg * {
+  stroke: currentColor !important;
+}
+
+html.dark #sidebar-content a:hover svg,
+html.dark #sidebar-content button:hover svg {
+  color: var(--enigm-white) !important;
+}
+
+html.dark #sidebar-content a[aria-current="page"] svg,
+html.dark #sidebar-content a[aria-current="true"] svg,
+html.dark #sidebar-content a[class*="bg-primary"] svg,
+html.dark #sidebar-content a[class*="text-white"] svg {
+  color: var(--enigm-white) !important;
+}
+
 html.dark #sidebar-content a:hover {
   color: var(--enigm-white) !important;
   background: rgba(255, 255, 255, 0.045) !important;
