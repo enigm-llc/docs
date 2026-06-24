@@ -600,18 +600,14 @@ html.dark .enigm-card-grid [role="link"]:focus-visible svg {
 html.dark a[href][class*="border"]:hover,
 html.dark a[href][class*="border"]:focus-visible,
 html.dark [role="link"][class*="border"]:hover,
-html.dark [role="link"][class*="border"]:focus-visible,
-html.dark .card:hover,
-html.dark .card:focus-visible {
+html.dark [role="link"][class*="border"]:focus-visible {
   border-color: var(--enigm-white) !important;
 }
 
 html.dark a[href][class*="border"]:hover svg,
 html.dark a[href][class*="border"]:focus-visible svg,
 html.dark [role="link"][class*="border"]:hover svg,
-html.dark [role="link"][class*="border"]:focus-visible svg,
-html.dark .card:hover svg,
-html.dark .card:focus-visible svg {
+html.dark [role="link"][class*="border"]:focus-visible svg {
   color: var(--enigm-white) !important;
   stroke: var(--enigm-white) !important;
 }

@@ -12,17 +12,19 @@ The USB contains the platform apps, official-device metadata, and Boot OS compon
 
 The official USB uses a controlled multi-partition layout:
 
-<CardGroup cols={3}>
-  <Card title="Boot boundary">
-    EFI boot material for Enigm Link Boot OS.
-  </Card>
-  <Card title="Visible app boundary">
-    User-visible Enigm Link volume with desktop apps and official device metadata.
-  </Card>
-  <Card title="Boot OS boundary">
-    Root filesystem material for the bootable Enigm Link environment.
-  </Card>
-</CardGroup>
+<div className="enigm-static-card-group">
+  <CardGroup cols={3}>
+    <Card title="Boot boundary">
+      EFI boot material for Enigm Link Boot OS.
+    </Card>
+    <Card title="Visible app boundary">
+      User-visible Enigm Link volume with desktop apps and official device metadata.
+    </Card>
+    <Card title="Boot OS boundary">
+      Root filesystem material for the bootable Enigm Link environment.
+    </Card>
+  </CardGroup>
+</div>
 
 The visible app boundary is critical. It contains the desktop apps, official device metadata, and user-facing platform folders. Boot OS update workflows must preserve this boundary on the official USB.
 
