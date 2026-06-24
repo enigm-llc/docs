@@ -22,25 +22,6 @@ Region selection for Enigm Server affects where the dedicated customer server en
 
 The architecture is intentionally layered. Account Trust, Device Trust, administrative authorization, network privacy, OTA Eligibility, Remote Attestation, and content confidentiality are separate concepts. Keeping those concepts separate reduces the risk that one administrative, commercial, network, or device-management workflow becomes an unintended authority over private communications.
 
-<div className="enigm-doc-card-grid">
-  <a className="enigm-doc-card" href="/app/overview">
-    <p className="enigm-doc-card-title">Enigm App boundary <span className="enigm-doc-arrow">→</span></p>
-    <p>Account state, protected key material, secure messaging, secure calls, multi-device trust, and network privacy controls.</p>
-  </a>
-  <a className="enigm-doc-card" href="/command/overview">
-    <p className="enigm-doc-card-title">Administrative boundary <span className="enigm-doc-arrow">→</span></p>
-    <p>Lifecycle management for accounts, sessions, devices, Enigm Server, Enigm Link, product access, and support workflows.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/privacy">
-    <p className="enigm-doc-card-title">Privacy boundary <span className="enigm-doc-arrow">→</span></p>
-    <p>Data minimization, identity minimization, metadata reduction, protected content, and privacy-preserving device handles.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/cryptography">
-    <p className="enigm-doc-card-title">Cryptographic boundary <span className="enigm-doc-arrow">→</span></p>
-    <p>End-to-end encryption, device-bound trust, protected storage, verification workflows, and post-quantum cryptography.</p>
-  </a>
-</div>
-
 ## Architecture objectives
 
 - Keep Enigm as the primary user-facing private messaging product.
@@ -59,17 +40,6 @@ The architecture is intentionally layered. Account Trust, Device Trust, administ
 - Protect metadata according to the applicable product, storage, and security domain. Metadata is partially encrypted where the product domain supports it, while limited operational identifiers remain available in controlled form for routing, authentication, availability, security, and compliance.
 
 ## Core components
-
-<div className="enigm-doc-split-grid">
-  <div className="enigm-doc-note">
-    <p className="enigm-doc-kicker">User-facing products</p>
-    <p>Enigm, Enigm Command, Enigm Link, Enigm Server, Enigm OS, Enigm Key, and Enigm eSIM are documented as distinct product surfaces with their own trust boundaries.</p>
-  </div>
-  <div className="enigm-doc-note">
-    <p className="enigm-doc-kicker">Supporting controls</p>
-    <p>VPN Service, Proxy Network, Tor Gateway, Payment Privacy, Threat Intelligence Platform, Enyra, OTA Architecture, and Hardware-Backed Signing support those products without becoming plaintext access paths.</p>
-  </div>
-</div>
 
 ### Enigm
 

@@ -12,79 +12,38 @@ This documentation is the public technical record of that architecture. It expla
 
 The goal is to make Enigm understandable to enterprise customers, auditors, engineers, partners, and security reviewers. The content is intentionally precise: it describes what Enigm protects, where trust boundaries exist, what administrators can and cannot do, and where the documented limitations are.
 
-<div className="enigm-doc-hero">
-  <div className="enigm-doc-eyebrow">Private communications, secure devices, controlled access</div>
-  <h2>Product documentation for a privacy-first security platform</h2>
-  <p>
-    Start with the product architecture, then follow the security, privacy, cryptography, device trust, connectivity, and governance documents that define how Enigm operates.
-  </p>
-  <div className="enigm-doc-actions">
-    <a className="enigm-doc-button" href="/platform/architecture">Explore architecture <span>→</span></a>
-    <a className="enigm-doc-button" href="/security/security-model">Security model <span>→</span></a>
-    <a className="enigm-doc-button" href="/security/privacy">Privacy model <span>→</span></a>
-  </div>
-</div>
-
 <div className="enigm-doc-image-frame enigm-hero-banner">
   <img className="enigm-doc-image enigm-hero-banner-image" src="/assets/images/banner-enigm.jpg" alt="Enigm private communications banner" />
-</div>
-
-## Start with
-
-These entry points provide the fastest route into the core architecture:
-
-<div className="enigm-doc-card-grid">
-  <a className="enigm-doc-card" href="/platform/architecture">
-    <p className="enigm-doc-card-title">Product Architecture <span className="enigm-doc-arrow">→</span></p>
-    <p>High-level product relationships, trust domains, platform boundaries, and supporting components.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/security-model">
-    <p className="enigm-doc-card-title">Security Model <span className="enigm-doc-arrow">→</span></p>
-    <p>Defense-in-depth structure across products, devices, network controls, and administrative workflows.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/privacy">
-    <p className="enigm-doc-card-title">Privacy Model <span className="enigm-doc-arrow">→</span></p>
-    <p>Data minimization, identity minimization, metadata reduction, user control, and content confidentiality.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/cryptography">
-    <p className="enigm-doc-card-title">Cryptography <span className="enigm-doc-arrow">→</span></p>
-    <p>End-to-end encryption, device-bound trust, protected storage, verification, and post-quantum resilience.</p>
-  </a>
 </div>
 
 ## Products
 
 The Enigm ecosystem is organized around six primary products plus Enigm Link, a secure USB environment governed through Enigm Command. Each product has a defined security role, a clear trust boundary, and a documented relationship with the rest of the platform:
 
-<div className="enigm-doc-product-grid">
-  <a className="enigm-doc-product-card" href="/app/overview">
-    <p className="enigm-doc-product-title">Enigm <span className="enigm-doc-arrow">→</span></p>
-    <p>Private messaging, secure calls, Active Defense, trusted devices, multi-device workflows, VPN Service, and Proxy Network usage.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/command/overview">
-    <p className="enigm-doc-product-title">Enigm Command <span className="enigm-doc-arrow">→</span></p>
-    <p>Web control panel for account, session, device, product lifecycle, Enigm Server, and managed security workflows.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/link/overview">
-    <p className="enigm-doc-product-title">Enigm Link <span className="enigm-doc-arrow">→</span></p>
-    <p>Official USB secure environment governed by Enigm Command for desktop apps, Boot OS, VPN validation, and controlled updates.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/server/overview">
-    <p className="enigm-doc-product-title">Enigm Server <span className="enigm-doc-arrow">→</span></p>
-    <p>Dedicated private messaging environment with approved users, join requests, and encrypted server content lifecycle control.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/os/overview">
-    <p className="enigm-doc-product-title">Enigm OS <span className="enigm-doc-arrow">→</span></p>
-    <p>Secure operating system for Device Trust, platform hardening, controlled device experience, and secure update governance.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/key/overview">
-    <p className="enigm-doc-product-title">Enigm Key <span className="enigm-doc-arrow">→</span></p>
-    <p>Emergency key device for user-controlled SOS alerting, selected emergency contacts, and event-bound location sharing.</p>
-  </a>
-  <a className="enigm-doc-product-card" href="/esim/overview">
-    <p className="enigm-doc-product-title">Enigm eSIM <span className="enigm-doc-arrow">→</span></p>
-    <p>Data-only mobile connectivity across supported coverage areas with identity-minimizing lifecycle management through Enigm.</p>
-  </a>
+<div className="enigm-card-grid">
+  <CardGroup cols={2}>
+    <Card title="Enigm" href="/app/overview">
+      Private messaging, secure calls, Active Defense, trusted devices, multi-device workflows, VPN Service, and Proxy Network usage.
+    </Card>
+    <Card title="Enigm Command" href="/command/overview">
+      Web control panel for account, session, device, product lifecycle, Enigm Server, and managed security workflows.
+    </Card>
+    <Card title="Enigm Link" href="/link/overview">
+      Official USB secure environment governed by Enigm Command for desktop apps, Boot OS, VPN validation, and controlled updates.
+    </Card>
+    <Card title="Enigm Server" href="/server/overview">
+      Dedicated private messaging environment with approved users, join requests, and encrypted server content lifecycle control.
+    </Card>
+    <Card title="Enigm OS" href="/os/overview">
+      Secure operating system for Device Trust, platform hardening, controlled device experience, and secure update governance.
+    </Card>
+    <Card title="Enigm Key" href="/key/overview">
+      Emergency key device for user-controlled SOS alerting, selected emergency contacts, and event-bound location sharing.
+    </Card>
+    <Card title="Enigm eSIM" href="/esim/overview">
+      Data-only mobile connectivity across supported coverage areas with identity-minimizing lifecycle management through Enigm.
+    </Card>
+  </CardGroup>
 </div>
 
 ## Privacy-first architecture
@@ -97,19 +56,18 @@ Administrative systems are not intended to provide plaintext access to messages,
 
 For enterprise and auditor review, this distinction matters: Enigm does not treat administration, billing, connectivity, monitoring, or device management as shortcuts around end-to-end encryption or protected key material.
 
-<div className="enigm-doc-card-grid">
-  <a className="enigm-doc-card" href="/security/privacy">
-    <p className="enigm-doc-card-title">Privacy by design <span className="enigm-doc-arrow">→</span></p>
-    <p>Foundational privacy principles for data minimization, identity minimization, metadata reduction, and user control.</p>
-  </a>
-  <a className="enigm-doc-card" href="/security/security-model">
-    <p className="enigm-doc-card-title">Defense in depth <span className="enigm-doc-arrow">→</span></p>
-    <p>Security controls across Enigm products, Device Trust, administrative control, secure delivery, and network privacy.</p>
-  </a>
-  <a className="enigm-doc-card" href="/platform/architecture">
-    <p className="enigm-doc-card-title">Trust boundaries <span className="enigm-doc-arrow">→</span></p>
-    <p>Product relationships, trust separation, supporting components, and privacy-first platform responsibilities.</p>
-  </a>
+<div className="enigm-card-grid enigm-card-grid--compact">
+  <CardGroup cols={3}>
+    <Card title="Privacy by design" href="/security/privacy">
+      Foundational privacy principles for data minimization, identity minimization, metadata reduction, and user control.
+    </Card>
+    <Card title="Security model" href="/security/security-model">
+      Defense-in-depth model across Enigm products, device trust, administrative control, secure delivery, and network privacy.
+    </Card>
+    <Card title="Product architecture" href="/platform/architecture">
+      High-level product architecture, trust boundaries, supporting components, and privacy-first platform relationships.
+    </Card>
+  </CardGroup>
 </div>
 
 ## Documentation boundaries
