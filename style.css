@@ -721,3 +721,22 @@ html.dark #table-of-contents toc-item[data-active-deepest],
 html.dark #table-of-contents toc-item[data-active-deepest] * {
   color: var(--enigm-white) !important;
 }
+
+body a[class*="items-start"][class*="rounded-xl"] svg,
+body button[class*="items-start"][class*="rounded-xl"] svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+body a[class*="items-start"][class*="rounded-xl"] svg *,
+body button[class*="items-start"][class*="rounded-xl"] svg * {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+body a[class*="items-start"][class*="rounded-xl"] svg[style*="mask-image"],
+body button[class*="items-start"][class*="rounded-xl"] svg[style*="mask-image"] {
+  background: currentColor !important;
+  background-color: currentColor !important;
+  color: inherit !important;
+}
