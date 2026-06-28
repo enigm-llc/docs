@@ -701,6 +701,22 @@ html.dark .enigm-static-card-group .card:hover svg {
   width: auto !important;
 }
 
+.enigm-phone-step {
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 1.5rem 0 2rem !important;
+}
+
+.enigm-phone-step img {
+  border-radius: 1.25rem !important;
+  display: block !important;
+  height: auto !important;
+  max-height: 560px !important;
+  max-width: 100% !important;
+  width: auto !important;
+}
+
 @media (max-width: 720px) {
   .enigm-phone-shot-grid {
     grid-template-columns: 1fr !important;
@@ -709,6 +725,11 @@ html.dark .enigm-static-card-group .card:hover svg {
   .enigm-phone-shot img {
     max-height: none !important;
     width: min(100%, 380px) !important;
+  }
+
+  .enigm-phone-step img {
+    max-height: none !important;
+    width: min(100%, 300px) !important;
   }
 }
 
