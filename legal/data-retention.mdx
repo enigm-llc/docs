@@ -79,6 +79,7 @@ The following table summarizes the public retention model for major Enigm data c
 | Message metadata | Delivery state, synchronization state, expiration state, conversation membership, lifecycle markers | Partially encrypted and otherwise protected according to the applicable product and storage domain. Follows the message lifecycle where possible, with a maximum of 30 days for normal message-related lifecycle state unless security, abuse, or legal constraints require limited preservation. |
 | Enigm Server lifecycle data | Server lifecycle state, server ID join requests, membership, region selection, server audit visibility | Retained while the user or customer maintains the Enigm Server service. Deleted when the user or customer deletes the server environment, subject only to legal, security, or compliance constraints. |
 | Enigm Server content | Server-scoped encrypted messages, encrypted attachments, encrypted multimedia, encrypted user-generated content | Follows the message-content retention model: user-defined lifetime up to a maximum of 30 days, with immediate manual deletion where authorized by policy. |
+| Enigm Link lifecycle data | Official USB association, product entitlement, update channel, version state, official-device validation state, revocation, replacement or retirement state | Retained while the user maintains Enigm Link service or until the lifecycle state is no longer required, subject only to legal, security, support, or operational constraints. |
 | Enigm Key emergency data | Emergency alert messages, emergency contacts, emergency activation event, event-bound location sharing, emergency event end state | Treated as message and emergency-event data. Retained according to the message lifecycle, up to a maximum of 30 days, and minimized after the user cancels the emergency sending workflow. |
 | Enigm Key device lifecycle data | Account association, initial linking state, device revocation state, loss state, replacement state | Retained until the user removes or revokes the Enigm Key, deletes the account, or the lifecycle state is no longer required, subject only to legal, security, or operational constraints. |
 | Enigm eSIM data | Activation state, Enigm account association, connectivity lifecycle state, service status metadata, unlinking, deletion, replacement or retirement state | Retained until the user deletes or retires the Enigm eSIM service, subject only to legal, security, or operational constraints. |
@@ -167,6 +168,23 @@ Enigm Server retention should remain purpose-limited. Server-scoped lifecycle co
 Administrative deletion controls operate on encrypted content objects and lifecycle state. Deletion affects content availability and lifecycle; it does not imply content visibility or content decryption.
 
 Enigm Server lifecycle data is retained while the user or customer maintains the server environment. Server-scoped encrypted content follows the message-content retention model unless deleted earlier by the user or authorized server lifecycle controls.
+
+## Enigm Link Data
+
+Enigm Link data supports the official USB product lifecycle governed through Enigm Command.
+
+Conceptual examples include:
+
+- Official USB association state.
+- Product entitlement state.
+- Update channel and version state.
+- Official-device validation state.
+- Revocation, replacement, or retirement state.
+- Support state required to maintain the product lifecycle.
+
+Enigm Link lifecycle data is product and device lifecycle data. It does not provide Enigm with access to Enigm Command plaintext data, message plaintext, secure call content, attachments, private key material, recovery phrases, local host files, or protected browser session content.
+
+Enigm Link lifecycle data is retained while the user maintains Enigm Link service or until the lifecycle state is no longer required, subject only to legal, security, support, or operational constraints.
 
 ## Enigm Key Data
 
