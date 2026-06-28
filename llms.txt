@@ -15,6 +15,7 @@
 - [Welcome to Enigm documentation](https://docs.enigm.io/introduction): Executive technical introduction to Enigm product documentation.
 - [Product Architecture](https://docs.enigm.io/platform/architecture): High-level product architecture and shared vocabulary.
 - [Enigm Link Quickstart](https://docs.enigm.io/quickstarts/enigm-link): User guide for starting Enigm Link from the official USB and confirming protected state.
+- [Enigm OS Quickstart](https://docs.enigm.io/quickstarts/enigm-os): User guide for completing the Enigm OS first-run setup wizard.
 
 ### Products
 
@@ -60,7 +61,7 @@
 
 #### Enigm OS
 
-- [OS Overview](https://docs.enigm.io/os/overview): Enigm OS role in the broader ecosystem.
+- [OS Overview](https://docs.enigm.io/os/overview): Enigm OS role in the broader ecosystem and current Fairphone 6 hardware support scope.
 - [OS Security Architecture](https://docs.enigm.io/os/security-architecture): Device Trust, hardening, and security architecture.
 - [Trust Security Center](https://docs.enigm.io/os/trust-security-center): Local device trust evaluation states and findings model.
 - [OS Network Policy](https://docs.enigm.io/os/network-policy): Secure networking, DNS policy, transport protection, and metadata reduction.

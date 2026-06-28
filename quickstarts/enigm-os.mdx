@@ -1,0 +1,135 @@
+---
+title: Enigm OS Quickstart
+sidebarTitle: Enigm OS
+description: User guide for completing the Enigm OS first-run setup wizard.
+---
+
+This quickstart explains the user-facing Enigm OS first-run setup flow. The wizard establishes the initial device baseline before normal use, including language selection, connectivity, time configuration, optional biometric enrollment, appearance, and transition into the Enigm experience.
+
+Enigm OS setup is designed to be direct and security-focused. It avoids general-purpose account ecosystems and keeps onboarding centered on the controls required to start the device safely.
+
+## What You Need
+
+Before starting, confirm that you have:
+
+- A supported Fairphone 6 Enigm OS device with sufficient battery.
+- Network access through Wi-Fi, mobile connectivity, or the deployment network available to the device.
+- The credentials or enrollment information required by your Enigm deployment.
+- Physical control of the device during setup.
+
+Enigm OS is currently supported only on Fairphone 6. This quickstart should not be used as production guidance for unsupported device models.
+
+During onboarding, complete any device authentication, PIN, or enrollment screens presented by the device before continuing into normal use.
+
+## Setup Flow
+
+The first-run wizard follows a controlled setup sequence:
+
+1. Start Enigm OS.
+2. Select language.
+3. Confirm mobile connectivity state.
+4. Configure Internet access.
+5. Confirm date and time.
+6. Complete device authentication prompts.
+7. Review optional fingerprint enrollment.
+8. Select device appearance.
+9. Start the Enigm experience.
+
+## Start Enigm OS
+
+The welcome screen is the first step in the Enigm OS setup wizard. It confirms that the device is entering the Enigm OS onboarding flow and provides access to accessibility settings before setup continues.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-01-welcome.png" alt="Enigm OS welcome screen" />
+  </div>
+</div>
+
+## Select Language
+
+Choose the interface language for the device. Language selection affects the setup experience and the device UI after onboarding.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-02-language.png" alt="Enigm OS language selection screen" />
+  </div>
+</div>
+
+## Configure Connectivity
+
+Enigm OS checks mobile connectivity and then presents the Internet setup screen. A SIM or mobile profile can be present, but Wi-Fi can also be used during setup where appropriate.
+
+If no SIM is detected, continue with the available setup path and configure Wi-Fi or another permitted network path. Network access is used to complete setup, activation, policy retrieval, and account or device enrollment where required.
+
+<div className="enigm-phone-shot-grid">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-03-sim-missing.png" alt="Enigm OS SIM card missing screen" />
+  </div>
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-04-internet.png" alt="Enigm OS Internet setup screen" />
+  </div>
+</div>
+
+## Confirm Date And Time
+
+Confirm the device time zone, date, and time. Correct time configuration supports certificate validation, update verification, security event ordering, and time-sensitive platform workflows.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-05-date-time.png" alt="Enigm OS date and time setup screen" />
+  </div>
+</div>
+
+## Review Fingerprint Enrollment
+
+Fingerprint enrollment is optional and device-local. The wizard explains how fingerprint unlock works, how the fingerprint model is created, and that biometric processing is handled on the phone.
+
+Use fingerprint enrollment only when it matches the user or deployment security policy. Users can also skip enrollment and rely on the required device authentication method configured during setup.
+
+<div className="enigm-phone-shot-grid">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-07-fingerprint-intro.png" alt="Enigm OS fingerprint enrollment introduction screen" />
+  </div>
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-08-fingerprint-details.png" alt="Enigm OS fingerprint how it works screen" />
+  </div>
+</div>
+
+The consent screen explains that biometric convenience has security tradeoffs. If the user does not want to enroll a fingerprint, choose **Not now** and continue with the configured device authentication method.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-09-fingerprint-consent.png" alt="Enigm OS fingerprint consent screen" />
+  </div>
+</div>
+
+## Choose Appearance
+
+Select the device theme. The theme setting changes the local visual appearance only; it does not change Enigm App cryptography, Device Trust, secure messaging, or administrative boundaries.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-10-theme.png" alt="Enigm OS theme selection screen" />
+  </div>
+</div>
+
+## Start The Enigm Experience
+
+The final setup screen starts the Enigm OS device experience. After this point, the device enters the configured Enigm OS environment and can continue into Enigm App, device association, managed-device enrollment, or deployment-specific workflows.
+
+<div className="enigm-phone-shot-grid enigm-phone-shot-grid--single">
+  <div className="enigm-phone-shot">
+    <img src="/assets/images/os/setup-wizard/os-wizard-11-final-start.png" alt="Enigm OS final start screen" />
+  </div>
+</div>
+
+## Security Notes
+
+The setup wizard establishes the initial device baseline, but it does not replace the broader Enigm security model.
+
+- Enigm App message confidentiality remains based on protected key material and end-to-end encryption.
+- Device Trust depends on Enigm OS security services, Trust Security Center, policy state, and controlled update posture.
+- Biometric enrollment is a local device unlock method, not an Enigm account recovery mechanism.
+- Administrative management does not provide access to message plaintext, call content, media, attachments, or private key material.
+
+See [OS Device Experience and Management](/os/device-experience-management) and [Trust Security Center](/os/trust-security-center) for the architecture model behind setup, device posture, and trust visibility.

@@ -70,7 +70,8 @@
             "group": "Quickstarts",
             "icon": "rocket",
             "pages": [
-              "quickstarts/enigm-link"
+              "quickstarts/enigm-link",
+              "quickstarts/enigm-os"
             ]
           }
         ]
