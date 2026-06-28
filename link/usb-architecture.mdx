@@ -36,7 +36,7 @@ The visible USB content should remain simple and predictable:
 - `Windows`: shows only the Windows executable.
 - `Linux`: shows only the Linux executable.
 
-Auxiliary files, staging data, update backups, autorun files, and internal metadata should remain hidden where supported by the platform. Users should not need to inspect or modify internal files.
+Auxiliary files, staging data, update backups, autorun files, and internal metadata are hidden or cleaned within host-platform constraints. Users should not need to inspect or modify internal files.
 
 ## Official Device Metadata
 
@@ -48,7 +48,7 @@ Official metadata supports:
 - Update eligibility.
 - Controlled update workflows.
 - Product lifecycle state.
-- Enigm Command registration where applicable.
+- Enigm Command registration for eligible deployments.
 
 Official metadata must be preserved during app updates and Boot OS updates. Update workflows must not treat the visible app boundary as disposable storage.
 

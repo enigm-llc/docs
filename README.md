@@ -107,7 +107,7 @@ Store documentation images under `assets/images/` and render them with the share
 
 ```mdx
 <div className="enigm-doc-image-frame">
-  <img className="enigm-doc-image" src="/assets/images/example.jpg" alt="Descriptive image text" />
+  <img className="enigm-doc-image" src="/assets/images/banner-enigm.jpg" alt="Descriptive image text" />
 </div>
 ```
 

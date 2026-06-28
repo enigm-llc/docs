@@ -343,8 +343,17 @@ OTA cryptography includes:
 - Manifest verification.
 - Artifact verification.
 - Eligibility controls.
+- Hardware-Backed Signing for release and manifest authorization.
 
 Release signing establishes release authenticity. Manifest verification protects release metadata. Artifact verification protects update content. Eligibility controls help determine whether a device should receive a release.
+
+Enigm separates release-signing authority from OTA manifest-signing authority.
+
+The Production Release-Signing Authority is designed to use a dedicated physical hardware security module for Enigm OS production build and release artifact signing. This authority acts as the release authorization root of trust for production artifacts and remains separate from build systems, source repositories, artifact repositories, OTA services, developer workstations, and release scripts.
+
+The OTA Manifest Signing Authority uses a separate physical hardware-backed signing device for OTA manifest and release metadata authorization. This authority authorizes the metadata layer used by OTA clients to evaluate release authenticity, integrity, and eligibility. It is not the same authority as the Production Release-Signing Authority and must not be treated as production image-signing authority.
+
+Systems outside the signing trust boundary may prepare artifacts, request signatures, distribute metadata, or serve eligible updates, but they must never access private signing keys. This separation reduces risk from CI compromise, repository compromise, artifact replacement, unauthorized manifest publication, and confusion between metadata authorization and production release authorization.
 
 OTA cryptography does not replace verified boot, Remote Attestation, production gates, Device Trust evaluation, or client verification.
 
