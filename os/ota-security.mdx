@@ -61,6 +61,7 @@ Transport authentication protects communication channels and reduces network tam
 This layer supports:
 
 - Authenticated transport.
+- Mutual client authentication for private OTA workflows.
 - Protected communication channels.
 - Request authentication.
 
@@ -76,8 +77,11 @@ This layer supports:
 - Freshness validation.
 - Replay resistance.
 - Request integrity.
+- Per-request cryptographic signing.
 
 Request verification is evaluated with Device Trust, OTA Eligibility, and Remote Attestation when device-integrity evidence is required.
+
+Private OTA workflows use authenticated transport together with request-level signatures. Requests are freshness-sensitive and include integrity checks over the request content. Requests that fail authentication, freshness, integrity, or eligibility validation fail closed.
 
 ### Layer 3: Manifest Trust
 
@@ -109,12 +113,13 @@ Device eligibility determines whether a device should receive a given release.
 
 This layer supports:
 
+- Preauthorized enrollment.
 - Enrollment status.
 - Device Trust.
 - Channel eligibility.
 - Rollout policy.
 
-Device eligibility is separate from artifact verification.
+Device eligibility is separate from artifact verification. Enrollment is not treated as open self-service registration for protected OTA access.
 
 ### Layer 6: Remote Attestation
 
@@ -157,20 +162,20 @@ This authority is responsible for:
 - Release metadata authenticity.
 - Approval evidence for OTA release metadata.
 
-This authority is not the same as the target production release-signing authority.
+This authority is not the same as the Production Release-Signing Authority.
 
-### Target Authority: Production Release-Signing Authority
+### Production Release-Signing Authority
 
-The Production Release-Signing Authority is the target authority for production image and release artifact signing.
+The Production Release-Signing Authority is the authority for production image and release artifact signing.
 
-This authority is intended to be responsible for:
+This authority is responsible for:
 
 - Production image signing.
 - OTA payload signing.
 - Signing-critical release artifacts.
 - Production release authorization.
 
-This authority is intended to operate through a dedicated physical HSM and must remain distinct from the OTA Manifest Signing Authority.
+This authority operates through dedicated Hardware-Backed Signing controls and must remain distinct from the OTA Manifest Signing Authority.
 
 ## Current Production OTA Manifest Signing Model
 
@@ -192,11 +197,11 @@ The manifest signing key must not be stored in Git repositories, CI/CD variables
 
 The signing authority remains hardware-backed and operator-mediated. Systems that prepare manifests can request signing, but they must not gain access to private key material.
 
-## Target Production HSM Release-Signing Architecture
+## Production HSM Release-Signing Architecture
 
-The target Enigm OS production release-signing architecture is designed to use a dedicated physical HSM.
+The Enigm OS production release-signing architecture is designed around a dedicated physical HSM.
 
-The target architecture is intended to support:
+The production architecture supports:
 
 - Non-exportable production keys.
 - Release authorization.
@@ -204,7 +209,7 @@ The target architecture is intended to support:
 - OTA payload signing.
 - Signing-critical release artifacts.
 
-Intended production governance capabilities include:
+Production governance capabilities include:
 
 - Dual control.
 - Multi-party approval.
@@ -213,7 +218,7 @@ Intended production governance capabilities include:
 - Secure backup procedures.
 - Release governance.
 
-The target Production Release-Signing Authority is not the same authority as the current OTA Manifest Signing Authority. The target authority is intended to act as the release authorization root of trust for production artifacts.
+The Production Release-Signing Authority is not the same authority as the current OTA Manifest Signing Authority. The Production Release-Signing Authority acts as the release authorization root of trust for production artifacts.
 
 ## Production Signing Trust Boundary
 
@@ -239,6 +244,8 @@ Production signing has a clear trust boundary.
 - Release scripts.
 
 Systems outside the trust boundary can request signatures but must never access private keys.
+
+Private production signing keys are intended to remain hardware-resident and non-exportable. Build systems, release services, repositories, developer machines, and artifact stores are outside the private-key trust boundary.
 
 ## Signing Flow
 
@@ -305,6 +312,8 @@ flowchart TD
 
 Remote Attestation is a production eligibility control for selected protected workflows. This documentation does not claim that every production device is attested on every request.
 
+Remote Attestation is evaluated alongside authenticated transport, request signing, enrollment binding, and rollout policy. It is not a replacement for any of those controls.
+
 ## Attestation Evidence
 
 Attestation evidence can include:
@@ -368,14 +377,25 @@ OTA security uses Privacy-Preserving Device Handles for device correlation and m
 
 OTA security is not intended to collect:
 
+- IP address records for user profiling.
+- User-Agent records for user profiling.
 - Message content.
 - Media content.
 - Contact data.
 - User behavior telemetry.
 - User conversations.
 - Private key material.
+- IMEI, IMSI, ICCID, Android ID, serial numbers, email addresses, phone numbers, or location data.
 
 Long-term storage should prefer policy outcomes rather than raw attestation payloads.
+
+OTA reporting is limited to the minimum operational events needed to understand update progress, verification, installation success, or failure conditions. Reports are protected through the same private OTA authentication model and are not designed to contain personal identifiers.
+
+## Public OTA Surface
+
+The public OTA web surface is intentionally minimal. It can describe stable release history and verification information, but it does not expose protected metadata routes, private artifact locations, staged rollout controls, draft releases, paused releases, or manual download paths.
+
+Production packages are delivered only through Enigm OS Updater after eligibility, release metadata verification, artifact verification, and rollback checks succeed.
 
 ## Threat Model
 

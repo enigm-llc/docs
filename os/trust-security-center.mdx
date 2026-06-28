@@ -81,6 +81,8 @@ Examples of evaluated signal categories include:
 
 Trust Security Center is designed to identify whether critical Enigm OS protections are active, degraded, unavailable, or not currently measurable.
 
+Trust Security Center is expected to represent real device state. It must not hide degraded boot, software, update, policy, or security-service conditions to make a device appear protected. A warning should clear only when the underlying condition is resolved or no longer relevant according to the documented trust model.
+
 Trust evaluation must remain separate from Enigm App message confidentiality. A Device Trust state may inform device workflows, but it does not grant administrative access to encrypted content.
 
 ## Trust States

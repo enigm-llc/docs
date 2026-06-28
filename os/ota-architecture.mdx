@@ -53,6 +53,8 @@ OTA exists to securely deliver trusted software updates to eligible devices.
 
 The architecture is designed to ensure that devices receive software released through authorized Enigm release workflows and that devices verify release authenticity, integrity, and policy compliance before accepting an update.
 
+Enigm OS updates are delivered through the Enigm OS Updater on eligible devices. The public OTA surface is informational and does not provide manual download links for protected update artifacts.
+
 ## Secure Software Delivery
 
 Secure software delivery combines release governance, signing, validation, eligibility checks, rollout control, and device-side verification.
@@ -65,6 +67,9 @@ Secure delivery depends on:
 - Device eligibility.
 - Rollout policy.
 - Client verification.
+- Privileged updater execution on Enigm OS.
+
+The Enigm OS Updater is part of the trusted device software environment. It is not treated as a normal third-party application for update installation decisions.
 
 ## OTA Architecture
 
@@ -142,6 +147,12 @@ Eligibility can depend on:
 
 Device eligibility is separate from artifact verification. A device can be eligible for a release and still be required to verify release metadata and artifact integrity before installation.
 
+Protected OTA enrollment is a controlled workflow. Devices are expected to establish authorized eligibility before accessing protected update metadata or private update artifacts. Enigm OS does not treat open, unauthenticated self-enrollment as sufficient for protected OTA access.
+
+Enrollment is preauthorized. A device must present authorized device identity evidence and a valid enrollment request before it can receive protected OTA credentials or access private OTA workflows. Renewal for an already enrolled device is bound to the existing device identity rather than treated as a new open registration.
+
+Eligibility data should remain privacy-minimized. OTA workflows should use Privacy-Preserving Device Handles, cryptographic request authentication, release channel state, and device compatibility information rather than unnecessary personal identifiers.
+
 ## Device Installation
 
 Eligible devices:
@@ -155,6 +166,8 @@ Eligible devices:
 - Install updates.
 
 Installation should occur only after required checks succeed.
+
+Protected update packages are intended to be installed by Enigm OS Updater. Enigm does not document a public manual download workflow for production OTA packages because update trust depends on eligibility, signed metadata, artifact verification, rollback policy, and privileged client validation.
 
 ## Client Verification
 
@@ -196,6 +209,10 @@ The client verifies:
 - Manifest authenticity.
 - Manifest integrity.
 - Release authorization.
+- Manifest expiration.
+- Device and release-channel match.
+- Anti-rollback policy.
+- Security patch progression.
 
 The client rejects invalid, untrusted, or modified manifests.
 
@@ -205,6 +222,7 @@ The client verifies:
 
 - Artifact integrity.
 - Expected hashes.
+- Expected size.
 - Release consistency.
 
 The client rejects corrupted artifacts, unexpected artifacts, and integrity failures.
@@ -254,6 +272,8 @@ Remote Attestation contributes additional eligibility signals before protected r
 Remote Attestation complements OTA security controls and can help determine enrollment, metadata access, artifact access, channel access, and rollout eligibility.
 
 Client verification remains necessary even when Remote Attestation is used.
+
+Remote Attestation is an additional eligibility layer, not a substitute for signed manifests, signed release artifacts, client verification, or controlled rollout policy.
 
 ## Relationship With Release Signing
 

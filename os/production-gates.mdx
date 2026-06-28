@@ -67,6 +67,18 @@ The model is intended to:
 
 Passing a gate means that the relevant security objective is satisfied according to the production validation model. It does not mean that risk is eliminated.
 
+## Public Status Language
+
+Production readiness uses clear status language:
+
+- Validated: the control objective has been reviewed against the relevant production validation model.
+- Prepared: the control design or workflow is ready for validation but should not be treated as completed evidence.
+- Pending: validation or rollout work remains.
+- Blocked: production use should not proceed until the blocking condition is resolved.
+- Prohibited: the action is outside the approved production security model.
+
+This vocabulary is intended to prevent release, device, or rollout state from being described as final before the relevant gates have been satisfied.
+
 ## Gate Categories
 
 ### Gate 1: Build Integrity
