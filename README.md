@@ -113,6 +113,8 @@ Store documentation images under `assets/images/` and render them with the share
 
 This keeps attached documentation images consistent with the Enigm visual system: subtle border, rounded corners, full-width responsive rendering, and light/dark theme compatibility.
 
+Product-specific images must live directly under `assets/images/<product>/` using only the product folder name, such as `link`, `os`, `key`, `esim`, `server`, or `command`. Do not create workflow-specific subfolders such as `setup-wizard`, `screens`, or similar names; keep workflow context in the image filename instead.
+
 ## Maintenance Notes
 
 - Keep `docs.json` updated whenever pages are added, removed, renamed, or reorganized.
