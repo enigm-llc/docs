@@ -1,7 +1,7 @@
 :root {
   --enigm-black: #000000;
   --enigm-white: #ffffff;
-  --enigm-red: #ff2d3d;
+  --enigm-red: #B42318;
   --enigm-line-light: rgba(0, 0, 0, 0.16);
   --enigm-line-dark: rgba(255, 255, 255, 0.18);
   --enigm-line-dark-strong: rgba(255, 255, 255, 0.72);
@@ -9,6 +9,22 @@
   --enigm-nav-muted-light-hover: rgba(0, 0, 0, 0.86);
   --enigm-nav-muted-dark: rgba(255, 255, 255, 0.58);
   --enigm-nav-muted-dark-hover: rgba(255, 255, 255, 0.9);
+  --enigm-font-sans: "Roboto", Arial, Helvetica, sans-serif;
+  --enigm-font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+html,
+body {
+  font-family: var(--enigm-font-sans) !important;
+}
+
+code,
+kbd,
+pre,
+samp,
+.font-mono,
+[class*="font-mono"] {
+  font-family: var(--enigm-font-mono) !important;
 }
 
 #topbar-right-container a[href="https://enigm.io"],
@@ -143,7 +159,7 @@ nav a[href="https://app.enigm.io"],
   border-radius: 0.875rem !important;
   color: var(--enigm-white) !important;
   box-sizing: border-box !important;
-  font-weight: 650 !important;
+  font-weight: 600 !important;
   min-width: 156px;
   height: 36px !important;
   min-height: 36px;
@@ -569,28 +585,22 @@ html.dark .nav-tabs-item:hover {
 
 html.light .enigm-card-grid a:hover,
 html.light .enigm-card-grid a:hover > div,
-html.light .enigm-card-grid .card:hover,
-html.light .enigm-card-grid .card.group:hover,
 html.light .enigm-card-grid [role="link"]:hover,
 .enigm-card-grid a:focus-visible,
-.enigm-card-grid .card:focus-visible {
+.enigm-card-grid [role="link"]:focus-visible {
   border-color: var(--enigm-black) !important;
 }
 
 html.dark .enigm-card-grid a:hover,
 html.dark .enigm-card-grid a:hover > div,
-html.dark .enigm-card-grid .card:hover,
-html.dark .enigm-card-grid .card.group:hover,
 html.dark .enigm-card-grid [role="link"]:hover,
 html.dark .enigm-card-grid a:focus-visible,
-html.dark .enigm-card-grid .card:focus-visible {
+html.dark .enigm-card-grid [role="link"]:focus-visible {
   border-color: var(--enigm-white) !important;
 }
 
 html.dark .enigm-card-grid a:hover svg,
 html.dark .enigm-card-grid a:focus-visible svg,
-html.dark .enigm-card-grid .card:hover svg,
-html.dark .enigm-card-grid .card:focus-visible svg,
 html.dark .enigm-card-grid [role="link"]:hover svg,
 html.dark .enigm-card-grid [role="link"]:focus-visible svg {
   color: var(--enigm-white) !important;

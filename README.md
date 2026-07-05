@@ -83,13 +83,10 @@ Preferred wording:
 
 Avoid absolute or exaggerated claims:
 
-- unbreakable
-- fully secure
-- guaranteed anonymity
-- anonymous by default
-- untraceable
-- impossible to compromise
-- military-grade
+- Absolute security claims.
+- Absolute identity-protection claims.
+- Claims that compromise cannot occur.
+- Military or combat-style security language.
 
 ## Local Validation
 

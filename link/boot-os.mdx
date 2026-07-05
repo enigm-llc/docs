@@ -77,9 +77,9 @@ Boot OS updates must preserve the visible app boundary on an official Enigm Link
 Boot OS update workflows should:
 
 - Validate release metadata.
-- Preserve official app partition content.
+- Preserve the visible app boundary.
 - Preserve official USB identity.
-- Update EFI and rootfs payloads where required.
+- Update product-managed Boot OS material where required.
 - Verify checksums and final payload integrity.
 - Maintain PC UEFI and Mac Intel compatibility.
 - Return cleanly when no update is available.

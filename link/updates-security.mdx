@@ -6,25 +6,13 @@ description: Controlled update model, update protection, and security boundaries
 
 Enigm Link has controlled update workflows for desktop apps and Enigm Link Boot OS. Updates are delivered through the official Enigm Link product flow and are not public manual installation packages.
 
-The public update domain is:
-
-```text
-updates.link.enigm.io
-```
-
 The current production update channel is:
 
 ```text
 stable
 ```
 
-The public health endpoint is:
-
-```text
-/health
-```
-
-Release, app, and Boot OS update routes are protected and must not be treated as public download surfaces.
+Update delivery is controlled by product eligibility, official USB validation, protected transport requirements, and release verification. Public documentation intentionally describes the trust model, not deployable update-service structure or internal storage details.
 
 ## Overview
 
@@ -37,7 +25,7 @@ The update model uses:
 - Request authentication.
 - Manifest validation.
 - Build allowlisting.
-- Hash and payload integrity checks.
+- Artifact integrity checks.
 - Critical configuration checks.
 - Fail-closed behavior when required security conditions are missing.
 
@@ -46,12 +34,12 @@ The update model uses:
 The app update flow is conceptually:
 
 1. The app detects the installed version.
-2. The app queries the protected update endpoint.
-3. The update path validates VPN state, request authentication, and allowed build state.
+2. The app requests update eligibility through the controlled product update flow.
+3. The update workflow validates protected state, request authentication, and allowed build state.
 4. The app downloads the authorized package.
 5. The app prepares staging.
-6. The app replaces visible USB app files.
-7. The app preserves official metadata and USB identity.
+6. The app updates the visible product application content.
+7. The app preserves official USB identity.
 8. The app cleans staging and backup files.
 9. The app relaunches when the update is ready.
 
@@ -62,7 +50,6 @@ Official Enigm Link devices can move from an older authorized app build to a lat
 App updates should:
 
 - Avoid leaving incomplete platform folders if an update fails.
-- Preserve `.enigm/official-device.json`.
 - Preserve official USB identity.
 - Hide or clean auxiliary files within host-platform constraints.
 - Keep each platform folder limited to the visible app or executable.
@@ -75,8 +62,8 @@ App updates should:
 Boot OS updates should:
 
 - Validate release metadata.
-- Preserve the visible `s2` partition.
-- Update EFI and rootfs payloads where required.
+- Preserve the visible user-facing app boundary.
+- Update Boot OS release material where required.
 - Verify checksums and final payload integrity.
 - Preserve official USB identity.
 - Maintain PC UEFI and Mac Intel compatibility.
@@ -84,23 +71,20 @@ Boot OS updates should:
 
 Boot OS updates must not be documented as supporting Apple Silicon Boot OS in the current amd64 release.
 
-Boot OS updates are product-managed updates. Users should not manually replace EFI, root filesystem, or official-device metadata.
+Boot OS updates are product-managed updates. Users should not manually replace boot material, internal runtime material, or official USB identity data.
 
 ## Update Service Security
 
-The update service is designed to:
+The controlled update system is designed to:
 
-- Serve `/health` publicly.
-- Protect release, app, and Boot OS routes.
-- Require traffic through the authorized VPN path for protected update routes.
+- Keep update distribution separate from public manual download behavior.
+- Require traffic through the authorized VPN path for protected update access.
 - Validate request authentication.
 - Validate allowed source and build state.
 - Validate release manifests.
 - Fail closed if critical security configuration is missing.
 
-Public documentation must not include secrets, request signing material, tokens, sensitive IPs, real device identifiers, real fingerprints, internal allowlist hashes, private routes, or bypass instructions.
-
-Public documentation also does not provide USB provisioning, device manufacturing, repartitioning, or manual Boot OS installation procedures.
+Public update documentation remains intentionally high level. It does not provide USB provisioning, device manufacturing, repartitioning, manual Boot OS installation, bypass instructions, private service structure, or deployable update-service details.
 
 ## Relationship With Enigm Command
 

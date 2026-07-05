@@ -6,27 +6,27 @@ description: Official sealed USB model, device boundaries, and visible content f
 
 The official Enigm Link USB is the sealed physical distribution and identity boundary for Enigm Link. It is delivered by Enigm as a prepared device and is not intended to be installed, formatted, rebuilt, or provisioned by end users.
 
-The USB contains the platform apps, official-device metadata, and Boot OS components required for supported workflows. Public documentation describes the device model and trust boundaries; it does not provide manufacturing, provisioning, or installation instructions.
+The USB contains the platform apps, official device trust material, and Boot OS material required for supported workflows. Public documentation describes the device model and trust boundaries; it does not provide manufacturing, provisioning, internal storage details, or installation instructions.
 
 ## Overview
 
-The official USB uses a controlled multi-partition layout:
+The official USB separates user-visible product content from protected product-managed runtime material:
 
 <div className="enigm-static-card-group">
   <CardGroup cols={3}>
     <Card title="Boot boundary">
-      EFI boot material for Enigm Link Boot OS.
+      Product-managed boot material for Enigm Link Boot OS.
     </Card>
     <Card title="Visible app boundary">
-      User-visible Enigm Link volume with desktop apps and official device metadata.
+      User-visible Enigm Link volume with desktop apps and official device trust material.
     </Card>
     <Card title="Boot OS boundary">
-      Root filesystem material for the bootable Enigm Link environment.
+      Product-managed runtime material for the bootable Enigm Link environment.
     </Card>
   </CardGroup>
 </div>
 
-The visible app boundary is critical. It contains the desktop apps, official device metadata, and user-facing platform folders. Boot OS update workflows must preserve this boundary on the official USB.
+The visible app boundary is critical. It contains the desktop apps, official device trust material, and user-facing platform folders. Boot OS update workflows must preserve this boundary on the official USB.
 
 ## Visible Content Model
 
@@ -38,11 +38,11 @@ The visible USB content should remain simple and predictable:
 
 Auxiliary files, staging data, update backups, autorun files, and internal metadata are hidden or cleaned within host-platform constraints. Users should not need to inspect or modify internal files.
 
-## Official Device Metadata
+## Official Device Trust Material
 
-Enigm Link uses official-device metadata to validate the USB and support lifecycle operations.
+Enigm Link uses official device trust material to validate the USB and support lifecycle operations.
 
-Official metadata supports:
+Official trust material supports:
 
 - Device validation.
 - Update eligibility.
@@ -50,7 +50,7 @@ Official metadata supports:
 - Product lifecycle state.
 - Enigm Command registration for eligible deployments.
 
-Official metadata must be preserved during app updates and Boot OS updates. Update workflows must not treat the visible app boundary as disposable storage.
+Official trust material must be preserved during app updates and Boot OS updates. Update workflows must not treat the visible app boundary as disposable storage.
 
 ## Closed Product Model
 
@@ -60,20 +60,20 @@ Users and customers should not:
 
 - Repartition the USB.
 - Format the visible volume.
-- Replace Boot OS partitions manually.
+- Replace Boot OS material manually.
 - Rebuild the device from public files.
-- Modify official metadata.
+- Modify official trust material.
 - Treat internal files as user-managed configuration.
 
-Supported lifecycle actions are performed through Enigm Link itself and governed through Enigm Command. This keeps official-device identity, update eligibility, and protected-state behavior tied to Enigm's product lifecycle controls.
+Supported lifecycle actions are performed through Enigm Link itself and governed through Enigm Command. This keeps official device identity, update eligibility, and protected-state behavior tied to Enigm's product lifecycle controls.
 
 ## Security Boundaries
 
 The visible app boundary and Boot OS boundaries have different responsibilities.
 
-- The visible app boundary stores platform apps and official-device metadata.
+- The visible app boundary stores platform apps and official device trust material.
 - Boot OS boundaries support boot and isolated runtime behavior.
-- Boot OS updates must preserve visible app content and official-device identity.
-- App updates must preserve official metadata and avoid leaving incomplete visible folders.
+- Boot OS updates must preserve visible app content and official USB identity.
+- App updates must preserve official trust material and avoid leaving incomplete visible folders.
 
 See [Platform Limitations](/legal/limitations).
