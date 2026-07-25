@@ -8,8 +8,8 @@
   },
   "colors": {
     "primary": "#000000",
-    "light": "#000000",
-    "dark": "#FFFFFF"
+    "light": "#FFFFFF",
+    "dark": "#5C5C5C"
   },
   "logo": {
     "light": "/assets/brand/logo.svg",
