@@ -38,7 +38,7 @@ The Tor Gateway is intended to:
 - Keep public web access separate from sensitive platform services.
 - Support a read-oriented access model where appropriate.
 
-The Tor Gateway is not intended to replace Enigm App, VPN Service, Proxy Network, Enigm eSIM connectivity, Enigm Command authorization, Enigm Server, secure messaging, secure calls, or Enigm OS.
+The Tor Gateway is not intended to replace Enigm App, Enigm Proxy, VPN Service, Enigm eSIM connectivity, Enigm Command authorization, Enigm Server, secure messaging, secure calls, or Enigm OS.
 
 ## Onion Access Model
 
@@ -136,7 +136,7 @@ Its relationship with other components:
 - **Enigm Command**: may expose a public access entry point through the Tor Gateway, but the Tor Gateway does not bypass Enigm Command authentication, authorization, session policy, or critical-operation controls.
 - **Enigm Server**: separate dedicated private messaging environment product.
 - **VPN Service**: separate transport privacy layer with different purpose.
-- **Proxy Network**: separate traffic-separation layer for platform mediation.
+- **Enigm Proxy**: separate app-scoped traffic-separation layer for Enigm App product traffic.
 - **Enigm eSIM**: separate mobile data connectivity component.
 - **Enigm OS**: optional device-hardening layer, not required for Tor Gateway public web access.
 

@@ -91,7 +91,9 @@
               "app/active-defense",
               "app/runtime-protection",
               "app/multi-device",
-              "app/network-privacy"
+              "app/network-privacy",
+              "app/enigm-proxy",
+              "app/vpn-service"
             ]
           },
           {
@@ -339,11 +341,11 @@
     },
     {
       "source": "/app/vpn",
-      "destination": "/app/network-privacy"
+      "destination": "/app/vpn-service"
     },
     {
       "source": "/app/proxy-network",
-      "destination": "/app/network-privacy"
+      "destination": "/app/enigm-proxy"
     },
     {
       "source": "/security/cryptography-audit",
