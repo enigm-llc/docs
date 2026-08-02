@@ -13,6 +13,7 @@
 ### Getting started
 
 - [Welcome to Enigm documentation](https://docs.enigm.io/introduction): Executive technical introduction to Enigm product documentation.
+- [Set Up Enigm](https://docs.enigm.io/setup-enigm): User guide for creating an Enigm account and completing the initial setup flow.
 - [Enigm Link Quickstart](https://docs.enigm.io/quickstarts/enigm-link): User guide for starting Enigm Link from the official USB and confirming protected state.
 - [Enigm OS Quickstart](https://docs.enigm.io/quickstarts/enigm-os): User guide for completing the Enigm OS first-run setup wizard.
 

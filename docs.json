@@ -66,6 +66,7 @@
         "expanded": true,
         "pages": [
           "introduction",
+          "setup-enigm",
           {
             "group": "Quickstarts",
             "icon": "rocket",
