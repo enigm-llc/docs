@@ -28,7 +28,7 @@
 - [App Active Defense](https://docs.enigm.io/app/active-defense): AI-assisted mobile spyware and network-behavior analysis.
 - [App Runtime Protection](https://docs.enigm.io/app/runtime-protection): Application shielding, runtime integrity, root/jailbreak detection, anti-tampering, anti-debugging, and code-protection model.
 - [App Multi-Device](https://docs.enigm.io/app/multi-device): Multi-device trust, enrollment, replacement, and revocation.
-- [App Network Privacy](https://docs.enigm.io/app/network-privacy): VPN Service, Proxy Network, randomized network activity, traffic separation, and metadata-reduction controls.
+- [App Network Privacy](https://docs.enigm.io/app/network-privacy): Enigm Proxy, VPN Service, randomized network activity, traffic separation, availability, capacity, and metadata-reduction controls.
 
 #### Enigm Command
 

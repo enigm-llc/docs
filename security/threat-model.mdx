@@ -4,7 +4,7 @@ sidebarTitle: Threat Model
 description: Public threat-model framework for Enigm products and services.
 ---
 
-The Enigm threat model covers Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, VPN Service, Proxy Network, Tor Gateway, Hardware-Backed Signing, and Controlled Device Management.
+The Enigm threat model covers Enigm App, Enigm Command, Enigm Server, Enigm OS, Trust Security Center, OTA Architecture, Remote Attestation, Threat Intelligence Platform, Enyra, Enigm Proxy, VPN Service, Tor Gateway, Hardware-Backed Signing, and Controlled Device Management.
 
 This document provides a public framework for review. It avoids deployment-specific topology, non-public component identifiers, environment-specific network details, and operational details that could reduce system security.
 
@@ -20,7 +20,7 @@ The threat model considers the following asset categories:
 - Enigm Server join request state, membership state, server-scoped lifecycle state, and audit visibility
 - Enigm eSIM activation state, Enigm account association, lifecycle state, and connectivity policy outcomes
 - Payment status, product entitlement state, payment method category, Code Coin redemption state, purchase country selected by the user, and invoice records when requested
-- VPN Service and Proxy Network policy outcomes
+- Enigm Proxy and VPN Service policy outcomes
 - Tor Gateway access outcomes for selected web surfaces
 - Threat Intelligence Platform signals, Enyra outputs, risk categories, and blocking outcomes
 - Audit records
@@ -67,7 +67,7 @@ Expected controls include OTA Architecture release controls, Hardware-Backed Sig
 
 ### Network-policy misuse
 
-An actor attempts to misuse VPN Service, Proxy Network, Enigm eSIM connectivity policy, or Tor Gateway policy, routing eligibility, access eligibility, or blocking outcomes.
+An actor attempts to misuse Enigm Proxy, VPN Service, Enigm eSIM connectivity policy, or Tor Gateway policy, routing eligibility, access eligibility, or blocking outcomes.
 
 Expected controls include policy evaluation, authorization, audit records, separation from protected content logging, and controlled configuration review.
 
@@ -118,7 +118,7 @@ Threat modeling should evaluate transitions between:
 - Enigm OS and OTA Architecture
 - Remote Attestation and OTA Eligibility decisions
 - Hardware-Backed Signing and artifact distribution
-- VPN Service, Proxy Network, and network-policy enforcement
+- Enigm Proxy, VPN Service, and network-policy enforcement
 - Enigm Command, Tor Gateway access, and selected web-surface exposure
 - Enigm Command, Enigm Server management, join requests, membership, and server-scoped content lifecycle
 - Threat Intelligence Platform, Enyra, and blocking architecture

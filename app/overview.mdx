@@ -6,11 +6,11 @@ description: Public overview of Enigm private messaging.
 
 Enigm is the private messaging product in the Enigm ecosystem. It is delivered through the user-facing app, which is why this section uses the app documentation structure.
 
-Enigm is the main interface through which users access private messaging, secure calls, Active Defense, application runtime protection, trusted devices, multi-device workflows, PIN-gated app access, security-level visibility, optional VPN Service usage, integrated Proxy Network usage where enabled, and policy-aware access to supporting Enigm services. Account creation is performed through Enigm Command.
+Enigm is the main interface through which users access private messaging, secure calls, Active Defense, application runtime protection, trusted devices, multi-device workflows, PIN-gated app access, security-level visibility, mandatory Enigm Proxy product-traffic routing, optional VPN Service usage, and policy-aware access to supporting Enigm services. Account creation is performed through Enigm Command.
 
 Enigm OS is an optional dedicated secure device layer. When present, it can contribute Trust Security Center posture, device-management state, OTA verification state, and Remote Attestation signals. Enigm remains the central private messaging product; Enigm OS hardens supported deployments rather than replacing the messaging product.
 
-Supporting products and components include Enigm Command, Enigm Server, VPN Service, Proxy Network, Enigm eSIM, Enigm Key, Payment Privacy, Tor Gateway, Enigm Intelligence, Threat Intelligence Platform, and Enyra. These extend policy, administration, dedicated private messaging environments, secure networking, emergency alerting, malware-risk visibility, and risk evaluation around Enigm.
+Supporting products and components include Enigm Command, Enigm Server, Enigm Proxy, VPN Service, Enigm eSIM, Enigm Key, Payment Privacy, Tor Gateway, Enigm Intelligence, Threat Intelligence Platform, and Enyra. These extend policy, administration, dedicated private messaging environments, secure networking, emergency alerting, malware-risk visibility, and risk evaluation around Enigm.
 
 ## Overview
 
@@ -22,7 +22,7 @@ Enigm coordinates six primary security domains:
 - **Application runtime protection**: app shielding, root and jailbreak risk detection, anti-tampering, anti-debugging, runtime integrity, and code-protection controls.
 - **Device association**: explicit enrollment, replacement, revocation, and lifecycle evaluation for devices linked to an account.
 - **Multi-device workflows**: controlled account access across multiple authorized devices without automatically trusting newly introduced devices.
-- **Platform integration**: policy and visibility through Enigm Command, optional network privacy through VPN Service, traffic separation through Proxy Network, data-only connectivity through Enigm eSIM in supported coverage areas, and risk signals through Enigm Intelligence.
+- **Platform integration**: policy and visibility through Enigm Command, mandatory app-scoped traffic separation through Enigm Proxy, optional network privacy through VPN Service, data-only connectivity through Enigm eSIM in supported coverage areas, and risk signals through Enigm Intelligence.
 
 For the ecosystem-wide cryptographic model, including end-to-end encryption, post-quantum cryptography, key lifecycle, secure storage, verification workflows, and OTA cryptography, see [Cryptography](/security/cryptography).
 
@@ -129,11 +129,11 @@ When Enigm OS is deployed, Enigm App consumes additional Device Trust signals, i
 
 Enigm OS signals are additive. Enigm App security must not assume that every deployment uses Enigm OS.
 
-## Integration With VPN Service And Proxy Network
+## Integration With Enigm Proxy And VPN Service
 
-VPN Service and Proxy Network are supporting Enigm App network privacy and traffic-separation components. VPN Service provides optional network privacy and transport protection. Proxy Network reduces direct exposure between app clients and platform services where enabled.
+Enigm Proxy and VPN Service are supporting Enigm App network privacy and traffic-separation components. Enigm Proxy is mandatory for Enigm App product traffic and reduces direct exposure between app clients and product destinations. VPN Service provides optional network privacy and transport protection depending on user requirements and deployment policy.
 
-VPN Service and Proxy Network are separate from Enigm Server and separate from Enigm App end-to-end encryption. They do not define the app security model, replace Device Trust, or provide access to message plaintext.
+Enigm Proxy and VPN Service are separate from Enigm Server and separate from Enigm App end-to-end encryption. They do not define the app security model, replace Device Trust, or provide access to message plaintext.
 
 Network service use should be authorized, policy-aware, and auditable where security-relevant. Protected communication content should remain separate from routine network-policy records.
 
@@ -141,7 +141,7 @@ Network service use should be authorized, policy-aware, and auditable where secu
 
 Enigm eSIM provides data-only mobile connectivity for supported devices across supported coverage areas. It is purchased and managed through Enigm Command, linked to the user's Enigm account for lifecycle management, and can be unlinked, deleted, or retired by the user.
 
-Enigm eSIM connectivity can be combined with VPN Service and Proxy Network usage. It does not replace Enigm App end-to-end encryption, Device Trust, secure messaging, secure calls, or protected key material.
+Enigm eSIM connectivity can be combined with Enigm Proxy and VPN Service usage. It does not replace Enigm App end-to-end encryption, Device Trust, secure messaging, secure calls, or protected key material.
 
 ## Integration With Enigm Server
 
@@ -171,7 +171,7 @@ When inactive, Enigm Key is intended to remain dormant to reduce unnecessary loc
 - Runtime protection should harden the Enigm App runtime without replacing end-to-end encryption, protected key material, or server-side authorization.
 - Enigm Command actions should be authenticated, authorized, and auditable.
 - Optional Enigm OS posture can strengthen Device Trust decisions where deployed.
-- VPN Service and Proxy Network should support network privacy and metadata reduction without requiring disclosure of protected content.
+- Enigm Proxy and VPN Service should support network privacy and metadata reduction without requiring disclosure of protected content.
 - Enigm Server should support server membership and server-scoped encrypted content lifecycle controls without becoming a plaintext, attachment, user communication, or private key access surface.
 - Enigm Key should use authenticated, encrypted communication and event-bound emergency data handling.
 
@@ -190,7 +190,7 @@ The primary trust boundaries are:
 - Enigm App to Active Defense findings
 - Enigm App to Enigm Command policy
 - Enigm App to optional Enigm OS posture
-- Enigm App to VPN Service and Proxy Network
+- Enigm App to Enigm Proxy and VPN Service
 - Enigm App to Enigm Server membership and server policy
 - Enigm App to Enigm eSIM connectivity
 - Enigm App to Enigm Key emergency workflows
@@ -205,8 +205,8 @@ flowchart LR
   App --> Messaging["Secure messaging"]
   App --> Calls["Secure calls"]
   App --> Defense["Active Defense"]
+  App --> Proxy["Enigm Proxy"]
   App --> VPN["VPN Service"]
-  App --> Proxy["Proxy Network"]
   App --> Devices["Device association"]
   Devices --> Multi["Multi-device workflows"]
   Control["Enigm Command"] --> Identity
