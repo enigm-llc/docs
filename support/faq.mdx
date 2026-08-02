@@ -73,50 +73,6 @@ A collection of common questions about the Enigm ecosystem.
   </Accordion>
 </AccordionGroup>
 
-## Network Privacy
-
-<AccordionGroup>
-  <Accordion title="Is Enigm Proxy a VPN?">
-    No. Enigm Proxy is an app-scoped proxy privacy layer for Enigm App product traffic. It is not a device-wide VPN and does not route traffic from other applications.
-  </Accordion>
-
-  <Accordion title="Does Enigm Proxy protect other applications?">
-    No. Enigm Proxy applies to Enigm App product traffic controlled by the app. Other applications and operating-system traffic are outside its scope.
-  </Accordion>
-
-  <Accordion title="Can I use Enigm Proxy together with a VPN?">
-    Yes. Enigm Proxy can operate while a user-selected VPN is active. VPN providers, private DNS settings, captive portals, and local network policy can affect compatibility.
-  </Accordion>
-
-  <Accordion title="What happens if Enigm Proxy is unavailable?">
-    Enigm App should reconnect automatically where possible. If it cannot establish and validate a safe proxy path, product requests that require Enigm Proxy should remain blocked rather than falling back to direct traffic.
-  </Accordion>
-
-  <Accordion title="How do I know which Enigm Proxy region I am connected to?">
-    When exposed in the product interface, Enigm App can show the connected node, country, or region.
-  </Accordion>
-
-  <Accordion title="Does Enigm record the pages or destinations I use through Enigm Proxy?">
-    Enigm Proxy nodes should not keep access logs of user destinations or traffic content. Limited operational metadata can still be required for routing, authentication, availability, abuse prevention, and security.
-  </Accordion>
-
-  <Accordion title="Can the edge routing provider see my IP?">
-    Managed edge routing providers can process inbound connection metadata according to their own roles and policies. Enigm Proxy should not be described as absolute anonymity.
-  </Accordion>
-
-  <Accordion title="Does Enigm Proxy provide an anonymity guarantee?">
-    No. Enigm Proxy reduces direct network exposure for Enigm App product traffic, but it does not provide absolute identity protection, untraceability, or complete resistance to traffic analysis.
-  </Accordion>
-
-  <Accordion title="Is Enigm Proxy available on Android?">
-    Android should not be described as generally available until the Android app integration has been implemented and released. The architecture is prepared for Android support.
-  </Accordion>
-
-  <Accordion title="Can I disable Enigm Proxy?">
-    Enigm Proxy is part of the Enigm App security and privacy model. Enigm App product traffic should not have a direct or insecure bypass mode.
-  </Accordion>
-</AccordionGroup>
-
 ## Account And Access
 
 <AccordionGroup>
