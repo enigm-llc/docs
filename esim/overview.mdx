@@ -14,7 +14,7 @@ The Enigm eSIM service provides mobile data connectivity as a supporting platfor
 
 Enigm provides Enigm eSIM as a commercial facilitation and lifecycle-management service. Enigm is not a mobile network operator, mobile virtual network operator, telecommunications carrier, radio access network operator, or direct issuer of the underlying carrier connectivity.
 
-Enigm eSIM is separate from Enigm App cryptography, separate from end-to-end encryption, and separate from VPN Service and Proxy Network functionality.
+Enigm eSIM is separate from Enigm App cryptography, separate from end-to-end encryption, and separate from Enigm Proxy and VPN Service functionality.
 
 Mobile connectivity and message confidentiality are different security problems. Enigm eSIM connectivity can affect how a device reaches networks, but it does not define how message content is encrypted or how devices are trusted for secure messaging.
 
@@ -26,7 +26,7 @@ flowchart TD
   ESIM["Enigm eSIM Data Connectivity"]
   Network["Mobile Data Network"]
   VPN["VPN Service"]
-  Proxy["Proxy Network"]
+  Proxy["Enigm Proxy"]
   App["Enigm App"]
 
   Command --> Lifecycle
@@ -48,7 +48,7 @@ The Enigm-side purchase and lifecycle-management workflow does not collect:
 - Phone number.
 - Identity document.
 
-The Enigm eSIM service does not replace secure messaging, end-to-end encryption, Device Trust, VPN transport protection, Proxy Network traffic separation, or account security controls.
+The Enigm eSIM service does not replace secure messaging, end-to-end encryption, Device Trust, VPN transport protection, Enigm Proxy traffic separation, or account security controls.
 
 ## Documentation Map
 
@@ -63,11 +63,11 @@ The Enigm eSIM service is linked to the user's Enigm account for lifecycle manag
 
 The independent telecommunications infrastructure provider that enables carrier-layer data connectivity does not participate in Enigm App key management, message encryption, secure call encryption, Device Trust, account recovery, or protected content lifecycle decisions.
 
-## Relationship With VPN Service And Proxy Network
+## Relationship With Enigm Proxy And VPN Service
 
-Enigm eSIM provides mobile data connectivity. VPN Service provides an optional transport privacy layer where enabled. Proxy Network provides traffic separation where enabled. These components can be combined, but they address different parts of the security model.
+Enigm eSIM provides mobile data connectivity. Enigm Proxy provides mandatory app-scoped traffic separation for Enigm App product traffic. VPN Service provides an optional transport privacy layer where enabled. These components can be combined, but they address different parts of the security model.
 
-Using Enigm eSIM does not imply VPN protection or proxy mediation. Using VPN Service or Proxy Network does not change the need to evaluate Device Trust, application-layer encryption, and message confidentiality separately.
+Using Enigm eSIM does not imply VPN protection. Using Enigm Proxy or VPN Service does not change the need to evaluate Device Trust, application-layer encryption, and message confidentiality separately.
 
 ## Privacy Considerations
 
