@@ -684,6 +684,12 @@ html.dark .enigm-static-card-group .card:hover svg {
   width: 100% !important;
 }
 
+.enigm-command-step-frame {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 720px !important;
+}
+
 .enigm-phone-shot-grid {
   display: grid !important;
   gap: 1.25rem !important;
